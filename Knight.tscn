@@ -1,10 +1,46 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Knight.png" type="Texture" id=1]
-[ext_resource path="res://Knight.gd" type="Script" id=2]
+[sub_resource type="GDScript" id=2]
+script/source = "class_name Knight
+extends Area2D
+
+const STEP: int = 64
+
+func _process(delta: float) -> void:
+	var velocity = calculateVelocity()
+	move(velocity)
+	
+func calculateVelocity() -> Vector2:
+	var velocity = Vector2.ZERO
+	if Input.is_action_just_pressed(\"ui_right\"):
+		velocity = Vector2(STEP, 0)
+	if Input.is_action_just_pressed(\"ui_left\"):
+		velocity = Vector2(-STEP, 0)
+	if Input.is_action_just_pressed(\"ui_up\"):
+		velocity = Vector2(0, -STEP)
+	if Input.is_action_just_pressed(\"ui_down\"):
+		velocity = Vector2(0, STEP)
+	return velocity
+	
+func move(velocity: Vector2) -> void:
+	position += velocity
+	
+"
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/Knight.png-b90ecff1b5e8432326adaf23287675fd.stex"
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.0
 
 [node name="Knight" type="Area2D"]
-script = ExtResource( 2 )
+script = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 24 )
+rotation = -1.5708
+shape = SubResource( 1 )
