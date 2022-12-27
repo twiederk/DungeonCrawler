@@ -1,7 +1,7 @@
 class_name Character
 extends KinematicBody2D
 
-const STEP: int = 64
+const STEP: int = 32
 
 func _process(_delta: float) -> void:
 	var currentPosition = Vector2(position)
