@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Floor.jpg-1d63b82657145677b0d90a11683da159.stex"
+path="res://.import/spritesheet.png-86eefb9af13ea1ae661074c0be38aa68.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Floor.jpg"
-dest_files=[ "res://.import/Floor.jpg-1d63b82657145677b0d90a11683da159.stex" ]
+source_file="res://World/spritesheet.png"
+dest_files=[ "res://.import/spritesheet.png-86eefb9af13ea1ae661074c0be38aa68.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
