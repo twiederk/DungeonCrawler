@@ -3,13 +3,17 @@ extends KinematicBody2D
 
 const STEP: int = 32
 
-func _process(_delta: float) -> void:
+
+func move() -> Vector2:
 	var currentPosition = Vector2(position)
 	var velocity = calculateVelocity()
 	var collider = move_and_collide(velocity)
-	position = snap_to_grid(collider, currentPosition)
-	
+	var position = snap_to_grid(collider, currentPosition)
+	return position
+
+
 func calculateVelocity() -> Vector2:
+	
 	var velocity = Vector2.ZERO
 	if Input.is_action_just_pressed("ui_right"):
 		velocity = Vector2(STEP, 0)
@@ -25,4 +29,4 @@ func snap_to_grid(collider: KinematicCollision2D, currentPosition: Vector2) -> V
 	if collider:
 		return currentPosition
 	return position
-	
+
