@@ -12,13 +12,13 @@ onready var camera: Camera2D = $Camera2D
 
 
 func _ready():
-	creatures = create_characters([texture1, texture2])
+	creatures = create_characters([texture1, texture1])
 	init_camera()
 
 
 func _process(_delta: float) -> void:
 	check_input()
-	creatures[current_creature].move()
+	creatures[current_creature].action()
 
 
 func create_characters(textures: Array) -> Array:
