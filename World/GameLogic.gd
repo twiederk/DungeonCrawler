@@ -1,42 +1,40 @@
 class_name GameLogic
 extends Node2D
 
-const Character = preload("res://World/Character.tscn")
 const texture1 = preload("res://World/Knight_01.png")
 const texture2 = preload("res://World/Knight_02.png")
 
-var creatures: Array = []
-var current_creature: int = 0
+
+var characters: Array = []
+var current_character: int = 0
+
+var monsters: Array = []
+
+var game_system: GameSystem = GameSystem.new()
 
 onready var camera: Camera2D = $Camera2D
 
 
 func _ready():
-	creatures = create_characters([texture1, texture1])
+	randomize()
+	var game_init = GameInit.new()
+	
+	characters = game_init.create_characters([texture1, texture1])
+	for character in characters:
+		add_child(character)
+	
+	monsters = game_init.create_monsters()
+	for monster in monsters:
+		monster.connect("attacked", self, "_on_Monster_attacked")
+		add_child(monster)
+
 	init_camera()
 
 
 func _process(_delta: float) -> void:
 	check_input()
-	creatures[current_creature].action()
+	characters[current_character].action()
 
-
-func create_characters(textures: Array) -> Array:
-	var characters = []
-	for i in range(textures.size()):
-		var x = (i + 1) * 32
-		var character = create_character(textures[i], Vector2(x, 32))
-		add_child(character)
-		characters.append(character)
-	return characters
-		
-
-func create_character(texture: Texture, position: Vector2) -> Character:
-	var character = Character.instance()
-	character.get_node("Sprite").texture = texture
-	character.position = position
-	character.scale = Vector2(0.5, 0.5)
-	return character
 		
 		
 func check_input() -> void:
@@ -45,15 +43,27 @@ func check_input() -> void:
 		
 		
 func next_creature() -> void:
-	creatures[current_creature].remove_child(camera)
-	current_creature = current_creature + 1
-	if current_creature >= creatures.size():
-		current_creature = 0
-	creatures[current_creature].add_child(camera)
+	characters[current_character].remove_child(camera)
+	current_character = current_character + 1
+	if current_character >= characters.size():
+		current_character = 0
+	characters[current_character].add_child(camera)
 		
 		
-func init_camera() -> void:	
+func init_camera() -> void:
 	remove_child(camera)
-	creatures[current_creature].add_child(camera)
+	characters[current_character].add_child(camera)
+
+
+func _on_Monster_attacked(monster: Monster) -> void:
+	var attacker: Creature = characters[current_character].get_creature()
+	var defender: Creature = monster.get_creature()
+	
+	game_system.attack(attacker, defender)
+	
+	if defender.get_hit_points() <= 0:
+		print("...and kills ", defender.get_name()) 
+		monster.queue_free()
+
 
 

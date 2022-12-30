@@ -7,11 +7,17 @@ onready var animationPlayer = $AnimationPlayer
 onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
 onready var hitboxPivot = $HitboxPivot
 
+var _creature = Creature.new()
+
 
 func _ready():
 	hitboxCollisionShape.disabled = true
 
-	
+
+func get_creature() -> Creature:
+	return _creature
+
+
 func action():
 	if Input.is_action_just_pressed("attack"):
 		attack()
@@ -51,5 +57,5 @@ func snap_to_grid(collider: KinematicCollision2D, currentPosition: Vector2) -> V
 
 
 func attack() -> void:
-		animationPlayer.play("Attack")
+	animationPlayer.play("Attack")
 

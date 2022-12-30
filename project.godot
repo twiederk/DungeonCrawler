@@ -14,10 +14,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://World/Character.gd"
 }, {
+"base": "Reference",
+"class": "Creature",
+"language": "GDScript",
+"path": "res://World/Creature.gd"
+}, {
+"base": "Reference",
+"class": "GameInit",
+"language": "GDScript",
+"path": "res://World/GameInit.gd"
+}, {
 "base": "Node2D",
 "class": "GameLogic",
 "language": "GDScript",
 "path": "res://World/GameLogic.gd"
+}, {
+"base": "Node",
+"class": "GameSystem",
+"language": "GDScript",
+"path": "res://World/GameSystem.gd"
 }, {
 "base": "Reference",
 "class": "GutHookScript",
@@ -36,7 +51,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Character": "",
+"Creature": "",
+"GameInit": "",
 "GameLogic": "",
+"GameSystem": "",
 "GutHookScript": "",
 "GutTest": "",
 "Monster": ""
@@ -60,7 +78,11 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
+
+[global]
+
+window=false
 
 [gui]
 
