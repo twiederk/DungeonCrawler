@@ -1,6 +1,8 @@
 class_name Creature
 extends Reference
 
+signal got_hurt
+
 var _name: String = ""
 var _hit_points: int = 0
 var _armor_class: int
@@ -43,6 +45,8 @@ func roll_attack() -> int:
 	return randi() % 20 + 1
 
 
-
+func hurt(damage: int) -> void:
+	_hit_points = _hit_points - damage
+	emit_signal("got_hurt")
 
 

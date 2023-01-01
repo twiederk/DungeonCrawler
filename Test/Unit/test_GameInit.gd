@@ -2,6 +2,8 @@ extends GutTest
 
 const texture1 = preload("res://World/Knight_01.png")
 const texture2 = preload("res://World/Knight_02.png")
+const texture3 = preload("res://World/Goblin_01.png")
+const texture4 = preload("res://World/Goblin_02.png")
 
 
 func test_can_create_GameInit():
@@ -49,9 +51,10 @@ func test_create_monster():
 	var game_init = GameInit.new()
 	
 	# act
-	var monster = game_init.create_monster()
+	var monster = game_init.create_monster(texture3, Vector2(96, 96))
 	
 	# assert
+	assert_eq(monster.get_node("Sprite").texture, texture3, "Should have given texture")
 	assert_eq(monster.position, Vector2(96, 96), "Should place monster at (96, 96)")
 	assert_eq(monster.scale, Vector2(0.5, 0.5), "Should place scale monster with (0.5, 0.5)")
 	var creature = monster.get_creature()
@@ -65,7 +68,10 @@ func test_create_monsters():
 	var game_init = GameInit.new()
 	
 	# act
-	var monsters = game_init.create_monsters()
+	var monsters = game_init.create_monsters([texture3, texture4])
 	
 	# assert
-	assert_eq(monsters.size(), 1, "Should create one monster")
+	assert_eq(monsters.size(), 2, "Should create one monster for each given texture")
+	assert_eq(monsters[0].position, Vector2(96, 96), "Should place 1st monster at (96, 96)")
+	assert_eq(monsters[1].position, Vector2(128, 96), "Should place 2nd monster at (128, 96)")
+	

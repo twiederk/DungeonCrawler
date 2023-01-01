@@ -28,19 +28,26 @@ func create_character(name: String, texture: Texture, position: Vector2) -> Char
 	return character
 
 
-func create_monsters() -> Array:
-	return [create_monster()]
+func create_monsters(textures: Array) -> Array:
+	var monsters = []
+	for i in range(textures.size()):
+		var x = i * 32 + 96
+		var monster = create_monster(textures[i], Vector2(x, 96))
+		monsters.append(monster)
+	return monsters
 	
 
-func create_monster() -> Monster:
+func create_monster(texture: Texture, position: Vector2) -> Monster:
 	var monster = Monster.instance()
-	monster.position = Vector2(96, 96)
+	monster.get_node("Sprite").texture = texture
+	monster.position = position
 	monster.scale = Vector2(0.5, 0.5)
 
 	var creature = monster.get_creature()
 	creature.set_name("Goblin")
 	creature.set_hit_points(2)
 	creature.set_armor_class(10)
+	creature.connect("got_hurt", monster, "_on_Creature_got_hurt")
 	
 	return monster
 

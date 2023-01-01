@@ -46,3 +46,13 @@ func test_roll_attack():
 	assert_eq(result, 18, "Should roll attack of 10 when no bonus applied")
 	
 	
+func test_hurt():
+	# arrange
+	var creature = Creature.new()
+	creature.set_hit_points(10)
+	
+	# act
+	creature.hurt(3)
+	
+	# assert
+	assert_eq(creature.get_hit_points(), 7, "Should reduce damage from hit point when got hurt")

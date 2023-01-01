@@ -3,6 +3,8 @@ extends Node2D
 
 const texture1 = preload("res://World/Knight_01.png")
 const texture2 = preload("res://World/Knight_02.png")
+const texture3 = preload("res://World/Goblin_01.png")
+const texture4 = preload("res://World/Goblin_02.png")
 
 
 var characters: Array = []
@@ -19,11 +21,11 @@ func _ready():
 	randomize()
 	var game_init = GameInit.new()
 	
-	characters = game_init.create_characters([texture1, texture1])
+	characters = game_init.create_characters([texture1, texture2])
 	for character in characters:
 		add_child(character)
 	
-	monsters = game_init.create_monsters()
+	monsters = game_init.create_monsters([texture3, texture4])
 	for monster in monsters:
 		monster.connect("attacked", self, "_on_Monster_attacked")
 		add_child(monster)

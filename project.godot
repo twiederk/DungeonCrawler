@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dungeon Crawler"
-config/description="0.8.0"
+config/description="0.9.0-SNAPSHOT"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
