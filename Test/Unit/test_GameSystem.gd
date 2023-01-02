@@ -14,7 +14,8 @@ func after_each():
 func test_attack_missed():
 	# arrange
 	var attacker: Creature = double(Creature).new()
-	stub(attacker, 'roll_attack').to_return(1)
+	stub(attacker, "roll_attack").to_return(1)
+	stub(attacker, "get_name").to_return("myName")
 	
 	var defender: Creature = Creature.new()
 	defender.set_hit_points(5)
@@ -30,8 +31,10 @@ func test_attack_missed():
 func test_attack_hit():
 	# arrange
 	var attacker: Creature = double(Creature).new()
-	stub(attacker, 'roll_attack').to_return(10)
-	stub(attacker, 'get_damage').to_return(2)
+	stub(attacker, "roll_attack").to_return(10)
+	stub(attacker, "get_damage").to_return(2)
+	stub(attacker, "get_name").to_return("myName")
+
 	
 	var defender: Creature = Creature.new()
 	defender.set_hit_points(5)

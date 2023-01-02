@@ -33,26 +33,34 @@ func test_check_input_next():
 
 	_sender.action_down("next")
 	Input.flush_buffered_events()
-	
+
 	# act
 	game_logic.check_input()
-	
+
 	# assert
 	assert_eq(game_logic.current_character, 1, "Should move to next creature when input next occurred")
-	
-	
+
+	# tear down
+	for character in game_logic.characters:
+		character.free()
+
+
 func test_check_input_next_on_last_creature():
 	# arrange
 	game_logic.characters = [Character.new(), Character.new()]
 	game_logic.current_character = 1
-	
+
 	_sender.action_down("next")
 	Input.flush_buffered_events()	
-	
+
 	# act
 	game_logic.check_input()
-	
+
 	# assert
 	assert_eq(game_logic.current_character, 0, "Should move to first creature when end of creature array is reached")
+
+	# tear down
+	for character in game_logic.characters:
+		character.free()
 
 

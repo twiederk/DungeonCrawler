@@ -36,8 +36,8 @@
   "font_name": "CourierPrime",
   "font_size": 10,
   "hide_result_tree": false,
-  "hide_output_text": true,
-  "hide_settings": false,
+  "hide_output_text": false,
+  "hide_settings": true,
   "use_colors": false
  }
 }

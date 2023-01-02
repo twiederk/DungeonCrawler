@@ -1,9 +1,12 @@
 extends GutTest
 
+const Monster = preload("res://World/Monster.tscn")
+const texture = preload("res://World/Goblin_01.png")
+
 var monster: Monster = null
 
 func before_each():
-	monster = Monster.new()
+	monster = Monster.instance()
 	
 	
 func after_each():
@@ -16,4 +19,12 @@ func test_get_creature():
 	
 	# assert
 	assert_not_null(creature)
+
+
+func test_set_texture():
 	
+	# act
+	monster.set_texture(texture)
+	
+	# assert
+	assert_eq(monster.get_node("Sprite").texture, texture, "Should set texture on sprite of monster")

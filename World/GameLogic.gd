@@ -1,11 +1,6 @@
 class_name GameLogic
 extends Node2D
 
-const texture1 = preload("res://World/Knight_01.png")
-const texture2 = preload("res://World/Knight_02.png")
-const texture3 = preload("res://World/Goblin_01.png")
-const texture4 = preload("res://World/Goblin_02.png")
-
 
 var characters: Array = []
 var current_character: int = 0
@@ -21,11 +16,26 @@ func _ready():
 	randomize()
 	var game_init = GameInit.new()
 	
-	characters = game_init.create_characters([texture1, texture2])
+	game_init.create_monster_dictionary()
+	
+	characters = game_init.create_characters([
+			{ name = "Linda", texture_file = "res://World/Knight_01.png" },
+			{ name = "Leon", texture_file = "res://World/Knight_02.png" },
+		])
 	for character in characters:
 		add_child(character)
 	
-	monsters = game_init.create_monsters([texture3, texture4])
+	monsters = game_init.create_monsters([
+			{ monster = "Goblin", position = Vector2(3, 3) },
+			{ monster = "Goblin Chief", position = Vector2(4, 3) },
+			{ monster = "Goblin", position = Vector2(12, 4) },
+			{ monster = "Goblin", position = Vector2(22, 6) },
+			{ monster = "Goblin Chief", position = Vector2(22, 5) },
+			{ monster = "Goblin", position = Vector2(13, 18) },
+			{ monster = "Goblin Chief", position = Vector2(13, 19) },
+			{ monster = "Goblin", position = Vector2(22, 18) },
+			{ monster = "Goblin Chief", position = Vector2(22, 19) },
+		])
 	for monster in monsters:
 		monster.connect("attacked", self, "_on_Monster_attacked")
 		add_child(monster)

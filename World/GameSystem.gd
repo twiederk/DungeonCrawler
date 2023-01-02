@@ -1,5 +1,5 @@
 class_name GameSystem
-extends Node
+extends Object
 
 func attack(attacker: Creature, defender: Creature) -> void:
 	var attack_roll = attacker.roll_attack()

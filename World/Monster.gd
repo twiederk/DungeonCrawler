@@ -18,3 +18,7 @@ func _on_Hurtbox_area_entered(_area) -> void:
 
 func _on_Creature_got_hurt() -> void:
 	audioStreamPlayer.play()
+
+
+func set_texture(texture: Texture) -> void:
+	get_node("Sprite").texture = texture

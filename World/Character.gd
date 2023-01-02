@@ -1,7 +1,7 @@
 class_name Character
 extends KinematicBody2D
 
-const STEP: int = 32
+export var STEP: int = 32
 
 onready var animationPlayer = $AnimationPlayer
 onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
@@ -24,6 +24,9 @@ func action():
 	else:
 		 move()
 
+
+func set_texture(texture: Texture) -> void:
+	get_node("Sprite").texture = texture
 
 func move() -> void:
 	var currentPosition = Vector2(position)
