@@ -12,7 +12,7 @@ var character: Character = null
 func before_each():
 	character = Character.instance()
 
-	
+
 func after_each():
 	character.free()
 	_sender.release_all()
@@ -38,18 +38,18 @@ func test_calculateVelocity_right():
 	Input.flush_buffered_events()
 	var hitboxPivot = Position2D.new()
 	character.hitboxPivot = hitboxPivot
-	
+
 	# act
 	var velocity = character.calculateVelocity()
-	
+
 	# assert
 	assert_eq(velocity, Vector2(STEP, 0), "Should step right when right is pressed")
 	assert_eq(hitboxPivot.rotation_degrees, 0.0, "Should rotate hitbox by 0 degrees")
-	
+
 	# tear down
 	hitboxPivot.free()
-	
-	
+
+
 func test_calculateVelocity_left():
 	# arrange
 	_sender.action_down('ui_left')
@@ -113,10 +113,10 @@ func test_snap_to_grid_no_collision():
 
 
 func test_should_stay_at_current_position_when_collision_occurs():
-	
+
 	# arrange
 	var currentPosition = Vector2(64, 64)
-	
+
 	# act
 	var result = character.snap_to_grid(KinematicCollision2D.new(), currentPosition)
 
@@ -125,9 +125,20 @@ func test_should_stay_at_current_position_when_collision_occurs():
 
 
 func test_set_texture():
-	
+
 	# act
 	character.set_texture(texture)
-	
+
 	# assert
 	assert_eq(character.get_node("Sprite").texture, texture, "Should set texture on sprite of character")
+
+
+func test_on_Item_picked():
+
+	# act
+	character._on_Item_picked({ gold = 5})
+
+	# assert
+	var inventory = character.get_inventory()
+	assert_eq(inventory.get_gold(), 5, "Should increase gold of character by 5")
+

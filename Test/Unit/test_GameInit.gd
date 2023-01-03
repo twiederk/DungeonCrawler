@@ -7,24 +7,24 @@ var game_init: GameInit = null
 
 func before_each():
 	game_init = GameInit.new()
-	
+
 
 func test_can_create_GameInit():
 	# act
 	var my_game_init = GameInit.new()
-	
+
 	# assert
 	assert_not_null(my_game_init)
 
 
 func test_create_character():
-	
+
 	# arrange
 	var character_dictionary = {
 		name = "myName",
 		texture_file = "res://World/Knight_01.png"
 	}
-	
+
 	# act
 	var character = game_init.create_character(character_dictionary, Vector2(2, 2))
 
@@ -35,11 +35,11 @@ func test_create_character():
 	var creature = character.get_creature()
 	assert_eq(creature.get_name(), "myName", "Should set correct name")
 	assert_eq(creature.get_damage(), 1, "Should set damage to one")
-	
+
 	# tear down
 	character.free()
 
-	
+
 func test_create_characters():
 
 	# act
@@ -55,7 +55,7 @@ func test_create_characters():
 
 	assert_eq(characters[1].position, Vector2(64, 32), "Should place 2nd charater at (64, 32)")
 	assert_eq(characters[1].get_creature().get_name(), "Character 1", "Should name 2nd charater with Character 1")
-	
+
 	# tear down
 	for character in characters:
 		character.free()
@@ -65,10 +65,10 @@ func test_create_characters():
 func test_create_monster():
 	# arrange
 	game_init.create_monster_dictionary()
-	
+
 	# act
 	var monster = game_init.create_monster("Goblin", Vector2(3, 3))
-	
+
 	# assert
 	assert_eq(monster.get_node("Sprite").texture, texture2, "Should have given texture")
 	assert_eq(monster.position, Vector2(96, 96), "Should place monster at (96, 96)")
@@ -77,35 +77,53 @@ func test_create_monster():
 	assert_eq(creature.get_name(), "Goblin", "Should set name to Goblin")
 	assert_eq(creature.get_hit_points(), 2, "Should set hit points to 2")
 	assert_eq(creature.get_armor_class(), 10, "Should set armor class to 10")
-	
+
 	# tear down
 	monster.free()
-	
-	
+
+
 func test_create_monsters():
 	# arrange
 	game_init.create_monster_dictionary()
-	
+
 	# act
 	var monsters = game_init.create_monsters([
 		{ monster = "Goblin", position = Vector2(3, 3) },
 		{ monster = "Goblin Chief", position = Vector2(4, 3) },
 	])
-	
+
 	# assert
 	assert_eq(monsters.size(), 2, "Should create one monster for each given texture")
 	assert_eq(monsters[0].position, Vector2(96, 96), "Should place 1st monster at (96, 96)")
 	assert_eq(monsters[1].position, Vector2(128, 96), "Should place 2nd monster at (128, 96)")
-	
+
 	# tear down
 	for monster in monsters:
 		monster.free()
-	
+
 
 func test_create_monster_dictionary():
-	
+
 	# act
 	game_init.create_monster_dictionary()
-	
+
 	# assert
 	assert_eq(game_init._monster_dictionary.size(), 2, "Should fill monster dictionary with two monsters")
+
+
+func test_create_items():
+	
+	# act
+	var items = game_init.create_items()
+	
+	# assert
+	assert_eq(items.size(), 2, "Should create two items")
+	assert_eq(items[0].position, Vector2(288, 128), "Should place first item at (64, 64)")
+	assert_eq(items[0].get_frame_coords(), Vector2(2, 30), "Should use frame_coords (2, 30) for first item")
+	assert_eq(items[1].position, Vector2(320, 352), "Should place second item at (96, 64)")
+	assert_eq(items[1].get_frame_coords(), Vector2(2, 30), "Should use frame_coords (2, 30) for second item")
+	
+	# tear down
+	for item in items:
+		item.free()
+	

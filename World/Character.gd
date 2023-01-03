@@ -8,7 +8,7 @@ onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
 onready var hitboxPivot = $HitboxPivot
 
 var _creature = Creature.new()
-
+var _inventory = Inventory.new()
 
 func _ready():
 	hitboxCollisionShape.disabled = true
@@ -28,12 +28,13 @@ func action():
 func set_texture(texture: Texture) -> void:
 	get_node("Sprite").texture = texture
 
+
 func move() -> void:
 	var currentPosition = Vector2(position)
 	var velocity = calculateVelocity()
 	var collider = move_and_collide(velocity)
 	position = snap_to_grid(collider, currentPosition)
-	
+
 
 
 func calculateVelocity() -> Vector2:
@@ -52,7 +53,7 @@ func calculateVelocity() -> Vector2:
 		hitboxPivot.rotation_degrees = 90
 	return velocity
 
-	
+
 func snap_to_grid(collider: KinematicCollision2D, currentPosition: Vector2) -> Vector2:
 	if collider:
 		return currentPosition
@@ -62,3 +63,11 @@ func snap_to_grid(collider: KinematicCollision2D, currentPosition: Vector2) -> V
 func attack() -> void:
 	animationPlayer.play("Attack")
 
+
+func _on_Item_picked(dict: Dictionary) -> void:
+	_inventory.add_gold(dict["gold"])
+	print(str(_creature.get_name(), " picked up ", dict["gold"], " gold."))
+
+
+func get_inventory() -> Inventory:
+	return _inventory
