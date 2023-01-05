@@ -1,12 +1,12 @@
 extends GutTest
 
-const Monster = preload("res://World/Monster.tscn")
-const texture = preload("res://World/Goblin_01.png")
+const MonsterScene = preload("res://World/Monster.tscn")
+const texture = preload("res://Assets/Goblin_01.png")
 
-var monster: Monster = null
+var monster: MonsterBody2D = null
 
 func before_each():
-	monster = Monster.instance()
+	monster = MonsterScene.instance()
 
 
 func after_each():
@@ -39,4 +39,4 @@ func test__on_Hurtbox_area_entered():
 	monster._on_Hurtbox_area_entered(null)
 
 	# assert
-	assert_signal_emitted(monster, 'attacked')
+	assert_signal_emitted(monster, "attacked")

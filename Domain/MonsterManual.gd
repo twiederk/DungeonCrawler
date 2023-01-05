@@ -1,4 +1,4 @@
-class_name MonsterDictionary
+class_name MonsterManual
 extends Reference
 
 var _dictionary: Dictionary = {}

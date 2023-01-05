@@ -1,12 +1,12 @@
 extends GutTest
 
 const Character = preload("res://World/Character.tscn")
-const texture = preload("res://World/Knight_01.png")
+const texture = preload("res://Assets/Knight_01.png")
 
 const STEP = 32
 
 var _sender = InputSender.new(Input)
-var character: Character = null
+var character: CharacterBody2D = null
 
 
 func before_each():
@@ -142,3 +142,15 @@ func test_on_Item_picked():
 	var inventory = character.get_inventory()
 	assert_eq(inventory.get_gold(), 5, "Should increase gold of character by 5")
 
+
+func test_on_Level_Completed():
+	
+	# arrange
+	watch_signals(Events)
+	
+	# act
+	character._on_Level_Completed()
+	
+	# assert
+	assert_signal_emitted(Events, "level_completed")
+	

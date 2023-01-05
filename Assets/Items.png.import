@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HighlightShape.png-c2cf3ee750e1f0830ae33f4f533c3962.stex"
+path="res://.import/Items.png-4405cc3fef55f822d99ce5c403b305cb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/HighlightShape.png"
-dest_files=[ "res://.import/HighlightShape.png-c2cf3ee750e1f0830ae33f4f533c3962.stex" ]
+source_file="res://Assets/Items.png"
+dest_files=[ "res://.import/Items.png-4405cc3fef55f822d99ce5c403b305cb.stex" ]
 
 [params]
 

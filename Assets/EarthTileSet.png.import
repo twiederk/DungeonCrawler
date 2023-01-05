@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Goblin_01.png-124ec5a3e1d0675c4c7d7d86731a8a24.stex"
+path="res://.import/EarthTileSet.png-179206b1c76ccc28082e94407327f53d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Goblin_01.png"
-dest_files=[ "res://.import/Goblin_01.png-124ec5a3e1d0675c4c7d7d86731a8a24.stex" ]
+source_file="res://Assets/EarthTileSet.png"
+dest_files=[ "res://.import/EarthTileSet.png-179206b1c76ccc28082e94407327f53d.stex" ]
 
 [params]
 

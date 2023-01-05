@@ -10,14 +10,14 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "Character",
+"class": "CharacterBody2D",
 "language": "GDScript",
-"path": "res://World/Character.gd"
+"path": "res://World/CharacterBody2D.gd"
 }, {
 "base": "Reference",
 "class": "Creature",
 "language": "GDScript",
-"path": "res://World/Creature.gd"
+"path": "res://Domain/Creature.gd"
 }, {
 "base": "Node2D",
 "class": "Game",
@@ -29,10 +29,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://World/GameInit.gd"
 }, {
-"base": "Object",
+"base": "Reference",
 "class": "GameSystem",
 "language": "GDScript",
-"path": "res://World/GameSystem.gd"
+"path": "res://Domain/GameSystem.gd"
 }, {
 "base": "Reference",
 "class": "GutHookScript",
@@ -44,46 +44,62 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gut/test.gd"
 }, {
+"base": "CanvasLayer",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://GUI/HUD.gd"
+}, {
 "base": "Reference",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://World/Inventory.gd"
+"path": "res://Domain/Inventory.gd"
 }, {
 "base": "Area2D",
-"class": "Item",
+"class": "ItemArea2D",
 "language": "GDScript",
-"path": "res://World/Item.gd"
+"path": "res://World/ItemArea2D.gd"
+}, {
+"base": "Area2D",
+"class": "LevelCompleteArea2D",
+"language": "GDScript",
+"path": "res://World/LevelCompleteArea2D.gd"
 }, {
 "base": "KinematicBody2D",
-"class": "Monster",
+"class": "MonsterBody2D",
 "language": "GDScript",
-"path": "res://World/Monster.gd"
+"path": "res://World/MonsterBody2D.gd"
 }, {
 "base": "Reference",
-"class": "MonsterDictionary",
+"class": "MonsterManual",
 "language": "GDScript",
-"path": "res://World/MonsterDictionary.gd"
+"path": "res://Domain/MonsterManual.gd"
 } ]
 _global_script_class_icons={
-"Character": "",
+"CharacterBody2D": "",
 "Creature": "",
 "Game": "",
 "GameInit": "",
 "GameSystem": "",
 "GutHookScript": "",
 "GutTest": "",
+"HUD": "",
 "Inventory": "",
-"Item": "",
-"Monster": "",
-"MonsterDictionary": ""
+"ItemArea2D": "",
+"LevelCompleteArea2D": "",
+"MonsterBody2D": "",
+"MonsterManual": ""
 }
 
 [application]
 
 config/name="Dungeon Crawler"
-config/description="0.11.0"
+config/description="0.12.0-SNAPSHOT"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://World/Events.gd"
 
 [display]
 

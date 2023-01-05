@@ -1,9 +1,9 @@
 extends GutTest
 
-var item : Item = null
+var item : ItemArea2D = null
 
 func before_each():
-	item = Item.new()
+	item = ItemArea2D.new()
 
 
 func after_each():
@@ -12,7 +12,7 @@ func after_each():
 
 func test_can_create_Item():
 	# act
-	var myItem = Item.new()
+	var myItem = ItemArea2D.new()
 
 	# assert
 	assert_not_null(myItem)
@@ -24,7 +24,7 @@ func test_can_create_Item():
 func test_on_Item_body_entered():
 	# arrange
 	watch_signals(item)
-	var character = Character.new()
+	var character = CharacterBody2D.new()
 
 	# act
 	item._on_Item_body_entered(character)

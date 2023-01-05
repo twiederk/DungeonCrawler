@@ -1,4 +1,4 @@
-class_name Character
+class_name CharacterBody2D
 extends KinematicBody2D
 
 export var STEP: int = 32
@@ -71,3 +71,8 @@ func _on_Item_picked(dict: Dictionary) -> void:
 
 func get_inventory() -> Inventory:
 	return _inventory
+
+
+func _on_Level_Completed():
+	Events.emit_signal("level_completed")
+	

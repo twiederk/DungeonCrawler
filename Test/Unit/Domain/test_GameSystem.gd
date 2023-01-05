@@ -7,10 +7,6 @@ func before_each():
 	game_system = GameSystem.new()
 
 
-func after_each():
-	game_system.free()
-
-
 func test_attack_missed():
 	# arrange
 	var attacker: Creature = double(Creature).new()
