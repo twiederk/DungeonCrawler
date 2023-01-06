@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HighlightShape.png-d8b39169e57306da52690e0fd3d3dcf2.stex"
+path="res://.import/EarthTileSet.png-c135c0ab129d12d5f0347406fa5be282.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HighlightShape.png"
-dest_files=[ "res://.import/HighlightShape.png-d8b39169e57306da52690e0fd3d3dcf2.stex" ]
+source_file="res://Assets/Images/EarthTileSet.png"
+dest_files=[ "res://.import/EarthTileSet.png-c135c0ab129d12d5f0347406fa5be282.stex" ]
 
 [params]
 

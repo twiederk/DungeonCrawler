@@ -29,7 +29,7 @@ func test_add_monster():
 		name = "Goblin",
 		hit_points = 2,
 		armor_class = 10,
-		texture_file = "res://Assets/Goblin_01.png"
+		texture_file = "res://Assets/Images/Goblin_01.png"
 	}
 
 	# act
@@ -47,7 +47,7 @@ func test_get_monster():
 		name = "Goblin",
 		hit_points = 2,
 		armor_class = 10,
-		texture_file = "res://Assets/Goblin_01.png"
+		texture_file = "res://Assets/Images/Goblin_01.png"
 	})
 
 	# act

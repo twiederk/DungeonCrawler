@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=2]
 
-[ext_resource path="res://Assets/EarthTileSet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/EarthTileSet.png" type="Texture" id=1]
 [ext_resource path="res://World/Game.gd" type="Script" id=2]
 [ext_resource path="res://World/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://World/Hightlight.tscn" type="PackedScene" id=4]
