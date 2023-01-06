@@ -1,7 +1,7 @@
 extends GutTest
 
-const texture1 = preload("res://Assets/Knight_01.png")
-const texture2 = preload("res://Assets/Goblin_01.png")
+const texture1 = preload("res://Assets/Images/Knight_01.png")
+const texture2 = preload("res://Assets/Images/Goblin_01.png")
 
 var game_init: GameInit = null
 
@@ -22,7 +22,7 @@ func test_create_character():
 	# arrange
 	var character_dictionary = {
 		name = "myName",
-		texture_file = "res://Assets/Knight_01.png"
+		texture_file = "res://Assets/Images/Knight_01.png"
 	}
 
 	# act
@@ -46,8 +46,8 @@ func test_create_characters():
 
 	# act
 	var characters = game_init.create_characters(game, [
-			{ name = "Character 0", texture_file = "res://Assets/Knight_01.png" },
-			{ name = "Character 1", texture_file = "res://Assets/Knight_02.png" },
+			{ name = "Character 0", texture_file = "res://Assets/Images/Knight_01.png" },
+			{ name = "Character 1", texture_file = "res://Assets/Images/Knight_02.png" },
 		])
 
 	# assert

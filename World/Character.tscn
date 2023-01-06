@@ -1,9 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://World/CharacterBody2D.gd" type="Script" id=1]
-[ext_resource path="res://Audio/Swipe.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio/Swipe.wav" type="AudioStream" id=2]
 [ext_resource path="res://World/Hitbox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Knight_01.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/Knight_01.png" type="Texture" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )

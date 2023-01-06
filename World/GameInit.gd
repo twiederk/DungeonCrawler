@@ -98,14 +98,14 @@ func create_monster_manual() -> void:
 		name = "Goblin",
 		hit_points = 2,
 		armor_class = 10,
-		texture_file = "res://Assets/Goblin_01.png",
+		texture_file = "res://Assets/Images/Goblin_01.png",
 	})
 
 	_monster_manual.add_monster({
 		name = "Goblin Chief",
 		hit_points = 3,
 		armor_class = 12,
-		texture_file = "res://Assets/Goblin_02.png",
+		texture_file = "res://Assets/Images/Goblin_02.png",
 	})
 
 

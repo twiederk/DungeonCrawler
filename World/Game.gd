@@ -102,8 +102,8 @@ func sum_gold() -> int:
 const dungeon = {
 	level_complete = Vector2(1, 5),
 	characters = [
-		{ name = "Linda", texture_file = "res://Assets/Knight_01.png" },
-		{ name = "Leon", texture_file = "res://Assets/Knight_02.png" },
+		{ name = "Linda", texture_file = "res://Assets/Images/Knight_01.png" },
+		{ name = "Leon", texture_file = "res://Assets/Images/Knight_02.png" },
 	],
 	monsters = [
 			{ monster = "Goblin", position = Vector2(3, 3) },
