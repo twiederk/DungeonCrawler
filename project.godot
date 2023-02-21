@@ -78,6 +78,11 @@ _global_script_classes=[ {
 "class": "MonsterManual",
 "language": "GDScript",
 "path": "res://Domain/MonsterManual.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://World/Player.gd"
 } ]
 _global_script_class_icons={
 "CharacterBody2D": "",
@@ -93,13 +98,14 @@ _global_script_class_icons={
 "ItemArea2D": "",
 "LevelCompleteArea2D": "",
 "MonsterBody2D": "",
-"MonsterManual": ""
+"MonsterManual": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Dungeon Crawler"
-config/description="0.14.0"
+config/description="0.15.0-SNAPSHOT"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 

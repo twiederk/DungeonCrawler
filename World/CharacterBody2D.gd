@@ -22,7 +22,7 @@ func action():
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	else:
-		 move()
+		move()
 
 
 func set_texture(texture: Texture) -> void:
