@@ -29,8 +29,7 @@ func _ready():
 
 
 func load_town():
-	var file = File.new()
-	file.open("res://Assets/ult/LCB_2.ULT", File.READ)
+	var file = FileAccess.open("res://Assets/ult/LCB_2.ULT", FileAccess.READ)
 	for index in range(1024):
 		var tile_id = file.get_8()
 		var tile_vector = Vector2(tile_id % 16, tile_id / 16)
@@ -39,16 +38,15 @@ func load_town():
 
 
 func load_world():
-	var file = File.new()
-	file.open("res://Assets/ult/WORLD.MAP", File.READ)
+	var file = FileAccess.open("res://Assets/ult/WORLD.MAP", FileAccess.READ)
 	for chunk_col in range(8):
 		for chunk_row in range(8):
 			for index in range(1024):
 				var tile_id = file.get_8()
 				var tile_vector = Vector2(tile_id % 16, tile_id / 16)
-				tile_map.set_cellv(Vector2(
+				tile_map.set_cell(0, Vector2(
 					(chunk_row * 32) + (index % 32),
 					(chunk_col * 32) + (index / 32)),
-					 0, false, false, false, tile_vector)
+					0, tile_vector)
 	file.close()
 
