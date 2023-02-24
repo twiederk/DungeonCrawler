@@ -1,7 +1,7 @@
 class_name Cove
 extends Node2D
 
-onready var tile_map = $TileMap
+@onready var tile_map = $TileMap
 
 const TOWNS = [
 	"BRITAIN.ULT",

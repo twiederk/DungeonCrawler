@@ -6,7 +6,7 @@ var level_complete: LevelCompleteArea2D = null
 
 
 func before_each():
-	level_complete = LevelComplete.instance()
+	level_complete = LevelComplete.instantiate()
 
 
 func after_each():
@@ -15,7 +15,7 @@ func after_each():
 
 func test_can_create_LevelComplete():
 	# act
-	var my_level_complete = LevelComplete.instance()
+	var my_level_complete = LevelComplete.instantiate()
 
 	# assert
 	assert_not_null(my_level_complete)

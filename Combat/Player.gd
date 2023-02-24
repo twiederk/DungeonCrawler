@@ -1,13 +1,13 @@
 class_name Player
-extends KinematicBody2D
+extends CharacterBody2D
 
 
 const TILE_SIZE = 16
 
-onready var ray_cast_left = $RayCastLeft
-onready var ray_cast_right = $RayCastRight
-onready var ray_cast_up = $RayCastUp
-onready var ray_cast_down = $RayCastDown
+@onready var ray_cast_left = $RayCastLeft
+@onready var ray_cast_right = $RayCastRight
+@onready var ray_cast_up = $RayCastUp
+@onready var ray_cast_down = $RayCastDown
 
 
 func _physics_process(_delta):

@@ -1,11 +1,11 @@
 class_name CharacterBody
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var STEP: int = 32
+@export var STEP: int = 32
 
-onready var animationPlayer = $AnimationPlayer
-onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
-onready var hitboxPivot = $HitboxPivot
+@onready var animationPlayer = $AnimationPlayer
+@onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
+@onready var hitboxPivot = $HitboxPivot
 
 var _creature = Creature.new()
 var _inventory = Inventory.new()
@@ -25,8 +25,8 @@ func action():
 		move()
 
 
-func set_texture(texture: Texture) -> void:
-	get_node("Sprite").texture = texture
+func set_texture(texture: Texture2D) -> void:
+	get_node("Sprite2D").texture = texture
 
 
 func move() -> void:

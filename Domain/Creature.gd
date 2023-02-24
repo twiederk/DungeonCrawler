@@ -1,5 +1,5 @@
 class_name Creature
-extends Reference
+extends RefCounted
 
 signal got_hurt
 

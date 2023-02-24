@@ -29,7 +29,7 @@ func test_create_character():
 	var character = game_init.create_character(character_dictionary, Vector2(2, 2))
 
 	# assert
-	assert_eq(character.get_node("Sprite").texture, texture1, "Should have given texture")
+	assert_eq(character.get_node("Sprite2D").texture, texture1, "Should have given texture")
 	assert_eq(character.position, Vector2(64, 64), "Should have correct position")
 	assert_eq(character.scale, Vector2(0.5, 0.5), "Should set scale to (0.5, 0.5)")
 	var creature = character.get_creature()
@@ -73,7 +73,7 @@ func test_create_monster():
 	var monster = game_init.create_monster("Goblin", Vector2(3, 3))
 
 	# assert
-	assert_eq(monster.get_node("Sprite").texture, texture2, "Should have given texture")
+	assert_eq(monster.get_node("Sprite2D").texture, texture2, "Should have given texture")
 	assert_eq(monster.position, Vector2(96, 96), "Should place monster at (96, 96)")
 	assert_eq(monster.scale, Vector2(0.5, 0.5), "Should place scale monster with (0.5, 0.5)")
 	var creature = monster.get_creature()
@@ -146,7 +146,7 @@ func test_create_item():
 	var item = game_init.create_item(frame_coords, position)
 
 	# assert
-	assert_eq(item.get_node("Sprite").frame_coords, Vector2(2, 30), "Should set proper frame coords")
+	assert_eq(item.get_node("Sprite2D").frame_coords, Vector2(2, 30), "Should set proper frame coords")
 	assert_eq(item.position, Vector2(288, 128), "Should set proper position")
 
 	# tear down

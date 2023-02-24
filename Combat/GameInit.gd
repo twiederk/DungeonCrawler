@@ -1,5 +1,5 @@
 class_name GameInit
-extends Reference
+extends RefCounted
 
 const Character = preload("res://Combat/Character.tscn")
 const Monster = preload("res://Combat/Monster.tscn")
@@ -22,9 +22,9 @@ func create_characters(game: Node2D, dictionaries: Array) -> Array:
 
 
 func create_character(dictionary: Dictionary, position: Vector2) -> CharacterBody:
-	var character = Character.instance()
+	var character = Character.instantiate()
 	var texture = load(dictionary["texture_file"])
-	character.get_node("Sprite").texture = texture
+	character.get_node("Sprite2D").texture = texture
 	character.position = position * STEP
 	character.scale = Vector2(0.5, 0.5)
 
@@ -41,7 +41,7 @@ func create_monsters(game: Node2D, dictionaries: Array) -> Array:
 		var name = dictionary["monster"]
 		var position = dictionary["position"]
 		var monster = create_monster(name, position)
-		monster.connect("attacked", game, "_on_Monster_attacked")
+		monster.connect("attacked",Callable(game,"_on_Monster_attacked"))
 		monsters.append(monster)
 		game.add_child(monster)
 
@@ -51,7 +51,7 @@ func create_monsters(game: Node2D, dictionaries: Array) -> Array:
 func create_monster(name: String, position: Vector2) -> MonsterBody2D:
 	var dictionary = _monster_manual.get_monster(name)
 
-	var monster = Monster.instance()
+	var monster = Monster.instantiate()
 	var texture = load(dictionary["texture_file"])
 	monster.set_texture(texture)
 	monster.position = position * STEP
@@ -61,7 +61,7 @@ func create_monster(name: String, position: Vector2) -> MonsterBody2D:
 	creature.set_name(dictionary["name"])
 	creature.set_hit_points(dictionary["hit_points"])
 	creature.set_armor_class(dictionary["armor_class"])
-	creature.connect("got_hurt", monster, "_on_Creature_got_hurt")
+	creature.connect("got_hurt",Callable(monster,"_on_Creature_got_hurt"))
 
 	return monster
 
@@ -78,14 +78,14 @@ func create_items(game: Node2D, itemEntries: Array) -> Array:
 
 
 func create_item(frame_coords: Vector2, position: Vector2) -> ItemArea2D:
-	var item = Item.instance()
+	var item = Item.instantiate()
 	item.set_frame_coords(frame_coords)
 	item.position = position * STEP
 	return item
 
 
 func create_level_complete(game: Node2D, position: Vector2) -> LevelCompleteArea2D:
-	var level_complete =  LevelComplete.instance()
+	var level_complete =  LevelComplete.instantiate()
 	level_complete.position = position * 32
 	game.add_child(level_complete)
 	return level_complete

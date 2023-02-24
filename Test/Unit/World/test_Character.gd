@@ -10,7 +10,7 @@ var character: CharacterBody = null
 
 
 func before_each():
-	character = Character.instance()
+	character = Character.instantiate()
 
 
 func after_each():
@@ -36,7 +36,7 @@ func test_calculateVelocity_right():
 	# arrange
 	_sender.action_down('ui_right')
 	Input.flush_buffered_events()
-	var hitboxPivot = Position2D.new()
+	var hitboxPivot = Marker2D.new()
 	character.hitboxPivot = hitboxPivot
 
 	# act
@@ -54,7 +54,7 @@ func test_calculateVelocity_left():
 	# arrange
 	_sender.action_down('ui_left')
 	Input.flush_buffered_events()
-	var hitboxPivot = Position2D.new()
+	var hitboxPivot = Marker2D.new()
 	character.hitboxPivot = hitboxPivot
 
 	# act
@@ -72,7 +72,7 @@ func test_calculateVelocity_up():
 	# arrange
 	_sender.action_down('ui_up')
 	Input.flush_buffered_events()
-	var hitboxPivot = Position2D.new()
+	var hitboxPivot = Marker2D.new()
 	character.hitboxPivot = hitboxPivot
 
 	# act
@@ -90,7 +90,7 @@ func test_calculateVelocity_down():
 	# arrange
 	_sender.action_down('ui_down')
 	Input.flush_buffered_events()
-	var hitboxPivot = Position2D.new()
+	var hitboxPivot = Marker2D.new()
 	character.hitboxPivot = hitboxPivot
 
 	# act
@@ -130,7 +130,7 @@ func test_set_texture():
 	character.set_texture(texture)
 
 	# assert
-	assert_eq(character.get_node("Sprite").texture, texture, "Should set texture on sprite of character")
+	assert_eq(character.get_node("Sprite2D").texture, texture, "Should set texture checked sprite of character")
 
 
 func test_on_Item_picked():

@@ -12,9 +12,9 @@ var items: Array = []
 
 var game_system: GameSystem = GameSystem.new()
 
-onready var camera: Camera2D = $Camera2D
-onready var highlight = $Highlight
-onready var hud = get_node("/root/Main/GUI/HUD")
+@onready var camera: Camera2D = $Camera2D
+@onready var highlight = $Highlight
+@onready var hud = get_node("/root/Main/GUI/HUD")
 
 
 func _ready():
@@ -23,7 +23,7 @@ func _ready():
 	hud.hide()
 
 	#warning-ignore:RETURN_VALUE_DISCARDED
-	Events.connect("level_completed", self, "_on_Events_level_completed")
+	Events.connect("level_completed",Callable(self,"_on_Events_level_completed"))
 
 	var game_init = GameInit.new()
 

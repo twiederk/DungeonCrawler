@@ -1,10 +1,10 @@
-tool
+@tool
 extends Control
 
 
 var ScriptTextEditors = load('res://addons/gut/gui/script_text_editor_controls.gd')
 
-onready var _ctrls = {
+@onready var _ctrls = {
 	btn_script = $HBox/BtnRunScript,
 	btn_inner = $HBox/BtnRunInnerClass,
 	btn_method = $HBox/BtnRunMethod,
@@ -34,13 +34,13 @@ func _ready():
 func _set_editor(which):
 	_last_line = -1
 	if(_cur_editor != null and _cur_editor.get_ref()):
-		_cur_editor.get_ref().disconnect('cursor_changed', self, '_on_cursor_changed')
+		_cur_editor.get_ref().disconnect('cursor_changed',Callable(self,'_on_cursor_changed'))
 
 	if(which != null):
 		_cur_editor = weakref(which)
-		which.connect('cursor_changed', self, '_on_cursor_changed', [which])
+		which.connect('cursor_changed',Callable(self,'_on_cursor_changed'),[which])
 
-		_last_line = which.cursor_get_line()
+		_last_line = which.get_caret_line()
 		_last_info = _editors.get_line_info()
 		_update_buttons(_last_info)
 
@@ -58,22 +58,21 @@ func _update_buttons(info):
 	_ctrls.arrow_2.visible = info.test_method != null
 	_ctrls.btn_method.text = str(info.test_method)
 	_ctrls.btn_method.hint_tooltip = str("Run test ", info.test_method)
-
+	
 	# The button's new size won't take effect until the next frame.
 	# This appears to be what was causing the button to not be clickable the
 	# first time.
-	call_deferred("_update_rect_size")
+	call_deferred("_update_size")
 
-
-func _update_rect_size():
-	rect_min_size.x = _ctrls.btn_method.rect_size.x + _ctrls.btn_method.rect_position.x
+func _update_size():
+	custom_minimum_size.x = _ctrls.btn_method.size.x + _ctrls.btn_method.rect_position.x
 
 # ----------------
 # Events
 # ----------------
 func _on_cursor_changed(which):
-	if(which.cursor_get_line() != _last_line):
-		_last_line = which.cursor_get_line()
+	if(which.get_caret_line() != _last_line):
+		_last_line = which.get_caret_line()
 		_last_info = _editors.get_line_info()
 		_update_buttons(_last_info)
 

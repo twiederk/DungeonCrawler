@@ -6,7 +6,7 @@ const texture = preload("res://Assets/Images/Goblin_01.png")
 var monster: MonsterBody2D = null
 
 func before_each():
-	monster = MonsterScene.instance()
+	monster = MonsterScene.instantiate()
 
 
 func after_each():
@@ -27,7 +27,7 @@ func test_set_texture():
 	monster.set_texture(texture)
 
 	# assert
-	assert_eq(monster.get_node("Sprite").texture, texture, "Should set texture on sprite of monster")
+	assert_eq(monster.get_node("Sprite2D").texture, texture, "Should set texture checked sprite of monster")
 
 
 func test__on_Hurtbox_area_entered():
