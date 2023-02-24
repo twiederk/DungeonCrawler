@@ -370,6 +370,7 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" parent="World3D/Game" instance=ExtResource("3")]
 offset = Vector2(0, 0)
+position_smoothing_enabled = true
 
 [node name="TopLeft" parent="World3D/Game/Camera2D/Limits" index="0"]
 position = Vector2(0, 0)
