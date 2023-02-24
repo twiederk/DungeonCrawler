@@ -1,10 +1,10 @@
 class_name GameInit
 extends Reference
 
-const Character = preload("res://World/Character.tscn")
-const Monster = preload("res://World/Monster.tscn")
-const Item = preload("res://World/Item.tscn")
-const LevelComplete = preload("res://World/LevelComplete.tscn")
+const Character = preload("res://Combat/Character.tscn")
+const Monster = preload("res://Combat/Monster.tscn")
+const Item = preload("res://Combat/Item.tscn")
+const LevelComplete = preload("res://Combat/LevelComplete.tscn")
 
 const STEP = 32
 

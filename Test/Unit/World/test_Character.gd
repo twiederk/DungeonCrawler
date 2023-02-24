@@ -1,6 +1,6 @@
 extends GutTest
 
-const Character = preload("res://World/Character.tscn")
+const Character = preload("res://Combat/Character.tscn")
 const texture = preload("res://Assets/Images/Knight_01.png")
 
 const STEP = 32

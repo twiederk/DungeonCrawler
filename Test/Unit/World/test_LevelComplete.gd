@@ -1,6 +1,6 @@
 extends GutTest
 
-const LevelComplete = preload("res://World/LevelComplete.tscn")
+const LevelComplete = preload("res://Combat/LevelComplete.tscn")
 
 var level_complete: LevelCompleteArea2D = null
 

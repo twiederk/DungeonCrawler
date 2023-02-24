@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://World/Ultima4TileSet.tres" type="TileSet" id=1]
-[ext_resource path="res://World/Ultima.gd" type="Script" id=2]
-[ext_resource path="res://World/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Combat/Ultima4TileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Combat/Ultima.gd" type="Script" id=2]
+[ext_resource path="res://Combat/Player.tscn" type="PackedScene" id=3]
+
 
 [node name="Ultima" type="Node2D"]
 script = ExtResource( 2 )

@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "CharacterBody",
 "language": "GDScript",
-"path": "res://World/CharacterBody.gd"
+"path": "res://Combat/CharacterBody.gd"
 }, {
 "base": "Node2D",
 "class": "Cove",
 "language": "GDScript",
-"path": "res://World/Ultima.gd"
+"path": "res://Combat/Ultima.gd"
 }, {
 "base": "Reference",
 "class": "Creature",
@@ -27,12 +27,12 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Game",
 "language": "GDScript",
-"path": "res://World/Game.gd"
+"path": "res://Combat/Game.gd"
 }, {
 "base": "Reference",
 "class": "GameInit",
 "language": "GDScript",
-"path": "res://World/GameInit.gd"
+"path": "res://Combat/GameInit.gd"
 }, {
 "base": "Reference",
 "class": "GameSystem",
@@ -62,17 +62,17 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "ItemArea2D",
 "language": "GDScript",
-"path": "res://World/ItemArea2D.gd"
+"path": "res://Combat/ItemArea2D.gd"
 }, {
 "base": "Area2D",
 "class": "LevelCompleteArea2D",
 "language": "GDScript",
-"path": "res://World/LevelCompleteArea2D.gd"
+"path": "res://Combat/LevelCompleteArea2D.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "MonsterBody2D",
 "language": "GDScript",
-"path": "res://World/MonsterBody2D.gd"
+"path": "res://Combat/MonsterBody2D.gd"
 }, {
 "base": "Reference",
 "class": "MonsterManual",
@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://World/Player.gd"
+"path": "res://Combat/Player.gd"
 } ]
 _global_script_class_icons={
 "CharacterBody": "",
@@ -111,7 +111,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Events="*res://World/Events.gd"
+Events="*res://Combat/Events.gd"
 
 [display]
 
