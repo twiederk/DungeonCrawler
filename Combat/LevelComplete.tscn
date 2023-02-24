@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg525pec8r8fh"]
+
+[ext_resource type="Texture2D" uid="uid://bje82ps0imngv" path="res://Assets/Images/Items.png" id="1"]
+[ext_resource type="Script" path="res://Combat/LevelCompleteArea2D.gd" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(30, 30)
+
+[node name="LevelComplete" type="Area2D"]
+collision_mask = 2
+script = ExtResource("2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1")
+hframes = 16
+vframes = 128
+frame = 444
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[connection signal="body_entered" from="." to="." method="_on_LevelComplete_body_entered"]

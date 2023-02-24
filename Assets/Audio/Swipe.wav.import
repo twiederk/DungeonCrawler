@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Swipe.wav-ae6f4f1e188e11366f9974c2f8adfbe3.sample"
+type="AudioStreamWAV"
+uid="uid://dn1rte23xjoux"
+path="res://.godot/imported/Swipe.wav-ae6f4f1e188e11366f9974c2f8adfbe3.sample"
 
 [deps]
 
 source_file="res://Assets/Audio/Swipe.wav"
-dest_files=[ "res://.import/Swipe.wav-ae6f4f1e188e11366f9974c2f8adfbe3.sample" ]
+dest_files=["res://.godot/imported/Swipe.wav-ae6f4f1e188e11366f9974c2f8adfbe3.sample"]
 
 [params]
 

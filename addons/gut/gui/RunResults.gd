@@ -1,5 +1,5 @@
 extends Control
-tool
+@tool
 
 var _interface = null
 var _utils = load('res://addons/gut/utils.gd').new()
@@ -22,7 +22,7 @@ var 	_icons = {
 
 signal search_for_text(text)
 
-onready var _ctrls = {
+@onready var _ctrls = {
 	tree = $VBox/Output/Scroll/Tree,
 	lbl_overlay = $VBox/Output/OverlayMessage,
 	chk_hide_passing = $VBox/Toolbar/HidePassing,
@@ -52,21 +52,25 @@ func _test_running_setup():
 
 
 func _set_toolbutton_icon(btn, icon_name, text):
-	if(Engine.editor_hint):
-		btn.icon = get_icon(icon_name, 'EditorIcons')
+	if(Engine.is_editor_hint()):
+		btn.icon = get_theme_icon(icon_name, 'EditorIcons')
 	else:
 		btn.text = str('[', text, ']')
 
 
 func _ready():
-	var f = $FontSampler.get_font("font")
+	var f = null
+	if ($FontSampler.get_label_settings() == null) :
+		f = get_theme_default_font()
+	else :
+		f = $FontSampler.get_label_settings().font
 	var s_size = f.get_string_size("000 of 000 passed")
 	_root = _ctrls.tree.create_item()
 	_ctrls.tree.set_hide_root(true)
 	_ctrls.tree.columns = 2
 	_ctrls.tree.set_column_expand(0, true)
 	_ctrls.tree.set_column_expand(1, false)
-	_ctrls.tree.set_column_min_width(1, s_size.x)
+	_ctrls.tree.set_column_custom_minimum_width(1, s_size.x)
 
 	_set_toolbutton_icon(_ctrls.toolbar.collapse, 'CollapseTree', 'c')
 	_set_toolbutton_icon(_ctrls.toolbar.collapse_all, 'CollapseTree', 'c')
@@ -75,8 +79,8 @@ func _ready():
 	_set_toolbutton_icon(_ctrls.toolbar.show_script, 'Script', 'ss')
 	_set_toolbutton_icon(_ctrls.toolbar.scroll_output, 'Font', 'so')
 
-	_ctrls.toolbar.hide_passing.set('custom_icons/checked', get_icon('GuiVisibilityHidden', 'EditorIcons'))
-	_ctrls.toolbar.hide_passing.set('custom_icons/unchecked', get_icon('GuiVisibilityVisible', 'EditorIcons'))
+	_ctrls.toolbar.hide_passing.set('custom_icons/checked', get_theme_icon('GuiVisibilityHidden', 'EditorIcons'))
+	_ctrls.toolbar.hide_passing.set('custom_icons/unchecked', get_theme_icon('GuiVisibilityVisible', 'EditorIcons'))
 
 	if(get_parent() == get_tree().root):
 		_test_running_setup()
@@ -84,7 +88,7 @@ func _ready():
 	call_deferred('_update_min_width')
 
 func _update_min_width():
-	rect_min_size.x = _ctrls.toolbar.toolbar.rect_size.x
+	custom_minimum_size.x = _ctrls.toolbar.toolbar.size.x
 
 func _open_file(path, line_number):
 	if(_interface == null):
@@ -150,7 +154,7 @@ func _add_test_tree_item(test_name, test_json, script_item):
 
 	item.set_text(0, test_name)
 	item.set_text(1, status)
-	item.set_text_align(1, TreeItem.ALIGN_RIGHT)
+	item.set_text_alignment(1, HORIZONTAL_ALIGNMENT_RIGHT)
 	item.set_custom_bg_color(1, _col_1_bg_color)
 
 	item.set_metadata(0, meta)
@@ -216,7 +220,7 @@ func _load_result_tree(j):
 			s_item.free()
 		else:
 			var total_text = str(test_keys.size(), ' passed')
-			s_item.set_text_align(1, s_item.ALIGN_LEFT)
+#			s_item.set_text_alignment(1, s_item.ALIGN_LEFT)
 			if(bad_count == 0):
 				s_item.collapsed = true
 			else:
@@ -228,8 +232,8 @@ func _load_result_tree(j):
 
 
 func _free_childless_scripts():
-	var item = _root.get_children()
-	while(item != null):
+	var items = _root.get_children()
+	for item in items:
 		var next_item = item.get_next()
 		if(item.get_children() == null):
 			item.free()
@@ -237,14 +241,16 @@ func _free_childless_scripts():
 
 
 func _find_script_item_with_path(path):
-	var item = _root.get_children()
+	var items = _root.get_children()
 	var to_return = null
 
-	while(item != null and to_return == null):
+	var idx = 0
+	while(idx < items.size() and to_return == null):
+		var item = items[idx]
 		if(item.get_metadata(0).path == path):
 			to_return = item
 		else:
-			item = item.get_next()
+			idx += 1
 
 	return to_return
 
@@ -252,7 +258,7 @@ func _find_script_item_with_path(path):
 func _get_line_number_from_assert_msg(msg):
 	var line = -1
 	if(msg.find('at line') > 0):
-		line = int(msg.split("at line")[-1].split(" ")[-1])
+		line = msg.split("at line")[-1].split(" ")[-1].to_int()
 	return line
 
 
@@ -316,24 +322,20 @@ func _handle_tree_item_select(item, force_scroll):
 func _get_line_number_for_seq_search(search_strings, te):
 #	var te = _editors.get_current_text_edit()
 	var result = null
-	var to_return = -1
-	var start_line = 0
-	var start_col = 0
+	var line = Vector2i(-1, -1)
 	var s_flags = 0
 
 	var i = 0
 	var string_found = true
 	while(i < search_strings.size() and string_found):
-		result = te.search(search_strings[i], s_flags, start_line, start_col)
-		if(result.size() > 0):
-			start_line = result[TextEdit.SEARCH_RESULT_LINE]
-			start_col = result[TextEdit.SEARCH_RESULT_COLUMN]
-			to_return = start_line
+		result = te.search(search_strings[i], s_flags, line.y, line.x)
+		if(result.x != -1):
+			line = result
 		else:
 			string_found = false
 		i += 1
 
-	return to_return
+	return line.y
 
 
 func _goto_code(path, line, method_name='', inner_class =''):
@@ -421,7 +423,7 @@ func _on_ExpandAll_pressed():
 
 
 func _on_Hide_Passing_pressed():
-	_hide_passing = _ctrls.toolbar.hide_passing.pressed
+	_hide_passing = _ctrls.toolbar.hide_passing.button_pressed
 
 # --------------
 # Public
@@ -429,7 +431,9 @@ func _on_Hide_Passing_pressed():
 func load_json_file(path):
 	var text = _utils.get_file_as_text(path)
 	if(text != ''):
-		var result = JSON.parse(text)
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(text)
+		var result = test_json_conv.get_data()
 		if(result.error != OK):
 			add_centered_text(str(path, " has invalid json in it \n",
 				'Error ', result.error, "@", result.error_line, "\n",
@@ -494,8 +498,8 @@ func set_show_orphans(should):
 
 func set_font(font_name, size):
 	pass
-#	var dyn_font = DynamicFont.new()
-#	var font_data = DynamicFontData.new()
+#	var dyn_font = FontFile.new()
+#	var font_data = FontFile.new()
 #	font_data.font_path = 'res://addons/gut/fonts/' + font_name + '-Regular.ttf'
 #	font_data.antialiased = true
 #	dyn_font.font_data = font_data

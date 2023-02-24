@@ -1,5 +1,5 @@
 class_name MonsterManual
-extends Reference
+extends RefCounted
 
 var _dictionary: Dictionary = {}
 

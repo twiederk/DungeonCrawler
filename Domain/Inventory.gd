@@ -1,5 +1,5 @@
 class_name Inventory
-extends Reference
+extends RefCounted
 
 var _gold: int = 0
 
