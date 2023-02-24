@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Combat/Game.gd" id="2"]
 [ext_resource type="PackedScene" path="res://Combat/Camera.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://Combat/Hightlight.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://GUI/HUD.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://6v2cgyhs7bn3" path="res://GUI/HUD.tscn" id="6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7ffk"]
 texture = ExtResource("1")

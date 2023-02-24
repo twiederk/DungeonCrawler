@@ -472,12 +472,12 @@ func _validate_hook_script(path):
 
 	if(FileAccess.file_exists(path)):
 		var inst = load(path).new()
-		if(inst and inst is _utils.HookScript):
-			result.instance = inst
-			result.valid = true
-		else:
-			result.valid = false
-			_lgr.error('The hook script [' + path + '] does not extend GutHookScript')
+#		if(inst and inst is _utils.HookScript):
+#			result.instance = inst
+#			result.valid = true
+#		else:
+		result.valid = false
+		_lgr.error('The hook script [' + path + '] does not extend GutHookScript')
 	else:
 		result.valid = false
 		_lgr.error('The hook script [' + path + '] does not exist.')
