@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "CharacterBody2D",
+"class": "CharacterBody",
 "language": "GDScript",
-"path": "res://World/CharacterBody2D.gd"
+"path": "res://World/CharacterBody.gd"
 }, {
 "base": "Node2D",
 "class": "Cove",
@@ -85,7 +85,7 @@ _global_script_classes=[ {
 "path": "res://World/Player.gd"
 } ]
 _global_script_class_icons={
-"CharacterBody2D": "",
+"CharacterBody": "",
 "Cove": "",
 "Creature": "",
 "Game": "",

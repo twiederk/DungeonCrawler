@@ -1,4 +1,4 @@
-class_name CharacterBody2D
+class_name CharacterBody
 extends KinematicBody2D
 
 export var STEP: int = 32

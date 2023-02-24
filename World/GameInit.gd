@@ -21,7 +21,7 @@ func create_characters(game: Node2D, dictionaries: Array) -> Array:
 	return characters
 
 
-func create_character(dictionary: Dictionary, position: Vector2) -> CharacterBody2D:
+func create_character(dictionary: Dictionary, position: Vector2) -> CharacterBody:
 	var character = Character.instance()
 	var texture = load(dictionary["texture_file"])
 	character.get_node("Sprite").texture = texture

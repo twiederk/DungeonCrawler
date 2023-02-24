@@ -27,7 +27,7 @@ func test_can_create_LevelComplete():
 func test_on_LevelComplete_body_entered():
 	# arrange
 	watch_signals(level_complete)
-	var character = CharacterBody2D.new()
+	var character = CharacterBody.new()
 
 	# act
 	level_complete._on_LevelComplete_body_entered(character)

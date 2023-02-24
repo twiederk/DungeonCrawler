@@ -4,7 +4,7 @@ extends Node2D
 
 var characters: Array = []
 var character_pointer: int = 0
-var character: CharacterBody2D = null
+var character: CharacterBody = null
 
 var monsters: Array = []
 
