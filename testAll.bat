@@ -1,0 +1,1 @@
+godot4 -s addons\gut\gut_cmdln.gd -d --path . -gdir=res://test/unit -gprefix=test_  -glog=1 -gexit
