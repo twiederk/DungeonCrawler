@@ -14,7 +14,7 @@ func set_frame_coords(frame_coords: Vector2) -> void:
 
 func _on_Item_body_entered(body: CharacterBody) -> void:
 	#warning-ignore:RETURN_VALUE_DISCARDED
-	connect("picked",Callable(body,"_on_Item_picked").bind(),CONNECT_ONE_SHOT)
-	emit_signal("picked", {gold = 5})
+	picked.connect(body._on_Item_picked, CONNECT_ONE_SHOT)
+	picked.emit({gold = 5})
 	queue_free()
 

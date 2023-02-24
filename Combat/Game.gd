@@ -23,7 +23,7 @@ func _ready():
 	hud.hide()
 
 	#warning-ignore:RETURN_VALUE_DISCARDED
-	Events.connect("level_completed",Callable(self,"_on_Events_level_completed"))
+	Events.level_completed.connect(_on_Events_level_completed)
 
 	var game_init = GameInit.new()
 

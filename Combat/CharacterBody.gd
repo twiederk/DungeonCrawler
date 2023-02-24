@@ -74,5 +74,5 @@ func get_inventory() -> Inventory:
 
 
 func _on_Level_Completed():
-	Events.emit_signal("level_completed")
+	Events.level_completed.emit()
 	

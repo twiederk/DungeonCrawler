@@ -13,7 +13,7 @@ func get_creature() -> Creature:
 
 
 func _on_Hurtbox_area_entered(_area) -> void:
-	emit_signal("attacked", self)
+	attacked.emit()
 
 
 func _on_Creature_got_hurt() -> void:

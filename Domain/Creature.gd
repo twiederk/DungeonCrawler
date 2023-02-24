@@ -47,6 +47,6 @@ func roll_attack() -> int:
 
 func hurt(damage: int) -> void:
 	_hit_points = _hit_points - damage
-	emit_signal("got_hurt")
+	got_hurt.emit()
 
 

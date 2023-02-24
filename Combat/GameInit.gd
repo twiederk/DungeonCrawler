@@ -41,7 +41,7 @@ func create_monsters(game: Node2D, dictionaries: Array) -> Array:
 		var name = dictionary["monster"]
 		var position = dictionary["position"]
 		var monster = create_monster(name, position)
-		monster.connect("attacked",Callable(game,"_on_Monster_attacked"))
+		monster.attacked.connect(game._on_Monster_attacked)
 		monsters.append(monster)
 		game.add_child(monster)
 
@@ -61,7 +61,7 @@ func create_monster(name: String, position: Vector2) -> MonsterBody2D:
 	creature.set_name(dictionary["name"])
 	creature.set_hit_points(dictionary["hit_points"])
 	creature.set_armor_class(dictionary["armor_class"])
-	creature.connect("got_hurt",Callable(monster,"_on_Creature_got_hurt"))
+	creature.got_hurt.connect(monster._on_Creature_got_hurt)
 
 	return monster
 
