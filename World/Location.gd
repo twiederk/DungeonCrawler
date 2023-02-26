@@ -1,0 +1,11 @@
+class_name Location
+extends Area2D
+
+@export var scene_name: String
+@export var start_position: Vector2 = Vector2.ZERO
+
+func _on_body_entered(_body):
+	var scene_to_load = str("res://World/", scene_name, ".tscn")
+	PlayerStats.start_position = start_position
+	get_tree().change_scene_to_file(scene_to_load)
+

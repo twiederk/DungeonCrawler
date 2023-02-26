@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cafrnfcrkbp0e"]
+[gd_scene load_steps=4 format=3 uid="uid://bu5buawsm1ji5"]
 
 [ext_resource type="TileSet" uid="uid://bwqpc5d03vh1x" path="res://World/Ultima5Tileset.tres" id="1_8kgjs"]
-[ext_resource type="PackedScene" uid="uid://dpq71l1k4tg8e" path="res://Combat/Player.tscn" id="2_vg1k3"]
+[ext_resource type="PackedScene" uid="uid://dpq71l1k4tg8e" path="res://World/Player.tscn" id="2_vg1k3"]
+[ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="3_jr3nn"]
 
 [node name="Neckartal" type="Node2D"]
 
@@ -13,4 +14,10 @@ layer_0/tile_data = PackedInt32Array(65565, 393216, 0, 65537, 393216, 0, 65538, 
 [node name="Player" parent="." instance=ExtResource("2_vg1k3")]
 position = Vector2(584, 616)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Hirschhorn_Castle" parent="." instance=ExtResource("3_jr3nn")]
+position = Vector2(584, 600)
+scene_name = "Hirschhorn_Castle"
+
+[node name="Kobold_Cave" parent="." instance=ExtResource("3_jr3nn")]
+position = Vector2(632, 568)
+scene_name = "Kobold_Cave"

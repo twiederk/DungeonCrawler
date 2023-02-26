@@ -10,6 +10,11 @@ const TILE_SIZE = 16
 @onready var ray_cast_down = $RayCastDown
 
 
+func _ready():
+	if PlayerStats.start_position != Vector2.ZERO:
+		position = PlayerStats.start_position
+
+
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_right"):
 		if not ray_cast_right.is_colliding():

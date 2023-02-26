@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpq71l1k4tg8e"]
 
-[ext_resource type="Texture2D" uid="uid://8oih182s831r" path="res://Assets/Images/Ultima4TileSet.png" id="1"]
-[ext_resource type="Script" path="res://Combat/Player.gd" id="2"]
+[ext_resource type="Script" path="res://World/Player.gd" id="1_b8n5y"]
+[ext_resource type="Texture2D" uid="uid://8oih182s831r" path="res://Assets/Images/Ultima4TileSet.png" id="2_51j27"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("2")
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_b8n5y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1")
+texture = ExtResource("2_51j27")
 hframes = 16
 vframes = 16
 frame = 31
@@ -29,3 +29,5 @@ target_position = Vector2(0, -16)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
