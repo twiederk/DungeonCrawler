@@ -4,7 +4,7 @@ extends Node2D
 
 var characters: Array = []
 var character_pointer: int = 0
-var character: CharacterBody = null
+var character: Character = null
 
 var monsters: Array = []
 
@@ -14,16 +14,10 @@ var game_system: GameSystem = GameSystem.new()
 
 @onready var camera: Camera2D = $Camera2D
 @onready var highlight = $Highlight
-@onready var hud = get_node("/root/Main/GUI/HUD")
 
 
 func _ready():
 	randomize()
-
-	hud.hide()
-
-	#warning-ignore:RETURN_VALUE_DISCARDED
-	Events.level_completed.connect(_on_Events_level_completed)
 
 	var game_init = GameInit.new()
 
@@ -87,11 +81,6 @@ func _on_Monster_attacked(monster: MonsterBody2D) -> void:
 		monster.queue_free()
 
 
-func _on_Events_level_completed():
-	hud.get_node("ScoreLabel").text = str("Your gold: ", sum_gold())
-	hud.show()
-
-
 func sum_gold() -> int:
 	var gold = 0
 	for myCharacter in characters:
@@ -108,16 +97,16 @@ const dungeon = {
 	monsters = [
 			{ monster = "Goblin", position = Vector2(3, 3) },
 			{ monster = "Goblin Chief", position = Vector2(4, 3) },
-			{ monster = "Goblin", position = Vector2(12, 4) },
-			{ monster = "Goblin", position = Vector2(22, 6) },
-			{ monster = "Goblin Chief", position = Vector2(22, 5) },
-			{ monster = "Goblin", position = Vector2(13, 18) },
-			{ monster = "Goblin Chief", position = Vector2(13, 19) },
-			{ monster = "Goblin", position = Vector2(22, 18) },
-			{ monster = "Goblin Chief", position = Vector2(22, 19) },
+#			{ monster = "Goblin", position = Vector2(12, 4) },
+#			{ monster = "Goblin", position = Vector2(22, 6) },
+#			{ monster = "Goblin Chief", position = Vector2(22, 5) },
+#			{ monster = "Goblin", position = Vector2(13, 18) },
+#			{ monster = "Goblin Chief", position = Vector2(13, 19) },
+#			{ monster = "Goblin", position = Vector2(22, 18) },
+#			{ monster = "Goblin Chief", position = Vector2(22, 19) },
 	],
 	items = [
-		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
-		{ frame_coords = Vector2(2, 30), position = Vector2(10, 11) },
+#		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
+#		{ frame_coords = Vector2(2, 30), position = Vector2(10, 11) },
 	]
 }

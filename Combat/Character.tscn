@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkggb65b4bayt"]
+[gd_scene load_steps=10 format=3 uid="uid://buuq7k8dnvr8j"]
 
-[ext_resource type="Script" path="res://Combat/CharacterBody.gd" id="1"]
+[ext_resource type="Script" path="res://Combat/Character.gd" id="1_kqtyr"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="2"]
 [ext_resource type="PackedScene" path="res://Combat/Hitbox.tscn" id="3"]
 [ext_resource type="Texture2D" uid="uid://dtxcsirf4livl" path="res://Assets/Images/Knight_01.png" id="4"]
@@ -89,7 +89,7 @@ _data = {
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 19
-script = ExtResource("1")
+script = ExtResource("1_kqtyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4")

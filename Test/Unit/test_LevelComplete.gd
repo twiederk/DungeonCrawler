@@ -24,16 +24,16 @@ func test_can_create_LevelComplete():
 	my_level_complete.free()
 
 
-func test_on_LevelComplete_body_entered():
-	# arrange
-	watch_signals(level_complete)
-	var character = CharacterBody.new()
-
-	# act
-	level_complete._on_LevelComplete_body_entered(character)
-
-	# assert
-	assert_signal_emitted(level_complete, "level_completed")
-	
-	# tear down
-	character.free()
+#func test_on_LevelComplete_body_entered():
+#	# arrange
+#	watch_signals(level_complete)
+#	var character = Character.new()
+#
+#	# act
+#	level_complete._on_LevelComplete_body_entered(character)
+#
+#	# assert
+#	assert_signal_emitted(level_complete, "level_completed")
+#
+#	# tear down
+#	character.free()

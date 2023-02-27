@@ -24,7 +24,7 @@ func test_can_create_Item():
 func test_on_Item_body_entered():
 	# arrange
 	watch_signals(item)
-	var character = CharacterBody.new()
+	var character = Character.new()
 
 	# act
 	item._on_Item_body_entered(character)

@@ -28,8 +28,8 @@ func test_check_input_nothing():
 
 #func test_check_input_next():
 #	## arrange
-#	var nextCharacter = CharacterBody.new()
-#	game.characters = [CharacterBody.new(), nextCharacter]
+#	var nextCharacter = Character.new()
+#	game.characters = [Character.new(), nextCharacter]
 #	game.character_pointer = 0
 #	game.character = game.characters[game.character_pointer]
 #
@@ -50,8 +50,8 @@ func test_check_input_nothing():
 
 #func test_check_input_next_on_last_creature():
 #	# arrange
-#	var nextCharacter = CharacterBody.new()
-#	game.characters = [nextCharacter, CharacterBody.new()]
+#	var nextCharacter = Character.new()
+#	game.characters = [nextCharacter, Character.new()]
 #	game.character_pointer = 1
 #	game.character = game.characters[game.character_pointer]
 #
@@ -71,10 +71,10 @@ func test_check_input_nothing():
 
 
 func test_sum_gold():
-	var character1 = CharacterBody.new()
+	var character1 = Character.new()
 	character1._inventory.set_gold(5)
 
-	var character2 = CharacterBody.new()
+	var character2 = Character.new()
 	character2._inventory.set_gold(7)
 
 	game.characters = [character1, character2]

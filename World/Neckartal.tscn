@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu5buawsm1ji5"]
+[gd_scene load_steps=5 format=3 uid="uid://bu5buawsm1ji5"]
 
 [ext_resource type="TileSet" uid="uid://bwqpc5d03vh1x" path="res://World/Ultima5Tileset.tres" id="1_8kgjs"]
 [ext_resource type="PackedScene" uid="uid://dpq71l1k4tg8e" path="res://World/Player.tscn" id="2_vg1k3"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="3_jr3nn"]
+[ext_resource type="PackedScene" uid="uid://lwob63galm2" path="res://World/Encounter.tscn" id="4_ju35p"]
 
 [node name="Neckartal" type="Node2D"]
 
@@ -21,3 +22,6 @@ scene_name = "Hirschhorn_Castle"
 [node name="Kobold_Cave" parent="." instance=ExtResource("3_jr3nn")]
 position = Vector2(632, 568)
 scene_name = "Kobold_Cave"
+
+[node name="Encounter" parent="." instance=ExtResource("4_ju35p")]
+position = Vector2(632, 616)

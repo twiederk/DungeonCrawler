@@ -1,4 +1,4 @@
-class_name CharacterBody
+class_name Character
 extends CharacterBody2D
 
 @export var STEP: int = 32

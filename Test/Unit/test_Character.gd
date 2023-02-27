@@ -6,7 +6,7 @@ const texture = preload("res://Assets/Images/Knight_01.png")
 const STEP = 32
 
 var _sender = InputSender.new(Input)
-var character: CharacterBody = null
+var character: Character = null
 
 
 func before_each():
