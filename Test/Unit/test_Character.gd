@@ -134,16 +134,3 @@ func test_on_Item_picked():
 	# assert
 	var inventory = character.get_inventory()
 	assert_eq(inventory.get_gold(), 5, "Should increase gold of character by 5")
-
-
-func test_on_Level_Completed():
-	
-	# arrange
-	watch_signals(Events)
-	
-	# act
-	character._on_Level_Completed()
-	
-	# assert
-	assert_signal_emitted(Events, "level_completed")
-	

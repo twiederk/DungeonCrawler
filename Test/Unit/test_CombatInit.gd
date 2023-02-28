@@ -150,14 +150,3 @@ func test_create_monster_manual():
 #	# tear down
 #	item.free()
 
-
-#func test_create_level_complete():
-#	# arrange
-#	var combat = double(Combat).new()
-#
-#	# act
-#	var level_complete = combat_init.create_level_complete(combat, Vector2(1, 3))
-#
-#	# assert
-#	assert_eq(level_complete.position, Vector2(32, 96), "Should set proper position")
-

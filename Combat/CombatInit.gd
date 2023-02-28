@@ -4,7 +4,6 @@ extends RefCounted
 const Character = preload("res://Combat/Character.tscn")
 const Monster = preload("res://Combat/Monster.tscn")
 const Item = preload("res://Combat/Item.tscn")
-const LevelComplete = preload("res://Combat/LevelComplete.tscn")
 
 const STEP = 32
 
@@ -47,7 +46,7 @@ func create_monsters(combat: Node2D, dictionaries: Array) -> Array:
 	return monsters
 
 
-func create_monster(name: String, position: Vector2) -> MonsterBody2D:
+func create_monster(name: String, position: Vector2) -> Monster:
 	var dictionary = _monster_manual.get_monster(name)
 
 	var monster = Monster.instantiate()
@@ -80,13 +79,6 @@ func create_item(frame_coords: Vector2, position: Vector2) -> ItemArea2D:
 	item.set_frame_coords(frame_coords)
 	item.position = position * STEP
 	return item
-
-
-func create_level_complete(combat: Node2D, position: Vector2) -> LevelCompleteArea2D:
-	var level_complete =  LevelComplete.instantiate()
-	level_complete.position = position * 32
-	combat.add_child(level_complete)
-	return level_complete
 
 
 func create_monster_manual() -> void:

@@ -88,3 +88,31 @@ func test_sum_gold():
 	# tear down
 	for character in combat.characters:
 		character.free()
+
+
+func test_is_combat_end_monsters_killed():
+
+	# arrange
+	combat.monsters = []
+
+	# act
+	var combat_end = combat.is_combat_end()
+
+	# assert
+	assert_true(combat_end, "Should end combat when monsters are killed")
+
+
+func test_is_combat_end_monsters_alive():
+
+	# arrange
+	var monster = Monster.new()
+	combat.monsters = [monster]
+
+	# act
+	var combat_end = combat.is_combat_end()
+
+	# assert
+	assert_false(combat_end, "Should continue combat when monsters are alive")
+
+	# tear down
+	monster.free()

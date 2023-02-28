@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnwfoxjyi5x7s"]
 
-[ext_resource type="TileSet" path="res://World/Ultima5Tileset.tres" id="1_qguno"]
+[ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="1_qguno"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="2_kmfww"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="3_sc48v"]
 

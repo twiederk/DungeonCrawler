@@ -22,8 +22,7 @@ func _ready():
 	var combat_init = CombatInit.new()
 
 	combat_init.create_monster_manual()
-	combat_init.create_level_complete(self, dungeon.level_complete)
-	
+
 	characters = combat_init.create_characters(self, dungeon.characters)
 	monsters = combat_init.create_monsters(self, dungeon.monsters)
 	items = combat_init.create_items(self, dungeon.items)
@@ -45,10 +44,25 @@ func check_input() -> void:
 
 
 func next_creature() -> void:
+	check_combat_end()
 	character.remove_child(camera)
 	character.remove_child(highlight)
 	next_character()
 	add_highlight_and_camera()
+
+
+func check_combat_end() -> void:
+	if is_combat_end():
+		end_combat()
+
+
+func is_combat_end() -> bool:
+	return monsters.is_empty()
+
+
+func end_combat() -> void:
+	var scene_to_load = str("res://World/Neckartal.tscn")
+	get_tree().change_scene_to_file(scene_to_load)
 
 
 func next_character() -> void:
@@ -70,7 +84,7 @@ func add_highlight_and_camera() -> void:
 	character.move_child(highlight, 0)
 
 
-func _on_Monster_attacked(monster: MonsterBody2D) -> void:
+func _on_Monster_attacked(monster: Monster) -> void:
 	var attacker: Creature = character.get_creature()
 	var defender: Creature = monster.get_creature()
 
@@ -78,6 +92,7 @@ func _on_Monster_attacked(monster: MonsterBody2D) -> void:
 
 	if defender.get_hit_points() <= 0:
 		print("...and kills ", defender.get_name())
+		monsters.remove_at(monsters.find(monster))
 		monster.queue_free()
 
 
@@ -89,14 +104,13 @@ func sum_gold() -> int:
 
 
 const dungeon = {
-	level_complete = Vector2(1, 5),
 	characters = [
 		{ name = "Linda", texture_file = "res://Assets/graphics/sprites/Mage.png" },
 		{ name = "Leon", texture_file = "res://Assets/graphics/sprites/Fighter.png" },
 	],
 	monsters = [
 			{ monster = "Skeleton", position = Vector2(3, 3) },
-			{ monster = "Skeleton Chief", position = Vector2(4, 3) },
+#			{ monster = "Skeleton Chief", position = Vector2(4, 3) },
 #			{ monster = "Skeleton", position = Vector2(12, 4) },
 #			{ monster = "Skeleton", position = Vector2(22, 6) },
 #			{ monster = "Skeleton Chief", position = Vector2(22, 5) },

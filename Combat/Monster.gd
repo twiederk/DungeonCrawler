@@ -1,4 +1,4 @@
-class_name MonsterBody2D
+class_name Monster
 extends CharacterBody2D
 
 signal attacked

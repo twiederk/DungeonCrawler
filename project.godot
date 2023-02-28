@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.0.0"
+config/description="1.1.0-SNAPSHOT"
 run/main_scene="res://World/Neckartal.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://icon.png"
+config/windows_native_icon="res://Assets/graphics/icon.ico"
 
 [autoload]
 
-Events="*res://Combat/Events.gd"
 PlayerStats="*res://World/Stats.gd"
 
 [display]

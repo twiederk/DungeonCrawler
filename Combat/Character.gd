@@ -64,8 +64,3 @@ func _on_Item_picked(dict: Dictionary) -> void:
 
 func get_inventory() -> Inventory:
 	return _inventory
-
-
-func _on_Level_Completed():
-	Events.level_completed.emit()
-	

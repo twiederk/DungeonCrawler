@@ -3,7 +3,7 @@ extends GutTest
 const MonsterScene = preload("res://Combat/Monster.tscn")
 const texture = preload("res://Assets/graphics/sprites/Skeleton.png")
 
-var monster: MonsterBody2D = null
+var monster: Monster = null
 
 func before_each():
 	monster = MonsterScene.instantiate()

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bevoycphs2qxs"]
 
-[ext_resource type="TileSet" path="res://World/Ultima5Tileset.tres" id="1_8kgjs"]
+[ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="1_8kgjs"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="2_vg1k3"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="3_jr3nn"]
-[ext_resource type="PackedScene" path="res://World/Encounter.tscn" id="4_ju35p"]
+[ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="4_ju35p"]
 
 [node name="Neckartal" type="Node2D"]
 
