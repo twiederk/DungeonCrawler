@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" path="res://Combat/Character.gd" id="1_kqtyr"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="2"]
+[ext_resource type="Texture2D" uid="uid://cdn1svnmkhrha" path="res://Assets/graphics/sprites/Fighter.png" id="2_e0rh0"]
 [ext_resource type="PackedScene" path="res://Combat/Hitbox.tscn" id="3"]
-[ext_resource type="Texture2D" uid="uid://dtxcsirf4livl" path="res://Assets/Images/Knight_01.png" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(60, 60)
+size = Vector2(15, 15)
 
 [sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(5, 5)
 
 [sub_resource type="Animation" id="3"]
 resource_name = "Attack"
@@ -40,18 +41,6 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4, 5, 6]
-}
 
 [sub_resource type="Animation" id="4"]
 length = 0.001
@@ -67,18 +56,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [false]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7rj2"]
 _data = {
@@ -88,13 +65,11 @@ _data = {
 
 [node name="Character" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 19
+collision_mask = 16
 script = ExtResource("1_kqtyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4")
-hframes = 8
-frame = 1
+texture = ExtResource("2_e0rh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
@@ -102,7 +77,7 @@ shape = SubResource("1")
 [node name="HitboxPivot" type="Marker2D" parent="."]
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource("3")]
-position = Vector2(42, 0)
+position = Vector2(12, 0)
 collision_layer = 32
 collision_mask = 8
 
@@ -116,5 +91,21 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-16, 0)
+collision_mask = 3
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)
+collision_mask = 3
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+collision_mask = 3
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
+collision_mask = 3
 
 [editable path="HitboxPivot/Hitbox"]

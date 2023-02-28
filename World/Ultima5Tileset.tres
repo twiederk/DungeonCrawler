@@ -1,6 +1,6 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bwqpc5d03vh1x"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cylpf3rqg78q3"]
 
-[ext_resource type="Texture2D" uid="uid://dnjqrvo1vrc5q" path="res://Assets/Images/Ultima5TileSet.png" id="1_4dqm0"]
+[ext_resource type="Texture2D" uid="uid://dnjqrvo1vrc5q" path="res://Assets/graphics/tilesets/Ultima5TileSet.png" id="1_4dqm0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_nfs10"]
 tile_data = PackedInt32Array(0, 1179648, 2, 65536, 1441792, 2, 131072, 1048576, 2, 196608, 1441792, 2, 262144, 1376256, 2, 1, 1507328, 2, 65537, 262144, 2, 131073, 262144, 2, 196609, 262144, 2, 262145, 1507328, 2, 2, 1114112, 2, 65538, 262144, 2, 131074, 262144, 2, 196610, 262144, 2, 262146, 1114112, 2, 3, 1507328, 2, 65539, 262144, 2, 131075, 262144, 2, 196611, 262144, 2, 262147, 1507328, 2, 4, 1245184, 2, 65540, 1441792, 2, 131076, 1048576, 2, 196612, 1441792, 2, 262148, 1310720, 2)

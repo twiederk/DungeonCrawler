@@ -1,4 +1,4 @@
-class_name Player
+class_name Avatar
 extends CharacterBody2D
 
 

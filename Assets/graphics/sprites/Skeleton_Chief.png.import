@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xq6jtyjvp2ee"
-path="res://.godot/imported/Goblin_01.png-474221f8f609646e63760b3f3bdfc370.ctex"
+uid="uid://c4t656yl4cpta"
+path="res://.godot/imported/Skeleton_Chief.png-e544f11203b08a93a5f6f90b0c734791.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Goblin_01.png"
-dest_files=["res://.godot/imported/Goblin_01.png-474221f8f609646e63760b3f3bdfc370.ctex"]
+source_file="res://Assets/graphics/sprites/Skeleton_Chief.png"
+dest_files=["res://.godot/imported/Skeleton_Chief.png-e544f11203b08a93a5f6f90b0c734791.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtxcsirf4livl"
-path="res://.godot/imported/Knight_01.png-3d3ddc41e5d087ec2bddacf1ca81b413.ctex"
+uid="uid://cdn1svnmkhrha"
+path="res://.godot/imported/Fighter.png-93821f2b575ce57038a16c2ded1f0bb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Knight_01.png"
-dest_files=["res://.godot/imported/Knight_01.png-3d3ddc41e5d087ec2bddacf1ca81b413.ctex"]
+source_file="res://Assets/graphics/sprites/Fighter.png"
+dest_files=["res://.godot/imported/Fighter.png-93821f2b575ce57038a16c2ded1f0bb3.ctex"]
 
 [params]
 

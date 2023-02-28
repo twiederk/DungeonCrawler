@@ -1,9 +1,9 @@
 extends GutTest
 
 const Character = preload("res://Combat/Character.tscn")
-const texture = preload("res://Assets/Images/Knight_01.png")
+const texture = preload("res://Assets/graphics/sprites/Fighter.png")
 
-const STEP = 32
+const STEP = 16
 
 var _sender = InputSender.new(Input)
 var character: Character = null
@@ -25,10 +25,10 @@ func test_should_have_zero_velocity_when_no_input_is_given():
 	Input.flush_buffered_events()
 
 	# act
-	var result = character.calculateVelocity()
+	character.move()
 
 	# assert
-	assert_eq(result, Vector2.ZERO)
+	assert_eq(character.position, Vector2.ZERO)
 
 
 func test_calculateVelocity_right():
@@ -36,92 +36,85 @@ func test_calculateVelocity_right():
 	# arrange
 	_sender.action_down('ui_right')
 	Input.flush_buffered_events()
-	var hitboxPivot = Marker2D.new()
-	character.hitboxPivot = hitboxPivot
+	var hitbox_pivot = Marker2D.new()
+	character.hitboxPivot = hitbox_pivot
+	var ray_cast_right = RayCast2D.new()
+	character.ray_cast_right = ray_cast_right
 
 	# act
-	var velocity = character.calculateVelocity()
+	character.move()
 
 	# assert
-	assert_eq(velocity, Vector2(STEP, 0), "Should step right when right is pressed")
-	assert_eq(hitboxPivot.rotation_degrees, 0.0, "Should rotate hitbox by 0 degrees")
+	assert_eq(character.position, Vector2(STEP, 0), "Should step right when right is pressed")
+	assert_eq(hitbox_pivot.rotation_degrees, 0.0, "Should rotate hitbox by 0 degrees")
 
 	# tear down
-	hitboxPivot.free()
+	hitbox_pivot.free()
+	ray_cast_right.free()
 
 
 func test_calculateVelocity_left():
 	# arrange
 	_sender.action_down('ui_left')
 	Input.flush_buffered_events()
-	var hitboxPivot = Marker2D.new()
-	character.hitboxPivot = hitboxPivot
+	var hitbox_pivot = Marker2D.new()
+	character.hitboxPivot = hitbox_pivot
+	var ray_cast_left = RayCast2D.new()
+	character.ray_cast_left = ray_cast_left
 
 	# act
-	var result = character.calculateVelocity()
+	character.move()
 
 	# assert
-	assert_eq(result, Vector2(-STEP, 0), "Should step left when left is pressed")
-	assert_eq(hitboxPivot.rotation_degrees, 180.0, "Should rotate hitbox by 180 degrees")
+	assert_eq(character.position, Vector2(-STEP, 0), "Should step left when left is pressed")
+	assert_eq(hitbox_pivot.rotation_degrees, 180.0, "Should rotate hitbox by 180 degrees")
 
 	# tear down
-	hitboxPivot.free()
+	hitbox_pivot.free()
+	ray_cast_left.free()
 
 
 func test_calculateVelocity_up():
 	# arrange
 	_sender.action_down('ui_up')
 	Input.flush_buffered_events()
-	var hitboxPivot = Marker2D.new()
-	character.hitboxPivot = hitboxPivot
+	var hitbox_pivot = Marker2D.new()
+	character.hitboxPivot = hitbox_pivot
+	var ray_cast_up = RayCast2D.new()
+	character.ray_cast_up = ray_cast_up
 
 	# act
-	var result = character.calculateVelocity()
+	character.move()
 
 	# assert
-	assert_eq(result, Vector2(0, -STEP), "Should step up when up is pressed")
-	assert_eq(hitboxPivot.rotation_degrees, 270.0, "Should rotate hitbox by 270 degrees")
+	assert_eq(character.position, Vector2(0, -STEP), "Should step up when up is pressed")
+	assert_eq(hitbox_pivot.rotation_degrees, 270.0, "Should rotate hitbox by 270 degrees")
 
 	# tear down
-	hitboxPivot.free()
+	hitbox_pivot.free()
+	ray_cast_up.free()
 
 
 func test_calculateVelocity_down():
 	# arrange
 	_sender.action_down('ui_down')
 	Input.flush_buffered_events()
-	var hitboxPivot = Marker2D.new()
-	character.hitboxPivot = hitboxPivot
+	var hitbox_pivot = Marker2D.new()
+	character.hitboxPivot = hitbox_pivot
+	var ray_cast_down = RayCast2D.new()
+	character.ray_cast_down = ray_cast_down
 
 	# act
-	var result = character.calculateVelocity()
+	character.move()
 
 	# assert
-	assert_eq(result, Vector2(0, STEP), "Should step down when down is pressed")
-	assert_eq(hitboxPivot.rotation_degrees, 90.0, "Should rotate hitbox by 90 degrees")
+	assert_eq(character.position, Vector2(0, STEP), "Should step down when down is pressed")
+	assert_eq(hitbox_pivot.rotation_degrees, 90.0, "Should rotate hitbox by 90 degrees")
 
 	# tear down
-	hitboxPivot.free()
+	hitbox_pivot.free()
+	ray_cast_down.free()
 
-
-func test_snap_to_grid_no_collision():
-	# act
-	var result = character.snap_to_grid(null, Vector2(64, 64))
-
-	# assert
-	assert_eq(result, Vector2.ZERO, "Should move to new position when no collision occurs")
-
-
-func test_should_stay_at_current_position_when_collision_occurs():
-
-	# arrange
-	var currentPosition = Vector2(64, 64)
-
-	# act
-	var result = character.snap_to_grid(KinematicCollision2D.new(), currentPosition)
-
-	# assert
-	assert_eq(result, currentPosition, "Should_stay at current position when collision occurs")
 
 
 func test_set_texture():

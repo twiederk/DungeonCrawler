@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfhqwko2uxmtt"]
+[gd_scene load_steps=4 format=3 uid="uid://b1f3i5wofyt70"]
 
-[ext_resource type="Texture2D" uid="uid://bje82ps0imngv" path="res://Assets/Images/Items.png" id="1"]
 [ext_resource type="Script" path="res://Combat/ItemArea2D.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bje82ps0imngv" path="res://Assets/graphics/sprites/Items.png" id="2_dg350"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(30, 30)
+size = Vector2(15, 15)
 
 [node name="Item" type="Area2D"]
 collision_layer = 16
@@ -12,7 +12,7 @@ collision_mask = 2
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1")
+texture = ExtResource("2_dg350")
 hframes = 16
 vframes = 128
 frame = 482

@@ -26,10 +26,10 @@ func test_size():
 func test_add_monster():
 	# arrange
 	var monster = {
-		name = "Goblin",
+		name = "Skeleton",
 		hit_points = 2,
 		armor_class = 10,
-		texture_file = "res://Assets/Images/Goblin_01.png"
+		texture_file = "res://Assets/graphics/sprites/Skeleton.png"
 	}
 
 	# act
@@ -37,24 +37,24 @@ func test_add_monster():
 
 	# assert
 	assert_eq(monster_manual.size(), 1, "Should add monster to monster manual")
-	assert_not_null(monster_manual.get_monster("Goblin"))
+	assert_not_null(monster_manual.get_monster("Skeleton"))
 
 
 
 func test_get_monster():
 	# arrange
 	monster_manual.add_monster({
-		name = "Goblin",
+		name = "Skeleton",
 		hit_points = 2,
 		armor_class = 10,
-		texture_file = "res://Assets/Images/Goblin_01.png"
+		texture_file = "res://Assets/graphics/sprites/Skeleton.png"
 	})
 
 	# act
-	var monster = monster_manual.get_monster("Goblin")
+	var monster = monster_manual.get_monster("Skeleton")
 
 	# assert
 	assert_not_null(monster)
-	assert_eq(monster["name"], "Goblin", "Should return entry of monster with name Goblin")
+	assert_eq(monster["name"], "Skeleton", "Should return entry of monster with name Skeleton")
 
 

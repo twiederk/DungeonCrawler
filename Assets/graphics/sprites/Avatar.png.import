@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b41cdm24gnhko"
-path="res://.godot/imported/HighlightShape.png-afab30cabbaa32bffe271551c67a4b10.ctex"
+uid="uid://ndgvkwd73qba"
+path="res://.godot/imported/Avatar.png-00ada446c7450bccd0c89c9e0c3978c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/HighlightShape.png"
-dest_files=["res://.godot/imported/HighlightShape.png-afab30cabbaa32bffe271551c67a4b10.ctex"]
+source_file="res://Assets/graphics/sprites/Avatar.png"
+dest_files=["res://.godot/imported/Avatar.png-00ada446c7450bccd0c89c9e0c3978c2.ctex"]
 
 [params]
 

@@ -1,14 +1,19 @@
 class_name Character
 extends CharacterBody2D
 
-@export var STEP: int = 32
+@export var TILE_SIZE: int = 16
 
 @onready var animationPlayer = $AnimationPlayer
 @onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
 @onready var hitboxPivot = $HitboxPivot
+@onready var ray_cast_left = $RayCastLeft
+@onready var ray_cast_right = $RayCastRight
+@onready var ray_cast_up = $RayCastUp
+@onready var ray_cast_down = $RayCastDown
 
 var _creature = Creature.new()
 var _inventory = Inventory.new()
+
 
 func _ready():
 	hitboxCollisionShape.disabled = true
@@ -30,34 +35,22 @@ func set_texture(texture: Texture2D) -> void:
 
 
 func move() -> void:
-	var currentPosition = Vector2(position)
-	var velocity = calculateVelocity()
-	var collider = move_and_collide(velocity)
-	position = snap_to_grid(collider, currentPosition)
-
-
-
-func calculateVelocity() -> Vector2:
-	var velocity = Vector2.ZERO
 	if Input.is_action_just_pressed("ui_right"):
-		velocity = Vector2(STEP, 0)
-		hitboxPivot.rotation_degrees = 0
+		if not ray_cast_right.is_colliding():
+			hitboxPivot.rotation_degrees = 0
+			position += Vector2(TILE_SIZE, 0)
 	if Input.is_action_just_pressed("ui_left"):
-		velocity = Vector2(-STEP, 0)
-		hitboxPivot.rotation_degrees = 180
+		if not ray_cast_left.is_colliding():
+			hitboxPivot.rotation_degrees = 180
+			position += Vector2(-TILE_SIZE, 0)
 	if Input.is_action_just_pressed("ui_up"):
-		velocity = Vector2(0, -STEP)
-		hitboxPivot.rotation_degrees = 270
+		if not ray_cast_up.is_colliding():
+			hitboxPivot.rotation_degrees = 270
+			position += Vector2(0, -TILE_SIZE)
 	if Input.is_action_just_pressed("ui_down"):
-		velocity = Vector2(0, STEP)
-		hitboxPivot.rotation_degrees = 90
-	return velocity
-
-
-func snap_to_grid(collider: KinematicCollision2D, currentPosition: Vector2) -> Vector2:
-	if collider:
-		return currentPosition
-	return position
+		if not ray_cast_down.is_colliding():
+			hitboxPivot.rotation_degrees = 90
+			position += Vector2(0, TILE_SIZE)
 
 
 func attack() -> void:

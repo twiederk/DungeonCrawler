@@ -1,19 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpq71l1k4tg8e"]
+[gd_scene load_steps=4 format=3 uid="uid://bj8wqhknkemi2"]
 
-[ext_resource type="Script" path="res://World/Player.gd" id="1_b8n5y"]
-[ext_resource type="Texture2D" uid="uid://8oih182s831r" path="res://Assets/Images/Ultima4TileSet.png" id="2_51j27"]
+[ext_resource type="Script" path="res://World/Avatar.gd" id="1_8sosr"]
+[ext_resource type="Texture2D" uid="uid://ndgvkwd73qba" path="res://Assets/graphics/sprites/Avatar.png" id="2_sg06e"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_b8n5y")
+script = ExtResource("1_8sosr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_51j27")
-hframes = 16
-vframes = 16
-frame = 31
+texture = ExtResource("2_sg06e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")

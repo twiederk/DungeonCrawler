@@ -1,7 +1,7 @@
 extends GutTest
 
 const MonsterScene = preload("res://Combat/Monster.tscn")
-const texture = preload("res://Assets/Images/Goblin_01.png")
+const texture = preload("res://Assets/graphics/sprites/Skeleton.png")
 
 var monster: MonsterBody2D = null
 

@@ -1,4 +1,4 @@
-class_name GameInit
+class_name CombatInit
 extends RefCounted
 
 const Character = preload("res://Combat/Character.tscn")
@@ -11,13 +11,13 @@ const STEP = 32
 var _monster_manual: MonsterManual = null
 
 
-func create_characters(game: Node2D, dictionaries: Array) -> Array:
+func create_characters(combat: Node2D, dictionaries: Array) -> Array:
 	var characters = []
 	for i in range(dictionaries.size()):
 		var x = i + 1
 		var character = create_character(dictionaries[i], Vector2(x, 1))
 		characters.append(character)
-		game.add_child(character)
+		combat.add_child(character)
 	return characters
 
 
@@ -26,7 +26,6 @@ func create_character(dictionary: Dictionary, position: Vector2) -> Character:
 	var texture = load(dictionary["texture_file"])
 	character.get_node("Sprite2D").texture = texture
 	character.position = position * STEP
-	character.scale = Vector2(0.5, 0.5)
 
 	var creature : Creature = character.get_creature()
 	creature.set_name(dictionary["name"])
@@ -35,15 +34,15 @@ func create_character(dictionary: Dictionary, position: Vector2) -> Character:
 	return character
 
 
-func create_monsters(game: Node2D, dictionaries: Array) -> Array:
+func create_monsters(combat: Node2D, dictionaries: Array) -> Array:
 	var monsters = []
 	for dictionary in dictionaries:
 		var name = dictionary["monster"]
 		var position = dictionary["position"]
 		var monster = create_monster(name, position)
-		monster.attacked.connect(game._on_Monster_attacked)
+		monster.attacked.connect(combat._on_Monster_attacked)
 		monsters.append(monster)
-		game.add_child(monster)
+		combat.add_child(monster)
 
 	return monsters
 
@@ -55,7 +54,6 @@ func create_monster(name: String, position: Vector2) -> MonsterBody2D:
 	var texture = load(dictionary["texture_file"])
 	monster.set_texture(texture)
 	monster.position = position * STEP
-	monster.scale = Vector2(0.5, 0.5)
 
 	var creature = monster.get_creature()
 	creature.set_name(dictionary["name"])
@@ -66,14 +64,14 @@ func create_monster(name: String, position: Vector2) -> MonsterBody2D:
 	return monster
 
 
-func create_items(game: Node2D, itemEntries: Array) -> Array:
+func create_items(combat: Node2D, itemEntries: Array) -> Array:
 	var items = []
 	for itemEntry in itemEntries:
 		var frame_coords = itemEntry["frame_coords"]
 		var position = itemEntry["position"]
 		var item = create_item(frame_coords, position)
 		items.append(item)
-		game.add_child(item)
+		combat.add_child(item)
 	return items
 
 
@@ -84,10 +82,10 @@ func create_item(frame_coords: Vector2, position: Vector2) -> ItemArea2D:
 	return item
 
 
-func create_level_complete(game: Node2D, position: Vector2) -> LevelCompleteArea2D:
+func create_level_complete(combat: Node2D, position: Vector2) -> LevelCompleteArea2D:
 	var level_complete =  LevelComplete.instantiate()
 	level_complete.position = position * 32
-	game.add_child(level_complete)
+	combat.add_child(level_complete)
 	return level_complete
 
 
@@ -95,17 +93,17 @@ func create_monster_manual() -> void:
 	_monster_manual = MonsterManual.new()
 
 	_monster_manual.add_monster({
-		name = "Goblin",
+		name = "Skeleton",
 		hit_points = 2,
 		armor_class = 10,
-		texture_file = "res://Assets/Images/Goblin_01.png",
+		texture_file = "res://Assets/graphics/sprites/Skeleton.png",
 	})
 
 	_monster_manual.add_monster({
-		name = "Goblin Chief",
+		name = "Skeleton Chief",
 		hit_points = 3,
 		armor_class = 12,
-		texture_file = "res://Assets/Images/Goblin_02.png",
+		texture_file = "res://Assets/graphics/sprites/Skeleton_Chief.png",
 	})
 
 

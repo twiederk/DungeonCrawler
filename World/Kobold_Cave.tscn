@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqdmdmajcpmvj"]
+[gd_scene load_steps=4 format=3 uid="uid://cnwfoxjyi5x7s"]
 
-[ext_resource type="TileSet" uid="uid://bwqpc5d03vh1x" path="res://World/Ultima5Tileset.tres" id="1_qguno"]
+[ext_resource type="TileSet" path="res://World/Ultima5Tileset.tres" id="1_qguno"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="2_kmfww"]
-[ext_resource type="PackedScene" uid="uid://dpq71l1k4tg8e" path="res://World/Player.tscn" id="3_sc48v"]
+[ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="3_sc48v"]
 
 [node name="Kobold_Cave" type="Node2D"]
 
@@ -16,5 +16,5 @@ position = Vector2(264, 504)
 scene_name = "Neckartal"
 start_position = Vector2(632, 584)
 
-[node name="Player" parent="." instance=ExtResource("3_sc48v")]
+[node name="Avatar" parent="." instance=ExtResource("3_sc48v")]
 position = Vector2(264, 472)

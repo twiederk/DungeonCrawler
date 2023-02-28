@@ -1,4 +1,4 @@
-class_name Game
+class_name Combat
 extends Node2D
 
 
@@ -19,14 +19,14 @@ var game_system: GameSystem = GameSystem.new()
 func _ready():
 	randomize()
 
-	var game_init = GameInit.new()
+	var combat_init = CombatInit.new()
 
-	game_init.create_monster_manual()
-	game_init.create_level_complete(self, dungeon.level_complete)
+	combat_init.create_monster_manual()
+	combat_init.create_level_complete(self, dungeon.level_complete)
 	
-	characters = game_init.create_characters(self, dungeon.characters)
-	monsters = game_init.create_monsters(self, dungeon.monsters)
-	items = game_init.create_items(self, dungeon.items)
+	characters = combat_init.create_characters(self, dungeon.characters)
+	monsters = combat_init.create_monsters(self, dungeon.monsters)
+	items = combat_init.create_items(self, dungeon.items)
 
 	character = characters[character_pointer]
 
@@ -91,22 +91,22 @@ func sum_gold() -> int:
 const dungeon = {
 	level_complete = Vector2(1, 5),
 	characters = [
-		{ name = "Linda", texture_file = "res://Assets/Images/Knight_01.png" },
-		{ name = "Leon", texture_file = "res://Assets/Images/Knight_02.png" },
+		{ name = "Linda", texture_file = "res://Assets/graphics/sprites/Mage.png" },
+		{ name = "Leon", texture_file = "res://Assets/graphics/sprites/Fighter.png" },
 	],
 	monsters = [
-			{ monster = "Goblin", position = Vector2(3, 3) },
-			{ monster = "Goblin Chief", position = Vector2(4, 3) },
-#			{ monster = "Goblin", position = Vector2(12, 4) },
-#			{ monster = "Goblin", position = Vector2(22, 6) },
-#			{ monster = "Goblin Chief", position = Vector2(22, 5) },
-#			{ monster = "Goblin", position = Vector2(13, 18) },
-#			{ monster = "Goblin Chief", position = Vector2(13, 19) },
-#			{ monster = "Goblin", position = Vector2(22, 18) },
-#			{ monster = "Goblin Chief", position = Vector2(22, 19) },
+			{ monster = "Skeleton", position = Vector2(3, 3) },
+			{ monster = "Skeleton Chief", position = Vector2(4, 3) },
+#			{ monster = "Skeleton", position = Vector2(12, 4) },
+#			{ monster = "Skeleton", position = Vector2(22, 6) },
+#			{ monster = "Skeleton Chief", position = Vector2(22, 5) },
+#			{ monster = "Skeleton", position = Vector2(13, 18) },
+#			{ monster = "Skeleton Chief", position = Vector2(13, 19) },
+#			{ monster = "Skeleton", position = Vector2(22, 18) },
+#			{ monster = "Skeleton Chief", position = Vector2(22, 19) },
 	],
 	items = [
-#		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
+		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
 #		{ frame_coords = Vector2(2, 30), position = Vector2(10, 11) },
 	]
 }

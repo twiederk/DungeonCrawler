@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnjqrvo1vrc5q"
-path="res://.godot/imported/Ultima5TileSet.png-3dcc98d50b2014bf569b3927f7de451f.ctex"
+uid="uid://bje82ps0imngv"
+path="res://.godot/imported/Items.png-b53ec11d2ea0652f561b8e9e549ba42e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Ultima5TileSet.png"
-dest_files=["res://.godot/imported/Ultima5TileSet.png-3dcc98d50b2014bf569b3927f7de451f.ctex"]
+source_file="res://Assets/graphics/sprites/Items.png"
+dest_files=["res://.godot/imported/Items.png-b53ec11d2ea0652f561b8e9e549ba42e.ctex"]
 
 [params]
 
