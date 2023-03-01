@@ -36,24 +36,36 @@ func set_texture(texture: Texture2D) -> void:
 
 func move() -> void:
 	if Input.is_action_just_pressed("ui_right"):
-		if not ray_cast_right.is_colliding():
-			hitboxPivot.rotation_degrees = 0
-			position += Vector2(TILE_SIZE, 0)
+		move_and_turn(Vector2.RIGHT, 0, ray_cast_right)
 	if Input.is_action_just_pressed("ui_left"):
-		if not ray_cast_left.is_colliding():
-			hitboxPivot.rotation_degrees = 180
-			position += Vector2(-TILE_SIZE, 0)
+		move_and_turn(Vector2.LEFT, 180, ray_cast_left)
 	if Input.is_action_just_pressed("ui_up"):
-		if not ray_cast_up.is_colliding():
-			hitboxPivot.rotation_degrees = 270
-			position += Vector2(0, -TILE_SIZE)
+		move_and_turn(Vector2.UP, 270, ray_cast_up)
 	if Input.is_action_just_pressed("ui_down"):
-		if not ray_cast_down.is_colliding():
-			hitboxPivot.rotation_degrees = 90
-			position += Vector2(0, TILE_SIZE)
+		move_and_turn(Vector2.DOWN, 90, ray_cast_down)
+
+
+func move_and_turn(direction: Vector2, rotation_degree: int, ray_cast: RayCast2D) -> void:
+	turn(rotation_degree)
+	if can_move(ray_cast):
+		move_step(direction)
+
+
+func turn(rotation_degree: int) -> void:
+	hitboxPivot.rotation_degrees = rotation_degree
+
+
+func can_move(ray_cast: RayCast2D) -> bool:
+	return not ray_cast.is_colliding() and _creature.can_move()
+
+
+func move_step(direction: Vector2) -> void:
+	_creature.step()
+	position += direction * TILE_SIZE
 
 
 func attack() -> void:
+	_creature.attack()
 	animationPlayer.play("Attack")
 
 
@@ -64,3 +76,11 @@ func _on_Item_picked(dict: Dictionary) -> void:
 
 func get_inventory() -> Inventory:
 	return _inventory
+
+
+func is_done() -> bool:
+	return _creature.is_done()
+
+
+func start_combat_round() -> void:
+	_creature.start_combat_round()

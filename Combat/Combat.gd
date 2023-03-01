@@ -35,6 +35,8 @@ func _ready():
 func _process(_delta: float) -> void:
 	check_input()
 	character.action()
+	if character.is_done():
+		next_creature()
 
 
 
@@ -45,6 +47,7 @@ func check_input() -> void:
 
 func next_creature() -> void:
 	check_combat_end()
+	check_combat_round()
 	character.remove_child(camera)
 	character.remove_child(highlight)
 	next_character()
@@ -61,8 +64,22 @@ func is_combat_end() -> bool:
 
 
 func end_combat() -> void:
-	var scene_to_load = str("res://World/Neckartal.tscn")
+	var scene_to_load = str("res://World/WorldMap.tscn")
 	get_tree().change_scene_to_file(scene_to_load)
+
+
+func check_combat_round() -> void:
+	if is_new_combat_round():
+		start_combat_round()
+
+
+func start_combat_round() -> void:
+	for temp_character in characters:
+		temp_character.start_combat_round()
+
+
+func is_new_combat_round() -> bool:
+	return character_pointer + 1 == characters.size()
 
 
 func next_character() -> void:

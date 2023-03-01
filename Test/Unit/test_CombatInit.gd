@@ -39,28 +39,30 @@ func test_create_character():
 	character.free()
 
 
-#func test_create_characters():
-#	# arrange
-#	var combat = double(Combat).new()
-#
-#	# act
-#	var characters = combat_init.create_characters(combat, [
-#			{ name = "Character 0", texture_file = "res://Assets/graphics/sprites/Fighter.png" },
-#			{ name = "Character 1", texture_file = "res://Assets/graphics/sprites/Mage.png" },
-#		])
-#
-#	# assert
-#	assert_eq(characters.size(), 2, "Should create two characters when two textures are given")
-#	assert_eq(characters[0].position, Vector2(32, 32), "Should place 1st charater at (32, 32)")
-#	assert_eq(characters[0].get_creature().get_name(), "Character 0", "Should name 1st charater with Character 0")
-#
-#	assert_eq(characters[1].position, Vector2(64, 32), "Should place 2nd charater at (64, 32)")
-#	assert_eq(characters[1].get_creature().get_name(), "Character 1", "Should name 2nd charater with Character 1")
-#
-#	# tear down
-#	for character in characters:
-#		character.free()
-#	combat.free()
+func test_create_characters():
+	# arrange
+	var combat = Node2D.new()
+
+	# act
+	var characters = combat_init.create_characters(combat, [
+			{ name = "Character 0", texture_file = "res://Assets/graphics/sprites/Fighter.png" },
+			{ name = "Character 1", texture_file = "res://Assets/graphics/sprites/Mage.png" },
+		])
+
+	# assert
+	assert_eq(characters.size(), 2, "Should create two characters when two textures are given")
+	assert_eq(characters[0].position, Vector2(32, 32), "Should place 1st charater at (32, 32)")
+	assert_eq(characters[0].get_creature().get_name(), "Character 0", "Should name 1st charater with Character 0")
+	assert_eq(characters[1].get_creature().get_movement(), 4, "Should set movement of 1st charater")
+
+	assert_eq(characters[1].position, Vector2(64, 32), "Should place 2nd charater at (64, 32)")
+	assert_eq(characters[1].get_creature().get_name(), "Character 1", "Should name 2nd charater with Character 1")
+	assert_eq(characters[1].get_creature().get_movement(), 4, "Should set movement of 2st charater")
+
+	# tear down
+	for character in characters:
+		character.free()
+	combat.free()
 
 
 

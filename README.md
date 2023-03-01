@@ -1,4 +1,4 @@
 # Dungeon Crawler
-Yet another dungeon crawler done with Godot 3.
+Starting as a dungeon crawler using Godot 3. Now its getting more an Ultima clone using Godot 4.
 
-![Screenshot of first dungeon](./README.png)
+![Screenshot of world map](./README.png)

@@ -8,4 +8,5 @@ func _on_body_entered(_body):
 	var scene_to_load = str("res://World/", scene_name, ".tscn")
 	PlayerStats.start_position = start_position
 	get_tree().change_scene_to_file(scene_to_load)
+	LevelStats.set_current_level(scene_name)
 
