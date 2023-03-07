@@ -5,9 +5,7 @@ const Character = preload("res://Combat/Character.tscn")
 const Monster = preload("res://Combat/Monster.tscn")
 const Item = preload("res://Combat/Item.tscn")
 
-const STEP = 32
-
-var _monster_manual: MonsterManual = null
+const STEP = 16
 
 
 func create_characters(combat: Node2D, dictionaries: Array) -> Array:
@@ -33,31 +31,29 @@ func create_character(dictionary: Dictionary, position: Vector2) -> Character:
 	return character
 
 
-func create_monsters(combat: Node2D, dictionaries: Array) -> Array:
-	var monsters = []
-	for dictionary in dictionaries:
-		var name = dictionary["monster"]
-		var position = dictionary["position"]
-		var monster = create_monster(name, position)
+func create_monsters(combat: Node2D, monster_resources: Array[MonsterResource]) -> Array[Monster]:
+	var monsters: Array[Monster] = []
+	var i = 3
+	for monster_resource in monster_resources:
+		var position = Vector2(4, i)
+		var monster = create_monster(monster_resource, position)
 		monster.attacked.connect(combat._on_Monster_attacked)
 		monsters.append(monster)
 		combat.add_child(monster)
-
+		i += 1
 	return monsters
 
 
-func create_monster(name: String, position: Vector2) -> Monster:
-	var dictionary = _monster_manual.get_monster(name)
+func create_monster(monster_resource: MonsterResource, position: Vector2) -> Monster:
 
 	var monster = Monster.instantiate()
-	var texture = load(dictionary["texture_file"])
-	monster.set_texture(texture)
+	monster.set_texture(monster_resource.texture)
 	monster.position = position * STEP
 
 	var creature = monster.get_creature()
-	creature.set_name(dictionary["name"])
-	creature.set_hit_points(dictionary["hit_points"])
-	creature.set_armor_class(dictionary["armor_class"])
+	creature.set_name(monster_resource.name)
+	creature.set_hit_points(monster_resource.hit_points)
+	creature.set_armor_class(monster_resource.armor_class)
 	creature.got_hurt.connect(monster._on_Creature_got_hurt)
 
 	return monster
@@ -79,23 +75,3 @@ func create_item(frame_coords: Vector2, position: Vector2) -> ItemArea2D:
 	item.set_frame_coords(frame_coords)
 	item.position = position * STEP
 	return item
-
-
-func create_monster_manual() -> void:
-	_monster_manual = MonsterManual.new()
-
-	_monster_manual.add_monster({
-		name = "Skeleton",
-		hit_points = 2,
-		armor_class = 10,
-		texture_file = "res://Assets/graphics/sprites/Skeleton.png",
-	})
-
-	_monster_manual.add_monster({
-		name = "Skeleton Chief",
-		hit_points = 3,
-		armor_class = 12,
-		texture_file = "res://Assets/graphics/sprites/Skeleton_Chief.png",
-	})
-
-

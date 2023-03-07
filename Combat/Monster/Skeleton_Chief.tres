@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MonsterResource" load_steps=3 format=3 uid="uid://dpvlpgt3nxih5"]
+
+[ext_resource type="Script" path="res://Combat/MonsterResource.gd" id="1_x6ytm"]
+[ext_resource type="Texture2D" uid="uid://c4t656yl4cpta" path="res://Assets/graphics/sprites/Skeleton_Chief.png" id="2_5gyon"]
+
+[resource]
+script = ExtResource("1_x6ytm")
+name = "Skeleton Chief"
+hit_points = 3
+armor_class = 12
+texture = ExtResource("2_5gyon")

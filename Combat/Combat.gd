@@ -8,8 +8,6 @@ var character: Character = null
 
 var monsters: Array = []
 
-var items: Array = []
-
 var game_system: GameSystem = GameSystem.new()
 
 @onready var camera: Camera2D = $Camera2D
@@ -21,11 +19,8 @@ func _ready():
 
 	var combat_init = CombatInit.new()
 
-	combat_init.create_monster_manual()
-
-	characters = combat_init.create_characters(self, dungeon.characters)
-	monsters = combat_init.create_monsters(self, dungeon.monsters)
-	items = combat_init.create_items(self, dungeon.items)
+	characters = combat_init.create_characters(self, PlayerStats.characters)
+	monsters = combat_init.create_monsters(self, EncounterStats.monsters)
 
 	character = characters[character_pointer]
 
@@ -37,7 +32,6 @@ func _process(_delta: float) -> void:
 	character.action()
 	if character.is_done():
 		next_creature()
-
 
 
 func check_input() -> void:
@@ -64,7 +58,8 @@ func is_combat_end() -> bool:
 
 
 func end_combat() -> void:
-	var scene_to_load = str("res://World/WorldMap.tscn")
+	var map = LevelStats.get_current_level()
+	var scene_to_load = str("res://World/", map, ".tscn")
 	get_tree().change_scene_to_file(scene_to_load)
 
 
@@ -118,26 +113,3 @@ func sum_gold() -> int:
 	for myCharacter in characters:
 		gold += myCharacter.get_inventory().get_gold()
 	return gold
-
-
-const dungeon = {
-	characters = [
-		{ name = "Linda", texture_file = "res://Assets/graphics/sprites/Mage.png" },
-		{ name = "Leon", texture_file = "res://Assets/graphics/sprites/Fighter.png" },
-	],
-	monsters = [
-			{ monster = "Skeleton", position = Vector2(3, 3) },
-#			{ monster = "Skeleton Chief", position = Vector2(4, 3) },
-#			{ monster = "Skeleton", position = Vector2(12, 4) },
-#			{ monster = "Skeleton", position = Vector2(22, 6) },
-#			{ monster = "Skeleton Chief", position = Vector2(22, 5) },
-#			{ monster = "Skeleton", position = Vector2(13, 18) },
-#			{ monster = "Skeleton Chief", position = Vector2(13, 19) },
-#			{ monster = "Skeleton", position = Vector2(22, 18) },
-#			{ monster = "Skeleton Chief", position = Vector2(22, 19) },
-	],
-	items = [
-		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
-#		{ frame_coords = Vector2(2, 30), position = Vector2(10, 11) },
-	]
-}

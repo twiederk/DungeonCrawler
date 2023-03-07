@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MonsterResource" load_steps=3 format=3 uid="uid://cs3261lcclqrl"]
+
+[ext_resource type="Script" path="res://Combat/MonsterResource.gd" id="1_0625f"]
+[ext_resource type="Texture2D" uid="uid://dddquciwxlr75" path="res://Assets/graphics/sprites/Skeleton.png" id="2_yksmu"]
+
+[resource]
+script = ExtResource("1_0625f")
+name = "Skeleton"
+hit_points = 2
+armor_class = 10
+texture = ExtResource("2_yksmu")

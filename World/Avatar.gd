@@ -1,6 +1,7 @@
 class_name Avatar
 extends CharacterBody2D
 
+signal position_changed(position)
 
 const TILE_SIZE = 16
 
@@ -19,13 +20,17 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_right"):
 		if not ray_cast_right.is_colliding():
 			position += Vector2(TILE_SIZE, 0)
+			position_changed.emit(position)
 	if Input.is_action_just_pressed("ui_left"):
 		if not ray_cast_left.is_colliding():
 			position += Vector2(-TILE_SIZE, 0)
+			position_changed.emit(position)
 	if Input.is_action_just_pressed("ui_up"):
 		if not ray_cast_up.is_colliding():
 			position += Vector2(0, -TILE_SIZE)
+			position_changed.emit(position)
 	if Input.is_action_just_pressed("ui_down"):
 		if not ray_cast_down.is_colliding():
 			position += Vector2(0, TILE_SIZE)
-			
+			position_changed.emit(position)
+

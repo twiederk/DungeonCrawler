@@ -30,7 +30,7 @@ func test_create_character():
 
 	# assert
 	assert_eq(character.get_node("Sprite2D").texture, texture1, "Should have given texture")
-	assert_eq(character.position, Vector2(64, 64), "Should have correct position")
+	assert_eq(character.position, Vector2(32, 32), "Should have correct position")
 	var creature = character.get_creature()
 	assert_eq(creature.get_name(), "myName", "Should set correct name")
 	assert_eq(creature.get_damage(), 1, "Should set damage to one")
@@ -51,11 +51,11 @@ func test_create_characters():
 
 	# assert
 	assert_eq(characters.size(), 2, "Should create two characters when two textures are given")
-	assert_eq(characters[0].position, Vector2(32, 32), "Should place 1st charater at (32, 32)")
+	assert_eq(characters[0].position, Vector2(16, 16), "Should place 1st charater at (16, 16)")
 	assert_eq(characters[0].get_creature().get_name(), "Character 0", "Should name 1st charater with Character 0")
 	assert_eq(characters[1].get_creature().get_movement(), 4, "Should set movement of 1st charater")
 
-	assert_eq(characters[1].position, Vector2(64, 32), "Should place 2nd charater at (64, 32)")
+	assert_eq(characters[1].position, Vector2(32, 16), "Should place 2nd charater at (32, 16)")
 	assert_eq(characters[1].get_creature().get_name(), "Character 1", "Should name 2nd charater with Character 1")
 	assert_eq(characters[1].get_creature().get_movement(), 4, "Should set movement of 2st charater")
 
@@ -68,14 +68,18 @@ func test_create_characters():
 
 func test_create_monster():
 	# arrange
-	combat_init.create_monster_manual()
+	var monster_resource = MonsterResource.new()
+	monster_resource.name = "Skeleton"
+	monster_resource.hit_points = 2
+	monster_resource.armor_class = 10
+	monster_resource.texture = texture2
 
 	# act
-	var monster = combat_init.create_monster("Skeleton", Vector2(3, 3))
+	var monster = combat_init.create_monster(monster_resource, Vector2(3, 3))
 
 	# assert
 	assert_eq(monster.get_node("Sprite2D").texture, texture2, "Should have given texture")
-	assert_eq(monster.position, Vector2(96, 96), "Should place monster at (96, 96)")
+	assert_eq(monster.position, Vector2(48, 48), "Should place monster at (48, 48)")
 	var creature = monster.get_creature()
 	assert_eq(creature.get_name(), "Skeleton", "Should set name to Skeleton")
 	assert_eq(creature.get_hit_points(), 2, "Should set hit points to 2")
@@ -104,15 +108,6 @@ func test_create_monster():
 #	# tear down
 #	for monster in monsters:
 #		monster.free()
-
-
-func test_create_monster_manual():
-
-	# act
-	combat_init.create_monster_manual()
-
-	# assert
-	assert_eq(combat_init._monster_manual.size(), 2, "Should fill monster manual with two monsters")
 
 
 #func test_create_items():

@@ -9,10 +9,6 @@ func _ready():
 	clear_fog(player.position, LIGHT_RADIUS)
 
 
-func _physics_process(_delta):
-	var player = get_tree().get_nodes_in_group("player")[0]
-	clear_fog(player.position, LIGHT_RADIUS)
-
 func clear_fog(center: Vector2, radius: int) -> Array[Vector2]:
 	var map_position = local_to_map(center)
 	var cells_to_clear = _cells_to_clear(map_position, radius)
@@ -51,3 +47,7 @@ func _mirror_vector(vector: Vector2) -> Array[Vector2]:
 		return [Vector2(0, -vector.y)]
 	else:
 		return [Vector2(-vector.x, vector.y), Vector2(vector.x, -vector.y), Vector2(-vector.x, -vector.y)]
+
+
+func _on_avatar_position_changed(position):
+	clear_fog(position, LIGHT_RADIUS)

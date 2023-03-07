@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://Combat/Camera.tscn" id="4_qevs5"]
 
 [node name="Combat" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_vopuj")
 
 [node name="TileMap" type="TileMap" parent="."]

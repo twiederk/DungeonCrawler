@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b15rqjpkyo88k"]
+[gd_scene load_steps=7 format=3 uid="uid://b15rqjpkyo88k"]
 
 [ext_resource type="Script" path="res://World/Map.gd" id="1_3uryd"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_iaqh6"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="3_q7mwl"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="4_rumgj"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="5_mqqx4"]
+[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Combat/Monster/Skeleton.tres" id="6_4coaa"]
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource("1_3uryd")
@@ -27,3 +28,4 @@ scene_name = "KoboldCaveMap"
 
 [node name="Encounter" parent="." instance=ExtResource("5_mqqx4")]
 position = Vector2(632, 616)
+monsters = Array[Resource("res://Combat/MonsterResource.gd")]([ExtResource("6_4coaa")])
