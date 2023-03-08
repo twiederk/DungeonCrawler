@@ -35,7 +35,7 @@ func create_monsters(combat: Node2D, monster_resources: Array[MonsterResource]) 
 	var monsters: Array[Monster] = []
 	var i = 3
 	for monster_resource in monster_resources:
-		var position = Vector2(4, i)
+		var position = Vector2(i, 3)
 		var monster = create_monster(monster_resource, position)
 		monster.attacked.connect(combat._on_Monster_attacked)
 		monsters.append(monster)

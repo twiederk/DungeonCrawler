@@ -9,6 +9,7 @@ const TILE_SIZE = 16
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_up = $RayCastUp
 @onready var ray_cast_down = $RayCastDown
+@onready var camera_2d = $Camera2D
 
 
 func _ready():
@@ -34,3 +35,7 @@ func _physics_process(_delta):
 			position += Vector2(0, TILE_SIZE)
 			position_changed.emit(position)
 
+
+func set_camera_limits(limits: Vector2) -> void:
+	camera_2d.set_limit(SIDE_RIGHT, limits.x)
+	camera_2d.set_limit(SIDE_BOTTOM, limits.y)

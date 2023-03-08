@@ -1,4 +1,4 @@
-[gd_scene format=2]
+[gd_scene format=3 uid="uid://dnxhrwwbb0j0w"]
 
 [node name="Hurtbox" type="Area2D"]
 

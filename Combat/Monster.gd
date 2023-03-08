@@ -3,9 +3,10 @@ extends CharacterBody2D
 
 signal attacked
 
+const HitEffect = preload("res://Combat/HitEffect.tscn")
+
 var _creature = Creature.new()
 
-@onready var audioStreamPlayer = $AudioStreamPlayer
 @onready var health_bar = $HealthBar
 
 
@@ -23,8 +24,18 @@ func _on_Hurtbox_area_entered(_area) -> void:
 
 
 func _on_Creature_got_hurt() -> void:
+	update_health_bar()
+	display_hit_effect()
+
+
+func update_health_bar() -> void:
 	health_bar.value = _creature.get_hit_points()
-	audioStreamPlayer.play()
+
+
+func display_hit_effect() -> void:
+	var hit_effect = HitEffect.instantiate()
+	hit_effect.position = position
+	get_parent().add_child(hit_effect)
 
 
 func set_texture(texture: Texture2D) -> void:

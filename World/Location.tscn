@@ -1,14 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7p3r3hgfvf7w"]
+[gd_scene load_steps=2 format=3 uid="uid://c7p3r3hgfvf7w"]
 
 [ext_resource type="Script" path="res://World/Location.gd" id="1_hheir"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tfht"]
-size = Vector2(15, 15)
 
 [node name="Location" type="Area2D"]
 script = ExtResource("1_hheir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3tfht")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
