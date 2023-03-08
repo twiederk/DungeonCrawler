@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmuksi5j23ank"]
+[gd_scene load_steps=4 format=3 uid="uid://chk534dnsxj8v"]
 
 [ext_resource type="Script" path="res://Combat/Combat.gd" id="1_vopuj"]
-[ext_resource type="PackedScene" path="res://Combat/Hightlight.tscn" id="3_0ewk5"]
+[ext_resource type="PackedScene" uid="uid://b7mqqx27d3gam" path="res://Combat/Highlight.tscn" id="3_0ewk5"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="3_5bxjn"]
-[ext_resource type="PackedScene" path="res://Combat/Camera.tscn" id="4_qevs5"]
 
 [node name="Combat" type="Node2D"]
 scale = Vector2(2, 2)
@@ -16,15 +15,3 @@ layer_0/tile_data = PackedInt32Array(0, 327680, 0, 65536, 327680, 0, 131072, 327
 
 [node name="Highlight" parent="." instance=ExtResource("3_0ewk5")]
 scale = Vector2(1.2, 1.2)
-
-[node name="Camera2D" parent="." instance=ExtResource("4_qevs5")]
-offset = Vector2(0, 0)
-position_smoothing_enabled = true
-
-[node name="TopLeft" parent="Camera2D/Limits" index="0"]
-position = Vector2(0, 0)
-
-[node name="BottomRight" parent="Camera2D/Limits" index="1"]
-position = Vector2(799, 707)
-
-[editable path="Camera2D"]

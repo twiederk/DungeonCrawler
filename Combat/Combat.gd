@@ -10,7 +10,6 @@ var monsters: Array = []
 
 var game_system: GameSystem = GameSystem.new()
 
-@onready var camera: Camera2D = $Camera2D
 @onready var highlight = $Highlight
 
 
@@ -24,7 +23,7 @@ func _ready():
 
 	character = characters[character_pointer]
 
-	init_camera()
+	init_highlight()
 
 
 func _process(_delta: float) -> void:
@@ -42,10 +41,9 @@ func check_input() -> void:
 func next_creature() -> void:
 	check_combat_end()
 	check_combat_round()
-	character.remove_child(camera)
 	character.remove_child(highlight)
 	next_character()
-	add_highlight_and_camera()
+	add_highlight()
 
 
 func check_combat_end() -> void:
@@ -84,16 +82,15 @@ func next_character() -> void:
 	character = characters[character_pointer]
 
 
-func init_camera() -> void:
-	remove_child(camera)
+func init_highlight() -> void:
 	remove_child(highlight)
-	add_highlight_and_camera()
+	add_highlight()
 
 
-func add_highlight_and_camera() -> void:
-	character.add_child(camera)
+func add_highlight() -> void:
 	character.add_child(highlight)
 	character.move_child(highlight, 0)
+	move_child(character, get_child_count())
 
 
 func _on_Monster_attacked(monster: Monster) -> void:
@@ -106,10 +103,3 @@ func _on_Monster_attacked(monster: Monster) -> void:
 		print("...and kills ", defender.get_name())
 		monsters.remove_at(monsters.find(monster))
 		monster.queue_free()
-
-
-func sum_gold() -> int:
-	var gold = 0
-	for myCharacter in characters:
-		gold += myCharacter.get_inventory().get_gold()
-	return gold

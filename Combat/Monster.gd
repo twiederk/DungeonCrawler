@@ -6,6 +6,12 @@ signal attacked
 var _creature = Creature.new()
 
 @onready var audioStreamPlayer = $AudioStreamPlayer
+@onready var health_bar = $HealthBar
+
+
+func _ready():
+	health_bar.max_value = _creature.get_hit_points()
+	health_bar.value = _creature.get_hit_points()
 
 
 func get_creature() -> Creature:
@@ -17,6 +23,7 @@ func _on_Hurtbox_area_entered(_area) -> void:
 
 
 func _on_Creature_got_hurt() -> void:
+	health_bar.value = _creature.get_hit_points()
 	audioStreamPlayer.play()
 
 

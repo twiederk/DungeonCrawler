@@ -10,6 +10,8 @@ extends CharacterBody2D
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_up = $RayCastUp
 @onready var ray_cast_down = $RayCastDown
+@onready var name_label = $NameLabel
+
 
 var _creature = Creature.new()
 var _inventory = Inventory.new()
@@ -17,6 +19,7 @@ var _inventory = Inventory.new()
 
 func _ready():
 	hitboxCollisionShape.disabled = true
+	name_label.text = _creature.get_name()
 
 
 func get_creature() -> Creature:

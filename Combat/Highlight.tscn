@@ -1,10 +1,8 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://b7mqqx27d3gam"]
 
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="1"]
-
-
 
 [node name="Hightlight" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource("1")

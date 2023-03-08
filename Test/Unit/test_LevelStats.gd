@@ -35,45 +35,39 @@ func test_reset():
 	# arrange
 	level_stats._visited_nodes["Village"] = [ "Node1", "Node2"]
 	level_stats._visited_nodes["Cave"] = [ "Node1", "Node2"]
+	level_stats._cleared_cells["Cave"] = [ Vector2.ZERO]
 
 	# act
 	level_stats.reset()
 
 	# assert
-	assert_eq(level_stats._visited_nodes.size(), 0, "Should clear visited nodes")
+	assert_eq(level_stats._visited_nodes.size(), 0, "Should clear visited nodes when reseted")
+	assert_eq(level_stats._cleared_cells.size(), 0, "Should clear cleard_cells when reseted")
 
 
-func test_save():
-
-	# arrange
-	level_stats._visited_nodes["Village"] = [ "Node1", "Node2"]
-	level_stats._visited_nodes["Cave"] = [ "Node1", "Node2"]
-	level_stats.set_current_level("Cave")
-
-	# act
-	var save_data = level_stats.save()
-
-	# assert
-	assert_eq(save_data["current_level"], "Cave", "Should store current level in save data")
-	assert_eq(save_data["visited_nodes"].size(), 2, "Should store visited nodes dictionary in save data")
-
-
-func test_load():
+func test_cleared_cell():
 
 	# arrange
-	var level_dictionary = {
-		"current_level": "Cave",
-		"visited_nodes": {
-			"Village": [ "Node1", "Node2"],
-			"Cave": [ "Node3", "Node4"]
-		}
-	}
+	var cell = Vector2(1, 2)
 
 	# act
-	var level_name = level_stats.load(level_dictionary)
+	level_stats.cleared_cell(cell)
 
 	# assert
-	assert_eq(level_name, "Cave", "Should return Cave as level name")
-	assert_eq(level_stats.get_current_level(), "WorldMap", "Should NOT change current level")
-	assert_eq(level_stats.get_visited_nodes("Village"), [ "Node1", "Node2"], "Should contain visited nodes of village")
-	
+	var cleared_cells = level_stats.get_cleared_cells()
+	assert_eq(cleared_cells.size(), 1, "Should contain cleared cell")
+	assert_eq(cleared_cells[0], cell, "Should be vector of cleared cell")
+
+
+func test_cleared_cell_called_twice():
+
+	# arrange
+	var cell = Vector2(1, 2)
+	level_stats.cleared_cell(cell)
+
+	# act
+	level_stats.cleared_cell(cell)
+
+	# assert
+	var cleared_cells = level_stats.get_cleared_cells()
+	assert_eq(cleared_cells.size(), 1, "Should contain cleared cell only once")

@@ -70,26 +70,6 @@ func test_check_input_nothing():
 #		character.free()
 
 
-func test_sum_gold():
-	var character1 = Character.new()
-	character1._inventory.set_gold(5)
-
-	var character2 = Character.new()
-	character2._inventory.set_gold(7)
-
-	combat.characters = [character1, character2]
-
-	# act
-	var sum_gold = combat.sum_gold()
-
-	# assert
-	assert_eq(sum_gold, 12, "Should sum up gold of characters to 12")
-
-	# tear down
-	for character in combat.characters:
-		character.free()
-
-
 func test_is_combat_end_monsters_killed():
 
 	# arrange
