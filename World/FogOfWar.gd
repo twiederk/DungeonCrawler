@@ -56,8 +56,8 @@ func _mirror_vector(vector: Vector2) -> Array[Vector2]:
 		return [Vector2(-vector.x, vector.y), Vector2(vector.x, -vector.y), Vector2(-vector.x, -vector.y)]
 
 
-func _on_avatar_position_changed(position) -> void:
-	clear_fog(position, LIGHT_RADIUS)
+func _on_avatar_position_changed(avatar_position) -> void:
+	clear_fog(avatar_position, LIGHT_RADIUS)
 
 
 func restore_cleared_cells(level_stats: LvlStats) -> void:

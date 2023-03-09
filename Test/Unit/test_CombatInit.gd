@@ -89,61 +89,58 @@ func test_create_monster():
 	monster.free()
 
 
-#func test_create_monsters():
-#	# arrange
-#	var combat = double(Combat).new()
-#	combat_init.create_monster_manual()
-#
-#	# act
-#	var monsters = combat_init.create_monsters(combat, [
-#		{ monster = "Skeleton", position = Vector2(3, 3) },
-#		{ monster = "Skeleton Chief", position = Vector2(4, 3) },
-#	])
-#
-#	# assert
-#	assert_eq(monsters.size(), 2, "Should create one monster for each given texture")
-#	assert_eq(monsters[0].position, Vector2(96, 96), "Should place 1st monster at (96, 96)")
-#	assert_eq(monsters[1].position, Vector2(128, 96), "Should place 2nd monster at (128, 96)")
-#
-#	# tear down
-#	for monster in monsters:
-#		monster.free()
+func test_create_monsters():
+	# arrange
+	var combat = Combat.new()
+	var skeleton = MonsterResource.new()
+	var skeleton_chief = MonsterResource.new()
+
+	# act
+	var monsters = combat_init.create_monsters(combat, [ skeleton, skeleton_chief ])
+
+	# assert
+	assert_eq(monsters.size(), 2, "Should create one monster for each given texture")
+	assert_eq(monsters[0].position, Vector2(48, 48), "Should place 1st monster at (48, 48)")
+	assert_eq(monsters[1].position, Vector2(64, 48), "Should place 2nd monster at (64, 48)")
+
+	# tear down
+	for monster in monsters:
+		monster.free()
+	combat.free()
 
 
-#func test_create_items():
-#	# arrange
-#	var combat = double(Combat).new()
-#
-#	# act
-#	var items = combat_init.create_items(combat, [
-#		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
-#		{ frame_coords = Vector2(2, 30), position = Vector2(10, 11) },
-#	])
-#
-#	# assert
-#	assert_eq(items.size(), 2, "Should create two items")
-#	assert_eq(items[0].position, Vector2(288, 128), "Should place first item at (288, 128)")
-#	assert_eq(items[0].get_frame_coords(), Vector2(2, 30), "Should use frame_coords (2, 30) for first item")
-#	assert_eq(items[1].position, Vector2(320, 352), "Should place second item at (320, 352)")
-#	assert_eq(items[1].get_frame_coords(), Vector2(2, 30), "Should use frame_coords (2, 30) for second item")
-#
-#	# tear down
-#	for item in items:
-#		item.free()
+func test_create_items():
+	# arrange
+	var combat = Combat.new()
+
+	# act
+	var items = combat_init.create_items(combat, [
+		{ frame_coords = Vector2(2, 30), position = Vector2(9, 4) },
+		{ frame_coords = Vector2(2, 30), position = Vector2(10, 11) },
+	])
+
+	# assert
+	assert_eq(items.size(), 2, "Should create two items")
+	assert_eq(items[0].position, Vector2(144, 64), "Should place first item at (144, 64)")
+	assert_eq(items[1].position, Vector2(160, 176), "Should place second item at (160, 176)")
+
+	# tear down
+	for item in items:
+		item.free()
+	combat.free()
 
 
-#func test_create_item():
-#	# arrange
-#	var frame_coords = Vector2(2, 30)
-#	var position = Vector2(9, 4)
-#
-#	# act
-#	var item = combat_init.create_item(frame_coords, position)
-#
-#	# assert
-#	assert_eq(item.get_node("Sprite2D").frame_coords, Vector2(2, 30), "Should set proper frame coords")
-#	assert_eq(item.position, Vector2(288, 128), "Should set proper position")
-#
-#	# tear down
-#	item.free()
+func test_create_item():
+	# arrange
+	var frame_coords = Vector2(2, 30)
+	var position = Vector2(9, 4)
+
+	# act
+	var item = combat_init.create_item(frame_coords, position)
+
+	# assert
+	assert_eq(item.position, Vector2(144, 64), "Should set proper position")
+
+	# tear down
+	item.free()
 

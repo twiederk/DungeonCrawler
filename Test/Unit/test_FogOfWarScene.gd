@@ -52,7 +52,7 @@ func test_clear_fog_with_radius_2():
 func test_restore_cleared_cells():
 
 	# arrange
-	var cell = Vector2(1, 2)
+	var cell = Vector2i(1, 2)
 	fog_of_war.set_cell(0, cell, 0, Vector2.ZERO)
 	var level_stats = LvlStats.new()
 	level_stats.cleared_cell(cell)
@@ -63,6 +63,6 @@ func test_restore_cleared_cells():
 	# assert
 	var used_cells = fog_of_war.get_used_cells(0)
 	assert_false(used_cells.has(cell), "Should contain no cells when the only set cell is cleared")
-	
+
 	# tear down
 	level_stats.free()

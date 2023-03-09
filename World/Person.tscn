@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxpku836ynt50"]
+
+[ext_resource type="Texture2D" uid="uid://q1hs54coiavd" path="res://Assets/graphics/sprites/Lord.png" id="1_kxlxn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3b4c"]
+size = Vector2(15, 15)
+
+[node name="Person" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v3b4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kxlxn")
