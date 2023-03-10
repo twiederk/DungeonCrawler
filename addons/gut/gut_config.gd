@@ -3,15 +3,11 @@ var Gut = load('res://addons/gut/gut.gd')
 # Do not want a ref to _utils here due to use by editor plugin.
 # _utils needs to be split so that constants and what not do not
 # have to rely on the weird singleton thing I made.
-#enum DOUBLE_STRATEGY{
-#	FULL,
-#	PARTIAL
-#}
-
 enum DOUBLE_STRATEGY{
 	SCRIPT_ONLY,
 	INCLUDE_SUPER
 }
+
 
 var valid_fonts = ['AnonymousPro', 'CourierPro', 'LobsterTwo', 'Default']
 var default_options = {
@@ -122,7 +118,7 @@ func write_options(path):
 	var result = FileAccess.get_open_error()
 	if(f != null):
 		f.store_string(content)
-		f.close()
+		f = null # closes file
 	else:
 		print('ERROR:  could not open file ', path, ' ', result)
 	return result

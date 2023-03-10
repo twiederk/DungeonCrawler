@@ -30,6 +30,6 @@ position = Vector2(72.25, -8)
 shape = SubResource("RectangleShape2D_71484")
 
 [node name="Person" parent="." instance=ExtResource("5_ryfp2")]
-position = Vector2(312, 152)
+position = Vector2(328, 152)
 
 [editable path="Location"]

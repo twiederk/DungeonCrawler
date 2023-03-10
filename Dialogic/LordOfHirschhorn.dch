@@ -1,0 +1,82 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(1, 0, 0.0980392, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "Avatar",
+"description": "",
+"display_name": "Herr von Hirschhorn",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"Avatar": {
+"image": "res://Assets/graphics/sprites/Avatar.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Fighter": {
+"image": "res://Assets/graphics/sprites/Fighter.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"HighlightShape": {
+"image": "res://Assets/graphics/sprites/HighlightShape.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Hit": {
+"image": "res://Assets/graphics/sprites/Hit.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Items": {
+"image": "res://Assets/graphics/sprites/Items.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Lord": {
+"image": "res://Assets/graphics/sprites/Lord.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Mage": {
+"image": "res://Assets/graphics/sprites/Mage.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Skeleton": {
+"image": "res://Assets/graphics/sprites/Skeleton.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"Skeleton_Chief": {
+"image": "res://Assets/graphics/sprites/Skeleton_Chief.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

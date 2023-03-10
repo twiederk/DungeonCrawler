@@ -21,3 +21,8 @@ func set_camera_limits():
 	var tile_map_used_rect = tile_map.get_used_rect()
 	var limits = tile_map_used_rect.size * tile_map.cell_quadrant_size
 	avatar.set_camera_limits(limits)
+
+
+func unpause():
+	get_tree().paused = false
+
