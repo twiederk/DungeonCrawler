@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b15rqjpkyo88k"]
+[gd_scene load_steps=10 format=3 uid="uid://b15rqjpkyo88k"]
 
 [ext_resource type="Script" path="res://World/Map.gd" id="1_3uryd"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_iaqh6"]
@@ -11,6 +11,9 @@
 size = Vector2(15, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fakej"]
+size = Vector2(15, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv8dt"]
 size = Vector2(15, 15)
 
 [node name="WorldMap" type="Node2D"]
@@ -38,9 +41,17 @@ scene_name = "KoboldCaveMap"
 [node name="CollisionShape2D" parent="Kobold_Cave" index="0"]
 shape = SubResource("RectangleShape2D_fakej")
 
+[node name="Hirschhorn_Village" parent="." instance=ExtResource("4_rumgj")]
+scene_name = "HirschhornVillage"
+
+[node name="CollisionShape2D" parent="Hirschhorn_Village" index="0"]
+position = Vector2(568, 616)
+shape = SubResource("RectangleShape2D_uv8dt")
+
 [node name="Encounter" parent="." instance=ExtResource("5_mqqx4")]
 position = Vector2(632, 616)
 monsters = Array[Resource("res://Combat/MonsterResource.gd")]([ExtResource("6_4coaa")])
 
 [editable path="Hirschhorn_Castle"]
 [editable path="Kobold_Cave"]
+[editable path="Hirschhorn_Village"]

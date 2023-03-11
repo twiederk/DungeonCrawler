@@ -29,7 +29,8 @@ start_position = Vector2(584, 616)
 position = Vector2(72.25, -8)
 shape = SubResource("RectangleShape2D_71484")
 
-[node name="Person" parent="." instance=ExtResource("5_ryfp2")]
+[node name="Lord of Hirschhorn" parent="." instance=ExtResource("5_ryfp2")]
 position = Vector2(328, 152)
+timeline = "LordOfHirschhorn"
 
 [editable path="Location"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddovy85d3fppy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k8n6q"]
-size = Vector2(30, 30)
+size = Vector2(30, 28.875)
 
 [node name="TalkDetectionZone" type="Area2D"]
 
