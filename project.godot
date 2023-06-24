@@ -31,7 +31,7 @@ editor/current_resources={
 "Character Editor": "res://Dialogic/V_HRN_Bartender.dch",
 "Timeline Editor": "res://Dialogic/V_HRN_Bartender.dtl"
 }
-editor/last/resources=["res://Dialogic/V_HRN_Bartender.dch", "res://Dialogic/V_HRN_Bartender.dtl", "res://Dialogic/V_HRN_Innkeeper.dtl", "res://Dialogic/V_HRN_Healer.dtl"]
+editor/last/resources=[]
 editor/visual_timeline_editor_sidebar=200.0
 editor/current_timeline_path="res://Dialogic/LordOfHirschhorn.dtl"
 editor/timeline_editor_mode=0
