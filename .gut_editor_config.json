@@ -31,14 +31,12 @@
  "post_run_script": "",
  "pre_run_script": "",
  "prefix": "test_",
- "selected": "test_Combat.gd",
+ "selected": "test_Character.gd",
  "should_exit": true,
  "should_exit_on_success": true,
  "should_maximize": false,
  "show_help": false,
  "suffix": ".gd",
- "tests": [
-
- ],
- "unit_test_name": "test_check_combat_round_continue_round"
+ "tests": [],
+ "unit_test_name": "test_move_down"
 }
