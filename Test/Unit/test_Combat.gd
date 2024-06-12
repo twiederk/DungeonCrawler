@@ -94,7 +94,7 @@ func test_check_combat_round_new_round():
 
 
 func _create_Character_with_creature_and_movement_zero() -> Character:
-	var creature = Creature.new()
+	var creature = CreatureStats.new()
 	creature.set_movement(0)
 	var character = Character.new()
 	character._creature = creature
@@ -163,7 +163,7 @@ func test_process_combat_state_done():
 
 	# arrange
 	var character1 = Character.new()
-	character1.get_creature().set_combat_state(Creature.CombatState.DONE)
+	character1.get_creature().set_combat_state(CreatureStats.CombatState.DONE)
 	var character2 = Character.new()
 	combat.characters = [character1, character2]
 	combat.character_pointer = 0
@@ -187,9 +187,9 @@ func test_start_combat_round():
 
 	# arrange
 	var character1 = _create_Character_with_creature_and_movement_zero()
-	character1.get_creature().set_combat_state(Creature.CombatState.DONE)
+	character1.get_creature().set_combat_state(CreatureStats.CombatState.DONE)
 	var character2 = _create_Character_with_creature_and_movement_zero()
-	character1.get_creature().set_combat_state(Creature.CombatState.DONE)
+	character1.get_creature().set_combat_state(CreatureStats.CombatState.DONE)
 	combat.characters = [character1, character2]
 
 	# act
@@ -198,10 +198,10 @@ func test_start_combat_round():
 	# assert
 	var creature1 = character1.get_creature()
 	assert_eq(creature1.get_movement(), 4, "Should reset movement of creature1")
-	assert_eq(creature1.get_combat_state(), Creature.CombatState.READY, "Should reset combat state of creature1")
+	assert_eq(creature1.get_combat_state(), CreatureStats.CombatState.READY, "Should reset combat state of creature1")
 	var creature2 = character2.get_creature()
 	assert_eq(creature2.get_movement(), 4, "Should reset movement of creature2")
-	assert_eq(creature2.get_combat_state(), Creature.CombatState.READY, "Should reset combat state of creature2")
+	assert_eq(creature2.get_combat_state(), CreatureStats.CombatState.READY, "Should reset combat state of creature2")
 
 	# tear down
 	character1.free()

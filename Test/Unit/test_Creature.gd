@@ -1,9 +1,9 @@
 extends GutTest
 
-var creature: Creature = null
+var creature: CreatureStats = null
 
 func before_each():
-	creature = Creature.new()
+	creature = CreatureStats.new()
 
 
 func test_get_set_name():
@@ -45,7 +45,7 @@ func test_get_set_max_movement():
 func test_get_set_combat_state():
 
 	#assert
-	assert_accessors(creature, "combat_state", Creature.CombatState.READY, Creature.CombatState.DONE)
+	assert_accessors(creature, "combat_state", CreatureStats.CombatState.READY, CreatureStats.CombatState.DONE)
 
 func test_roll_attack():
 
@@ -111,7 +111,7 @@ func test_can_move_movement_gone():
 func test_is_done_false():
 
 	# arrange
-	creature.set_combat_state(Creature.CombatState.READY)
+	creature.set_combat_state(CreatureStats.CombatState.READY)
 
 	# act
 	var done = creature.is_done()
@@ -123,7 +123,7 @@ func test_is_done_false():
 func test_is_done_true():
 
 	# arrange
-	creature.set_combat_state(Creature.CombatState.DONE)
+	creature.set_combat_state(CreatureStats.CombatState.DONE)
 
 	# act
 	var done = creature.is_done()
@@ -144,7 +144,7 @@ func test_attack():
 func test_start_combat_round():
 
 	# arrange
-	creature.set_combat_state(Creature.CombatState.DONE)
+	creature.set_combat_state(CreatureStats.CombatState.DONE)
 	creature.set_movement(0)
 
 	# act
@@ -152,6 +152,6 @@ func test_start_combat_round():
 
 	# assert
 	assert_eq(creature.get_movement(), 4, "Should set movement to max movement when combat round starts")
-	assert_eq(creature.get_combat_state(), Creature.CombatState.READY, "Should set combat state to READY when combat round starts")
+	assert_eq(creature.get_combat_state(), CreatureStats.CombatState.READY, "Should set combat state to READY when combat round starts")
 
 

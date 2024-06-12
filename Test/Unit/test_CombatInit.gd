@@ -78,7 +78,7 @@ func test_create_monster():
 	var monster = combat_init.create_monster(monster_resource, Vector2(3, 3))
 
 	# assert
-	assert_eq(monster.get_node("Sprite2D").texture, texture2, "Should have given texture")
+	assert_eq(monster.get_node("AnimatedSprite2D").sprite_frames, texture2, "Should have given texture")
 	assert_eq(monster.position, Vector2(48, 48), "Should place monster at (48, 48)")
 	var creature = monster.get_creature()
 	assert_eq(creature.get_name(), "Skeleton", "Should set name to Skeleton")

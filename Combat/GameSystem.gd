@@ -1,9 +1,9 @@
 class_name GameSystem
 extends RefCounted
 
-func attack(attacker: Creature, defender: Creature) -> void:
+func attack(attacker: Battler, defender: Battler) -> void:
 	var attack_roll = attacker.roll_attack()
-	print(str(attacker.get_name(), " rolls attack die [", attack_roll, "]"))
+	print(str(attacker.get_creature_name(), " rolls attack die [", attack_roll, "]"))
 
 	if attack_roll >= defender.get_armor_class():
 		var damage = attacker.get_damage()

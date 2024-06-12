@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3iyvfjfa85ff"]
+[gd_scene load_steps=9 format=3 uid="uid://d3iyvfjfa85ff"]
 
 [ext_resource type="Script" path="res://Combat/Monster.gd" id="1_6e4hi"]
 [ext_resource type="PackedScene" uid="uid://dnxhrwwbb0j0w" path="res://Combat/Hurtbox.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="2_2lr2s"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
@@ -29,10 +30,14 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_nin3l")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_qmx5r")
 
-[node name="Monster" type="CharacterBody2D"]
+[node name="Monster" type="Area2D"]
 script = ExtResource("1_6e4hi")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TurnIndicator" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_2lr2s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
@@ -53,6 +58,7 @@ theme = SubResource("Theme_l6uu1")
 value = 50.0
 show_percentage = false
 
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+autoplay = "default"
 
 [editable path="Hurtbox"]

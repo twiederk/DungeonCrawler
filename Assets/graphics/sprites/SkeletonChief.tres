@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bxlhrih2nm5te"]
+
+[ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="1_inxgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1dof"]
+atlas = ExtResource("1_inxgl")
+region = Rect2(64, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t38sy"]
+atlas = ExtResource("1_inxgl")
+region = Rect2(80, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_318bc"]
+atlas = ExtResource("1_inxgl")
+region = Rect2(96, 224, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d11pl"]
+atlas = ExtResource("1_inxgl")
+region = Rect2(112, 224, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1dof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t38sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_318bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d11pl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

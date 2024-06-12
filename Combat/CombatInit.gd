@@ -1,60 +1,65 @@
 class_name CombatInit
 extends RefCounted
 
-const Character = preload("res://Combat/Character.tscn")
-const Monster = preload("res://Combat/Monster.tscn")
-const Item = preload("res://Combat/Item.tscn")
+const CharacterScene = preload("res://Combat/Character.tscn")
+const MonsterScene = preload("res://Combat/Monster.tscn")
+const ItemScene = preload("res://Combat/Item.tscn")
 
 const STEP = 16
 
 
-func create_characters(combat: Node2D, dictionaries: Array) -> Array:
-	var characters = []
+func create_characters(combat: Node, dictionaries: Array) -> Array[Battler]:
+	var characters: Array[Battler] = []
 	for i in range(dictionaries.size()):
 		var x = i + 1
 		var character = create_character(dictionaries[i], Vector2(x, 1))
-		characters.append(character)
+		character.turn_ended.connect(combat.next_battler)
+		character.battler_attacked.connect(combat._on_monster_attacked)
 		combat.add_child(character)
+		var sprite_frames = load(dictionaries[i]["sprite_frames"])
+		character.set_sprite_frames(sprite_frames)
+		characters.append(character)
 	return characters
 
 
 func create_character(dictionary: Dictionary, position: Vector2) -> Character:
-	var character = Character.instantiate()
-	var texture = load(dictionary["texture_file"])
-	character.get_node("Sprite2D").texture = texture
+	var character = CharacterScene.instantiate()
 	character.position = position * STEP
+	character.name = dictionary["name"]
 
-	var creature : Creature = character.get_creature()
-	creature.set_name(dictionary["name"])
-	creature.set_damage(1)
+	var creature_stats : CreatureStats = character.get_creature()
+	creature_stats.name = dictionary["name"]
+	creature_stats.damage = 1
 
 	return character
 
 
-func create_monsters(combat: Node2D, monster_resources: Array[MonsterResource]) -> Array[Monster]:
-	var monsters: Array[Monster] = []
-	var i = 3
+func create_monsters(combat: Node, monster_resources: Array[MonsterResource]) -> Array[Battler]:
+	var monsters: Array[Battler] = []
+	var x = 3
 	for monster_resource in monster_resources:
-		var position = Vector2(i, 3)
+		var position = Vector2(x, 3)
 		var monster = create_monster(monster_resource, position)
-		monster.attacked.connect(combat._on_Monster_attacked)
-		monsters.append(monster)
+		monster.battler_died.connect(combat._on_monster_died)
+		monster.turn_ended.connect(combat.next_battler)
+		
 		combat.add_child(monster)
-		i += 1
+		monster.set_sprite_frames(monster_resource.texture)
+		monsters.append(monster)
+		x += 1
 	return monsters
 
 
 func create_monster(monster_resource: MonsterResource, position: Vector2) -> Monster:
 
-	var monster = Monster.instantiate()
-	monster.set_texture(monster_resource.texture)
+	var monster = MonsterScene.instantiate()
 	monster.position = position * STEP
+	monster.name = monster_resource.name
 
-	var creature = monster.get_creature()
-	creature.set_name(monster_resource.name)
-	creature.set_hit_points(monster_resource.hit_points)
-	creature.set_armor_class(monster_resource.armor_class)
-	creature.got_hurt.connect(monster._on_Creature_got_hurt)
+	var creature_stats = monster.get_creature()
+	creature_stats.name = monster_resource.name
+	creature_stats.hit_points = monster_resource.hit_points
+	creature_stats.armor_class = monster_resource.armor_class
 
 	return monster
 
@@ -71,7 +76,7 @@ func create_items(combat: Node2D, itemEntries: Array) -> Array:
 
 
 func create_item(frame_coords: Vector2, position: Vector2) -> ItemArea2D:
-	var item = Item.instantiate()
+	var item = ItemScene.instantiate()
 	item.set_frame_coords(frame_coords)
 	item.position = position * STEP
 	return item

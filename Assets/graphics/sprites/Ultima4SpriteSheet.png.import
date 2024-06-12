@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl03vrbj5wsjk"
-path="res://.godot/imported/expand-icon.svg-26099b197ab0f314e2253848fcc22962.ctex"
+uid="uid://dsnggrtbq0udt"
+path="res://.godot/imported/Ultima4SpriteSheet.png-0d7d5b31d9bff176c62faf0631dfe007.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/dialogic/Editor/Images/Pieces/expand-icon.svg"
-dest_files=["res://.godot/imported/expand-icon.svg-26099b197ab0f314e2253848fcc22962.ctex"]
+source_file="res://Assets/graphics/sprites/Ultima4SpriteSheet.png"
+dest_files=["res://.godot/imported/Ultima4SpriteSheet.png-0d7d5b31d9bff176c62faf0631dfe007.ctex"]
 
 [params]
 
@@ -33,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=true
-editor/convert_colors_with_editor_theme=true

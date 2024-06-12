@@ -10,10 +10,10 @@ func before_each():
 func test_attack_missed():
 	# arrange
 	seed(1)
-	var attacker: Creature = Creature.new()
+	var attacker: CreatureStats = CreatureStats.new()
 	attacker.set_name("myName")
 
-	var defender: Creature = Creature.new()
+	var defender: CreatureStats = CreatureStats.new()
 	defender.set_hit_points(5)
 	defender.set_armor_class(10)
 
@@ -27,11 +27,11 @@ func test_attack_missed():
 func test_attack_hit():
 	# arrange
 	seed(1000)
-	var attacker: Creature = Creature.new()
+	var attacker: CreatureStats = CreatureStats.new()
 	attacker.set_name("myName")
 	attacker.set_damage(2)
 
-	var defender: Creature = Creature.new()
+	var defender: CreatureStats = CreatureStats.new()
 	defender.set_hit_points(5)
 	defender.set_armor_class(10)
 

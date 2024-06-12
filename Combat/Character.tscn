@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://buuq7k8dnvr8j"]
+[gd_scene load_steps=13 format=3 uid="uid://buuq7k8dnvr8j"]
 
 [ext_resource type="Script" path="res://Combat/Character.gd" id="1_kqtyr"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" path="res://Combat/Hitbox.tscn" id="3"]
 [ext_resource type="Script" path="res://Combat/CharacterHitbox.gd" id="4_jyua3"]
 [ext_resource type="FontFile" uid="uid://bkpkoliyq71gl" path="res://Assets/Fonts/Xolonium-Regular.ttf" id="5_1cd1s"]
+[ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="7_eqacn"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
@@ -16,25 +17,13 @@ size = Vector2(5, 5)
 [sub_resource type="Animation" id="3"]
 resource_name = "Attack"
 length = 0.6
-tracks/0/type = "value"
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D:disabled")
+tracks/0/path = NodePath("AudioStreamPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -42,22 +31,10 @@ tracks/1/keys = {
 }],
 "times": PackedFloat32Array(0)
 }
-tracks/1/use_blend = true
+tracks/0/use_blend = true
 
 [sub_resource type="Animation" id="4"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitboxPivot/Hitbox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7rj2"]
 _data = {
@@ -65,10 +42,16 @@ _data = {
 "RESET": SubResource("4")
 }
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="Area2D"]
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_kqtyr")
+
+[node name="TurnIndicator" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("7_eqacn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_e0rh0")
@@ -79,6 +62,7 @@ shape = SubResource("1")
 [node name="HitboxPivot" type="Marker2D" parent="."]
 
 [node name="Hitbox" parent="HitboxPivot" instance=ExtResource("3")]
+z_index = 2
 position = Vector2(12, 0)
 collision_layer = 32
 collision_mask = 8
@@ -97,18 +81,22 @@ libraries = {
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-16, 0)
 collision_mask = 3
+collide_with_areas = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(16, 0)
 collision_mask = 3
+collide_with_areas = true
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
 target_position = Vector2(0, -16)
 collision_mask = 3
+collide_with_areas = true
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 16)
 collision_mask = 3
+collide_with_areas = true
 
 [node name="NameLabel" type="Label" parent="."]
 offset_left = -7.0
@@ -118,5 +106,7 @@ offset_bottom = 17.0
 theme_override_fonts/font = ExtResource("5_1cd1s")
 theme_override_font_sizes/font_size = 5
 text = "Name"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [editable path="HitboxPivot/Hitbox"]

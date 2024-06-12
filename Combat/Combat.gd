@@ -1,16 +1,16 @@
 class_name Combat
-extends Node2D
+extends Node
 
 
-var characters: Array = []
-var character_pointer: int = 0
-var character: Character = null
+var characters: Array[Battler] = []
+var monsters: Array[Battler] = []
 
-var monsters: Array = []
+var all_battlers: Array[Battler] = []
+
+var current_battler: Node2D
+var current_battler_index: int
 
 var game_system: GameSystem = GameSystem.new()
-
-@onready var highlight = $Highlight
 
 
 func _ready():
@@ -20,35 +20,21 @@ func _ready():
 
 	characters = combat_init.create_characters(self, PlayerStats.characters)
 	monsters = combat_init.create_monsters(self, EncounterStats.monsters)
+	all_battlers.append_array(characters)
+	all_battlers.append_array(monsters)
 
-	character = characters[character_pointer]
-
-	init_highlight()
-
-
-func _process(_delta: float) -> void:
-	check_input()
-	character.action()
-	if character.is_done():
-		next_creature()
+	current_battler = all_battlers[current_battler_index]
+	current_battler.start_turn()
 
 
-func check_input() -> void:
-	if Input.is_action_just_pressed("next"):
-		next_creature()
-
-
-func next_creature() -> void:
-	check_combat_end()
-	check_combat_round()
-	character.remove_child(highlight)
-	next_character()
-	add_highlight()
-
-
-func check_combat_end() -> void:
+func next_battler() -> void:
+	current_battler.stop_turn()
 	if is_combat_end():
 		end_combat()
+	else:
+		current_battler_index = (current_battler_index + 1) % all_battlers.size()
+		current_battler = all_battlers[current_battler_index]
+		current_battler.start_turn()
 
 
 func is_combat_end() -> bool:
@@ -61,45 +47,12 @@ func end_combat() -> void:
 	get_tree().change_scene_to_file(scene_to_load)
 
 
-func check_combat_round() -> void:
-	if is_new_combat_round():
-		start_combat_round()
-
-
-func start_combat_round() -> void:
-	for temp_character in characters:
-		temp_character.start_combat_round()
-
-
-func is_new_combat_round() -> bool:
-	return character_pointer + 1 == characters.size()
-
-
-func next_character() -> void:
-	character_pointer = character_pointer + 1
-	if character_pointer >= characters.size():
-		character_pointer = 0
-	character = characters[character_pointer]
-
-
-func init_highlight() -> void:
-	remove_child(highlight)
-	add_highlight()
-
-
-func add_highlight() -> void:
-	character.add_child(highlight)
-	character.move_child(highlight, 0)
-	move_child(character, get_child_count())
-
-
-func _on_Monster_attacked(monster: Monster) -> void:
-	var attacker: Creature = character.get_creature()
-	var defender: Creature = monster.get_creature()
-
+func _on_monster_attacked(attacker, defender) -> void:
 	game_system.attack(attacker, defender)
 
-	if defender.get_hit_points() <= 0:
-		print("...and kills ", defender.get_name())
-		monsters.remove_at(monsters.find(monster))
-		monster.queue_free()
+
+func _on_monster_died(monster: Battler) -> void:
+	print("...and kills ", monster.get_creature_name())
+	monsters.erase(monster)
+	all_battlers.erase(monster)
+	monster.queue_free()
