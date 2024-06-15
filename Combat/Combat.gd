@@ -1,6 +1,7 @@
 class_name Combat
 extends Node
 
+const TILE_SIZE = 16
 
 var characters: Array[Battler] = []
 var monsters: Array[Battler] = []
@@ -38,7 +39,7 @@ func next_battler() -> void:
 
 
 func is_combat_end() -> bool:
-	return monsters.is_empty()
+	return monsters.is_empty() or characters.is_empty()
 
 
 func end_combat() -> void:
@@ -47,12 +48,15 @@ func end_combat() -> void:
 	get_tree().change_scene_to_file(scene_to_load)
 
 
-func _on_monster_attacked(attacker, defender) -> void:
+func _on_battler_attacked(attacker, defender) -> void:
 	game_system.attack(attacker, defender)
 
 
-func _on_monster_died(monster: Battler) -> void:
-	print("...and kills ", monster.get_creature_name())
-	monsters.erase(monster)
-	all_battlers.erase(monster)
-	monster.queue_free()
+func _on_battler_died(battler: Battler) -> void:
+	print("...and kills ", battler.get_creature_name())
+	if battler is Character:
+		characters.erase(battler)
+	else:
+		monsters.erase(battler)
+	all_battlers.erase(battler)
+	battler.queue_free()

@@ -10,10 +10,10 @@ func before_each():
 func test_attack_missed():
 	# arrange
 	seed(1)
-	var attacker: CreatureStats = CreatureStats.new()
+	var attacker: Battler = Battler.new()
 	attacker.set_name("myName")
 
-	var defender: CreatureStats = CreatureStats.new()
+	var defender: Battler = Battler.new()
 	defender.set_hit_points(5)
 	defender.set_armor_class(10)
 
@@ -23,15 +23,19 @@ func test_attack_missed():
 	# assert
 	assert_eq(defender.get_hit_points(), 5, "Should have same number of hit points when attack misses")
 
+	# tear down
+	attacker.free()
+	defender.free()
+
 
 func test_attack_hit():
 	# arrange
 	seed(1000)
-	var attacker: CreatureStats = CreatureStats.new()
-	attacker.set_name("myName")
+	var attacker: Battler = Battler.new()
+	attacker.set_creature_name("myName")
 	attacker.set_damage(2)
 
-	var defender: CreatureStats = CreatureStats.new()
+	var defender: Battler = Battler.new()
 	defender.set_hit_points(5)
 	defender.set_armor_class(10)
 
@@ -41,5 +45,6 @@ func test_attack_hit():
 	# assert
 	assert_eq(defender.get_hit_points(), 3, "Should hit points reduced by damage when attack hits")
 
-
-
+	# tear down
+	attacker.free()
+	defender.free()

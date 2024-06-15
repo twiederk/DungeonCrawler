@@ -1,21 +1,15 @@
 class_name Character
 extends Battler
 
-@export var TILE_SIZE: int = 16
+var _inventory: Inventory = Inventory.new()
 
-var _inventory = Inventory.new()
-
-@onready var animationPlayer = $AnimationPlayer
 @onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
 @onready var hitboxPivot = $HitboxPivot
-@onready var ray_cast_left = $RayCastLeft
-@onready var ray_cast_right = $RayCastRight
-@onready var ray_cast_up = $RayCastUp
-@onready var ray_cast_down = $RayCastDown
 @onready var name_label = $NameLabel
 
 
 func _ready():
+	super._ready()
 	hitboxCollisionShape.disabled = true
 	name_label.text = _creature_stats.name
 
@@ -30,19 +24,19 @@ func _input(_event):
 
 
 func move() -> void:
-	print(name, ".move()")
 	if Input.is_action_just_pressed("ui_right"):
-		move_and_turn(Vector2.RIGHT, 0, ray_cast_right)
+		move_and_turn(Vector2.RIGHT, Battler.Facing.RIGHT)
 	if Input.is_action_just_pressed("ui_left"):
-		move_and_turn(Vector2.LEFT, 180, ray_cast_left)
+		move_and_turn(Vector2.LEFT, Battler.Facing.LEFT)
 	if Input.is_action_just_pressed("ui_up"):
-		move_and_turn(Vector2.UP, 270, ray_cast_up)
+		move_and_turn(Vector2.UP, Battler.Facing.UP)
 	if Input.is_action_just_pressed("ui_down"):
-		move_and_turn(Vector2.DOWN, 90, ray_cast_down)
+		move_and_turn(Vector2.DOWN, Battler.Facing.DOWN)
 
 
-func move_and_turn(direction: Vector2, rotation_degree: int, ray_cast: RayCast2D) -> void:
-	turn(rotation_degree)
+func move_and_turn(direction: Vector2, facing: Facing) -> void:
+	var ray_cast = _ray_casts[facing]
+	turn(facing)
 	if can_move(ray_cast):
 		move_step(direction)
 
@@ -57,34 +51,15 @@ func can_move(ray_cast: RayCast2D) -> bool:
 
 func move_step(direction: Vector2) -> void:
 	step()
-	position += direction * TILE_SIZE
+	position += direction * Combat.TILE_SIZE
 
 
-func attack() -> void:
-	print(name, ".attack()")
-	animationPlayer.play("Attack")
-	var target_battler = get_target_battler()
-	if target_battler != null:
-		battler_attacked.emit(self, target_battler)
-	turn_ended.emit()
-
-
-func get_target_battler():
-	match int(hitboxPivot.rotation_degrees):
-		0:
-			if ray_cast_right.is_colliding():
-				return ray_cast_right.get_collider()
-		90:
-			if ray_cast_down.is_colliding():
-				return ray_cast_down.get_collider()
-		180:
-			if ray_cast_left.is_colliding():
-				return ray_cast_left.get_collider()
-		270:
-			if ray_cast_up.is_colliding():
-				return ray_cast_up.get_collider()
-		_:
-			return null
+func get_target():
+	var facing = degree_to_facing(hitboxPivot.rotation_degrees)
+	var ray_cast = _ray_casts[facing]
+	if ray_cast.is_colliding():
+		return ray_cast.get_collider()
+	return null
 
 
 func _on_Item_picked(dict: Dictionary) -> void:
@@ -94,3 +69,5 @@ func _on_Item_picked(dict: Dictionary) -> void:
 
 func get_inventory() -> Inventory:
 	return _inventory
+
+

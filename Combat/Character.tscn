@@ -1,12 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://buuq7k8dnvr8j"]
+[gd_scene load_steps=15 format=3 uid="uid://buuq7k8dnvr8j"]
 
 [ext_resource type="Script" path="res://Combat/Character.gd" id="1_kqtyr"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="2"]
-[ext_resource type="Texture2D" uid="uid://cdn1svnmkhrha" path="res://Assets/graphics/sprites/Fighter.png" id="2_e0rh0"]
 [ext_resource type="PackedScene" path="res://Combat/Hitbox.tscn" id="3"]
 [ext_resource type="Script" path="res://Combat/CharacterHitbox.gd" id="4_jyua3"]
 [ext_resource type="FontFile" uid="uid://bkpkoliyq71gl" path="res://Assets/Fonts/Xolonium-Regular.ttf" id="5_1cd1s"]
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="7_eqacn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nin3l"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmx5r"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="Theme" id="Theme_dnjwn"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_nin3l")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_qmx5r")
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
@@ -53,8 +72,25 @@ z_index = 1
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("7_eqacn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_e0rh0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 12.0
+theme = SubResource("Theme_dnjwn")
+value = 50.0
+show_percentage = false
+
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -7.0
+offset_top = 7.0
+offset_right = 9.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("5_1cd1s")
+theme_override_font_sizes/font_size = 5
+text = "Name"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
@@ -97,16 +133,5 @@ collide_with_areas = true
 target_position = Vector2(0, 16)
 collision_mask = 3
 collide_with_areas = true
-
-[node name="NameLabel" type="Label" parent="."]
-offset_left = -7.0
-offset_top = 7.0
-offset_right = 9.0
-offset_bottom = 17.0
-theme_override_fonts/font = ExtResource("5_1cd1s")
-theme_override_font_sizes/font_size = 5
-text = "Name"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [editable path="HitboxPivot/Hitbox"]

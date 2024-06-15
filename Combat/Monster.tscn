@@ -1,16 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3iyvfjfa85ff"]
+[gd_scene load_steps=13 format=3 uid="uid://d3iyvfjfa85ff"]
 
 [ext_resource type="Script" path="res://Combat/Monster.gd" id="1_6e4hi"]
 [ext_resource type="PackedScene" uid="uid://dnxhrwwbb0j0w" path="res://Combat/Hurtbox.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="2_2lr2s"]
+[ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="4_6bh44"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(15, 15)
-
-[sub_resource type="RectangleShape2D" id="2"]
-size = Vector2(15, 15)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nin3l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qsyq"]
 bg_color = Color(1, 0, 0, 1)
 border_width_left = 1
 border_width_top = 1
@@ -18,7 +13,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmx5r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an22o"]
 bg_color = Color(0, 1, 0, 1)
 border_width_left = 1
 border_width_top = 1
@@ -27,8 +22,42 @@ border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="Theme" id="Theme_l6uu1"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_nin3l")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_qmx5r")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_4qsyq")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_an22o")
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(15, 15)
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(15, 15)
+
+[sub_resource type="Animation" id="3"]
+resource_name = "Attack"
+length = 0.6
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_6bh44")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="4"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7rj2"]
+_data = {
+"Attack": SubResource("3"),
+"RESET": SubResource("4")
+}
 
 [node name="Monster" type="Area2D"]
 script = ExtResource("1_6e4hi")
@@ -38,6 +67,18 @@ visible = false
 z_index = 1
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_2lr2s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+autoplay = "default"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 12.0
+theme = SubResource("Theme_l6uu1")
+value = 50.0
+show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
@@ -49,16 +90,31 @@ collision_mask = 32
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("2")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -7.0
-offset_top = 8.0
-offset_right = 7.0
-offset_bottom = 12.0
-theme = SubResource("Theme_l6uu1")
-value = 50.0
-show_percentage = false
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a7rj2")
+}
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-autoplay = "default"
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-16, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
+collision_mask = 3
+collide_with_areas = true
 
 [editable path="Hurtbox"]

@@ -1,7 +1,8 @@
 extends GutTest
 
-const texture1 = preload("res://Assets/graphics/sprites/Fighter.png")
-const texture2 = preload("res://Assets/graphics/sprites/Skeleton.png")
+const sprite_frames_fighter = preload("res://Assets/graphics/sprites/Fighter.tres")
+const sprite_frames_mage = preload("res://Assets/graphics/sprites/Mage.tres")
+const sprite_frames_skeleton = preload("res://Assets/graphics/sprites/Skeleton.tres")
 
 var combat_init: CombatInit = null
 
@@ -22,6 +23,9 @@ func test_create_character():
 	# arrange
 	var character_dictionary = {
 		name = "myName",
+		hit_points = 4,
+		damage = 1,
+		armor_class = 10,
 		texture_file = "res://Assets/graphics/sprites/Fighter.png"
 	}
 
@@ -29,11 +33,10 @@ func test_create_character():
 	var character = combat_init.create_character(character_dictionary, Vector2(2, 2))
 
 	# assert
-	assert_eq(character.get_node("Sprite2D").texture, texture1, "Should have given texture")
 	assert_eq(character.position, Vector2(32, 32), "Should have correct position")
 	var creature = character.get_creature()
-	assert_eq(creature.get_name(), "myName", "Should set correct name")
-	assert_eq(creature.get_damage(), 1, "Should set damage to one")
+	assert_eq(creature.name, "myName", "Should set correct name")
+	assert_eq(creature.damage, 1, "Should set damage to one")
 
 	# tear down
 	character.free()
@@ -41,23 +44,38 @@ func test_create_character():
 
 func test_create_characters():
 	# arrange
-	var combat = Node2D.new()
+	var combat = Combat.new()
+	add_child(combat)
 
 	# act
 	var characters = combat_init.create_characters(combat, [
-			{ name = "Character 0", texture_file = "res://Assets/graphics/sprites/Fighter.png" },
-			{ name = "Character 1", texture_file = "res://Assets/graphics/sprites/Mage.png" },
+			{ 
+				name = "Character 0",
+				hit_points = 4,
+				damage = 1,
+				armor_class = 10,
+				sprite_frames = "res://Assets/graphics/sprites/Mage.tres"
+			},
+			{ 
+				name = "Character 1",
+				hit_points = 4,
+				damage = 1,
+				armor_class = 10,
+				sprite_frames = "res://Assets/graphics/sprites/Fighter.tres"
+			},
 		])
 
 	# assert
 	assert_eq(characters.size(), 2, "Should create two characters when two textures are given")
 	assert_eq(characters[0].position, Vector2(16, 16), "Should place 1st charater at (16, 16)")
-	assert_eq(characters[0].get_creature().get_name(), "Character 0", "Should name 1st charater with Character 0")
-	assert_eq(characters[1].get_creature().get_movement(), 4, "Should set movement of 1st charater")
+	assert_eq(characters[0].get_node("AnimatedSprite2D").sprite_frames, sprite_frames_mage, "Should have given texture")
+	assert_eq(characters[0].get_creature_name(), "Character 0", "Should name 1st charater with Character 0")
+	assert_eq(characters[0].get_movement(), 4, "Should set movement of 1st charater")
 
 	assert_eq(characters[1].position, Vector2(32, 16), "Should place 2nd charater at (32, 16)")
-	assert_eq(characters[1].get_creature().get_name(), "Character 1", "Should name 2nd charater with Character 1")
-	assert_eq(characters[1].get_creature().get_movement(), 4, "Should set movement of 2st charater")
+	assert_eq(characters[1].get_node("AnimatedSprite2D").sprite_frames, sprite_frames_fighter, "Should have given texture")
+	assert_eq(characters[1].get_creature_name(), "Character 1", "Should name 2nd charater with Character 1")
+	assert_eq(characters[1].get_movement(), 4, "Should set movement of 2st charater")
 
 	# tear down
 	for character in characters:
@@ -72,18 +90,17 @@ func test_create_monster():
 	monster_resource.name = "Skeleton"
 	monster_resource.hit_points = 2
 	monster_resource.armor_class = 10
-	monster_resource.texture = texture2
+	monster_resource.texture = sprite_frames_skeleton
 
 	# act
 	var monster = combat_init.create_monster(monster_resource, Vector2(3, 3))
 
 	# assert
-	assert_eq(monster.get_node("AnimatedSprite2D").sprite_frames, texture2, "Should have given texture")
 	assert_eq(monster.position, Vector2(48, 48), "Should place monster at (48, 48)")
 	var creature = monster.get_creature()
-	assert_eq(creature.get_name(), "Skeleton", "Should set name to Skeleton")
-	assert_eq(creature.get_hit_points(), 2, "Should set hit points to 2")
-	assert_eq(creature.get_armor_class(), 10, "Should set armor class to 10")
+	assert_eq(creature.name, "Skeleton", "Should set name to Skeleton")
+	assert_eq(creature.hit_points, 2, "Should set hit points to 2")
+	assert_eq(creature.armor_class, 10, "Should set armor class to 10")
 
 	# tear down
 	monster.free()
@@ -91,9 +108,10 @@ func test_create_monster():
 
 func test_create_monsters():
 	# arrange
-	var combat = Combat.new()
 	var skeleton = MonsterResource.new()
 	var skeleton_chief = MonsterResource.new()
+	var combat = Combat.new()
+	add_child(combat)
 
 	# act
 	var monsters = combat_init.create_monsters(combat, [ skeleton, skeleton_chief ])

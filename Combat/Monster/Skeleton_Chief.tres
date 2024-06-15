@@ -8,4 +8,5 @@ script = ExtResource("1_x6ytm")
 name = "Skeleton Chief"
 hit_points = 3
 armor_class = 12
+damage = 2
 texture = ExtResource("2_1p1aa")

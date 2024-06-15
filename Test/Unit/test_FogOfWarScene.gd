@@ -7,10 +7,11 @@ var fog_of_war: FogOfWar = null
 
 func before_each():
 	fog_of_war = FogOfWar.instantiate()
-	
+
 
 func after_each():
 	fog_of_war.free()
+
 
 func test_clear_fog_with_radius_0():
 
