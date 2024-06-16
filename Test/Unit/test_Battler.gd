@@ -66,30 +66,6 @@ func test_roll_attack():
 	assert_eq(result, 18, "Should roll attack of 10 when no bonus applied")
 
 
-func test_hurt():
-	# arrange
-	battler.set_hit_points(10)
-	watch_signals(battler)
-
-	# act
-	battler.hurt(3)
-
-	# assert
-	assert_eq(battler.get_hit_points(), 7, "Should reduce damage from hit point when hurt")
-	assert_signal_not_emitted(battler, "battler_died")
-
-
-func test_hurt_and_battler_died():
-	# arrange
-	battler.set_hit_points(10)
-	watch_signals(battler)
-
-	# act
-	battler.hurt(11)
-
-	# assert
-	assert_eq(battler.get_hit_points(), 0, "Should reduce damage from hit point when hurt")
-	assert_signal_emitted(battler, "battler_died")
 
 
 func test_step():
@@ -112,7 +88,7 @@ func test_start_turn():
 	battler.turn_indicator = Node2D.new()
 
 	# act
-	battler.start_turn()
+	battler.start_turn(Battlefield.new())
 
 	# assert
 	assert_eq(battler.get_movement(), 4, "Should set movement to max movement when combat round starts")

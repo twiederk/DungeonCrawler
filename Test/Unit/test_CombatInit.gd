@@ -118,8 +118,8 @@ func test_create_monsters():
 
 	# assert
 	assert_eq(monsters.size(), 2, "Should create one monster for each given texture")
-	assert_eq(monsters[0].position, Vector2(48, 48), "Should place 1st monster at (48, 48)")
-	assert_eq(monsters[1].position, Vector2(64, 48), "Should place 2nd monster at (64, 48)")
+	assert_eq(monsters[0].position, Vector2(48, 160), "Should place 1st monster at (48, 160)")
+	assert_eq(monsters[1].position, Vector2(64, 160), "Should place 2nd monster at (64, 160)")
 
 	# tear down
 	for monster in monsters:

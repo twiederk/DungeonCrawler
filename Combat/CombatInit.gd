@@ -1,5 +1,4 @@
 class_name CombatInit
-extends RefCounted
 
 const CharacterScene = preload("res://Combat/Character.tscn")
 const MonsterScene = preload("res://Combat/Monster.tscn")
@@ -38,7 +37,7 @@ func create_monsters(combat: Node, monster_resources: Array[MonsterResource]) ->
 	var monsters: Array[Battler] = []
 	var x = 3
 	for monster_resource in monster_resources:
-		var position = Vector2(x, 3)
+		var position = Vector2(x, 10)
 		var monster = create_monster(monster_resource, position)
 		monster.battler_died.connect(combat._on_battler_died)
 		monster.battler_attacked.connect(combat._on_battler_attacked)
@@ -61,6 +60,8 @@ func create_monster(monster_resource: MonsterResource, position: Vector2) -> Mon
 	monster.set_hit_points(monster_resource.hit_points)
 	monster.set_damage(monster_resource.damage)
 	monster.set_armor_class(monster_resource.armor_class)
+	monster.set_max_movement(monster_resource.max_movement)
+	monster.set_movement(monster_resource.max_movement)
 
 	return monster
 

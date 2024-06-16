@@ -1,5 +1,4 @@
 class_name GameSystem
-extends RefCounted
 
 func attack(attacker: Battler, defender: Battler) -> void:
 	var attack_roll = attacker.roll_attack()

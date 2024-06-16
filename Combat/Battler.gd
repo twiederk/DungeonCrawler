@@ -33,26 +33,26 @@ func _ready():
 	_ray_casts[Facing.UP] = ray_cast_up
 
 
-func start_turn():
-	print(get_creature_name(), ".start_turn()")
+func start_turn(battlefield: Battlefield):
+	#print(get_creature_name(), ".start_turn()")
 	turn_indicator.show()
 	set_movement(get_max_movement())
 	_combat_state = CombatState.READY
 
 
 func stop_turn():
-	print(get_creature_name(), ".stop_turn()")
+	#print(get_creature_name(), ".stop_turn()")
 	turn_indicator.hide()
 	_combat_state = CombatState.DONE
 
 
 func step() -> void:
-	print(get_creature_name(), ".step()")
+	#print(get_creature_name(), ".step()")
 	set_movement(get_movement() - 1)
 
 
 func attack() -> void:
-	print(get_creature_name(), ".attack()")
+	#print(get_creature_name(), ".attack()")
 	var target = get_target()
 	if target != null:
 		animationPlayer.play("Attack")
@@ -156,3 +156,7 @@ func degree_to_facing(degree: int) -> Facing:
 			return Battler.Facing.UP
 		_:
 			return Battler.Facing.RIGHT
+
+
+func get_battlefield_position() -> Vector2:
+	return position / Combat.TILE_SIZE

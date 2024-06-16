@@ -6,3 +6,4 @@ extends Resource
 @export var armor_class: int
 @export var damage: int
 @export var texture: Resource
+@export var max_movement: int
