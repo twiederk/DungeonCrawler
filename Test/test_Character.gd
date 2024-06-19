@@ -1,12 +1,10 @@
 extends GutTest
 
-const CharacterScene = preload("res://Combat/Character.tscn")
-
 var character: Character = null
 
 
 func before_each():
-	character = CharacterScene.instantiate()
+	character = Character.new()
 
 
 func after_each():

@@ -37,11 +37,11 @@ scene_name = "HirschhornCastleMap"
 [node name="CollisionShape2D" parent="Hirschhorn_Castle" index="0"]
 shape = SubResource("RectangleShape2D_qx7uw")
 
-[node name="Kobold_Cave" parent="." instance=ExtResource("4_rumgj")]
+[node name="OldMine" parent="." instance=ExtResource("4_rumgj")]
 position = Vector2(632, 568)
-scene_name = "KoboldCaveMap"
+scene_name = "OldMineMap"
 
-[node name="CollisionShape2D" parent="Kobold_Cave" index="0"]
+[node name="CollisionShape2D" parent="OldMine" index="0"]
 shape = SubResource("RectangleShape2D_fakej")
 
 [node name="Hirschhorn_Village" parent="." instance=ExtResource("4_rumgj")]
@@ -63,6 +63,6 @@ position = Vector2(632, 616)
 monsters = Array[Resource("res://Combat/MonsterResource.gd")]([ExtResource("6_4coaa")])
 
 [editable path="Hirschhorn_Castle"]
-[editable path="Kobold_Cave"]
+[editable path="OldMine"]
 [editable path="Hirschhorn_Village"]
 [editable path="Goldhausen_Village"]

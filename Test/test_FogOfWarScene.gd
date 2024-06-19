@@ -1,12 +1,12 @@
 extends GutTest
 
-const FogOfWar = preload("res://World/FogOfWar.tscn")
+const FogOfWarScene = preload("res://World/FogOfWar.tscn")
 
 var fog_of_war: FogOfWar = null
 
 
 func before_each():
-	fog_of_war = FogOfWar.instantiate()
+	fog_of_war = FogOfWarScene.instantiate()
 
 
 func after_each():

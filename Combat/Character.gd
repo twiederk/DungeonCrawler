@@ -51,7 +51,7 @@ func can_move(ray_cast: RayCast2D) -> bool:
 
 func move_step(direction: Vector2) -> void:
 	step()
-	position += direction * Combat.TILE_SIZE
+	position += direction * Battlefield.TILE_SIZE
 
 
 func get_target():

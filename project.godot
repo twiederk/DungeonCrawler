@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.13.0"
+config/description="1.14.0-SNAPSHOT"
 run/main_scene="res://World/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
@@ -31,10 +31,10 @@ editor/current_resources={
 "Character Editor": "res://Dialogic/V_HRN_Bartender.dch",
 "Timeline Editor": "res://Dialogic/LordOfHirschhorn.dtl"
 }
-editor/last/resources=[]
+editor/last/resources=["res://Dialogic/LordOfHirschhorn.dtl"]
 editor/visual_timeline_editor_sidebar=200.0
 editor/current_timeline_path="res://Dialogic/LordOfHirschhorn.dtl"
-editor/timeline_editor_mode=0
+editor/timeline_editor_mode=1
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
 animations/leave_default_wait=true

@@ -96,6 +96,10 @@ func get_creature() -> CreatureStats:
 	return _creature_stats
 
 
+func set_creature(creature_stats: CreatureStats) -> void:
+	_creature_stats = creature_stats
+
+
 func get_creature_name() -> String:
 	return _creature_stats.name
 
@@ -159,4 +163,4 @@ func degree_to_facing(degree: int) -> Facing:
 
 
 func get_battlefield_position() -> Vector2:
-	return position / Combat.TILE_SIZE
+	return position / Battlefield.TILE_SIZE

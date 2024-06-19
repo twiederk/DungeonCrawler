@@ -1,5 +1,6 @@
 class_name Battlefield
 
+const TILE_SIZE = 16
 const directions: Array[Vector2] = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
 
 var width: int = 20
@@ -19,6 +20,16 @@ func as_string() -> Array[String]:
 	for monster_position in monster_positions:
 		output[monster_position.y][monster_position.x] = "m"
 	return output
+
+
+func place_characters(characters: Array[Battler]) -> void:
+	for x in characters.size():
+		characters[x].position = Vector2((x + 1) * TILE_SIZE, 16)
+
+
+func place_monsters(monsters: Array[Battler]) -> void:
+	for x in monsters.size():
+		monsters[x].position = Vector2((x + 3) * TILE_SIZE, 160)
 
 
 func find_neighbors(position: Vector2) -> Array[Vector2]:

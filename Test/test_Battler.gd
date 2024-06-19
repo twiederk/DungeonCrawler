@@ -45,13 +45,13 @@ func test_get_set_damage():
 func test_get_set_movement():
 
 	# assert
-	assert_accessors(battler, "movement", 4, 1)
+	assert_accessors(battler, "movement", 0, 1)
 
 
 func test_get_set_max_movement():
 
 	# assert
-	assert_accessors(battler, "max_movement", 4, 1)
+	assert_accessors(battler, "max_movement", 0, 1)
 
 
 func test_roll_attack():
@@ -85,6 +85,7 @@ func test_start_turn():
 	# arrange
 	battler._combat_state = Battler.CombatState.DONE
 	battler.set_movement(0)
+	battler.set_max_movement(4)
 	battler.turn_indicator = Node2D.new()
 
 	# act

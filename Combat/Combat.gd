@@ -1,11 +1,11 @@
 class_name Combat
 extends Node
 
-const TILE_SIZE = 16
+const CharacterScene = preload("res://Combat/Character.tscn")
+const MonsterScene = preload("res://Combat/Monster.tscn")
 
 var characters: Array[Battler] = []
 var monsters: Array[Battler] = []
-
 var all_battlers: Array[Battler] = []
 
 var current_battler: Node2D
@@ -19,9 +19,12 @@ func _ready():
 
 	var combat_init = CombatInit.new()
 
-	characters = combat_init.create_characters(self, PlayerStats.characters)
-	monsters = combat_init.create_monsters(self, EncounterStats.monsters)
+	characters = combat_init.create_battlers(CharacterScene, self, PlayerStats.character_stats)
+	Battlefield.new().place_characters(characters)
 	all_battlers.append_array(characters)
+
+	monsters = combat_init.create_battlers(MonsterScene, self, EncounterStats.get_monster_stats())
+	Battlefield.new().place_monsters(monsters)
 	all_battlers.append_array(monsters)
 
 	current_battler = all_battlers[current_battler_index]

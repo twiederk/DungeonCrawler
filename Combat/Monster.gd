@@ -17,7 +17,7 @@ func move(battlefield: Battlefield):
 	for movement in get_max_movement():
 		if movement >= path.size():
 			break
-		position = path[movement] * Combat.TILE_SIZE
+		position = path[movement] * Battlefield.TILE_SIZE
 		await get_tree().create_timer(0.6).timeout
 
 

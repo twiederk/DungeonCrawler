@@ -191,7 +191,6 @@ func test_bfs_from_bottom_right_to_top_left():
 	assert_eq(path, [ Vector2(2, 3), Vector2(1, 3), Vector2(0, 3), Vector2(0, 2), Vector2(0, 1), Vector2(0, 0)])
 
 
-
 func test_manhatten_distance():
 
 	# act
@@ -199,3 +198,39 @@ func test_manhatten_distance():
 
 	# assert
 	assert_eq(distance, 7)
+
+
+func test_place_characters():
+	# arrange
+	var character1 = Character.new()
+	var character2 = Character.new()
+	var characters: Array[Battler] = [ character1, character2 ]
+	
+	# act
+	battlefield.place_characters(characters)
+	
+	# assert
+	assert_eq(character1.position,  Vector2(16, 16))
+	assert_eq(character2.position,  Vector2(32, 16))
+	
+	# tear down
+	character1.free()
+	character2.free()
+
+
+func test_place_monsters():
+	# arrange
+	var monster1 = Monster.new()
+	var monster2 = Monster.new()
+	var monsters: Array[Battler] = [ monster1, monster2 ]
+	
+	# act
+	battlefield.place_monsters(monsters)
+	
+	# assert
+	assert_eq(monster1.position,  Vector2(48, 160))
+	assert_eq(monster2.position,  Vector2(64, 160))
+	
+	# tear down
+	monster1.free()
+	monster2.free()
