@@ -1,8 +1,7 @@
-if {PlayerStats.old_mine} == "false":
+if {old_mine} == false:
 	LordOfHirschhorn: Seid gegrüßt Linda und Leon von Steinau.
 	LordOfHirschhorn: Der Jäger hat mir berichtet, dass er Skelette bei der alten Mine gesehen hat.[br]Seht dort bitte nach dem Rechten und passt auf euch auf.
 	LordOfHirschhorn: Gehabt euch wohl.
 else:
 	LordOfHirschhorn: Ihr habt die Skelette in der alten Mine besiegt.[br]Ich danke euch dafür.
 	LordOfHirschhorn: Gehabt euch wohl
-

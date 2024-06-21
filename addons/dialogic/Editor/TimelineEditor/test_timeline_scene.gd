@@ -5,13 +5,8 @@ func _ready() -> void:
 	if !ProjectSettings.get_setting('internationalization/locale/test', "").is_empty():
 		print("Testing locale is: ", ProjectSettings.get_setting('internationalization/locale/test'))
 	$PauseIndictator.hide()
-	var dialog_scene_path: String = DialogicUtil.get_project_setting(
-		'dialogic/editor/custom_testing_layout',
-		DialogicUtil.get_default_layout()
-	)
-	var scene: Node = load(dialog_scene_path).instantiate()
-	DialogicUtil.apply_scene_export_overrides(scene, ProjectSettings.get_setting('dialogic/layout/export_overrides', {}))
-	add_child(scene)
+
+	var scene: Node = DialogicUtil.autoload().Styles.load_style(DialogicUtil.get_editor_setting('current_test_style', ''))
 	if not scene is CanvasLayer:
 		if scene is Control:
 			scene.position = get_viewport_rect().size/2.0
@@ -19,19 +14,31 @@ func _ready() -> void:
 			scene.position = get_viewport_rect().size/2.0
 
 	randomize()
-	var current_timeline: String = ProjectSettings.get_setting('dialogic/editor/current_timeline_path')
-	Dialogic.start_timeline(current_timeline)
-	Dialogic.timeline_ended.connect(get_tree().quit)
-	Dialogic.signal_event.connect(recieve_event_signal)
-	Dialogic.text_signal.connect(recieve_text_signal)
+	var current_timeline: String = DialogicUtil.get_editor_setting('current_timeline_path', null)
+	if !current_timeline:
+		get_tree().quit()
+	DialogicUtil.autoload().start(current_timeline)
+	DialogicUtil.autoload().timeline_ended.connect(get_tree().quit)
+	DialogicUtil.autoload().signal_event.connect(receive_event_signal)
+	DialogicUtil.autoload().text_signal.connect(receive_text_signal)
 
-func recieve_event_signal(argument:String) -> void:
+func receive_event_signal(argument:String) -> void:
 	print("[Dialogic] Encountered a signal event: ", argument)
 
-func recieve_text_signal(argument:String) -> void:
+func receive_text_signal(argument:String) -> void:
 	print("[Dialogic] Encountered a signal in text: ", argument)
 
 func _input(event:InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		Dialogic.paused = !Dialogic.paused
-		$PauseIndictator.visible = Dialogic.paused
+		DialogicUtil.autoload().paused = !DialogicUtil.autoload().paused
+		$PauseIndictator.visible = DialogicUtil.autoload().paused
+
+	if (event is InputEventMouseButton
+	and event.is_pressed()
+	and event.button_index == MOUSE_BUTTON_MIDDLE):
+		var auto_skip: DialogicAutoSkip = DialogicUtil.autoload().Inputs.auto_skip
+		var is_auto_skip_enabled := auto_skip.enabled
+
+		auto_skip.disable_on_unread_text = false
+		auto_skip.enabled = !is_auto_skip_enabled
+

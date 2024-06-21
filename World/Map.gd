@@ -25,8 +25,3 @@ func set_camera_limits():
 
 func unpause():
 	get_tree().paused = false
-
-
-
-func _on_necromancer_encounter_tree_exited():
-	PlayerStats.old_mine = "true"

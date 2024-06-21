@@ -9,8 +9,6 @@ func before_each():
 
 func test_as_string():
 	# arrange
-	battlefield.width = 5
-	battlefield.height = 3
 	battlefield.character_positions = [Vector2(1, 1), Vector2(2, 1)]
 	battlefield.monster_positions = [Vector2(3, 2), Vector2(4, 2)]
 
@@ -18,9 +16,9 @@ func test_as_string():
 	var output = battlefield.as_string()
 
 	# assert
-	assert_eq(output[0], "-----")
-	assert_eq(output[1], "-cc--")
-	assert_eq(output[2], "---mm")
+	assert_eq(output[0], "--------------------")
+	assert_eq(output[1], "-cc-----------------")
+	assert_eq(output[2], "---mm---------------")
 
 
 func test_find_attack_positions():

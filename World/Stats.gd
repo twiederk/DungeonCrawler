@@ -3,12 +3,19 @@ extends Node
 
 var start_position: Vector2
 
-var old_mine = "false"
+var monsters: Array[MonsterResource] = []
 
 var character_stats: Array = [
 	get_linda(),
 	get_leon(),
 ]
+
+
+func get_monster_stats() -> Array[CreatureStats]:
+	var monster_stats: Array[CreatureStats] = []
+	for monster in monsters:
+		monster_stats.append(monster.to_creature_stats())
+	return monster_stats
 
 
 func get_linda() -> CreatureStats:

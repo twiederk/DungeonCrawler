@@ -83,7 +83,7 @@ func test_step():
 func test_start_turn():
 
 	# arrange
-	battler._combat_state = Battler.CombatState.DONE
+	battler._battle_state = Battler.BattleState.DONE
 	battler.set_movement(0)
 	battler.set_max_movement(4)
 	battler.turn_indicator = Node2D.new()
@@ -92,8 +92,8 @@ func test_start_turn():
 	battler.start_turn(Battlefield.new())
 
 	# assert
-	assert_eq(battler.get_movement(), 4, "Should set movement to max movement when combat round starts")
-	assert_eq(battler._combat_state, Battler.CombatState.READY, "Should set combat state to READY when combat round starts")
+	assert_eq(battler.get_movement(), 4, "Should set movement to max movement when battle round starts")
+	assert_eq(battler._battle_state, Battler.BattleState.READY, "Should set battle state to READY when battle round starts")
 
 	# tear down
 	battler.turn_indicator.free()

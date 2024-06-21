@@ -1,0 +1,3 @@
+if {game_intro} == true:
+	Ihr seid Prinzessen Linda und Ritter Leon im Dienste des Grafen von Hirschhorn. Der Graf hat euch in seinen Thronsaal beordert, um euch einen Auftrag zu erteilen.
+	set {game_intro} = false

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://by1e7orwbgkoq"]
+
+[ext_resource type="Script" path="res://Battle/Camera.gd" id="1"]
+
+[node name="Camera2D" type="Camera2D"]
+offset = Vector2(320, 180)
+script = ExtResource("1")
+
+[node name="Limits" type="Node" parent="."]
+
+[node name="TopLeft" type="Marker2D" parent="Limits"]
+position = Vector2(-12, -12)
+
+[node name="BottomRight" type="Marker2D" parent="Limits"]
+position = Vector2(642, 360)

@@ -1,19 +1,19 @@
 [gd_scene load_steps=10 format=3 uid="uid://cnwfoxjyi5x7s"]
 
-[ext_resource type="Script" path="res://World/Map.gd" id="1_lfpc7"]
+[ext_resource type="Script" path="res://World/OldMineMap.gd" id="1_hgkyt"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_6g285"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="3_4pwxk"]
 [ext_resource type="PackedScene" uid="uid://cl5l67ofwwqhl" path="res://World/FogOfWar.tscn" id="3_q07pd"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="4_8y5em"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="6_n5udb"]
-[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Combat/Monster/Skeleton.tres" id="7_wkgkh"]
-[ext_resource type="Resource" uid="uid://dpvlpgt3nxih5" path="res://Combat/Monster/Skeleton_Chief.tres" id="8_vhwar"]
+[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton.tres" id="7_wkgkh"]
+[ext_resource type="Resource" uid="uid://dpvlpgt3nxih5" path="res://Battle/Monster/Skeleton_Chief.tres" id="8_vhwar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kujq0"]
 size = Vector2(58, 19)
 
 [node name="OldMine" type="Node2D"]
-script = ExtResource("1_lfpc7")
+script = ExtResource("1_hgkyt")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_6g285")
@@ -36,15 +36,15 @@ position = Vector2(264, 472)
 
 [node name="Encounter" parent="Encounters" instance=ExtResource("6_n5udb")]
 position = Vector2(264, 328)
-monsters = Array[Resource("res://Combat/MonsterResource.gd")]([ExtResource("7_wkgkh")])
+monsters = Array[Resource("res://Battle/MonsterResource.gd")]([ExtResource("7_wkgkh")])
 
 [node name="NecromancerEncounter" parent="Encounters" instance=ExtResource("6_n5udb")]
 position = Vector2(168, 328)
-monsters = Array[Resource("res://Combat/MonsterResource.gd")]([ExtResource("7_wkgkh"), ExtResource("7_wkgkh"), ExtResource("8_vhwar")])
+monsters = Array[Resource("res://Battle/MonsterResource.gd")]([ExtResource("7_wkgkh"), ExtResource("7_wkgkh"), ExtResource("8_vhwar")])
 
 [node name="Encounter3" parent="Encounters" instance=ExtResource("6_n5udb")]
 position = Vector2(264, 232)
-monsters = Array[Resource("res://Combat/MonsterResource.gd")]([ExtResource("7_wkgkh"), ExtResource("7_wkgkh"), ExtResource("7_wkgkh"), ExtResource("7_wkgkh")])
+monsters = Array[Resource("res://Battle/MonsterResource.gd")]([ExtResource("7_wkgkh"), ExtResource("7_wkgkh"), ExtResource("7_wkgkh"), ExtResource("7_wkgkh")])
 
 [node name="FogOfWar" parent="." instance=ExtResource("3_q07pd")]
 visible = false

@@ -15,7 +15,7 @@ func _get_resource_type(path: String) -> String:
 	var ext = path.get_extension().to_lower()
 	if ext == "dtl":
 		return "Resource"
-	
+
 	return ""
 
 
@@ -26,25 +26,14 @@ func _handles_type(typename: StringName) -> bool:
 
 # parse the file and return a resource
 func _load(path: String, original_path: String, use_sub_threads: bool, cache_mode: int):
-#	print('[Dialogic] Reimporting timeline "' , path, '"')
-	if FileAccess.file_exists(path):
-		var file := FileAccess.open(path, FileAccess.READ)
-		var res := DialogicTimeline.new()
-		var text : String = file.get_as_text()
-		
-		# Parse the lines as seperate events and insert them in an array, so they can be converted to DialogicEvent's when processed later
-		var prev_indent := ""
-		var events := []
-		
-		var lines := text.split('\n', true)
-		var idx := -1
-		
-		while idx < len(lines)-1:
-			idx += 1
-			var line :String = lines[idx]
-			var line_stripped :String = line.strip_edges(true, true)
-			events.append(line)
-		
-		res.events = events
-		res.events_processed = false
-		return res
+	var file := FileAccess.open(path, FileAccess.READ)
+	
+	if not file:
+		# For now, just let editor know that for some reason you can't
+		# read the file.
+		print("[Dialogic] Error opening file:", FileAccess.get_open_error())
+		return FileAccess.get_open_error()
+	
+	var tml := DialogicTimeline.new()
+	tml.from_text(file.get_as_text())
+	return tml

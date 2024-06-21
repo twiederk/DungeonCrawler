@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.14.0"
+config/description="1.15.0-snapshot"
 run/main_scene="res://World/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
@@ -20,8 +20,7 @@ config/windows_native_icon="res://Assets/graphics/icon.ico"
 
 PlayerStats="*res://World/Stats.gd"
 LevelStats="*res://World/LevelStats.gd"
-EncounterStats="*res://World/EncounterStats.gd"
-Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -31,7 +30,7 @@ editor/current_resources={
 "Character Editor": "res://Dialogic/V_HRN_Bartender.dch",
 "Timeline Editor": "res://Dialogic/LordOfHirschhorn.dtl"
 }
-editor/last/resources=["res://Dialogic/LordOfHirschhorn.dtl"]
+editor/last/resources=[]
 editor/visual_timeline_editor_sidebar=200.0
 editor/current_timeline_path="res://Dialogic/LordOfHirschhorn.dtl"
 editor/timeline_editor_mode=1
@@ -50,8 +49,27 @@ text/skippable=true
 text/autocontinue_delay=1.0
 glossary/default_case_sensitive=true
 layout/mode=0
-variables={}
+variables={
+"game_intro": true,
+"old_mine": false
+}
 extensions_folder="res://Dialogic"
+directories/dch_directory={
+"LordOfHirschhorn": "res://Dialogic/LordOfHirschhorn.dch",
+"V_HRN_Bartender": "res://Dialogic/V_HRN_Bartender.dch",
+"V_HRN_Healer": "res://Dialogic/V_HRN_Healer.dch",
+"V_HRN_Innkeeper": "res://Dialogic/V_HRN_Innkeeper.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+}
+directories/dtl_directory={
+"GameIntro": "res://Dialogic/GameIntro.dtl",
+"LordOfHirschhorn": "res://Dialogic/LordOfHirschhorn.dtl",
+"V_HRN_Bartender": "res://Dialogic/V_HRN_Bartender.dtl",
+"V_HRN_Healer": "res://Dialogic/V_HRN_Healer.dtl",
+"V_HRN_Innkeeper": "res://Dialogic/V_HRN_Innkeeper.dtl"
+}
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 

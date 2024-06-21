@@ -1,6 +1,6 @@
 extends GutTest
 
-const MonsterScene = preload("res://Combat/Monster.tscn")
+const MonsterScene = preload("res://Battle/Monster.tscn")
 var game_system: GameSystem = null
 
 

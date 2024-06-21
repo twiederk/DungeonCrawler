@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu65xtehcmq2r"]
+
+[ext_resource type="Texture2D" uid="uid://cdoc7h15351kf" path="res://Assets/graphics/sprites/Hit.png" id="1_dugf6"]
+[ext_resource type="AudioStream" uid="uid://4fssn2piy0jf" path="res://Assets/Audio/Hit.wav" id="2_eiwfx"]
+[ext_resource type="Script" path="res://Battle/HitEffect.gd" id="2_saabv"]
+
+[node name="HitEffect" type="Sprite2D"]
+texture = ExtResource("1_dugf6")
+script = ExtResource("2_saabv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eiwfx")
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
