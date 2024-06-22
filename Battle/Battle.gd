@@ -12,8 +12,8 @@ var current_battler: Node2D
 var current_battler_index: int
 
 var game_system: GameSystem = GameSystem.new()
-var battlefield: Battlefield = Battlefield.new()
 
+@onready var battlefield = $Battlefield
 
 func _ready():
 	randomize()
@@ -62,8 +62,8 @@ func _on_battler_died(battler: Battler) -> void:
 		characters.erase(battler)
 	else:
 		monsters.erase(battler)
+		battler.queue_free()
 	all_battlers.erase(battler)
-	battler.queue_free()
 
 
 func get_battlefield() -> Battlefield:

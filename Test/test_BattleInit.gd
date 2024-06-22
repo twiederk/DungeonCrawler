@@ -1,5 +1,7 @@
 extends GutTest
 
+const BattleScene = preload("res://Battle/Battle.tscn")
+
 const sprite_frames_fighter = preload("res://Assets/graphics/sprites/Fighter.tres")
 const sprite_frames_mage = preload("res://Assets/graphics/sprites/Mage.tres")
 const sprite_frames_skeleton = preload("res://Assets/graphics/sprites/Skeleton.tres")
@@ -18,10 +20,9 @@ func test_create_battler():
 	var linda = get_linda()
 
 	# act
-	var battler = battle_init.create_battler(scene, linda, Vector2(2, 2))
+	var battler = battle_init.create_battler(scene, linda)
 
 	# assert
-	assert_eq(battler.position, Vector2(32, 32), "Should have correct position")
 	var creature = battler.get_creature()
 	assert_eq(creature.name, "Linda", "Should set correct name")
 	assert_eq(creature.hit_points, 1, "Should set hit points to one")
@@ -38,7 +39,7 @@ func test_create_battlers():
 	# arrange
 	var character_stats = [ get_linda(), get_leon() ]
 	var character_scene = load("res://Battle/Character.tscn")
-	var battle = Battle.new()
+	var battle = BattleScene.instantiate()
 	add_child(battle)
 
 	# act
@@ -46,11 +47,9 @@ func test_create_battlers():
 
 	# assert
 	assert_eq(characters.size(), 2, "Should create two characters when two textures are given")
-	assert_eq(characters[0].position, Vector2(16, 16), "Should place 1st charater at (16, 16)")
 	assert_eq(characters[0].get_node("AnimatedSprite2D").sprite_frames, sprite_frames_mage, "Should have given texture")
 	assert_eq(characters[0].get_creature_name(), "Linda", "Should name 1st charater with Linda")
 
-	assert_eq(characters[1].position, Vector2(32, 16), "Should place 2nd charater at (32, 16)")
 	assert_eq(characters[1].get_node("AnimatedSprite2D").sprite_frames, sprite_frames_fighter, "Should have given texture")
 	assert_eq(characters[1].get_creature_name(), "Leon", "Should name 2nd charater with Leon")
 

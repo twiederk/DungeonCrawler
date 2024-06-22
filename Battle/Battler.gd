@@ -5,7 +5,7 @@ signal battler_attacked(attacker, defender)
 signal battler_died(battler)
 signal turn_ended
 
-enum BattleState {READY, DONE}
+enum BattleState { READY, DONE, DEAD }
 enum Facing { RIGHT = 0, DOWN = 90, LEFT = 180, UP = 270 }
 
 const HitEffectScene = preload("res://Battle/HitEffect.tscn")
@@ -36,7 +36,7 @@ func _ready():
 func start_turn(battlefield: Battlefield):
 	#print(get_creature_name(), ".start_turn()")
 	turn_indicator.show()
-	set_movement(get_max_movement())
+	set_movement(0)
 	_battle_state = BattleState.READY
 
 
@@ -48,7 +48,7 @@ func stop_turn():
 
 func step() -> void:
 	#print(get_creature_name(), ".step()")
-	set_movement(get_movement() - 1)
+	set_movement(get_movement() + 1)
 
 
 func attack() -> void:
@@ -73,8 +73,13 @@ func hurt(damage: int) -> void:
 	update_health_bar()
 	display_hit_effect()
 	if get_hit_points() <= 0:
-		set_hit_points(0)
-		battler_died.emit(self)
+		dead()
+
+
+func dead():
+	set_hit_points(0)
+	_battle_state = BattleState.DEAD
+	battler_died.emit(self)
 
 
 func display_hit_effect() -> void:

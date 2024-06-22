@@ -117,4 +117,10 @@ target_position = Vector2(0, 16)
 collision_mask = 3
 collide_with_areas = true
 
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="move_animation"]
+
 [editable path="Hurtbox"]

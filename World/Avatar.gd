@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal position_changed(position)
 
-const TILE_SIZE = 16
+const TILE_SIZE: int = 16
 
 @onready var ray_cast_left = $RayCastLeft
 @onready var ray_cast_right = $RayCastRight
@@ -34,7 +34,6 @@ func _physics_process(_delta):
 		if not ray_cast_down.is_colliding():
 			position += Vector2(0, TILE_SIZE)
 			position_changed.emit(position)
-
 
 func set_camera_limits(limits: Vector2) -> void:
 	camera_2d.set_limit(SIDE_RIGHT, limits.x)

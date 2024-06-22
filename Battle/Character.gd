@@ -6,6 +6,8 @@ var _inventory: Inventory = Inventory.new()
 @onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
 @onready var hitboxPivot = $HitboxPivot
 @onready var name_label = $NameLabel
+@onready var dead_body_sprite_2d = $DeadBodySprite2D
+@onready var collision_shape_2d = $CollisionShape2D
 
 
 func _ready():
@@ -46,7 +48,7 @@ func turn(rotation_degree: int) -> void:
 
 
 func can_move(ray_cast: RayCast2D) -> bool:
-	return not ray_cast.is_colliding() and _creature_stats.movement > 0
+	return not ray_cast.is_colliding() and get_movement() < get_max_movement()
 
 
 func move_step(direction: Vector2) -> void:
@@ -70,4 +72,10 @@ func _on_Item_picked(dict: Dictionary) -> void:
 func get_inventory() -> Inventory:
 	return _inventory
 
+
+func dead():
+	animated_sprite_2d.hide()
+	dead_body_sprite_2d.show()
+	collision_shape_2d.disabled = true
+	super.dead()
 

@@ -71,29 +71,32 @@ func test_roll_attack():
 func test_step():
 
 	# arrange
-	battler.set_movement(4)
+	battler.set_movement(2)
 
 	# act
 	battler.step()
 
 	# assert
-	assert_eq(battler.get_movement(), 3, "Should decrease movement by 1 when creature does a step")
+	assert_eq(battler.get_movement(), 3, "Should increase movement by 1 when creature does a step")
 
 
 func test_start_turn():
 
 	# arrange
+	var battlefield = Battlefield.new()
+	var turn_indicator = Node2D.new()
 	battler._battle_state = Battler.BattleState.DONE
-	battler.set_movement(0)
+	battler.set_movement(4)
 	battler.set_max_movement(4)
-	battler.turn_indicator = Node2D.new()
+	battler.turn_indicator = turn_indicator
 
 	# act
-	battler.start_turn(Battlefield.new())
+	battler.start_turn(battlefield)
 
 	# assert
-	assert_eq(battler.get_movement(), 4, "Should set movement to max movement when battle round starts")
+	assert_eq(battler.get_movement(), 0, "Should set movement to zero when battle round starts")
 	assert_eq(battler._battle_state, Battler.BattleState.READY, "Should set battle state to READY when battle round starts")
 
 	# tear down
-	battler.turn_indicator.free()
+	turn_indicator.free()
+	battlefield.free()

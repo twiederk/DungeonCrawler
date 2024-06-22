@@ -7,6 +7,10 @@ func before_each():
 	battlefield = Battlefield.new()
 
 
+func after_each():
+	battlefield.free()
+
+
 func test_as_string():
 	# arrange
 	battlefield.character_positions = [Vector2(1, 1), Vector2(2, 1)]
@@ -16,9 +20,9 @@ func test_as_string():
 	var output = battlefield.as_string()
 
 	# assert
-	assert_eq(output[0], "--------------------")
-	assert_eq(output[1], "-cc-----------------")
-	assert_eq(output[2], "---mm---------------")
+	assert_eq(output[0], "----------------------------------------")
+	assert_eq(output[1], "-cc-------------------------------------")
+	assert_eq(output[2], "---mm-----------------------------------")
 
 
 func test_find_attack_positions():
@@ -196,39 +200,3 @@ func test_manhatten_distance():
 
 	# assert
 	assert_eq(distance, 7)
-
-
-func test_place_characters():
-	# arrange
-	var character1 = Character.new()
-	var character2 = Character.new()
-	var characters: Array[Battler] = [ character1, character2 ]
-	
-	# act
-	battlefield.place_characters(characters)
-	
-	# assert
-	assert_eq(character1.position,  Vector2(16, 16))
-	assert_eq(character2.position,  Vector2(32, 16))
-	
-	# tear down
-	character1.free()
-	character2.free()
-
-
-func test_place_monsters():
-	# arrange
-	var monster1 = Monster.new()
-	var monster2 = Monster.new()
-	var monsters: Array[Battler] = [ monster1, monster2 ]
-	
-	# act
-	battlefield.place_monsters(monsters)
-	
-	# assert
-	assert_eq(monster1.position,  Vector2(48, 160))
-	assert_eq(monster2.position,  Vector2(64, 160))
-	
-	# tear down
-	monster1.free()
-	monster2.free()

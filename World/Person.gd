@@ -7,13 +7,8 @@ var can_talk = false
 
 
 func _input(event):
-	if get_node_or_null("DefaultDialogNode") == null:
-		if can_talk and event.is_action_pressed("talk"):
-#			get_tree().paused = true
-			var dialog = Dialogic.start(timeline)
-#			dialog.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-#			dialog.timeline_ended.connect(unpause)
-#			add_child(dialog)
+	if can_talk and event.is_action_pressed("talk"):
+		Dialogic.start(timeline)
 
 
 func _on_talk_detection_zone_body_entered(body):

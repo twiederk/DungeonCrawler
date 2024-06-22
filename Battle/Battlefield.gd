@@ -1,12 +1,16 @@
 class_name Battlefield
+extends Node2D
 
 const TILE_SIZE = 16
-const width: int = 20
-const height: int = 12
+const width: int = 40
+const height: int = 24
 const directions: Array[Vector2] = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
 
 var character_positions = []
 var monster_positions = []
+
+@onready var character_start_markers = $CharacterStartMarkers
+@onready var monster_start_markers = $MonsterStartMarkers
 
 
 func as_string() -> Array[String]:
@@ -22,30 +26,32 @@ func as_string() -> Array[String]:
 
 
 func place_characters(characters: Array[Battler]) -> void:
-	for x in characters.size():
-		characters[x].position = Vector2((x + 1) * TILE_SIZE, 16)
+	var character_start_positions = character_start_markers.get_children()
+	for index in characters.size():
+		characters[index].position = character_start_positions[index].position
 
 
 func place_monsters(monsters: Array[Battler]) -> void:
-	for x in monsters.size():
-		monsters[x].position = Vector2((x + 3) * TILE_SIZE, 160)
+	var monster_start_positions = monster_start_markers.get_children()
+	for index in monsters.size():
+		monsters[index].position = monster_start_positions[index].position
 
 
-func find_neighbors(position: Vector2) -> Array[Vector2]:
+func find_neighbors(pos: Vector2) -> Array[Vector2]:
 	var neighbors: Array[Vector2] = []
 	for direction in directions:
-		var neighbor = position + direction
+		var neighbor = pos + direction
 		if is_on_battlefield(neighbor) and is_free(neighbor):
 			neighbors.append(neighbor)
 	return neighbors
 
 
-func is_on_battlefield(position: Vector2) -> bool:
-	return position.x >= 0 and position.x < width and position.y >= 0 and position.y < height
+func is_on_battlefield(pos: Vector2) -> bool:
+	return pos.x >= 0 and pos.x < width and pos.y >= 0 and pos.y < height
 
 
-func is_free(position: Vector2) -> bool:
-	return not character_positions.has(position) and not monster_positions.has(position)
+func is_free(pos: Vector2) -> bool:
+	return not character_positions.has(pos) and not monster_positions.has(pos)
 
 
 func manhatten_distance(vector1: Vector2, vector2: Vector2) -> int:
@@ -60,9 +66,9 @@ func find_attack_positions() -> Array[Vector2]:
 	return attack_positions
 
 
-func find_nearest_attack_position(position: Vector2) -> Vector2:
+func find_nearest_attack_position(pos: Vector2) -> Vector2:
 	var attack_positions = find_attack_positions()
-	attack_positions.sort_custom(func (pos1, pos2): return manhatten_distance(position, pos1) < manhatten_distance(position, pos2))
+	attack_positions.sort_custom(func (pos1, pos2): return manhatten_distance(pos, pos1) < manhatten_distance(pos, pos2))
 	return attack_positions[0]
 
 

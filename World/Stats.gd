@@ -6,8 +6,8 @@ var start_position: Vector2
 var monsters: Array[MonsterResource] = []
 
 var character_stats: Array = [
-	get_linda(),
 	get_leon(),
+	get_linda(),
 ]
 
 
