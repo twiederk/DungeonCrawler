@@ -1,7 +1,7 @@
 class_name Person
 extends CharacterBody2D
 
-@export var timeline : String
+@export var timeline : DialogicTimeline
 
 var can_talk = false
 

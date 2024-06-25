@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnwfoxjyi5x7s"]
+[gd_scene load_steps=11 format=3 uid="uid://cnwfoxjyi5x7s"]
 
 [ext_resource type="Script" path="res://World/OldMineMap.gd" id="1_hgkyt"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_6g285"]
+[ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/MapBorders.tscn" id="2_uhipc"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="3_4pwxk"]
 [ext_resource type="PackedScene" uid="uid://cl5l67ofwwqhl" path="res://World/FogOfWar.tscn" id="3_q07pd"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="4_8y5em"]
@@ -14,6 +15,8 @@ size = Vector2(58, 19)
 
 [node name="OldMine" type="Node2D"]
 script = ExtResource("1_hgkyt")
+
+[node name="MapBorders" parent="." instance=ExtResource("2_uhipc")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_6g285")

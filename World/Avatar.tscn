@@ -7,7 +7,10 @@
 size = Vector2(15, 15)
 
 [node name="Avatar" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_8sosr")
+KEY_LOCKED_THRESHOLD = 0.4
+KEY_PRESSED_THRESHOLD = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_sg06e")
@@ -17,15 +20,19 @@ shape = SubResource("1")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-16, 0)
+collide_with_areas = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(16, 0)
+collide_with_areas = true
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
 target_position = Vector2(0, -16)
+collide_with_areas = true
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 16)
+collide_with_areas = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 0

@@ -18,11 +18,7 @@ func move(battlefield: Battlefield):
 	var attack_position = battlefield.find_nearest_attack_position(get_battlefield_position())
 	path = battlefield.bfs(get_battlefield_position(), attack_position)
 	move_animation()
-	#for movement in get_max_movement():
-		#if movement >= path.size():
-			#break
-		#position = path[movement] * Battlefield.TILE_SIZE
-		#await get_tree().create_timer(0.6).timeout
+
 
 func move_animation():
 	if get_movement() < get_max_movement() && get_movement() < path.size():

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.16.0"
+config/description="1.17.0-SNAPSHOT"
 run/main_scene="res://World/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
@@ -58,8 +58,7 @@ directories/dch_directory={
 "LordOfHirschhorn": "res://Dialogic/LordOfHirschhorn.dch",
 "V_HRN_Bartender": "res://Dialogic/V_HRN_Bartender.dch",
 "V_HRN_Healer": "res://Dialogic/V_HRN_Healer.dch",
-"V_HRN_Innkeeper": "res://Dialogic/V_HRN_Innkeeper.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+"V_HRN_Innkeeper": "res://Dialogic/V_HRN_Innkeeper.dch"
 }
 directories/dtl_directory={
 "GameIntro": "res://Dialogic/GameIntro.dtl",
@@ -130,6 +129,7 @@ talk={
 2d_physics/layer_4="MonsterHurtbox"
 2d_physics/layer_5="Item"
 2d_physics/layer_6="PlayerHitbox"
+2d_physics/layer_7="Location"
 
 [physics]
 

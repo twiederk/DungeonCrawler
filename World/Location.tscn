@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://World/Location.gd" id="1_hheir"]
 
 [node name="Location" type="Area2D"]
+collision_layer = 64
+collision_mask = 2
 script = ExtResource("1_hheir")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

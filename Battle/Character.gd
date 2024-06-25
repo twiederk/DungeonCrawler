@@ -8,7 +8,7 @@ var _inventory: Inventory = Inventory.new()
 @onready var name_label = $NameLabel
 @onready var dead_body_sprite_2d = $DeadBodySprite2D
 @onready var collision_shape_2d = $CollisionShape2D
-
+@onready var hitbox_pivot = $HitboxPivot
 
 func _ready():
 	super._ready()
@@ -75,6 +75,7 @@ func get_inventory() -> Inventory:
 
 func dead():
 	animated_sprite_2d.hide()
+	hitbox_pivot.hide()
 	dead_body_sprite_2d.show()
 	collision_shape_2d.disabled = true
 	super.dead()
