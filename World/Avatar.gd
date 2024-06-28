@@ -2,13 +2,11 @@ class_name Avatar
 extends CharacterBody2D
 
 signal position_changed(position)
-
 const TILE_SIZE: int = 16
-const UP = Vector2(0, -TILE_SIZE)
-const DOWN = Vector2(0, TILE_SIZE)
-const LEFT = Vector2(-TILE_SIZE, 0)
-const RIGHT = Vector2(TILE_SIZE, 0)
-
+const UP: Vector2 = Vector2(0, -TILE_SIZE)
+const DOWN: Vector2 = Vector2(0, TILE_SIZE)
+const LEFT: Vector2 = Vector2(-TILE_SIZE, 0)
+const RIGHT: Vector2 = Vector2(TILE_SIZE, 0)
 @export var KEY_LOCKED_THRESHOLD: float
 @export var KEY_PRESSED_THRESHOLD: float
 
@@ -16,11 +14,11 @@ var key_locked_mode: bool = false
 var key_locked_time: float = 0.0
 var key_pressed_time: float = KEY_PRESSED_THRESHOLD
 
-@onready var ray_cast_left = $RayCastLeft
-@onready var ray_cast_right = $RayCastRight
-@onready var ray_cast_up = $RayCastUp
-@onready var ray_cast_down = $RayCastDown
-@onready var camera_2d = $Camera2D
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_up: RayCast2D = $RayCastUp
+@onready var ray_cast_down: RayCast2D = $RayCastDown
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 func _ready():
@@ -34,13 +32,13 @@ func _physics_process(delta):
 
 
 func key_movement():
-	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("move_right"):
 		move(ray_cast_right, RIGHT)
-	if Input.is_action_just_pressed("ui_left"):
+	if Input.is_action_just_pressed("move_left"):
 		move(ray_cast_left, LEFT)
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("move_up"):
 		move(ray_cast_up, UP)
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("move_down"):
 		move(ray_cast_down, DOWN)
 
 
@@ -50,13 +48,21 @@ func lock_key_movement(delta: float):
 
 
 func lock_key_mode(delta: float):
-	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down"):
+	if is_move_action_pressed():
 		key_locked_time += delta
 		if key_locked_time >= KEY_LOCKED_THRESHOLD:
 			key_locked_mode = true
-	if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_down"):
+	if is_move_action_released():
 		key_locked_mode = false
 		key_locked_time = 0.0
+
+
+func is_move_action_pressed() -> bool:
+	return Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_down")
+
+
+func is_move_action_released() -> bool:
+	return Input.is_action_just_released("move_right") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_up") or Input.is_action_just_released("move_down")
 
 
 func lock_key_move(delta: float):
@@ -64,13 +70,13 @@ func lock_key_move(delta: float):
 		key_pressed_time += delta
 		if key_pressed_time >= KEY_PRESSED_THRESHOLD:
 			key_pressed_time = 0.0
-			if Input.is_action_pressed("ui_right"):
+			if Input.is_action_pressed("move_right"):
 				move(ray_cast_right, RIGHT)
-			if Input.is_action_pressed("ui_left"):
+			if Input.is_action_pressed("move_left"):
 				move(ray_cast_left, LEFT)
-			if Input.is_action_pressed("ui_up"):
+			if Input.is_action_pressed("move_up"):
 				move(ray_cast_up, UP)
-			if Input.is_action_pressed("ui_down"):
+			if Input.is_action_pressed("move_down"):
 				move(ray_cast_down, DOWN)
 
 

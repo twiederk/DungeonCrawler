@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.17.0"
-run/main_scene="res://World/HirschhornCastleMap.tscn"
+config/description="1.18.0-SNAPSHOT"
+run/main_scene="res://World/Maps/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
 
@@ -55,20 +55,31 @@ variables={
 }
 extensions_folder="res://Dialogic"
 directories/dch_directory={
-"LordOfHirschhorn": "res://Dialogic/LordOfHirschhorn.dch",
-"V_HRN_Bartender": "res://Dialogic/V_HRN_Bartender.dch",
-"V_HRN_Healer": "res://Dialogic/V_HRN_Healer.dch",
-"V_HRN_Innkeeper": "res://Dialogic/V_HRN_Innkeeper.dch"
+"C_HRN_LordOfHirschhorn": "res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dch",
+"V_HRN_Bartender": "res://Dialogic/V_HRN/V_HRN_Bartender.dch",
+"V_HRN_Healer": "res://Dialogic/V_HRN/V_HRN_Healer.dch",
+"V_HRN_Innkeeper": "res://Dialogic/V_HRN/V_HRN_Innkeeper.dch"
 }
 directories/dtl_directory={
+"C_HRN_LordOfHirschhorn": "res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl",
 "GameIntro": "res://Dialogic/GameIntro.dtl",
-"LordOfHirschhorn": "res://Dialogic/LordOfHirschhorn.dtl",
-"V_HRN_Bartender": "res://Dialogic/V_HRN_Bartender.dtl",
-"V_HRN_Healer": "res://Dialogic/V_HRN_Healer.dtl",
-"V_HRN_Innkeeper": "res://Dialogic/V_HRN_Innkeeper.dtl"
+"V_HRN_Bartender": "res://Dialogic/V_HRN/V_HRN_Bartender.dtl",
+"V_HRN_Farmer": "res://Dialogic/V_HRN/V_HRN_Farmer.dtl",
+"V_HRN_Healer": "res://Dialogic/V_HRN/V_HRN_Healer.dtl",
+"V_HRN_Innkeeper": "res://Dialogic/V_HRN/V_HRN_Innkeeper.dtl"
 }
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://Dialogic/custom_style.tres"]
+layout/default_style="res://Dialogic/custom_style.tres"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/encryption_on_exports_only=true
+text/autopauses={}
 
 [display]
 
@@ -118,6 +129,26 @@ dialogic_default_action={
 talk={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":82,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194320,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194322,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194321,"physical_keycode":0,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

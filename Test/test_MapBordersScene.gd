@@ -1,6 +1,6 @@
 extends GutTest
 
-const MapBordersScene = preload("res://World/MapBorders.tscn")
+const MapBordersScene = preload("res://World/Maps/MapBorders.tscn")
 
 var map_borders: MapBorders = null
 

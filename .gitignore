@@ -7,6 +7,9 @@ bin/
 build/
 lib/
 
+# IntelliJ
+.idea/
+
 *.translation
 export_presets.cfg
 .mono/

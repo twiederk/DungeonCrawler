@@ -48,7 +48,7 @@ func is_battle_end() -> bool:
 
 func end_battle() -> void:
 	var map = LevelStats.get_current_level()
-	var scene_to_load = str("res://World/", map, ".tscn")
+	var scene_to_load = str("res://World/Maps/", map, ".tscn")
 	get_tree().change_scene_to_file(scene_to_load)
 
 
