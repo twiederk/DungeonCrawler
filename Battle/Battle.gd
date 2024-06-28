@@ -14,6 +14,10 @@ var current_battler_index: int
 var game_system: GameSystem = GameSystem.new()
 
 @onready var battlefield = $Battlefield
+@onready var battle_end_panel = $CanvasLayer/BattleEndPanel
+@onready var battle_end_label = $CanvasLayer/BattleEndPanel/BattleEndLabel
+@onready var battle_end_timer = $BattleEndTimer
+
 
 func _ready():
 	randomize()
@@ -47,6 +51,17 @@ func is_battle_end() -> bool:
 
 
 func end_battle() -> void:
+	PlayerStats.character_stats.clear()
+	for character in characters:
+		PlayerStats.character_stats.append(character.get_creature())
+	if monsters.is_empty():
+		_show_battle_end_panel("You won!")
+	else:
+		_show_battle_end_panel("You lost")
+	battle_end_timer.start()
+
+
+func _on_battle_end_timer_timeout():
 	var map = LevelStats.get_current_level()
 	var scene_to_load = str("res://World/Maps/", map, ".tscn")
 	get_tree().change_scene_to_file(scene_to_load)
@@ -75,3 +90,9 @@ func get_battlefield() -> Battlefield:
 	for monster in monsters:
 		battlefield.monster_positions.append(monster.get_battlefield_position())
 	return battlefield
+
+
+func _show_battle_end_panel(message: String) -> void:
+	battle_end_label.set_text(message)
+	battle_end_panel.show()
+

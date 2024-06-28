@@ -7,6 +7,7 @@ extends Node2D
 
 
 func _ready():
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	remove_visited_nodes()
 	set_camera_limits()
 	set_map_borders()
@@ -33,3 +34,7 @@ func set_map_borders():
 
 func unpause():
 	get_tree().paused = false
+
+
+func _on_dialogic_signal(argument: String):
+	pass

@@ -1,10 +1,22 @@
-if {old_mine} == true:
-	V_HRN_Healer: Ihr habe die Skelette besieht. Sehr gut! Ich danke euch.
-	[end_timeline]
 V_HRN_Healer: Hallo, ich bin der Heiler Pedro. Ich heile die verletzten Menschen.[br]Wie kann ich euch helfen?
-label Pedro
-- Wir sind verwundet und brauchen Heilung?
-	V_HRN_Healer: Meine Heilzauber sind alle aufgebraucht. Kommt ein andermal wieder.
-	jump Pedro
-- Weißt du etwas über die Skelette?
-	V_HRN_Healer: Ich vermute es hat etwas mit dem Verschwinden von meinem Gehilfen Jakob zu tun. Jakob kam vor einigen Wochen nach Hirschhorn und war voll Trauer. Ich bot ihm meine Hilfe an. Daraufhin erzählte er mir, dass seine Frau gestorben ist. Seit diesem Tag laufe er ziellos umher und wisse weder ein noch aus.[n]Ich habe Jakob angeboten ihn bei seiner Trauer zu helfen. So blieb Jakob einige Wochen bei mir. Doch trotz unserer Gespräche verschlimmerte sich Gemütszustand mehr und mehr. Schließlich sprach er davon seiner Frau ins Totenreich zu folgen. Ich dachte Jakob wolle ich das Leben nehmen, doch stattdessn sagte Jakob\: "Ich werde meine Frau aus dem Totenreich zurückholen".[n]Dies war das letzte mal, dass ich Jakob gesehen und mit ihm gesprochen habe. Wenige Tage später hat der Jäger von den Skeletten berichtet. Seit dem läßt mich die Bessenheit die ich in Jakobs Augen gesehen habe nicht mehr los.
+if {old_mine} == true:
+	V_HRN_Healer: Ihr habt die Skelette besiegt. Sehr gut! Ich danke euch.
+	label menu
+	- Wir sind verwundet und brauchen Heilung.
+		V_HRN_Healer: Eure Wunden wurden durch meinen Heilzauber geheilt.
+		[signal arg="heal_party"]
+		jump menu
+	- Gehabt euch wohl.
+		V_HRN_Healer: Gehabt euch wohl.
+else:
+	label skeletons
+	- Weißt du etwas über die Skelette?
+		V_HRN_Healer: Ich vermute es hat etwas mit dem Verschwinden von meinem Gehilfen Jakob zu tun. Jakob kam vor einigen Wochen nach Hirschhorn und war voll Trauer. Ich bot ihm meine Hilfe an. Daraufhin erzählte er mir, dass seine Frau gestorben ist. Seit diesem Tag laufe er ziellos umher und wisse weder ein noch aus.[n]Ich habe Jakob angeboten ihn bei seiner Trauer zu helfen. So blieb Jakob einige Wochen bei mir. Doch trotz unserer Gespräche verschlimmerte sich Gemütszustand mehr und mehr. Schließlich sprach er davon seiner Frau ins Totenreich zu folgen. Ich dachte Jakob wolle sich das Leben nehmen, doch stattdessn sagte Jakob\: "Ich werde meine Frau aus dem Totenreich zurückholen".[n]Dies war das letzte mal, dass ich Jakob gesehen und mit ihm gesprochen habe. Wenige Tage später hat der Jäger von den Skeletten berichtet. Seit dem läßt mich die Bessenheit die ich in Jakobs Augen gesehen habe nicht mehr los.
+		jump skeletons
+	- Wir sind verwundet und brauchen Heilung.
+		V_HRN_Healer: Eure Wunden wurden durch meinen Heilzauber geheilt.
+		[signal arg="heal_party"]
+		jump skeletons
+	- Gehabt euch wohl.
+		V_HRN_Healer: Gehabt euch wohl.
+return

@@ -1,8 +1,13 @@
 if {old_mine} == true:
 	Ihr habt die Skelette besiegt. Danke jetzt kann ich meine Felder wieder bestellen.
 	[end_timeline]
-Guten Tag, möchtet ihr von meinem Obst probieren?[n]
+Guten Tag, möchtet ihr von meinem Obst probieren?
+label menu
 - Ja,  gerne.
 	Hier nehmt ein paar Äpfel und Birnen. Die werden euch munden.
+	jump menu
 - Nein, weißt du etwas über die Skelette?
 	Die Skelette machen mir große Angst. Darum bleibe ich im Dorf. Die Arbeit auf dem Feld bleibt deshalb liegen. Wenn niemand etwas unternimmt werden wir hier bald Hunger leidern müssen.
+	jump menu
+- Gehabt euch wohl.
+	Gehabt euch wohl.

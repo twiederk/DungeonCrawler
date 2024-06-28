@@ -1,12 +1,15 @@
 extends GutTest
 
 const MonsterScene = preload("res://Battle/Monster.tscn")
+const SKELETON = preload("res://Battle/Monster/Skeleton.tres")
 
 var monster: Monster = null
 
 
 func before_each():
 	monster = MonsterScene.instantiate()
+	monster.set_creature(SKELETON.to_creature_stats())
+	add_child(monster)
 
 
 func after_each():
@@ -16,7 +19,6 @@ func after_each():
 func test_hurt():
 	# arrange
 	monster.set_hit_points(10)
-	add_child(monster)
 	watch_signals(monster)
 
 	# act
@@ -34,7 +36,6 @@ func test_hurt():
 func test_hurt_and_battler_died():
 	# arrange
 	monster.set_hit_points(10)
-	add_child(monster)
 	watch_signals(monster)
 
 	# act

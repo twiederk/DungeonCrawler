@@ -1,5 +1,5 @@
 class_name Person
-extends CharacterBody2D
+extends Area2D
 
 @export var timeline : DialogicTimeline
 @onready var animated_sprite_2d = $AnimatedSprite2D

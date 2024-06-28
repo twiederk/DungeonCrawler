@@ -2,14 +2,17 @@ class_name Avatar
 extends CharacterBody2D
 
 signal position_changed(position)
+
 const TILE_SIZE: int = 16
 const UP: Vector2 = Vector2(0, -TILE_SIZE)
 const DOWN: Vector2 = Vector2(0, TILE_SIZE)
 const LEFT: Vector2 = Vector2(-TILE_SIZE, 0)
 const RIGHT: Vector2 = Vector2(TILE_SIZE, 0)
+
 @export var KEY_LOCKED_THRESHOLD: float
 @export var KEY_PRESSED_THRESHOLD: float
 
+var timeline_running: bool = false
 var key_locked_mode: bool = false
 var key_locked_time: float = 0.0
 var key_pressed_time: float = KEY_PRESSED_THRESHOLD
@@ -22,13 +25,16 @@ var key_pressed_time: float = KEY_PRESSED_THRESHOLD
 
 
 func _ready():
+	Dialogic.timeline_started.connect(_on_timeline_started)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	if PlayerStats.start_position != Vector2.ZERO:
 		position = PlayerStats.start_position
 
 
 func _physics_process(delta):
-	key_movement()
-	lock_key_movement(delta)
+	if not timeline_running:
+		key_movement()
+		lock_key_movement(delta)
 
 
 func key_movement():
@@ -87,5 +93,13 @@ func move(ray_cast: RayCast2D, direction: Vector2):
 
 
 func set_camera_limits(limits: Vector2) -> void:
-	camera_2d.set_limit(SIDE_RIGHT, limits.x)
-	camera_2d.set_limit(SIDE_BOTTOM, limits.y)
+	camera_2d.set_limit(SIDE_RIGHT, int(limits.x))
+	camera_2d.set_limit(SIDE_BOTTOM, int(limits.y))
+
+
+func _on_timeline_started():
+	timeline_running = true
+
+
+func _on_timeline_ended():
+	timeline_running = false

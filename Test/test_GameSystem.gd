@@ -1,6 +1,8 @@
 extends GutTest
 
 const MonsterScene = preload("res://Battle/Monster.tscn")
+const SKELETON = preload("res://Battle/Monster/Skeleton.tres")
+
 var game_system: GameSystem = null
 
 
@@ -13,9 +15,11 @@ func test_attack_missed():
 	seed(1)
 	var attacker: Battler = MonsterScene.instantiate()
 	attacker.set_name("myName")
+	attacker.set_creature(SKELETON.to_creature_stats())
 	add_child(attacker)
 
 	var defender: Battler = MonsterScene.instantiate()
+	defender.set_creature(SKELETON.to_creature_stats())
 	defender.set_hit_points(5)
 	defender.set_armor_class(20)
 	add_child(defender)
@@ -35,11 +39,13 @@ func test_attack_hit():
 	## arrange
 	seed(1000)
 	var attacker: Battler = MonsterScene.instantiate()
+	attacker.set_creature(SKELETON.to_creature_stats())
 	attacker.set_creature_name("myName")
 	attacker.set_damage(2)
 	add_child(attacker)
 
 	var defender: Battler = MonsterScene.instantiate()
+	defender.set_creature(SKELETON.to_creature_stats())
 	defender.set_hit_points(5)
 	defender.set_armor_class(10)
 	add_child(defender)

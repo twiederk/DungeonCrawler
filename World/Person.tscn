@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3b4c"]
 size = Vector2(15, 15)
 
-[node name="Person" type="CharacterBody2D"]
+[node name="Person" type="Area2D"]
 collision_mask = 0
 script = ExtResource("1_ym1x1")
 

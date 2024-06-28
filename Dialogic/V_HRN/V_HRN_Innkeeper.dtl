@@ -1,7 +1,8 @@
 if {old_mine} == true:
 	V_HRN_Innkeeper: Danke, danke das ihr uns von den Skeletten befreit habt.
 	[end_timeline]
-V_HRN_Innkeeper: Komm herein, Nimm dir doch ein Glas Wein für 2 Taler.[n]
+V_HRN_Innkeeper: Komm herein, Nimm dir doch ein Glas Wein für 2 Taler.
+label menu
 - Danke, dies ist sehr nett von dir.
 	V_HRN_Innkeeper: Hier ist euer Wein.[br]Gehabt euch wohl.
 - Nein danke, hast du etwas über die Skelette gehört?

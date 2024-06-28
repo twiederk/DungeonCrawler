@@ -14,7 +14,6 @@ func create_battlers(scene: PackedScene, battle: Node, creature_stats: Array) ->
 		battler.turn_ended.connect(battle.next_battler)
 		
 		battle.add_child(battler)
-		battler.set_sprite_frames(creature.texture)
 		battlers.append(battler)
 	return battlers
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bym11c137i7wl"]
 
-[ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_yjgqc"]
+[ext_resource type="Script" path="res://World/Maps/HirschhornVillage.gd" id="1_4vsk6"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_kvx8o"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="3_44k2w"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="4_hxj8b"]
@@ -30,7 +30,7 @@ size = Vector2(20, 42)
 size = Vector2(48, 48)
 
 [node name="Hirschhorn_Village" type="Node2D"]
-script = ExtResource("1_yjgqc")
+script = ExtResource("1_4vsk6")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_kvx8o")

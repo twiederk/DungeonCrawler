@@ -8,7 +8,7 @@ signal turn_ended
 enum BattleState { READY, DONE, DEAD }
 enum Facing { RIGHT = 0, DOWN = 90, LEFT = 180, UP = 270 }
 
-const HitEffectScene = preload("res://Battle/HitEffect.tscn")
+const HitEffectScene: PackedScene = preload("res://Battle/HitEffect.tscn")
 
 var _creature_stats = CreatureStats.new()
 var _battle_state: BattleState = BattleState.DONE
@@ -25,8 +25,24 @@ var _ray_casts: Dictionary = {}
 
 
 func _ready():
-	health_bar.max_value = _creature_stats.hit_points
+	init_hit_points()
+	init_animated_sprite()
+	init_ray_casts_dictionary()
+
+
+func init_hit_points():
+	health_bar.max_value = _creature_stats.max_hit_points
 	health_bar.value = _creature_stats.hit_points
+
+
+func init_animated_sprite():
+	set_sprite_frames(_creature_stats.texture)
+	var number_of_frames = animated_sprite_2d.sprite_frames.get_frame_count("default")
+	animated_sprite_2d.frame = randi_range(0, number_of_frames)
+	animated_sprite_2d.play("default")
+
+
+func init_ray_casts_dictionary():
 	_ray_casts[Facing.RIGHT] = ray_cast_right
 	_ray_casts[Facing.DOWN] = ray_cast_down
 	_ray_casts[Facing.LEFT] = ray_cast_left

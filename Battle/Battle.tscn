@@ -7,3 +7,35 @@
 script = ExtResource("1_0o8cx")
 
 [node name="Battlefield" parent="." instance=ExtResource("2_5cwe2")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BattleEndPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BattleEndLabel" type="Label" parent="CanvasLayer/BattleEndPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -11.0
+offset_right = 319.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Battle end message"
+horizontal_alignment = 1
+
+[node name="BattleEndTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="BattleEndTimer" to="." method="_on_battle_end_timer_timeout"]
