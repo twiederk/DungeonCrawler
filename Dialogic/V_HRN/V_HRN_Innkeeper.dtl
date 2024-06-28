@@ -1,1 +1,12 @@
-V_HRN_Innkeeper: Komm herein, Nimm dir doch ein Glas Wein für 2 Taler.
+if {old_mine} == true:
+	V_HRN_Innkeeper: Danke, danke das ihr uns von den Skeletten befreit habt.
+	[end_timeline]
+V_HRN_Innkeeper: Komm herein, Nimm dir doch ein Glas Wein für 2 Taler.[n]
+- Danke, dies ist sehr nett von dir.
+	V_HRN_Innkeeper: Hier ist euer Wein.[br]Gehabt euch wohl.
+- Nein danke, hast du etwas über die Skelette gehört?
+	V_HRN_Innkeeper: Seit der Jäger davon erzählt hat, spricht jeder davon. Wir haben alle Angst und verlassen das Dorf nicht mehr.[br]Seid ihr gekommen um uns zu helfen?
+	- Nein, wir sind nur Reisende.
+		V_HRN_Innkeeper: Sehr Schade, wir könnten Hilfe gut gebrauchen.[br]Gehabt euch wohl.
+	- Ja, der Graf von Hirschhorn hat uns geschickt.
+		V_HRN_Innkeeper: Das sind gute Nachrichten. Pedro hat eine Idee warum und woher die Skelette kommen, fragt ihn mal.[br]Gehabt euch wohl.

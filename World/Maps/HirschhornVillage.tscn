@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bym11c137i7wl"]
+[gd_scene load_steps=19 format=3 uid="uid://bym11c137i7wl"]
 
 [ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_yjgqc"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_kvx8o"]
@@ -7,13 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="5_fften"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_x4ghh"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Healer.dtl" id="7_8qw8r"]
-[ext_resource type="Texture2D" uid="uid://dmpn0u7eknlrt" path="res://Assets/graphics/sprites/Healer.png" id="8_atagm"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Innkeeper.dtl" id="9_35frc"]
-[ext_resource type="Texture2D" uid="uid://g8fk6xf4k158" path="res://Assets/graphics/sprites/Pleasant_1.png" id="10_65haj"]
+[ext_resource type="SpriteFrames" uid="uid://nl7n3uwbxh8g" path="res://Assets/graphics/sprites/Wizard.tres" id="9_e0k8k"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Bartender.dtl" id="11_rjquv"]
-[ext_resource type="Texture2D" uid="uid://riyfle4amri7" path="res://Assets/graphics/sprites/Pleasant_2.png" id="12_8qr53"]
+[ext_resource type="SpriteFrames" uid="uid://nu2lq77x0cv4" path="res://Assets/graphics/sprites/Peasant.tres" id="12_27e0u"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Farmer.dtl" id="13_oegws"]
-[ext_resource type="Texture2D" uid="uid://dnh7hrtr38hwe" path="res://Assets/graphics/sprites/Ultima5SpriteSheet.png" id="14_31e3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe0d6"]
 size = Vector2(26, 96)
@@ -70,9 +68,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" parent="Healer Petro/TalkDetectionZone" index="0"]
 shape = SubResource("RectangleShape2D_kud7l")
 
-[node name="Sprite2D" parent="Healer Petro" index="2"]
-texture = ExtResource("8_atagm")
-metadata/_edit_lock_ = true
+[node name="AnimatedSprite2D" parent="Healer Petro" index="2"]
+sprite_frames = ExtResource("9_e0k8k")
 
 [node name="Innkeeper" parent="." instance=ExtResource("6_x4ghh")]
 position = Vector2(312, 296)
@@ -82,8 +79,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" parent="Innkeeper/TalkDetectionZone" index="0"]
 shape = SubResource("RectangleShape2D_8xusj")
 
-[node name="Sprite2D" parent="Innkeeper" index="2"]
-texture = ExtResource("10_65haj")
+[node name="AnimatedSprite2D" parent="Innkeeper" index="2"]
+sprite_frames = ExtResource("12_27e0u")
 
 [node name="Bartender" parent="." instance=ExtResource("6_x4ghh")]
 position = Vector2(232, 88)
@@ -93,8 +90,8 @@ timeline = ExtResource("11_rjquv")
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_6jbt3")
 
-[node name="Sprite2D" parent="Bartender" index="2"]
-texture = ExtResource("12_8qr53")
+[node name="AnimatedSprite2D" parent="Bartender" index="2"]
+sprite_frames = ExtResource("12_27e0u")
 
 [node name="Farmer" parent="." instance=ExtResource("6_x4ghh")]
 position = Vector2(632, 136)
@@ -104,11 +101,8 @@ timeline = ExtResource("13_oegws")
 position = Vector2(-8, 8)
 shape = SubResource("RectangleShape2D_lk8c2")
 
-[node name="Sprite2D" parent="Farmer" index="2"]
-texture = ExtResource("14_31e3e")
-hframes = 32
-vframes = 16
-frame = 339
+[node name="AnimatedSprite2D" parent="Farmer" index="2"]
+sprite_frames = ExtResource("12_27e0u")
 
 [editable path="WestLocation"]
 [editable path="EastLocation"]

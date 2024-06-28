@@ -1,6 +1,6 @@
 if {old_mine} == false:
 	C_HRN_LordOfHirschhorn: Seid gegrüßt Linda und Leon von Steinau.
-	C_HRN_LordOfHirschhorn: Der Jäger hat mir berichtet, dass er Skelette bei der alten Mine gesehen hat.[br]Seht dort bitte nach dem Rechten und passt auf euch auf.
+	C_HRN_LordOfHirschhorn: Die Bürger von Hirschhorn sind verunsichert. Sie haben Skelette in der Nähe des Dorfes gesehen. Geht nach Hirschhorn und helft den Bürgern.
 	C_HRN_LordOfHirschhorn: Gehabt euch wohl.
 else:
 	C_HRN_LordOfHirschhorn: Ihr habt die Skelette in der alten Mine besiegt.[br]Ich danke euch dafür.

@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxpku836ynt50"]
+[gd_scene load_steps=4 format=3 uid="uid://bxpku836ynt50"]
 
-[ext_resource type="Texture2D" uid="uid://q1hs54coiavd" path="res://Assets/graphics/sprites/Lord.png" id="1_kxlxn"]
 [ext_resource type="Script" path="res://World/Person.gd" id="1_ym1x1"]
 [ext_resource type="PackedScene" uid="uid://ddovy85d3fppy" path="res://World/TalkDetectionZone.tscn" id="2_iy8mp"]
 
@@ -16,8 +15,7 @@ shape = SubResource("RectangleShape2D_v3b4c")
 
 [node name="TalkDetectionZone" parent="." instance=ExtResource("2_iy8mp")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_kxlxn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
 [connection signal="body_entered" from="TalkDetectionZone" to="." method="_on_talk_detection_zone_body_entered"]
 [connection signal="body_exited" from="TalkDetectionZone" to="." method="_on_talk_detection_zone_body_exited"]

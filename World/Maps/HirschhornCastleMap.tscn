@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cs6lhhw28fllk"]
+[gd_scene load_steps=11 format=3 uid="uid://cs6lhhw28fllk"]
 
 [ext_resource type="Script" path="res://World/Maps/HirschhornCastleMap.gd" id="1_f2q4n"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_gwge5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="5_bmkah"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_mvxmj"]
 [ext_resource type="Resource" path="res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl" id="7_pjvui"]
+[ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://Assets/graphics/sprites/LordOfHirschhorn.tres" id="8_jhftv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71484"]
 size = Vector2(94.5, 28)
@@ -41,6 +42,9 @@ timeline = ExtResource("7_pjvui")
 
 [node name="CollisionShape2D" parent="Lord of Hirschhorn/TalkDetectionZone" index="0"]
 shape = SubResource("RectangleShape2D_28oqg")
+
+[node name="AnimatedSprite2D" parent="Lord of Hirschhorn" index="2"]
+sprite_frames = ExtResource("8_jhftv")
 
 [editable path="Location"]
 [editable path="Lord of Hirschhorn"]

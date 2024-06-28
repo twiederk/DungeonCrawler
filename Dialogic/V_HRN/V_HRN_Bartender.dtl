@@ -1,1 +1,23 @@
-V_HRN_Bartender: Guten Tag, möchtest du ein Brötchen? Es kostet einen Taler.
+if {old_mine} == true:
+	V_HRN_Bartender: Ihr habt uns von den Skeletten befreit. Vielen, vielen Dank.
+	[end_timeline]
+V_HRN_Bartender: Guten Tag, möchtet ihr etwas Trinken?[n]
+- Ja, wir haben Durst.
+	V_HRN_Bartender: Was möchtet ihr?
+	- Bier
+		V_HRN_Bartender: Hier ein Humpen Hirschhorner Bier. Es in der ganzen Kurpfaz bekannt.[br]Genießt es und gehabt euch wohl.
+	- Wein
+		V_HRN_Bartender: Nehmt von meinem Hauswein. Er wird euch schmecken.[br]Gehabt euch wohl.
+	- Wasser
+		V_HRN_Bartender: Ein einfaches Wasser. Hier für euch.[br]Gehabt euch wohl.
+- Nein, aber hast du etwas über die Skelette gehört die in der Nähe gesehen wurden?
+	V_HRN_Bartender: Das ist das wichtigste Thema zur Zeit in Hirschhorn. Es war der Jäger der zum ersten mal von ihnen erzählt hat. Er hat sie in der Nähe der alten Mine gesehen. Alle haben Angst und keiner verläßt mehr das Dorf.
+	label Skelette
+	- Woher kommen die Skelette?
+		V_HRN_Bartender: Keiner im Dorf weiß woher die Skelette kommen.
+		jump Skelette
+	- Warum erscheinen die Skelette?
+		V_HRN_Bartender: Das weiß ich nicht, aber Pedro unser Heiler hat seine eigenen Ideen dazu.[br]Fragt ihn  mal.
+		jump Skelette
+	- Gehabt euch wohl
+		V_HRN_Bartender: Gehabt euch wohl
