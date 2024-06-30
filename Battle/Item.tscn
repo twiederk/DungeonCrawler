@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1f3i5wofyt70"]
+[gd_scene load_steps=3 format=3 uid="uid://bb4jnvrl6n2wy"]
 
-[ext_resource type="Script" path="res://Battle/ItemArea2D.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://bje82ps0imngv" path="res://Assets/graphics/sprites/Items.png" id="2_dg350"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p5036"]
+load_path = "res://.godot/imported/Items.png-b53ec11d2ea0652f561b8e9e549ba42e.ctex"
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
@@ -9,10 +9,9 @@ size = Vector2(15, 15)
 [node name="Item" type="Area2D"]
 collision_layer = 16
 collision_mask = 2
-script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dg350")
+texture = SubResource("CompressedTexture2D_p5036")
 hframes = 16
 vframes = 128
 frame = 482

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bndytkthyulnh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p5036"]
+load_path = "res://.godot/imported/Items.png-b53ec11d2ea0652f561b8e9e549ba42e.ctex"
+
+[node name="ItemRow" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_p5036")
+hframes = 16
+vframes = 128
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 15.0
+text = "item name"

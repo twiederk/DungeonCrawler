@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.20.0"
+config/description="1.21.0-snapshot"
 run/main_scene="res://World/Maps/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
@@ -50,8 +50,14 @@ text/autocontinue_delay=1.0
 glossary/default_case_sensitive=true
 layout/mode=0
 variables={
-"game_intro": true,
-"old_mine": false
+"HIRSCHHORN_CASTLE": {
+"intro": false
+},
+"OLD_MINE": {
+"completed": false,
+"congratulation": false,
+"intro": false
+}
 }
 extensions_folder="res://Dialogic"
 directories/dch_directory={
@@ -61,8 +67,10 @@ directories/dch_directory={
 "V_HRN_Innkeeper": "res://Dialogic/V_HRN/V_HRN_Innkeeper.dch"
 }
 directories/dtl_directory={
+"C_HRN_Intro": "res://Dialogic/C_HRN/C_HRN_Intro.dtl",
 "C_HRN_LordOfHirschhorn": "res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl",
-"GameIntro": "res://Dialogic/GameIntro.dtl",
+"D_OM_Congratulation": "res://Dialogic/D_OM/D_OM_Congratulation.dtl",
+"D_OM_Intro": "res://Dialogic/D_OM/D_OM_Intro.dtl",
 "V_HRN_Bartender": "res://Dialogic/V_HRN/V_HRN_Bartender.dtl",
 "V_HRN_Farmer": "res://Dialogic/V_HRN/V_HRN_Farmer.dtl",
 "V_HRN_Healer": "res://Dialogic/V_HRN/V_HRN_Healer.dtl",

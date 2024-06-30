@@ -1,5 +1,5 @@
 V_HRN_Healer: Hallo, ich bin der Heiler Pedro. Ich heile die verletzten Menschen.[br]Wie kann ich euch helfen?
-if {old_mine} == true:
+if {OLD_MINE.completed} == true:
 	V_HRN_Healer: Ihr habt die Skelette besiegt. Sehr gut! Ich danke euch.
 	label menu
 	- Wir sind verwundet und brauchen Heilung.

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0t4csarhwa6n"]
+
+[ext_resource type="PackedScene" uid="uid://dv2ldsqahy8pr" path="res://World/Items/Item.tscn" id="1_uwutv"]
+[ext_resource type="Resource" uid="uid://ta8wlsno5xdt" path="res://World/Items/Goods/Topas.tres" id="2_6eaty"]
+[ext_resource type="Texture2D" uid="uid://kxa8ygmi1i6q" path="res://Assets/graphics/sprites/items/goods/material_01.png" id="3_nr7tk"]
+
+[node name="Topas" instance=ExtResource("1_uwutv")]
+item_resource = ExtResource("2_6eaty")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_nr7tk")

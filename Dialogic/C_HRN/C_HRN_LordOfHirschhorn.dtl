@@ -1,4 +1,4 @@
-if {old_mine} == false:
+if {OLD_MINE.completed} == false:
 	C_HRN_LordOfHirschhorn: Seid gegrüßt Linda und Leon von Steinau.
 	C_HRN_LordOfHirschhorn: Die Bürger von Hirschhorn sind verunsichert. Sie haben Skelette in der Nähe des Dorfes gesehen. Geht nach Hirschhorn und helft den Bürgern.
 	C_HRN_LordOfHirschhorn: Gehabt euch wohl.

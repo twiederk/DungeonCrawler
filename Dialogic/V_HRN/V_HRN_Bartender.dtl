@@ -1,4 +1,4 @@
-if {old_mine} == true:
+if {OLD_MINE.completed} == true:
 	V_HRN_Bartender: Ihr habt uns von den Skeletten befreit. Vielen, vielen Dank.
 	[end_timeline]
 V_HRN_Bartender: Guten Tag, möchtet ihr etwas Trinken?

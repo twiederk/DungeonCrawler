@@ -17,6 +17,7 @@ var key_locked_mode: bool = false
 var key_locked_time: float = 0.0
 var key_pressed_time: float = KEY_PRESSED_THRESHOLD
 
+
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_up: RayCast2D = $RayCastUp

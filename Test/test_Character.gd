@@ -11,16 +11,6 @@ func after_each():
 	character.free()
 
 
-func test_on_Item_picked():
-
-	# act
-	character._on_Item_picked({ gold = 5})
-
-	# assert
-	var inventory = character.get_inventory()
-	assert_eq(inventory.get_gold(), 5, "Should increase gold of character by 5")
-
-
 func test_move_step():
 
 	# arrange

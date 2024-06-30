@@ -25,21 +25,3 @@ func create_battler(scene: PackedScene, creature_stats: CreatureStats) -> Battle
 	return battler
 
 
-func create_items(battle: Battle, itemEntries: Array) -> Array:
-	var items = []
-	for itemEntry in itemEntries:
-		var frame_coords = itemEntry["frame_coords"]
-		var position = itemEntry["position"]
-		var item = create_item(frame_coords, position)
-		items.append(item)
-		battle.add_child(item)
-	return items
-
-
-func create_item(frame_coords: Vector2, position: Vector2) -> ItemArea2D:
-	var item = ItemScene.instantiate()
-	item.set_frame_coords(frame_coords)
-	item.position = position * Battlefield.TILE_SIZE
-	return item
-
-

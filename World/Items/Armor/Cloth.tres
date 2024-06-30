@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ArmorResource" load_steps=3 format=3 uid="uid://baw7cgp3d52fl"]
+
+[ext_resource type="Script" path="res://World/Items/ArmorResource.gd" id="1_vqxm6"]
+[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://Assets/graphics/sprites/items/armor/armor_001.png" id="2_wrdjo"]
+
+[resource]
+script = ExtResource("1_vqxm6")
+id = 0
+name = "Kleidung"
+texture = ExtResource("2_wrdjo")

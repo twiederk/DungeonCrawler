@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://lriomfdmovj8"]
+
+[ext_resource type="Script" path="res://World/Items/WeaponResource.gd" id="1_f6pby"]
+[ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png" id="2_3q75p"]
+
+[resource]
+script = ExtResource("1_f6pby")
+id = 0
+name = "Schwert"
+texture = ExtResource("2_3q75p")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MonsterResource" load_steps=3 format=3 uid="uid://dpvlpgt3nxih5"]
 
-[ext_resource type="Script" path="res://Battle/MonsterResource.gd" id="1_x6ytm"]
+[ext_resource type="Script" path="res://Battle/Monster/MonsterResource.gd" id="1_x6ytm"]
 [ext_resource type="SpriteFrames" uid="uid://bxlhrih2nm5te" path="res://Assets/graphics/sprites/SkeletonChief.tres" id="2_1p1aa"]
 
 [resource]

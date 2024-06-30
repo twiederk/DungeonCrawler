@@ -1,7 +1,6 @@
 class_name Character
 extends Battler
 
-var _inventory: Inventory = Inventory.new()
 
 @onready var hitboxCollisionShape = $HitboxPivot/Hitbox/CollisionShape2D
 @onready var hitboxPivot = $HitboxPivot
@@ -9,6 +8,7 @@ var _inventory: Inventory = Inventory.new()
 @onready var dead_body_sprite_2d = $DeadBodySprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var hitbox_pivot = $HitboxPivot
+
 
 func _ready():
 	super._ready()
@@ -62,15 +62,6 @@ func get_target():
 	if ray_cast.is_colliding():
 		return ray_cast.get_collider()
 	return null
-
-
-func _on_Item_picked(dict: Dictionary) -> void:
-	_inventory.add_gold(dict["gold"])
-	print(str(_creature_stats.name, " picked up ", dict["gold"], " gold."))
-
-
-func get_inventory() -> Inventory:
-	return _inventory
 
 
 func dead():
