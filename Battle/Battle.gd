@@ -55,9 +55,9 @@ func end_battle() -> void:
 	for character in characters:
 		PlayerStats.character_stats.append(character.get_creature())
 	if monsters.is_empty():
-		_show_battle_end_panel("You won!")
+		_show_battle_end_panel("SIEG!")
 	else:
-		_show_battle_end_panel("You lost")
+		_show_battle_end_panel("VERLOREN")
 	battle_end_timer.start()
 
 
