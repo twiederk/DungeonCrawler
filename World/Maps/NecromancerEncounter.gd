@@ -3,7 +3,7 @@ extends Encounter
 
 
 func _change_scene():
-	Dialogic.VAR.old_mine = true
+	Dialogic.VAR.OldMine.completed = true
 	super._change_scene()
 
 
