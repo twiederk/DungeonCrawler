@@ -1,4 +1,4 @@
-if {OldMine.completed} == true:
+if {OLD_MINE.completed} == true:
 	Ihr habt die Skelette besiegt. Danke jetzt kann ich meine Felder wieder bestellen.
 	[end_timeline]
 Guten Tag, möchtet ihr von meinem Obst probieren?
