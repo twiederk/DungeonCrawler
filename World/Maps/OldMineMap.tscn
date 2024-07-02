@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cnwfoxjyi5x7s"]
 
-[ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_mrhl0"]
+[ext_resource type="Script" path="res://World/Maps/OldMineMap.gd" id="1_wvygi"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="2_l8qmm"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="3_ej8xo"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="4_2vxa7"]
@@ -15,7 +15,7 @@
 size = Vector2(58, 19)
 
 [node name="OldMine" type="Node2D"]
-script = ExtResource("1_mrhl0")
+script = ExtResource("1_wvygi")
 
 [node name="MapBorders" parent="." instance=ExtResource("2_l8qmm")]
 
