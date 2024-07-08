@@ -67,7 +67,7 @@ position = Vector2(13, 0)
 shape = SubResource("RectangleShape2D_sof7g")
 
 [node name="Healer Petro" parent="." instance=ExtResource("6_x4ghh")]
-position = Vector2(360, 424)
+position = Vector2(376, 424)
 timeline = ExtResource("7_8qw8r")
 metadata/_edit_group_ = true
 

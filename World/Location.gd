@@ -4,7 +4,8 @@ extends Area2D
 @export var scene_name: String
 @export var start_position: Vector2 = Vector2.ZERO
 
-func _on_body_entered(_body):
+
+func _on_area_entered(_area):
 	call_deferred("_change_scene")
 
 

@@ -36,6 +36,7 @@ func test_hurt():
 func test_hurt_and_battler_died():
 	# arrange
 	monster.set_hit_points(10)
+	monster.loot_table_name = "SkeletonLoot"
 	watch_signals(monster)
 
 	# act

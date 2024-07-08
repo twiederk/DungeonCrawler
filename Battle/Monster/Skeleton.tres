@@ -11,4 +11,4 @@ armor_class = 10
 damage = 1
 texture = ExtResource("2_qsq3x")
 max_movement = 2
-movement = 2
+loot_table_name = "SkeletonLoot"

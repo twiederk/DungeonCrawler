@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnwfoxjyi5x7s"]
+[gd_scene load_steps=16 format=3 uid="uid://cnwfoxjyi5x7s"]
 
 [ext_resource type="Script" path="res://World/Maps/OldMineMap.gd" id="1_wvygi"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="2_l8qmm"]
@@ -7,14 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="5_wuoq8"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="6_obhn8"]
 [ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton.tres" id="7_o0ibs"]
-[ext_resource type="Resource" uid="uid://dpvlpgt3nxih5" path="res://Battle/Monster/Skeleton_Chief.tres" id="8_kdful"]
 [ext_resource type="Script" path="res://World/Maps/NecromancerEncounter.gd" id="8_oxt0m"]
 [ext_resource type="PackedScene" uid="uid://cl5l67ofwwqhl" path="res://World/FogOfWar.tscn" id="9_j1ym4"]
-[ext_resource type="PackedScene" uid="uid://bqr0jdfwtfraw" path="res://World/Items/Weapons/Sword.tscn" id="11_fu374"]
-[ext_resource type="Resource" uid="uid://lriomfdmovj8" path="res://World/Items/Weapons/Sword.tres" id="12_4oqt8"]
-[ext_resource type="PackedScene" uid="uid://dkmlq54d6llk3" path="res://World/Items/Weapons/Axe.tscn" id="12_48jmu"]
+[ext_resource type="Resource" uid="uid://dpvlpgt3nxih5" path="res://Battle/Monster/Skeleton_Chief.tres" id="10_06ptb"]
 [ext_resource type="PackedScene" uid="uid://cmfauepiwftft" path="res://World/Items/Goods/GoldLarge.tscn" id="14_l7jps"]
-[ext_resource type="PackedScene" uid="uid://38fl6lhrqety" path="res://World/Items/Armor/Cloth.tscn" id="14_q67w7"]
 [ext_resource type="PackedScene" uid="uid://bx8rqvkw0il4" path="res://World/Items/Goods/GoldSmall.tscn" id="15_kh61f"]
 [ext_resource type="PackedScene" uid="uid://d0t4csarhwa6n" path="res://World/Items/Goods/Topas.tscn" id="16_1i1c4"]
 [ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="18_kbq8k"]
@@ -33,9 +29,9 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608,
 [node name="MapBorders" parent="." instance=ExtResource("2_l8qmm")]
 
 [node name="GUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CharacterScreen" parent="GUI" instance=ExtResource("18_kbq8k")]
+visible = false
 
 [node name="Location" parent="." instance=ExtResource("4_2vxa7")]
 position = Vector2(264, 504)
@@ -51,30 +47,20 @@ position = Vector2(264, 472)
 
 [node name="Encounters" type="Node2D" parent="."]
 
-[node name="Encounter" parent="Encounters" instance=ExtResource("6_obhn8")]
+[node name="EntryEncounter" parent="Encounters" instance=ExtResource("6_obhn8")]
 position = Vector2(264, 328)
 monsters = Array[Resource("res://Battle/Monster/MonsterResource.gd")]([ExtResource("7_o0ibs")])
 
 [node name="NecromancerEncounter" parent="Encounters" instance=ExtResource("6_obhn8")]
-position = Vector2(168, 328)
+position = Vector2(264, 233)
 script = ExtResource("8_oxt0m")
-monsters = Array[Resource("res://Battle/Monster/MonsterResource.gd")]([ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("8_kdful")])
+monsters = Array[Resource("res://Battle/Monster/MonsterResource.gd")]([ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("10_06ptb")])
 
-[node name="Encounter3" parent="Encounters" instance=ExtResource("6_obhn8")]
-position = Vector2(264, 232)
+[node name="TreasureEncounter" parent="Encounters" instance=ExtResource("6_obhn8")]
+position = Vector2(169, 328)
 monsters = Array[Resource("res://Battle/Monster/MonsterResource.gd")]([ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("7_o0ibs")])
 
 [node name="Items" type="Node2D" parent="."]
-
-[node name="Sword" parent="Items" instance=ExtResource("11_fu374")]
-position = Vector2(168, 312)
-item_resource = ExtResource("12_4oqt8")
-
-[node name="Axe" parent="Items" instance=ExtResource("12_48jmu")]
-position = Vector2(152, 360)
-
-[node name="Cloth" parent="Items" instance=ExtResource("14_q67w7")]
-position = Vector2(120, 360)
 
 [node name="GoldLarge" parent="Items" instance=ExtResource("14_l7jps")]
 position = Vector2(248, 200)

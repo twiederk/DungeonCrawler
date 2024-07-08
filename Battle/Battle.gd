@@ -1,12 +1,15 @@
 class_name Battle
 extends Node
 
-const CharacterScene = preload("res://Battle/Character.tscn")
-const MonsterScene = preload("res://Battle/Monster.tscn")
+const CharacterScene: PackedScene = preload("res://Battle/Character.tscn")
+const MonsterScene: PackedScene = preload("res://Battle/Monster.tscn")
+const ItemScene: PackedScene = preload("res://World/Items/Item.tscn")
 
 var characters: Array[Battler] = []
 var monsters: Array[Battler] = []
-var all_battlers: Array[Battler] = []
+var battlers: Array[Battler] = []
+
+var items: Array[Item] = []
 
 var current_battler: Node2D
 var current_battler_index: int
@@ -16,6 +19,9 @@ var game_system: GameSystem = GameSystem.new()
 @onready var battlefield = $Battlefield
 @onready var character_screen = $GUI/CharacterScreen
 @onready var battle_end_screen = $GUI/BattleEndScreen
+@onready var battlers_node = $Battlers
+@onready var items_node = $Items
+
 
 func _ready():
 	randomize()
@@ -23,15 +29,18 @@ func _ready():
 	var battle_init = BattleInit.new()
 
 	characters = battle_init.create_battlers(CharacterScene, self, PlayerStats.character_stats)
-	character_screen.connect_characters(characters)
 	battlefield.place_characters(characters)
-	all_battlers.append_array(characters)
+	battlers.append_array(characters)
 
 	monsters = battle_init.create_battlers(MonsterScene, self, PlayerStats.get_monster_stats())
-	battlefield.place_monsters(monsters)
-	all_battlers.append_array(monsters)
+	for i in PlayerStats.monsters.size():
+		monsters[i].loot_table_name = PlayerStats.monsters[i].loot_table_name
+		monsters[i].item_dropped.connect(_on_item_dropped)
 
-	current_battler = all_battlers[current_battler_index]
+	battlefield.place_monsters(monsters)
+	battlers.append_array(monsters)
+
+	current_battler = battlers[current_battler_index]
 	current_battler.start_turn(get_battlefield())
 
 
@@ -40,25 +49,20 @@ func next_battler() -> void:
 	if is_battle_end():
 		end_battle()
 	else:
-		current_battler_index = (current_battler_index + 1) % all_battlers.size()
-		current_battler = all_battlers[current_battler_index]
+		current_battler_index = (current_battler_index + 1) % battlers.size()
+		current_battler = battlers[current_battler_index]
 		current_battler.start_turn(get_battlefield())
 
 
 func is_battle_end() -> bool:
-	return monsters.is_empty() or characters.is_empty()
+	return items.is_empty() and (monsters.is_empty() or characters.is_empty())
 
 
 func end_battle() -> void:
-	PlayerStats.character_stats.clear()
-	for character in characters:
-		PlayerStats.character_stats.append(character.get_creature())
 	if monsters.is_empty():
 		battle_end_screen.show_message("SIEG!")
 	else:
 		battle_end_screen.show_message("VERLOREN")
-
-
 
 
 func _on_battler_attacked(attacker, defender) -> void:
@@ -72,7 +76,7 @@ func _on_battler_died(battler: Battler) -> void:
 	else:
 		monsters.erase(battler)
 		battler.queue_free()
-	all_battlers.erase(battler)
+	battlers.erase(battler)
 
 
 func get_battlefield() -> Battlefield:
@@ -84,3 +88,20 @@ func get_battlefield() -> Battlefield:
 	for monster in monsters:
 		battlefield.monster_positions.append(monster.get_battlefield_position())
 	return battlefield
+
+
+func get_battlers_node():
+	return battlers_node
+
+
+func _on_item_dropped(item_resource: ItemResource, global_position: Vector2):
+	var item: Item = ItemScene.instantiate()
+	item.item_resource = item_resource
+	item.global_position = global_position
+	item.item_picked_up.connect(_on_item_picked_up)
+	items.append(item)
+	items_node.add_child(item)
+
+
+func _on_item_picked_up(item: Item):
+	items.erase(item)

@@ -17,5 +17,5 @@ shape = SubResource("RectangleShape2D_v3b4c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[connection signal="body_entered" from="TalkDetectionZone" to="." method="_on_talk_detection_zone_body_entered"]
-[connection signal="body_exited" from="TalkDetectionZone" to="." method="_on_talk_detection_zone_body_exited"]
+[connection signal="area_entered" from="TalkDetectionZone" to="." method="_on_talk_detection_zone_area_entered"]
+[connection signal="area_exited" from="TalkDetectionZone" to="." method="_on_talk_detection_zone_area_exited"]

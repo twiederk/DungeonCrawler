@@ -18,15 +18,19 @@ func _input(event):
 		Dialogic.start(timeline)
 
 
-func _on_talk_detection_zone_body_entered(body):
-	if body.name == "Avatar":
+func _on_talk_detection_zone_area_entered(area):
+	if area is Avatar:
 		can_talk = true
 
 
-func _on_talk_detection_zone_body_exited(body):
-	if body.name == "Avatar":
+func _on_talk_detection_zone_area_exited(area):
+	if area is Avatar:
 		can_talk = false
 
 
 func unpause(_timeline_name):
 	get_tree().paused = false
+
+
+
+

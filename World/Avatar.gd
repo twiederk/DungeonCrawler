@@ -1,5 +1,5 @@
 class_name Avatar
-extends CharacterBody2D
+extends Area2D
 
 signal position_changed(position)
 

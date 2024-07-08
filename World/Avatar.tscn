@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
 
-[node name="Avatar" type="CharacterBody2D" groups=["player"]]
+[node name="Avatar" type="Area2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_8sosr")
 KEY_LOCKED_THRESHOLD = 0.4

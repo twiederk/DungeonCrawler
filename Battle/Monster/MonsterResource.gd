@@ -7,6 +7,8 @@ extends Resource
 @export var damage: int
 @export var texture: Resource
 @export var max_movement: int
+@export var loot_table_name: String
+
 
 func to_creature_stats() -> CreatureStats:
 	var creature_stats = CreatureStats.new()

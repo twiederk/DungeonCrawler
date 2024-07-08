@@ -3,8 +3,9 @@ extends Area2D
 
 @export var monsters: Array[MonsterResource] = []
 
-func _on_body_entered(body):
-	PlayerStats.start_position = body.position
+
+func _on_area_entered(area):
+	PlayerStats.start_position = area.position
 	PlayerStats.monsters = monsters
 	LevelStats.node_visited.emit(get_path())
 	queue_free()

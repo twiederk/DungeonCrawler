@@ -1,5 +1,7 @@
-class_name Stats
+class_name PlyStats
 extends Node
+
+var show_character_stats: bool = true
 
 var start_position: Vector2
 

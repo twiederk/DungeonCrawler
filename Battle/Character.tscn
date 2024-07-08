@@ -64,6 +64,7 @@ vframes = 16
 frame = 286
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -7.0
 offset_top = 12.0
 offset_right = 7.0
@@ -73,6 +74,7 @@ value = 50.0
 show_percentage = false
 
 [node name="NameLabel" type="Label" parent="."]
+visible = false
 offset_left = -29.0
 offset_top = -19.0
 offset_right = 29.0
