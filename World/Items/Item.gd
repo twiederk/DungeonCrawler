@@ -1,7 +1,7 @@
 class_name Item
 extends Area2D
 
-const ItemPickupScene = preload("res://World/Items/ItemPickup.tscn")
+const ItemPickupScreenScene = preload("res://World/Items/ItemPickupScreen.tscn")
 
 @export var item_resource: Resource
 
@@ -13,9 +13,10 @@ func _ready():
 
 
 func _on_body_entered(_body):
-	var item_pickup_scene = ItemPickupScene.instantiate()
-	get_tree().current_scene.add_child(item_pickup_scene)
-	item_pickup_scene.add_slot(self)
+	LevelStats.node_visited.emit(get_path())
+	var item_pickup_screen = ItemPickupScreenScene.instantiate()
+	get_tree().current_scene.add_child(item_pickup_screen)
+	item_pickup_screen.add_slot(self)
 	queue_free()
 
 

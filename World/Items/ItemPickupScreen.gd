@@ -1,4 +1,4 @@
-class_name ItemPickup
+class_name ItemPickupScreen
 extends Control
 
 @onready var item_list: ItemList = $CanvasLayer/Panel/ItemList

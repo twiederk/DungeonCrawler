@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dia5vfimh2stm"]
+
+[ext_resource type="Script" path="res://Battle/CharacterWidget.gd" id="1_ttnet"]
+[ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_l8xw4"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_a227w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q2er"]
+atlas = ExtResource("2_l8xw4")
+region = Rect2(0, 32, 16, 16)
+
+[node name="CharacterWidget" type="Control"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ttnet")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 91.0
+
+[node name="NameLabel" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 2.0
+offset_right = 111.0
+offset_bottom = 23.0
+text = "Name
+"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 24.0
+offset_right = 66.0
+offset_bottom = 88.0
+texture = SubResource("AtlasTexture_5q2er")
+
+[node name="HealthBar" type="ProgressBar" parent="Panel"]
+layout_mode = 2
+offset_left = 72.0
+offset_top = 88.0
+offset_right = 136.0
+offset_bottom = 96.0
+rotation = -1.5708
+theme = ExtResource("3_a227w")
+value = 50.0
+show_percentage = false

@@ -35,7 +35,7 @@ func get_leon() -> CreatureStats:
 	var leon = CreatureStats.new()
 	leon.name = "Leon"
 	leon.max_hit_points = 20
-	leon.hit_points = 16
+	leon.hit_points = 20
 	leon.damage = 2
 	leon.armor_class = 15
 	leon.max_movement = 3

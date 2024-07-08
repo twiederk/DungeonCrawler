@@ -1,29 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3iyvfjfa85ff"]
+[gd_scene load_steps=11 format=3 uid="uid://d3iyvfjfa85ff"]
 
 [ext_resource type="Script" path="res://Battle/Monster.gd" id="1_6e4hi"]
 [ext_resource type="PackedScene" uid="uid://dnxhrwwbb0j0w" path="res://Battle/Hurtbox.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="2_2lr2s"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_o2xme"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="4_6bh44"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4qsyq"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an22o"]
-bg_color = Color(0, 1, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="Theme" id="Theme_l6uu1"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_4qsyq")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_an22o")
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
@@ -76,7 +57,7 @@ offset_left = -7.0
 offset_top = 8.0
 offset_right = 7.0
 offset_bottom = 12.0
-theme = SubResource("Theme_l6uu1")
+theme = ExtResource("3_o2xme")
 value = 50.0
 show_percentage = false
 

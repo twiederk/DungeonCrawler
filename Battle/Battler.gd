@@ -2,6 +2,7 @@ class_name Battler
 extends Area2D
 
 signal battler_attacked(attacker, defender)
+signal battler_hurt(hit_points)
 signal battler_died(battler)
 signal turn_ended
 
@@ -9,6 +10,7 @@ enum BattleState { READY, DONE, DEAD }
 enum Facing { RIGHT = 0, DOWN = 90, LEFT = 180, UP = 270 }
 
 const HitEffectScene: PackedScene = preload("res://Battle/HitEffect.tscn")
+const DamagePopupScene: PackedScene = preload("res://Battle/DamagePopup.tscn")
 
 var _creature_stats = CreatureStats.new()
 var _battle_state: BattleState = BattleState.DONE
@@ -62,12 +64,12 @@ func stop_turn():
 	_battle_state = BattleState.DONE
 
 
-func step() -> void:
+func step():
 	#print(get_creature_name(), ".step()")
 	set_movement(get_movement() + 1)
 
 
-func attack() -> void:
+func attack():
 	#print(get_creature_name(), ".attack()")
 	var target = get_target()
 	if target != null:
@@ -84,10 +86,12 @@ func roll_attack() -> int:
 	return randi_range(1, 20)
 
 
-func hurt(damage: int) -> void:
+func hurt(damage: int):
 	set_hit_points(get_hit_points() - damage)
+	battler_hurt.emit(get_hit_points())
 	update_health_bar()
 	display_hit_effect()
+	display_damage_popup(damage)
 	if get_hit_points() <= 0:
 		dead()
 
@@ -98,18 +102,29 @@ func dead():
 	battler_died.emit(self)
 
 
-func display_hit_effect() -> void:
+func display_hit_effect():
 	var hit_effect = HitEffectScene.instantiate()
 	hit_effect.position = position
 	get_parent().add_child(hit_effect)
 
 
-func set_sprite_frames(sprite_frames: SpriteFrames) -> void:
+func display_damage_popup(damage: int):
+	var damage_popup: DamagePopup = DamagePopupScene.instantiate()
+	damage_popup.set_damage_text(damage)
+	damage_popup.position = global_position
+	get_tree().current_scene.add_child(damage_popup)
+
+
+func _get_random_direction() -> Vector2:
+	return Vector2(randf_range(-1, 1), -randf()) * 16
+
+
+func set_sprite_frames(sprite_frames: SpriteFrames):
 	animated_sprite_2d.sprite_frames = sprite_frames
 	animated_sprite_2d.play("default")
 
 
-func update_health_bar() -> void:
+func update_health_bar():
 	health_bar.value = _creature_stats.hit_points
 
 
@@ -117,7 +132,7 @@ func get_creature() -> CreatureStats:
 	return _creature_stats
 
 
-func set_creature(creature_stats: CreatureStats) -> void:
+func set_creature(creature_stats: CreatureStats):
 	_creature_stats = creature_stats
 
 
@@ -125,7 +140,7 @@ func get_creature_name() -> String:
 	return _creature_stats.name
 
 
-func set_creature_name(new_name: String) -> void:
+func set_creature_name(new_name: String):
 	_creature_stats.name = new_name
 
 
@@ -133,7 +148,7 @@ func get_armor_class() -> int:
 	return _creature_stats.armor_class
 
 
-func set_armor_class(armor_class: int) -> void:
+func set_armor_class(armor_class: int):
 	_creature_stats.armor_class = armor_class
 
 
@@ -141,7 +156,7 @@ func get_damage() -> int:
 	return _creature_stats.damage
 
 
-func set_damage(damage: int) -> void:
+func set_damage(damage: int):
 	_creature_stats.damage = damage
 
 
@@ -149,7 +164,7 @@ func get_hit_points() -> int:
 	return _creature_stats.hit_points
 
 
-func set_hit_points(hit_points: int) -> void:
+func set_hit_points(hit_points: int):
 	_creature_stats.hit_points = hit_points
 
 
@@ -157,7 +172,7 @@ func get_movement() -> int:
 	return _creature_stats.movement
 
 
-func set_movement(movement: int) -> void:
+func set_movement(movement: int):
 	_creature_stats.movement = movement
 
 
@@ -165,7 +180,7 @@ func get_max_movement() -> int:
 	return _creature_stats.max_movement
 
 
-func set_max_movement(max_movement: int) -> void:
+func set_max_movement(max_movement: int):
 	_creature_stats.max_movement = max_movement
 
 

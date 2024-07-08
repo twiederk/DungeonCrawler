@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://chk534dnsxj8v"]
+[gd_scene load_steps=5 format=3 uid="uid://chk534dnsxj8v"]
 
 [ext_resource type="Script" path="res://Battle/Battle.gd" id="1_0o8cx"]
 [ext_resource type="PackedScene" uid="uid://c8v4t0lonsd2b" path="res://Battle/Battlefield.tscn" id="2_5cwe2"]
+[ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="3_8ck03"]
 [ext_resource type="PackedScene" uid="uid://dwc0vtqp8qq3r" path="res://Battle/BattleEndScreen.tscn" id="3_pdmqs"]
 
 [node name="Battle" type="Node2D"]
@@ -10,6 +11,8 @@ script = ExtResource("1_0o8cx")
 [node name="Battlefield" parent="." instance=ExtResource("2_5cwe2")]
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="CharacterScreen" parent="GUI" instance=ExtResource("3_8ck03")]
 
 [node name="BattleEndScreen" parent="GUI" instance=ExtResource("3_pdmqs")]
 visible = false

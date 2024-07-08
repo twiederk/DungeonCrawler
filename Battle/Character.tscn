@@ -1,32 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://buuq7k8dnvr8j"]
+[gd_scene load_steps=14 format=3 uid="uid://buuq7k8dnvr8j"]
 
 [ext_resource type="Script" path="res://Battle/Character.gd" id="1_kqtyr"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="2"]
 [ext_resource type="PackedScene" path="res://Battle/Hitbox.tscn" id="3"]
 [ext_resource type="FontFile" uid="uid://hwj2hou2sni5" path="res://Assets/Fonts/PixelOperator8.ttf" id="3_47hix"]
 [ext_resource type="Texture2D" uid="uid://dnh7hrtr38hwe" path="res://Assets/graphics/sprites/Ultima5SpriteSheet.png" id="3_o85js"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="4_5l6rv"]
 [ext_resource type="Script" path="res://Battle/CharacterHitbox.gd" id="4_jyua3"]
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="7_eqacn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nin3l"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmx5r"]
-bg_color = Color(0, 1, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.8, 0.8, 0)
-
-[sub_resource type="Theme" id="Theme_dnjwn"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_nin3l")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_qmx5r")
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(15, 15)
@@ -87,7 +68,7 @@ offset_left = -7.0
 offset_top = 12.0
 offset_right = 7.0
 offset_bottom = 16.0
-theme = SubResource("Theme_dnjwn")
+theme = ExtResource("4_5l6rv")
 value = 50.0
 show_percentage = false
 

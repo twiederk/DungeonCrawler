@@ -14,6 +14,7 @@ var current_battler_index: int
 var game_system: GameSystem = GameSystem.new()
 
 @onready var battlefield = $Battlefield
+@onready var character_screen = $GUI/CharacterScreen
 @onready var battle_end_screen = $GUI/BattleEndScreen
 
 func _ready():
@@ -22,6 +23,7 @@ func _ready():
 	var battle_init = BattleInit.new()
 
 	characters = battle_init.create_battlers(CharacterScene, self, PlayerStats.character_stats)
+	character_screen.connect_characters(characters)
 	battlefield.place_characters(characters)
 	all_battlers.append_array(characters)
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bi74pnjlovwju"]
 
-[ext_resource type="Script" path="res://World/Items/ItemPickup.gd" id="1_r4wrv"]
+[ext_resource type="Script" path="res://World/Items/ItemPickupScreen.gd" id="1_vjof6"]
 
 [node name="ItemPickup" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_r4wrv")
+script = ExtResource("1_vjof6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
