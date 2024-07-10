@@ -46,7 +46,7 @@ func dead():
 
 
 func drop_loot():
-	var file: FileAccess = FileAccess.open("res://data/" + loot_table_name + ".json",FileAccess.READ)
+	var file: FileAccess = FileAccess.open("res://Data/" + loot_table_name + ".json",FileAccess.READ)
 	var loot_table = JSON.parse_string(file.get_as_text())
 	file.close()
 	

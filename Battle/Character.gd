@@ -17,7 +17,7 @@ func _ready():
 
 
 func _input(_event):
-	if _battle_state == BattleState.READY:
+	if _battle_state == BattleState.READY and not PlayerStats.display_item_pickup_screen:
 		if Input.is_action_just_pressed("attack"):
 			get_viewport().set_input_as_handled()
 			attack()

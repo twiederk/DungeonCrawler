@@ -6,6 +6,7 @@ extends Control
 
 
 func _ready():
+	PlayerStats.display_item_pickup_screen = true
 	continue_button.grab_focus()
 
 
@@ -14,4 +15,5 @@ func add_slot(item: Item):
 
 
 func _on_continue_button_pressed():
+	PlayerStats.display_item_pickup_screen = false
 	queue_free()
