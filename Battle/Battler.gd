@@ -153,11 +153,11 @@ func set_armor_class(armor_class: int):
 
 
 func get_damage() -> int:
-	return _creature_stats.damage
+	return _creature_stats.weapon.damage.roll()
 
 
-func set_damage(damage: int):
-	_creature_stats.damage = damage
+func set_weapon(weapon: WeaponResource):
+	_creature_stats.weapon = weapon
 
 
 func get_hit_points() -> int:

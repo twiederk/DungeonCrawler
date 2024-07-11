@@ -38,15 +38,21 @@ func test_attack_missed():
 func test_attack_hit():
 	## arrange
 	seed(1000)
+	var damage = Damage.new()
+	damage.number_of_dice = 1
+	damage.die = DiceBox.Die.D6
+	var weapon = WeaponResource.new()
+	weapon.damage = damage
+	
 	var attacker: Battler = MonsterScene.instantiate()
 	attacker.set_creature(SKELETON.to_creature_stats())
 	attacker.set_creature_name("myName")
-	attacker.set_damage(2)
+	attacker.set_weapon(weapon)
 	add_child(attacker)
 
 	var defender: Battler = MonsterScene.instantiate()
 	defender.set_creature(SKELETON.to_creature_stats())
-	defender.set_hit_points(5)
+	defender.set_hit_points(10)
 	defender.set_armor_class(10)
 	add_child(defender)
 
@@ -54,7 +60,7 @@ func test_attack_hit():
 	game_system.attack(attacker, defender)
 
 	# assert
-	assert_eq(defender.get_hit_points(), 3, "Should hit points reduced by damage when attack hits")
+	assert_eq(defender.get_hit_points(), 5, "Should hit points reduced by damage when attack hits")
 
 	# tear down
 	attacker.free()

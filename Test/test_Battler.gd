@@ -36,12 +36,6 @@ func test_get_set_armor_class():
 	assert_accessors(battler, "armor_class", 0, 10)
 
 
-func test_get_set_damage():
-
-	# assert
-	assert_accessors(battler, "damage", 0, 1)
-
-
 func test_get_set_movement():
 
 	# assert
@@ -100,3 +94,22 @@ func test_start_turn():
 	# tear down
 	turn_indicator.free()
 	battlefield.free()
+
+
+func test_get_damage():
+	# arrange
+	seed(1)
+	var damage = Damage.new()
+	damage.number_of_dice = 1
+	damage.die = DiceBox.Die.D6
+	var weapon = WeaponResource.new()
+	weapon.damage = damage
+	var creature_stats = CreatureStats.new()
+	creature_stats.weapon = weapon
+	battler.set_creature(creature_stats)
+	
+	# act
+	var result = battler.get_damage()
+	
+	# assert
+	assert_eq(result, 4)

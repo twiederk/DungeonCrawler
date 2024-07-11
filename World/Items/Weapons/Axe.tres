@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://b2fkv22x66tfd"]
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=5 format=3 uid="uid://b2fkv22x66tfd"]
 
 [ext_resource type="Script" path="res://World/Items/WeaponResource.gd" id="1_7nv7k"]
+[ext_resource type="Script" path="res://Battle/Damage.gd" id="1_mnedw"]
 [ext_resource type="Texture2D" uid="uid://vl5ntpb7vrlo" path="res://Assets/graphics/sprites/items/weapons/weapon_axe_01.png" id="2_wlyiv"]
+
+[sub_resource type="Resource" id="Resource_cwwvx"]
+script = ExtResource("1_mnedw")
+number_of_dice = 1
+die = 6
 
 [resource]
 script = ExtResource("1_7nv7k")
+damage = SubResource("Resource_cwwvx")
 id = 1
 name = "Axt"
 texture = ExtResource("2_wlyiv")
