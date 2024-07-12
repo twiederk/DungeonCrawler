@@ -3,13 +3,13 @@ extends Node
 
 @export var items: Dictionary
 
+var _weapon_data = WeaponData.new()
+
 
 func _ready():
-	items = {
-		"0": load("res://World/Items/Weapons/Sword.tres"),
-		"1": load("res://World/Items/Weapons/Axe.tres"),
-		"2": load("res://World/Items/Armor/Cloth.tres"),
-	}
+	_weapon_data.init()
+	PlayerStats.load_characters()
 
-func get_item(id: String) -> ItemResource:
-	return items[id]
+
+func get_weapon(id: int) -> WeaponResource:
+	return _weapon_data.get_weapon(id)

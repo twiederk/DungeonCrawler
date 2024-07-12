@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="MonsterResource" load_steps=4 format=3 uid="uid://cs3261lcclqrl"]
+[gd_resource type="Resource" script_class="MonsterResource" load_steps=3 format=3 uid="uid://cs3261lcclqrl"]
 
 [ext_resource type="Script" path="res://Battle/Monster/MonsterResource.gd" id="1_0625f"]
 [ext_resource type="SpriteFrames" uid="uid://bq6p4lq8w6jj4" path="res://Assets/graphics/sprites/Skeleton.tres" id="2_qsq3x"]
-[ext_resource type="Resource" uid="uid://b2fkv22x66tfd" path="res://World/Items/Weapons/Axe.tres" id="3_wfgit"]
 
 [resource]
 script = ExtResource("1_0625f")
@@ -10,7 +9,7 @@ name = "Skeleton"
 hit_points = 2
 armor_class = 10
 damage = 1
-weapon = ExtResource("3_wfgit")
+weapon_id = 5
 texture = ExtResource("2_qsq3x")
 max_movement = 2
 loot_table_name = "SkeletonLoot"

@@ -61,7 +61,7 @@ func drop_loot():
 	
 	for i in cumulative_weight:
 		if chance < i[1]:
-			var item_resource = ItemData.get_item(str(i[0]))
+			var item_resource = ItemData.get_weapon(i[0])
 			item_dropped.emit(item_resource, global_position)
 			break
 

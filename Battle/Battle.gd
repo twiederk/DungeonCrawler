@@ -31,17 +31,27 @@ func _ready():
 	characters = battle_init.create_battlers(CharacterScene, self, PlayerStats.character_stats)
 	battlefield.place_characters(characters)
 	battlers.append_array(characters)
+	_remove_dead_characters()
 
 	monsters = battle_init.create_battlers(MonsterScene, self, PlayerStats.get_monster_stats())
-	for i in PlayerStats.monsters.size():
-		monsters[i].loot_table_name = PlayerStats.monsters[i].loot_table_name
-		monsters[i].item_dropped.connect(_on_item_dropped)
-
+	_set_monsters_loot_table_name()
 	battlefield.place_monsters(monsters)
 	battlers.append_array(monsters)
 
 	current_battler = battlers[current_battler_index]
 	current_battler.start_turn(get_battlefield())
+
+
+func _remove_dead_characters():
+	for character in characters:
+		if character.get_hit_points() == 0:
+			character.dead()
+
+
+func _set_monsters_loot_table_name():
+	for i in PlayerStats.monsters.size():
+		monsters[i].loot_table_name = PlayerStats.monsters[i].loot_table_name
+		monsters[i].item_dropped.connect(_on_item_dropped)
 
 
 func next_battler() -> void:
@@ -55,7 +65,7 @@ func next_battler() -> void:
 
 
 func is_battle_end() -> bool:
-	return items.is_empty() and (monsters.is_empty() or characters.is_empty())
+	return characters.is_empty() or (monsters.is_empty() and items.is_empty())
 
 
 func end_battle() -> void:

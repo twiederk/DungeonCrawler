@@ -4,14 +4,14 @@
 ;
 ; Format:
 ;   [section] ; section goes between []
-;   param=value ; assign values to parameter
+;   param=value ; assign values to parameters
 
 config_version=5
 
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.24.0"
+config/description="1.25.0-snapshot"
 run/main_scene="res://World/Maps/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"

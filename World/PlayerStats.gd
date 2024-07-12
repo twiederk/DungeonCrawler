@@ -8,10 +8,11 @@ var start_position: Vector2
 
 var monsters: Array[MonsterResource] = []
 
-var character_stats: Array[CreatureStats] = [
-	get_leon(),
-	get_linda(),
-]
+var character_stats: Array[CreatureStats] = []
+
+
+func load_characters():
+	character_stats = [ get_leon(), get_linda(),]
 
 
 func get_monster_stats() -> Array[CreatureStats]:
@@ -27,7 +28,7 @@ func get_linda() -> CreatureStats:
 	linda.hit_points = 4
 	linda.max_hit_points = 4
 	linda.damage = 1
-	linda.weapon = load("res://World/Items/Weapons/Axe.tres")
+	linda.weapon = ItemData.get_weapon(5)
 	linda.armor_class = 10
 	linda.max_movement = 4
 	linda.movement = 0
@@ -41,7 +42,7 @@ func get_leon() -> CreatureStats:
 	leon.max_hit_points = 20
 	leon.hit_points = 20
 	leon.damage = 2
-	leon.weapon = load("res://World/Items/Weapons/Sword.tres")
+	leon.weapon = ItemData.get_weapon(11)
 	leon.armor_class = 15
 	leon.max_movement = 3
 	leon.movement = 0
