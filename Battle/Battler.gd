@@ -4,6 +4,7 @@ extends Area2D
 signal battler_attacked(attacker, defender)
 signal battler_hurt(hit_points)
 signal battler_died(battler)
+signal turn_started
 signal turn_ended
 
 enum BattleState { READY, DONE, DEAD }
