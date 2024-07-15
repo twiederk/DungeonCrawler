@@ -57,3 +57,5 @@ position = Vector2(11, 32)
 sprite_frames = ExtResource("4_cc1ps")
 animation = &"heal"
 centered = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
