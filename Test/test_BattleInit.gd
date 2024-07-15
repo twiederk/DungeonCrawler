@@ -43,7 +43,7 @@ func test_create_battlers():
 	add_child(battle)
 
 	# act
-	var characters = battle_init.create_battlers(character_scene, battle, character_stats)
+	var characters = battle_init.create_battlers(character_scene, battle, null, character_stats)
 
 	# assert
 	assert_eq(characters.size(), 2, "Should create two characters when two textures are given")

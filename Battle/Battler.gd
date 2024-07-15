@@ -4,6 +4,7 @@ extends Area2D
 signal battler_attacked(attacker, defender)
 signal battler_hurt(hit_points)
 signal battler_died(battler)
+signal turn_started
 signal turn_ended
 
 enum BattleState { READY, DONE, DEAD }
@@ -56,6 +57,7 @@ func start_turn(battlefield: Battlefield):
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY
+	turn_started.emit()
 
 
 func stop_turn():
@@ -99,6 +101,7 @@ func hurt(damage: int):
 func dead():
 	set_hit_points(0)
 	_battle_state = BattleState.DEAD
+	set_state(CreatureStats.State.UNCONSCIOUS)
 	battler_died.emit(self)
 
 
@@ -182,6 +185,10 @@ func get_max_movement() -> int:
 
 func set_max_movement(max_movement: int):
 	_creature_stats.max_movement = max_movement
+
+
+func set_state(state: CreatureStats.State):
+	_creature_stats.state = state
 
 
 func degree_to_facing(degree: int) -> Facing:

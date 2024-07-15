@@ -28,12 +28,12 @@ func _ready():
 
 	var battle_init = BattleInit.new()
 
-	characters = battle_init.create_battlers(CharacterScene, self, PlayerStats.character_stats)
+	characters = battle_init.create_battlers(CharacterScene, self, character_screen, PlayerStats.character_stats)
 	battlefield.place_characters(characters)
 	battlers.append_array(characters)
 	_remove_dead_characters()
 
-	monsters = battle_init.create_battlers(MonsterScene, self, PlayerStats.get_monster_stats())
+	monsters = battle_init.create_battlers(MonsterScene, self, null, PlayerStats.get_monster_stats())
 	_set_monsters_loot_table_name()
 	battlefield.place_monsters(monsters)
 	battlers.append_array(monsters)

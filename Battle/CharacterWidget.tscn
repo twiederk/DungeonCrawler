@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dia5vfimh2stm"]
+[gd_scene load_steps=7 format=3 uid="uid://dia5vfimh2stm"]
 
 [ext_resource type="Script" path="res://Battle/CharacterWidget.gd" id="1_ttnet"]
 [ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_l8xw4"]
 [ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_a227w"]
+[ext_resource type="SpriteFrames" uid="uid://c70w6i2f7b3rd" path="res://Assets/graphics/sprites/SpellHeal.tres" id="4_cc1ps"]
+[ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png" id="4_nbh25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q2er"]
 atlas = ExtResource("2_l8xw4")
@@ -49,3 +51,21 @@ rotation = -1.5708
 theme = ExtResource("3_a227w")
 value = 50.0
 show_percentage = false
+
+[node name="Weapon" type="TextureRect" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 74.0
+offset_top = 29.0
+offset_right = 114.0
+offset_bottom = 69.0
+texture = ExtResource("4_nbh25")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(11, 32)
+sprite_frames = ExtResource("4_cc1ps")
+animation = &"heal"
+centered = false
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

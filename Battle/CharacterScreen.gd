@@ -3,6 +3,8 @@ extends Control
 
 const CharacterWidgetScene: PackedScene = preload("res://Battle/CharacterWidget.tscn")
 
+var _character_widgets: Array[Control] = []
+
 @onready var v_box_container = $VBoxContainer
 
 func _ready():
@@ -17,11 +19,16 @@ func _input(event):
 		visible = PlayerStats.show_character_stats
 
 
-func _add_character_widget(character_stat: CreatureStats):
+func _add_character_widget(creature_stats: CreatureStats):
 	var character_widget: CharacterWidget = CharacterWidgetScene.instantiate()
 	v_box_container.add_child(character_widget)
-	character_widget.set_character_name(character_stat.name)
-	character_widget.set_texture(character_stat.texture)
-	character_widget.set_hit_points(character_stat.hit_points)
-	character_widget.set_max_hit_points(character_stat.max_hit_points)
-	character_stat.hit_points_changed.connect(character_widget.update_health_bar)
+	character_widget.assign_creature_stats(creature_stats)
+	_character_widgets.append(character_widget)
+
+
+func play_animation(widget_id: int, animation_name: String):
+	_character_widgets[widget_id].play_animation(animation_name)
+	
+	
+func get_character_widget(index: int) -> Control:
+	return _character_widgets[index]
