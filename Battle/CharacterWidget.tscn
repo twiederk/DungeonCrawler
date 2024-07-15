@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dia5vfimh2stm"]
+[gd_scene load_steps=6 format=3 uid="uid://dia5vfimh2stm"]
 
 [ext_resource type="Script" path="res://Battle/CharacterWidget.gd" id="1_ttnet"]
 [ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_l8xw4"]
 [ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_a227w"]
+[ext_resource type="SpriteFrames" uid="uid://c70w6i2f7b3rd" path="res://Assets/graphics/sprites/SpellHeal.tres" id="4_cc1ps"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q2er"]
 atlas = ExtResource("2_l8xw4")
@@ -49,3 +50,10 @@ rotation = -1.5708
 theme = ExtResource("3_a227w")
 value = 50.0
 show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(11, 32)
+sprite_frames = ExtResource("4_cc1ps")
+animation = &"heal"
+centered = false
