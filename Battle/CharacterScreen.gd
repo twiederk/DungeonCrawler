@@ -26,7 +26,7 @@ func _add_character_widget(character_stat: CreatureStats):
 	character_widget.set_texture(character_stat.texture)
 	character_widget.set_hit_points(character_stat.hit_points)
 	character_widget.set_max_hit_points(character_stat.max_hit_points)
-	character_stat.hit_points_changed.connect(character_widget.update_health_bar)
+	character_stat.hit_points_changed.connect(character_widget._on_hit_points_changed)
 	_character_widgets.append(character_widget)
 
 

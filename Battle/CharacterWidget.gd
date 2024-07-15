@@ -5,6 +5,7 @@ extends Control
 @onready var health_bar = $Panel/HealthBar
 @onready var texture_rect = $Panel/TextureRect
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var weapon = $Panel/Weapon
 
 
 func set_character_name(character_name: String):
@@ -27,7 +28,7 @@ func set_max_hit_points(max_hit_points: int):
 	health_bar.max_value = max_hit_points
 
 
-func update_health_bar(hit_points: int):
+func _on_hit_points_changed(hit_points: int):
 	health_bar.value = hit_points
 
 
@@ -38,3 +39,11 @@ func play_animation(animation_name: String):
 
 func _on_animated_sprite_2d_animation_finished():
 	animated_sprite_2d.hide()
+
+
+func focus():
+	weapon.show()
+
+
+func unfocus():
+	weapon.hide()
