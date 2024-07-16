@@ -19,10 +19,10 @@ func _input(event):
 		visible = PlayerStats.show_character_stats
 
 
-func _add_character_widget(character_stat: CreatureStats):
+func _add_character_widget(creature_stats: CreatureStats):
 	var character_widget: CharacterWidget = CharacterWidgetScene.instantiate()
 	v_box_container.add_child(character_widget)
-	character_widget.assign_character_stats(character_stat)
+	character_widget.assign_creature_stats(creature_stats)
 	_character_widgets.append(character_widget)
 
 

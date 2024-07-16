@@ -101,6 +101,7 @@ func hurt(damage: int):
 func dead():
 	set_hit_points(0)
 	_battle_state = BattleState.DEAD
+	set_state(CreatureStats.State.DEAD)
 	battler_died.emit(self)
 
 
@@ -184,6 +185,10 @@ func get_max_movement() -> int:
 
 func set_max_movement(max_movement: int):
 	_creature_stats.max_movement = max_movement
+
+
+func set_state(state: CreatureStats.State):
+	_creature_stats.state = state
 
 
 func degree_to_facing(degree: int) -> Facing:
