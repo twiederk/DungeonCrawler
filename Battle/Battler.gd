@@ -57,6 +57,7 @@ func start_turn(battlefield: Battlefield):
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY
+	turn_started.emit()
 
 
 func stop_turn():

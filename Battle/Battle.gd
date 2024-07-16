@@ -29,6 +29,9 @@ func _ready():
 	var battle_init = BattleInit.new()
 
 	characters = battle_init.create_battlers(CharacterScene, self, PlayerStats.character_stats)
+	for index in characters.size():
+		characters[index].turn_started.connect(character_screen.get_character_widget(index)._on_focus)
+		characters[index].turn_ended.connect(character_screen.get_character_widget(index)._on_unfocus)
 	battlefield.place_characters(characters)
 	battlers.append_array(characters)
 	_remove_dead_characters()
