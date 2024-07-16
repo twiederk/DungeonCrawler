@@ -101,7 +101,7 @@ func hurt(damage: int):
 func dead():
 	set_hit_points(0)
 	_battle_state = BattleState.DEAD
-	set_state(CreatureStats.State.DEAD)
+	set_state(CreatureStats.State.UNCONSCIOUS)
 	battler_died.emit(self)
 
 

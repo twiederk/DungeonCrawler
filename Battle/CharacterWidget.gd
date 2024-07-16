@@ -13,10 +13,10 @@ var _creature_stats: CreatureStats
 func assign_creature_stats(creature_stats: CreatureStats):
 	_creature_stats = creature_stats
 	name_label.text = creature_stats.name
-	_set_texture("default")
 	health_bar.value = creature_stats.hit_points
 	health_bar.max_value = creature_stats.max_hit_points
 	weapon.texture = creature_stats.weapon.texture
+	_on_state_changed(creature_stats.state)
 	creature_stats.hit_points_changed.connect(_on_hit_points_changed)
 	creature_stats.max_hit_points_changed.connect(_on_max_hit_points_changed)
 	creature_stats.state_changed.connect(_on_state_changed)
@@ -40,7 +40,7 @@ func _on_max_hit_points_changed(max_hit_points: int):
 
 func _on_state_changed(state: CreatureStats.State):
 	match state:
-		CreatureStats.State.DEAD:
+		CreatureStats.State.UNCONSCIOUS:
 			_set_texture("dead")
 		_:
 			_set_texture("default")

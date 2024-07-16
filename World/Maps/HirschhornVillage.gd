@@ -13,7 +13,8 @@ func _heal_party():
 	for i in PlayerStats.character_stats.size():
 		var character = PlayerStats.character_stats[i]
 		if character.hit_points < character.max_hit_points:
-			character.hit_points = character.max_hit_points
 			character_screen.play_animation(i, "heal")
+			character.hit_points = character.max_hit_points
+			character.state = CreatureStats.State.ALIVE
 
 

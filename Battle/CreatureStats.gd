@@ -5,7 +5,7 @@ signal hit_points_changed(hit_points: int)
 signal max_hit_points_changed(max_hit_points: int)
 signal state_changed(state_hit_points: State)
 
-enum State { ALIVE, DEAD }
+enum State { ALIVE, UNCONSCIOUS }
 
 @export var name: String
 @export var hit_points: int:
