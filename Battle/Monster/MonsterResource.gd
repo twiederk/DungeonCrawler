@@ -6,7 +6,7 @@ extends Resource
 @export var armor_class: int
 @export var damage: int
 @export var weapon_id: int
-@export var texture: Resource
+@export var sprite_frames: Resource
 @export var max_movement: int
 @export var loot_table_name: String
 
@@ -19,6 +19,6 @@ func to_creature_stats() -> CreatureStats:
 	creature_stats.armor_class = armor_class
 	creature_stats.damage = damage
 	creature_stats.weapon = ItemData.get_weapon(weapon_id)
-	creature_stats.texture = texture
+	creature_stats.sprite_frames = sprite_frames
 	creature_stats.max_movement = max_movement
 	return creature_stats

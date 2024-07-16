@@ -11,5 +11,4 @@ lib/
 .idea/
 
 *.translation
-export_presets.cfg
 .mono/

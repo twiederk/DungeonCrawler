@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bq6p4lq8w6jj4"]
+
+[ext_resource type="Texture2D" uid="uid://roboosmyccrj" path="res://Assets/graphics/sprites/SkeletonSpriteSheet.png" id="1_uengd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8helm"]
+atlas = ExtResource("1_uengd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66i3i"]
+atlas = ExtResource("1_uengd")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5s2g"]
+atlas = ExtResource("1_uengd")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so3m0"]
+atlas = ExtResource("1_uengd")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sffnu"]
+atlas = ExtResource("1_uengd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6dgd"]
+atlas = ExtResource("1_uengd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y7fg"]
+atlas = ExtResource("1_uengd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg1pu"]
+atlas = ExtResource("1_uengd")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8helm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66i3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5s2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so3m0")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sffnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6dgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y7fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg1pu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

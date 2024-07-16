@@ -16,21 +16,23 @@ const DamagePopupScene: PackedScene = preload("res://Battle/DamagePopup.tscn")
 var _creature_stats = CreatureStats.new()
 var _battle_state: BattleState = BattleState.DONE
 var _ray_casts: Dictionary = {}
+var _target: Battler
 
 @onready var turn_indicator = $TurnIndicator
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var health_bar = $HealthBar
-@onready var animationPlayer = $AnimationPlayer
-@onready var ray_cast_left = $RayCastLeft
-@onready var ray_cast_right = $RayCastRight
-@onready var ray_cast_up = $RayCastUp
-@onready var ray_cast_down = $RayCastDown
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_bar: ProgressBar = $HealthBar
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_up: RayCast2D = $RayCastUp
+@onready var ray_cast_down: RayCast2D = $RayCastDown
 
 
 func _ready():
 	init_hit_points()
 	init_animated_sprite()
 	init_ray_casts_dictionary()
+	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
 
 
 func init_hit_points():
@@ -39,10 +41,10 @@ func init_hit_points():
 
 
 func init_animated_sprite():
-	set_sprite_frames(_creature_stats.texture)
-	var number_of_frames = animated_sprite_2d.sprite_frames.get_frame_count("default")
+	set_sprite_frames(_creature_stats.sprite_frames)
+	var number_of_frames = animated_sprite_2d.sprite_frames.get_frame_count("idle")
 	animated_sprite_2d.frame = randi_range(0, number_of_frames)
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("idle")
 
 
 func init_ray_casts_dictionary():
@@ -73,10 +75,18 @@ func step():
 
 func attack():
 	#print(get_creature_name(), ".attack()")
-	var target = get_target()
-	if target != null:
-		animationPlayer.play("Attack")
-		battler_attacked.emit(self, target)
+	_target = get_target()
+	if _target != null:
+		animationPlayer.play("attack")
+		animated_sprite_2d.play("attack")
+	else:
+		turn_ended.emit()
+
+
+func _on_animation_finished():
+	#print("Battler._on_animation_finished()")
+	battler_attacked.emit(self, _target)
+	animated_sprite_2d.play("idle")
 	turn_ended.emit()
 
 
@@ -89,6 +99,7 @@ func roll_attack() -> int:
 
 
 func hurt(damage: int):
+	#print("Battler.hurt()")
 	set_hit_points(get_hit_points() - damage)
 	battler_hurt.emit(get_hit_points())
 	update_health_bar()
@@ -99,6 +110,8 @@ func hurt(damage: int):
 
 
 func dead():
+	#print("Battler.dead()")
+	animated_sprite_2d.animation_finished.disconnect(_on_animation_finished)
 	set_hit_points(0)
 	_battle_state = BattleState.DEAD
 	set_state(CreatureStats.State.UNCONSCIOUS)
@@ -124,7 +137,7 @@ func _get_random_direction() -> Vector2:
 
 func set_sprite_frames(sprite_frames: SpriteFrames):
 	animated_sprite_2d.sprite_frames = sprite_frames
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("idle")
 
 
 func update_health_bar():

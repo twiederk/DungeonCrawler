@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c6aa2413whuak"]
+
+[ext_resource type="Texture2D" uid="uid://vpjeiscc0iui" path="res://Assets/graphics/sprites/FighterSpriteSheet.png" id="1_qkq8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u0gg"]
+atlas = ExtResource("1_qkq8f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mar68"]
+atlas = ExtResource("1_qkq8f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfhec"]
+atlas = ExtResource("1_qkq8f")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw756"]
+atlas = ExtResource("1_qkq8f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khcqi"]
+atlas = ExtResource("1_qkq8f")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u0gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mar68")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfhec")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw756")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khcqi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

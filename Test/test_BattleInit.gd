@@ -2,9 +2,9 @@ extends GutTest
 
 const BattleScene = preload("res://Battle/Battle.tscn")
 
-const sprite_frames_fighter = preload("res://Assets/graphics/sprites/Fighter.tres")
-const sprite_frames_mage = preload("res://Assets/graphics/sprites/Mage.tres")
-const sprite_frames_skeleton = preload("res://Assets/graphics/sprites/Skeleton.tres")
+const sprite_frames_fighter = preload("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
+const sprite_frames_mage = preload("res://Assets/graphics/sprites/MageSpriteFrames.tres")
+const sprite_frames_skeleton = preload("res://Assets/graphics/sprites/SkeletonSpriteFrames.tres")
 
 var battle_init: BattleInit = null
 
@@ -67,7 +67,7 @@ func get_linda() -> CreatureStats:
 	linda.armor_class = 3
 	linda.max_movement = 4
 	linda.movement = 5
-	linda.texture = sprite_frames_mage
+	linda.sprite_frames = sprite_frames_mage
 	return linda
 
 
@@ -77,7 +77,7 @@ func get_leon() -> CreatureStats:
 	leon.hit_points = 16
 	leon.damage = 2
 	leon.armor_class = 15
-	leon.texture = sprite_frames_fighter
+	leon.sprite_frames = sprite_frames_fighter
 	leon.max_movement = 3
 	leon.movement = 3
 	return leon

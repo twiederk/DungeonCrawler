@@ -32,7 +32,7 @@ func get_linda() -> CreatureStats:
 	linda.armor_class = 10
 	linda.max_movement = 4
 	linda.movement = 0
-	linda.texture = load("res://Assets/graphics/sprites/Mage.tres")
+	linda.sprite_frames = load("res://Assets/graphics/sprites/MageSpriteFrames.tres")
 	return linda
 
 
@@ -46,5 +46,5 @@ func get_leon() -> CreatureStats:
 	leon.armor_class = 15
 	leon.max_movement = 3
 	leon.movement = 0
-	leon.texture = load("res://Assets/graphics/sprites/Fighter.tres")
+	leon.sprite_frames = load("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
 	return leon

@@ -25,7 +25,7 @@ enum State { ALIVE, UNCONSCIOUS }
 @export var weapon: WeaponResource
 @export var max_movement: int
 @export var movement: int
-@export var texture: Resource
+@export var sprite_frames: Resource
 @export var state: State = State.ALIVE:
 	set(value):
 		state = value
