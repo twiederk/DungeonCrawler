@@ -23,7 +23,7 @@ func assign_creature_stats(creature_stats: CreatureStats):
 
 
 func _set_texture(animation_name: String):
-	var frame_texture = _creature_stats.texture.get_frame_texture(animation_name, 0)
+	var frame_texture = _creature_stats.sprite_frames.get_frame_texture(animation_name, 0)
 	var atlas_texture: AtlasTexture = AtlasTexture.new()
 	atlas_texture.atlas = frame_texture
 	atlas_texture.region = Rect2(0, 0, 16, 16)

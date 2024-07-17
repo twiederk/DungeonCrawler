@@ -39,7 +39,7 @@ func init_hit_points():
 
 
 func init_animated_sprite():
-	set_sprite_frames(_creature_stats.texture)
+	set_sprite_frames(_creature_stats.sprite_frames)
 	var number_of_frames = animated_sprite_2d.sprite_frames.get_frame_count("default")
 	animated_sprite_2d.frame = randi_range(0, number_of_frames)
 	animated_sprite_2d.play("default")

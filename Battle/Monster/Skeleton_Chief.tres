@@ -10,6 +10,6 @@ hit_points = 3
 armor_class = 12
 damage = 2
 weapon_id = 11
-texture = ExtResource("2_1p1aa")
+sprite_frames = ExtResource("2_1p1aa")
 max_movement = 2
 loot_table_name = "SkeletonChiefLoot"
