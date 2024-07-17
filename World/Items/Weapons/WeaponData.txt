@@ -2,7 +2,7 @@
 1;"Pfeil";1;6;"weapon_arrow_01.png"
 2;"Axt";1;6;"weapon_axe_01.png"
 3;"Bogen";1;8;"weapon_bow_01.png"
-4;"Klaue";1;4;"weapon_claw_01.png"
+4;"Schlagring";1;4;"weapon_claw_01.png"
 5;"Dolch";1;4;"weapon_dagger_01.png"
 6;"Katana";1;10;"weapon_katar_01.png"
 7;"Streitkolben";1;6;"weapon_mace_01.png"
