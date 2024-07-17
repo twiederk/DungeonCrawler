@@ -63,13 +63,6 @@ hframes = 16
 vframes = 16
 frame = 56
 
-[node name="DeadBodySprite2D" type="Sprite2D" parent="DeadBodySprite2D"]
-visible = false
-texture = ExtResource("3_6l5wd")
-hframes = 16
-vframes = 16
-frame = 56
-
 [node name="HealthBar" type="ProgressBar" parent="."]
 visible = false
 offset_left = -7.0
