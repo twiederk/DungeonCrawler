@@ -75,8 +75,16 @@ func attack():
 	#print(get_creature_name(), ".attack()")
 	var target = get_target()
 	if target != null:
-		animationPlayer.play("Attack")
-		battler_attacked.emit(self, target)
+		animated_sprite_2d.animation_finished.connect(_on_attack_finished.bind(target), CONNECT_ONE_SHOT)
+		animationPlayer.play("attack")
+		animated_sprite_2d.play("attack")
+	else:
+		turn_ended.emit()
+
+
+func _on_attack_finished(target):
+	battler_attacked.emit(self, target)
+	animated_sprite_2d.play("default")
 	turn_ended.emit()
 
 
