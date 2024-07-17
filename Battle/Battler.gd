@@ -18,13 +18,13 @@ var _battle_state: BattleState = BattleState.DONE
 var _ray_casts: Dictionary = {}
 
 @onready var turn_indicator = $TurnIndicator
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var health_bar = $HealthBar
-@onready var animationPlayer = $AnimationPlayer
-@onready var ray_cast_left = $RayCastLeft
-@onready var ray_cast_right = $RayCastRight
-@onready var ray_cast_up = $RayCastUp
-@onready var ray_cast_down = $RayCastDown
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_bar: ProgressBar = $HealthBar
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var ray_cast_up: RayCast2D = $RayCastUp
+@onready var ray_cast_down: RayCast2D = $RayCastDown
 
 
 func _ready():
