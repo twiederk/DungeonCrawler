@@ -1,9 +1,11 @@
 class_name Map
 extends Node2D
 
-@onready var avatar = $Avatar
+@onready var avatar: Avatar = $Avatar
 @onready var tile_map: TileMap = $TileMap
 @onready var map_borders: MapBorders = $MapBorders
+@onready var items_node: Node2D = $Items
+@onready var message_scroll: MessageScroll = $GUI/MessageScroll
 
 
 func _ready():
@@ -11,6 +13,9 @@ func _ready():
 	remove_visited_nodes()
 	set_camera_limits()
 	set_map_borders()
+	
+	for item in items_node.get_children():
+		item.item_picked_up.connect(_on_item_picked_up)
 
 
 func remove_visited_nodes():
@@ -38,3 +43,8 @@ func unpause():
 
 func _on_dialogic_signal(argument: String):
 	pass
+
+
+func _on_item_picked_up(item: Item, character_name: String):
+	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
+	MessageBus.message_send.emit(message)

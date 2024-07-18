@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs6lhhw28fllk"]
+[gd_scene load_steps=14 format=3 uid="uid://cs6lhhw28fllk"]
 
 [ext_resource type="Script" path="res://World/Maps/HirschhornCastleMap.gd" id="1_f2q4n"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_gwge5"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="4_j5py8"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="4_rw66l"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="5_bmkah"]
+[ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="5_vx8c5"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_mvxmj"]
+[ext_resource type="PackedScene" uid="uid://cmfauepiwftft" path="res://World/Items/Goods/GoldLarge.tscn" id="7_3gqwx"]
 [ext_resource type="Resource" path="res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl" id="7_pjvui"]
 [ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://Assets/graphics/sprites/LordOfHirschhorn.tres" id="8_jhftv"]
 
@@ -30,8 +32,15 @@ layer_0/tile_data = PackedInt32Array(0, 851968, 0, 1, 851968, 0, 2, 851968, 0, 3
 [node name="CharacterScreen" parent="GUI" instance=ExtResource("4_j5py8")]
 visible = false
 
+[node name="MessageScroll" parent="GUI" instance=ExtResource("5_vx8c5")]
+
 [node name="Avatar" parent="." instance=ExtResource("4_rw66l")]
 position = Vector2(328, 440)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="GoldLarge" parent="Items" instance=ExtResource("7_3gqwx")]
+position = Vector2(328, 412)
 
 [node name="Location" parent="." instance=ExtResource("5_bmkah")]
 position = Vector2(248, 504)

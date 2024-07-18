@@ -6,7 +6,7 @@ signal cell_cleared(vector)
 
 var _visited_nodes = {}
 var _cleared_cells = {}
-var _current_level = "WorldMap"
+var _current_level = "HirschhornCastleMap"
 
 
 func _ready():

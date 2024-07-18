@@ -16,11 +16,12 @@ var current_battler_index: int
 
 var game_system: GameSystem = GameSystem.new()
 
-@onready var battlefield = $Battlefield
-@onready var character_screen = $GUI/CharacterScreen
-@onready var battle_end_screen = $GUI/BattleEndScreen
-@onready var battlers_node = $Battlers
-@onready var items_node = $Items
+@onready var battlefield: Battlefield = $Battlefield
+@onready var character_screen: CharacterScreen = $GUI/CharacterScreen
+@onready var battle_end_screen: BattleEndScreen = $GUI/BattleEndScreen
+@onready var battlers_node: Node2D = $Battlers
+@onready var items_node: Node2D = $Items
+@onready var message_scroll: MessageScroll = $GUI/MessageScroll
 
 
 func _ready():
@@ -82,7 +83,7 @@ func _on_battler_attacked(attacker, defender) -> void:
 
 func _on_battler_died(battler: Battler) -> void:
 	#print("Battle._on_battler_died()")
-	print("...and kills ", battler.get_creature_name())
+	MessageBus.message_send.emit(str("...und tötet ", battler.get_creature_name()))
 	var index = battlers.find(battler)
 	if index < current_battler_index:
 		current_battler_index -= 1
@@ -118,5 +119,7 @@ func _on_item_dropped(item_resource: ItemResource, global_position: Vector2):
 	items_node.add_child(item)
 
 
-func _on_item_picked_up(item: Item):
+func _on_item_picked_up(item: Item, character_name: String):
 	items.erase(item)
+	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
+	MessageBus.message_send.emit(message)

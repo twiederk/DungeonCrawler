@@ -1,9 +1,8 @@
 class_name Item
 extends Area2D
 
-signal item_picked_up
+signal item_picked_up(item: Item, character_name: String)
 
-const ItemPickupScreenScene = preload("res://World/Items/ItemPickupScreen.tscn")
 
 @export var item_resource: ItemResource
 
@@ -18,10 +17,11 @@ func _on_area_entered(area):
 	if area is Character or area is Avatar:
 		if not get_tree().current_scene is Battle:
 			LevelStats.node_visited.emit(get_path())
-		var item_pickup_screen = ItemPickupScreenScene.instantiate()
-		get_tree().current_scene.add_child(item_pickup_screen)
-		item_pickup_screen.add_slot(self)
-		item_picked_up.emit(self)
+		var character_name = PlayerStats.character_stats[0].name
+		if area is Character:
+			var character = area as Character
+			character_name = character.get_creature_name()
+		item_picked_up.emit(self, character_name)
 		queue_free()
 
 

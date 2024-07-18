@@ -77,7 +77,7 @@ func attack():
 	#print(get_creature_name(), ".attack()")
 	_target = get_target()
 	if _target != null:
-		animationPlayer.play("attack")
+
 		animated_sprite_2d.play("attack")
 	else:
 		turn_ended.emit()
@@ -85,6 +85,7 @@ func attack():
 
 func _on_animation_finished():
 	#print("Battler._on_animation_finished()")
+	animationPlayer.play("attack")
 	battler_attacked.emit(self, _target)
 	animated_sprite_2d.play("idle")
 	turn_ended.emit()

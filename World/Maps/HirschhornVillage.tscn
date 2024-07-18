@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bym11c137i7wl"]
+[gd_scene load_steps=21 format=3 uid="uid://bym11c137i7wl"]
 
 [ext_resource type="Script" path="res://World/Maps/HirschhornVillage.gd" id="1_4vsk6"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_kvx8o"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="3_44k2w"]
 [ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="4_874mm"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="4_hxj8b"]
+[ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="5_ei3wq"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="5_fften"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_x4ghh"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Healer.dtl" id="7_8qw8r"]
@@ -45,8 +46,12 @@ layer_0/tile_data = PackedInt32Array(196608, 720896, 0, 262144, 720896, 0, 32768
 [node name="CharacterScreen" parent="GUI" instance=ExtResource("4_874mm")]
 visible = false
 
+[node name="MessageScroll" parent="GUI" instance=ExtResource("5_ei3wq")]
+
 [node name="Avatar" parent="." instance=ExtResource("4_hxj8b")]
 position = Vector2(56, 264)
+
+[node name="Items" type="Node2D" parent="."]
 
 [node name="WestLocation" parent="." instance=ExtResource("5_fften")]
 position = Vector2(8, 264)

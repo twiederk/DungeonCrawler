@@ -12,8 +12,11 @@ size = Vector2(15, 15)
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(15, 15)
 
+[sub_resource type="Animation" id="4"]
+length = 0.001
+
 [sub_resource type="Animation" id="3"]
-resource_name = "Attack"
+resource_name = "attack"
 length = 0.6
 tracks/0/type = "audio"
 tracks/0/imported = false
@@ -31,13 +34,10 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = true
 
-[sub_resource type="Animation" id="4"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7rj2"]
 _data = {
-"Attack": SubResource("3"),
-"RESET": SubResource("4")
+"RESET": SubResource("4"),
+"attack": SubResource("3")
 }
 
 [node name="Monster" type="Area2D"]
