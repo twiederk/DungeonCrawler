@@ -21,6 +21,7 @@ var game_system: GameSystem = GameSystem.new()
 @onready var battle_end_screen = $GUI/BattleEndScreen
 @onready var battlers_node = $Battlers
 @onready var items_node = $Items
+@onready var message_scroll = $GUI/MessageScroll
 
 
 func _ready():
@@ -40,6 +41,13 @@ func _ready():
 
 	current_battler = battlers[current_battler_index]
 	current_battler.start_turn(get_battlefield())
+	
+	message_scroll.add_message("Message 1")
+	message_scroll.add_message("Message 2")
+	message_scroll.add_message("Message 3")
+	message_scroll.add_message("Message 4")
+	message_scroll.add_message("Message 5")
+	message_scroll.add_message("Message 6")
 
 
 func _remove_dead_characters():
