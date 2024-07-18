@@ -32,7 +32,7 @@ func get_linda() -> CreatureStats:
 	linda.armor_class = 10
 	linda.max_movement = 4
 	linda.movement = 0
-	linda.sprite_frames = load("res://Assets/graphics/sprites/Mage.tres")
+	linda.sprite_frames = load("res://Assets/graphics/sprites/MageSpriteFrames.tres")
 	return linda
 
 
