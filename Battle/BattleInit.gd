@@ -11,7 +11,7 @@ func create_battlers(scene: PackedScene, battle: Battle, character_screen: Chara
 		var battler = create_battler(scene, creature_stats[index])
 		battler.battler_died.connect(battle._on_battler_died)
 		battler.battler_attacked.connect(battle._on_battler_attacked)
-		battler.turn_ended.connect(battle.next_battler)
+		battler.turn_ended.connect(battle._on_next_battler)
 		if not character_screen == null:
 			battler.turn_started.connect(character_screen.get_character_widget(index)._on_focus)
 			battler.turn_ended.connect(character_screen.get_character_widget(index)._on_unfocus)

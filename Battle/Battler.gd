@@ -16,6 +16,7 @@ const DamagePopupScene: PackedScene = preload("res://Battle/DamagePopup.tscn")
 var _creature_stats = CreatureStats.new()
 var _battle_state: BattleState = BattleState.DONE
 var _ray_casts: Dictionary = {}
+var _target: Battler
 
 @onready var turn_indicator = $TurnIndicator
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -31,6 +32,7 @@ func _ready():
 	init_hit_points()
 	init_animated_sprite()
 	init_ray_casts_dictionary()
+	animated_sprite_2d.animation_finished.connect(_on_animation_finished)
 
 
 func init_hit_points():
@@ -53,7 +55,7 @@ func init_ray_casts_dictionary():
 
 
 func start_turn(battlefield: Battlefield):
-	#print(get_creature_name(), ".start_turn()")
+	print(get_creature_name(), ".start_turn()")
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY
@@ -61,29 +63,29 @@ func start_turn(battlefield: Battlefield):
 
 
 func stop_turn():
-	#print(get_creature_name(), ".stop_turn()")
+	print(get_creature_name(), ".stop_turn()")
 	turn_indicator.hide()
 	_battle_state = BattleState.DONE
 
 
 func step():
-	#print(get_creature_name(), ".step()")
+	print(get_creature_name(), ".step()")
 	set_movement(get_movement() + 1)
 
 
 func attack():
-	#print(get_creature_name(), ".attack()")
-	var target = get_target()
-	if target != null:
-		animated_sprite_2d.animation_finished.connect(_on_attack_finished.bind(target), CONNECT_ONE_SHOT)
-		animationPlayer.play("attack")
+	print(get_creature_name(), ".attack()")
+	_target = get_target()
+	if _target != null:
+		#animationPlayer.play("attack")
 		animated_sprite_2d.play("attack")
 	else:
 		turn_ended.emit()
 
 
-func _on_attack_finished(target):
-	battler_attacked.emit(self, target)
+func _on_animation_finished():
+	print("Battler._on_animation_finished()")
+	battler_attacked.emit(self, _target)
 	animated_sprite_2d.play("default")
 	turn_ended.emit()
 
@@ -97,6 +99,7 @@ func roll_attack() -> int:
 
 
 func hurt(damage: int):
+	print("Battler.hurt()")
 	set_hit_points(get_hit_points() - damage)
 	battler_hurt.emit(get_hit_points())
 	update_health_bar()
@@ -107,6 +110,8 @@ func hurt(damage: int):
 
 
 func dead():
+	print("Battler.dead()")
+	animated_sprite_2d.animation_finished.disconnect(_on_animation_finished)
 	set_hit_points(0)
 	_battle_state = BattleState.DEAD
 	set_state(CreatureStats.State.UNCONSCIOUS)
