@@ -1,18 +1,26 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://m2g1mcmd4if5"]
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://m2g1mcmd4if5"]
 
 [ext_resource type="Texture2D" uid="uid://bc5ty05p0crme" path="res://Assets/graphics/sprites/MageSpriteSheet.png" id="1_wvsv4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lxyg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl1wr"]
 atlas = ExtResource("1_wvsv4")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dooll"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_081e8"]
 atlas = ExtResource("1_wvsv4")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sagpt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7rxw"]
 atlas = ExtResource("1_wvsv4")
 region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_undh4"]
+atlas = ExtResource("1_wvsv4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v8fo"]
+atlas = ExtResource("1_wvsv4")
+region = Rect2(96, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8mnk"]
 atlas = ExtResource("1_wvsv4")
@@ -26,18 +34,24 @@ region = Rect2(16, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8lxyg")
+"texture": SubResource("AtlasTexture_hl1wr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dooll")
+"texture": SubResource("AtlasTexture_081e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7rxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_undh4")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sagpt")
+"texture": SubResource("AtlasTexture_5v8fo")
 }],
 "loop": false,
 "name": &"dead",
