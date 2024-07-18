@@ -2,7 +2,7 @@ extends GutTest
 
 const BattleScene = preload("res://Battle/Battle.tscn")
 
-const sprite_frames_fighter = preload("res://Assets/graphics/sprites/Fighter.tres")
+const sprite_frames_fighter = preload("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
 const sprite_frames_mage = preload("res://Assets/graphics/sprites/MageSpriteFrames.tres")
 const sprite_frames_skeleton = preload("res://Assets/graphics/sprites/Skeleton.tres")
 

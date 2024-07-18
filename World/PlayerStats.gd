@@ -46,5 +46,5 @@ func get_leon() -> CreatureStats:
 	leon.armor_class = 15
 	leon.max_movement = 3
 	leon.movement = 0
-	leon.sprite_frames = load("res://Assets/graphics/sprites/Fighter.tres")
+	leon.sprite_frames = load("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
 	return leon
