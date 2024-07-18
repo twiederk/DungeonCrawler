@@ -55,7 +55,7 @@ func _set_monsters_loot_table_name():
 
 
 func _on_next_battler() -> void:
-	print("Battle._on_next_battler()")
+	#print("Battle._on_next_battler()")
 	current_battler.stop_turn()
 	if is_battle_end():
 		end_battle()
@@ -81,7 +81,7 @@ func _on_battler_attacked(attacker, defender) -> void:
 
 
 func _on_battler_died(battler: Battler) -> void:
-	print("Battle._on_battler_died()")
+	#print("Battle._on_battler_died()")
 	print("...and kills ", battler.get_creature_name())
 	var index = battlers.find(battler)
 	if index < current_battler_index:

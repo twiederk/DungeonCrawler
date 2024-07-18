@@ -55,7 +55,7 @@ func init_ray_casts_dictionary():
 
 
 func start_turn(battlefield: Battlefield):
-	print(get_creature_name(), ".start_turn()")
+	#print(get_creature_name(), ".start_turn()")
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY
@@ -63,28 +63,28 @@ func start_turn(battlefield: Battlefield):
 
 
 func stop_turn():
-	print(get_creature_name(), ".stop_turn()")
+	#print(get_creature_name(), ".stop_turn()")
 	turn_indicator.hide()
 	_battle_state = BattleState.DONE
 
 
 func step():
-	print(get_creature_name(), ".step()")
+	#print(get_creature_name(), ".step()")
 	set_movement(get_movement() + 1)
 
 
 func attack():
-	print(get_creature_name(), ".attack()")
+	#print(get_creature_name(), ".attack()")
 	_target = get_target()
 	if _target != null:
-		#animationPlayer.play("attack")
+		animationPlayer.play("attack")
 		animated_sprite_2d.play("attack")
 	else:
 		turn_ended.emit()
 
 
 func _on_animation_finished():
-	print("Battler._on_animation_finished()")
+	#print("Battler._on_animation_finished()")
 	battler_attacked.emit(self, _target)
 	animated_sprite_2d.play("default")
 	turn_ended.emit()
@@ -99,7 +99,7 @@ func roll_attack() -> int:
 
 
 func hurt(damage: int):
-	print("Battler.hurt()")
+	#print("Battler.hurt()")
 	set_hit_points(get_hit_points() - damage)
 	battler_hurt.emit(get_hit_points())
 	update_health_bar()
@@ -110,7 +110,7 @@ func hurt(damage: int):
 
 
 func dead():
-	print("Battler.dead()")
+	#print("Battler.dead()")
 	animated_sprite_2d.animation_finished.disconnect(_on_animation_finished)
 	set_hit_points(0)
 	_battle_state = BattleState.DEAD
