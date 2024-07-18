@@ -42,9 +42,9 @@ func init_hit_points():
 
 func init_animated_sprite():
 	set_sprite_frames(_creature_stats.sprite_frames)
-	var number_of_frames = animated_sprite_2d.sprite_frames.get_frame_count("default")
+	var number_of_frames = animated_sprite_2d.sprite_frames.get_frame_count("idle")
 	animated_sprite_2d.frame = randi_range(0, number_of_frames)
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("idle")
 
 
 func init_ray_casts_dictionary():
@@ -86,7 +86,7 @@ func attack():
 func _on_animation_finished():
 	#print("Battler._on_animation_finished()")
 	battler_attacked.emit(self, _target)
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("idle")
 	turn_ended.emit()
 
 
@@ -137,7 +137,7 @@ func _get_random_direction() -> Vector2:
 
 func set_sprite_frames(sprite_frames: SpriteFrames):
 	animated_sprite_2d.sprite_frames = sprite_frames
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("idle")
 
 
 func update_health_bar():

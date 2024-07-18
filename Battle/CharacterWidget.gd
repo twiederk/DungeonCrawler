@@ -43,7 +43,7 @@ func _on_state_changed(state: CreatureStats.State):
 		CreatureStats.State.UNCONSCIOUS:
 			_set_texture("dead")
 		_:
-			_set_texture("default")
+			_set_texture("idle")
 
 
 func _on_animated_sprite_2d_animation_finished():
