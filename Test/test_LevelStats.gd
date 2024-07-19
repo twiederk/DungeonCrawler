@@ -13,7 +13,7 @@ func after_each():
 func test_get_set_current_level():
 
 	# assert
-	assert_accessors(level_stats, "current_level", "WorldMap", "Cave")
+	assert_accessors(level_stats, "current_level", "HirschhornCastleMap", "Cave")
 
 
 func test_visited_node():
