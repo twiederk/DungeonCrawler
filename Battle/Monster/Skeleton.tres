@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://Battle/Monster/MonsterResource.gd" id="1_0625f"]
 [ext_resource type="SpriteFrames" uid="uid://bq6p4lq8w6jj4" path="res://Assets/graphics/sprites/SkeletonSpriteFrames.tres" id="2_qsq3x"]
 
-
 [resource]
 script = ExtResource("1_0625f")
-name = "Skeleton"
+name = "Skelett"
 hit_points = 2
 armor_class = 10
 damage = 1
