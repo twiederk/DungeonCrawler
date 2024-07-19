@@ -3,7 +3,6 @@ extends Area2D
 
 signal item_picked_up(item: Item, character_name: String)
 
-const ItemPickupScreenScene = preload("res://World/Items/ItemPickupScreen.tscn")
 
 @export var item_resource: ItemResource
 
