@@ -6,10 +6,18 @@ var max_lines: int = 100
 @onready var rich_text_label : RichTextLabel = $RichTextLabel
 
 
+func _ready():
+	MessageBus.message_send.connect(_on_message_send)
+
+
 func _input(event):
 	if event.is_action_pressed("MessageScroll"):
 		PlayerStats.show_message_scroll = !PlayerStats.show_message_scroll
 		visible = PlayerStats.show_message_scroll
+
+
+func _on_message_send(message: String):
+	add_message(message)
 
 
 func add_message(text: String):

@@ -47,4 +47,4 @@ func _on_dialogic_signal(argument: String):
 
 func _on_item_picked_up(item: Item, character_name: String):
 	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
-	message_scroll.add_message(message)
+	MessageBus.message_send.emit(message)

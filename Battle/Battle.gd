@@ -83,7 +83,7 @@ func _on_battler_attacked(attacker, defender) -> void:
 
 func _on_battler_died(battler: Battler) -> void:
 	#print("Battle._on_battler_died()")
-	print("...and kills ", battler.get_creature_name())
+	MessageBus.message_send.emit(str("...und tötet ", battler.get_creature_name()))
 	var index = battlers.find(battler)
 	if index < current_battler_index:
 		current_battler_index -= 1
@@ -122,4 +122,4 @@ func _on_item_dropped(item_resource: ItemResource, global_position: Vector2):
 func _on_item_picked_up(item: Item, character_name: String):
 	items.erase(item)
 	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
-	message_scroll.add_message(message)
+	MessageBus.message_send.emit(message)
