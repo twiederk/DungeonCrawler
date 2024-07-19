@@ -31,6 +31,8 @@ visible = false
 [node name="Avatar" parent="." instance=ExtResource("3_4sb11")]
 position = Vector2(472, 424)
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Location" parent="." instance=ExtResource("4_ppm01")]
 position = Vector2(464, 464)
 scene_name = "WorldMap"

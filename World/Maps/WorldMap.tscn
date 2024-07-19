@@ -52,6 +52,8 @@ visible = false
 [node name="Avatar" parent="." instance=ExtResource("5_63neo")]
 position = Vector2(584, 616)
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Locations" type="Node2D" parent="."]
 
 [node name="Hirschhorn_Castle" parent="Locations" instance=ExtResource("6_heinf")]
