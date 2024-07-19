@@ -16,12 +16,12 @@ var current_battler_index: int
 
 var game_system: GameSystem = GameSystem.new()
 
-@onready var battlefield = $Battlefield
-@onready var character_screen = $GUI/CharacterScreen
-@onready var battle_end_screen = $GUI/BattleEndScreen
-@onready var battlers_node = $Battlers
-@onready var items_node = $Items
-@onready var message_scroll = $GUI/MessageScroll
+@onready var battlefield: Battlefield = $Battlefield
+@onready var character_screen: CharacterScreen = $GUI/CharacterScreen
+@onready var battle_end_screen: BattleEndScreen = $GUI/BattleEndScreen
+@onready var battlers_node: Node2D = $Battlers
+@onready var items_node: Node2D = $Items
+@onready var message_scroll: MessageScroll = $GUI/MessageScroll
 
 
 func _ready():
@@ -41,13 +41,6 @@ func _ready():
 
 	current_battler = battlers[current_battler_index]
 	current_battler.start_turn(get_battlefield())
-	
-	message_scroll.add_message("Message 1")
-	message_scroll.add_message("Message 2")
-	message_scroll.add_message("Message 3")
-	message_scroll.add_message("Message 4")
-	message_scroll.add_message("Message 5")
-	message_scroll.add_message("Message 6")
 
 
 func _remove_dead_characters():
@@ -126,5 +119,7 @@ func _on_item_dropped(item_resource: ItemResource, global_position: Vector2):
 	items_node.add_child(item)
 
 
-func _on_item_picked_up(item: Item):
+func _on_item_picked_up(item: Item, character_name: String):
 	items.erase(item)
+	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
+	message_scroll.add_message(message)

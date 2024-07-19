@@ -6,6 +6,12 @@ var max_lines: int = 100
 @onready var rich_text_label : RichTextLabel = $RichTextLabel
 
 
+func _input(event):
+	if event.is_action_pressed("MessageScroll"):
+		PlayerStats.show_message_scroll = !PlayerStats.show_message_scroll
+		visible = PlayerStats.show_message_scroll
+
+
 func add_message(text: String):
 	# Append new text at the end
 	rich_text_label.add_text(text + "\n")

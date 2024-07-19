@@ -2,6 +2,7 @@ class_name PlyStats
 extends Node
 
 var show_character_stats: bool = true
+var show_message_scroll: bool = true
 var display_item_pickup_screen: bool = false
 
 var start_position: Vector2
