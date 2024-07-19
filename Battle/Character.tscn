@@ -54,6 +54,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("7_eqacn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 visible = false

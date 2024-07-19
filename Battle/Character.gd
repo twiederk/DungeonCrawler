@@ -64,6 +64,7 @@ func get_target():
 
 func dead():
 	animated_sprite_2d.play("dead")
+	animated_sprite_2d.z_index = 0
 	hitbox_pivot.hide()
 	collision_shape_2d.disabled = true
 	super.dead()
