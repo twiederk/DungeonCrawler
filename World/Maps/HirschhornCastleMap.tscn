@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="5_bmkah"]
 [ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="5_vx8c5"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_mvxmj"]
-[ext_resource type="PackedScene" uid="uid://cmfauepiwftft" path="res://World/Items/Goods/GoldLarge.tscn" id="7_3gqwx"]
+[ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_nuwam"]
 [ext_resource type="Resource" path="res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl" id="7_pjvui"]
 [ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://Assets/graphics/sprites/LordOfHirschhorn.tres" id="8_jhftv"]
 
@@ -34,13 +34,13 @@ visible = false
 
 [node name="MessageScroll" parent="GUI" instance=ExtResource("5_vx8c5")]
 
+[node name="InventoryScreen" parent="GUI" instance=ExtResource("6_nuwam")]
+visible = false
+
 [node name="Avatar" parent="." instance=ExtResource("4_rw66l")]
 position = Vector2(328, 440)
 
 [node name="Items" type="Node2D" parent="."]
-
-[node name="GoldLarge" parent="Items" instance=ExtResource("7_3gqwx")]
-position = Vector2(328, 412)
 
 [node name="Location" parent="." instance=ExtResource("5_bmkah")]
 position = Vector2(248, 504)

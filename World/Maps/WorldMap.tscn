@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b15rqjpkyo88k"]
+[gd_scene load_steps=16 format=3 uid="uid://b15rqjpkyo88k"]
 
 [ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_kdjkg"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="2_eacr6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="6_heinf"]
 [ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="6_w7uvf"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="7_cmv3r"]
+[ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="7_gvudw"]
 [ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton.tres" id="8_bcgbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx7uw"]
@@ -48,6 +49,9 @@ size_flags_vertical = 0
 visible = false
 
 [node name="MessageScroll" parent="GUI" instance=ExtResource("6_w7uvf")]
+
+[node name="InventoryScreen" parent="GUI" instance=ExtResource("7_gvudw")]
+visible = false
 
 [node name="Avatar" parent="." instance=ExtResource("5_63neo")]
 position = Vector2(584, 616)

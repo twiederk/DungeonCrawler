@@ -19,6 +19,7 @@ func assign_creature_stats(creature_stats: CreatureStats):
 	_on_state_changed(creature_stats.state)
 	creature_stats.hit_points_changed.connect(_on_hit_points_changed)
 	creature_stats.max_hit_points_changed.connect(_on_max_hit_points_changed)
+	creature_stats.weapon_changed.connect(_on_weapon_changed)
 	creature_stats.state_changed.connect(_on_state_changed)
 
 
@@ -36,6 +37,10 @@ func _on_hit_points_changed(hit_points: int):
 
 func _on_max_hit_points_changed(max_hit_points: int):
 	health_bar.max_value = max_hit_points
+
+
+func _on_weapon_changed(changed_weapon: WeaponResource):
+	weapon.texture = changed_weapon.texture
 
 
 func _on_state_changed(state: CreatureStats.State):

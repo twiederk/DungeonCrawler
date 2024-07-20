@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2bvs234jyfcb"]
+[gd_scene load_steps=10 format=3 uid="uid://c2bvs234jyfcb"]
 
 [ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_6u55s"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="1_53hdj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="4_1pw3i"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="4_ppm01"]
 [ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="5_sxjxj"]
+[ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_uijsh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe0d6"]
 size = Vector2(104, 32)
@@ -27,6 +28,9 @@ layer_0/tile_data = PackedInt32Array(196608, 327680, 0, 262144, 327680, 0, 32768
 visible = false
 
 [node name="MessageScroll" parent="GUI" instance=ExtResource("5_sxjxj")]
+
+[node name="InventoryScreen" parent="GUI" instance=ExtResource("6_uijsh")]
+visible = false
 
 [node name="Avatar" parent="." instance=ExtResource("3_4sb11")]
 position = Vector2(472, 424)

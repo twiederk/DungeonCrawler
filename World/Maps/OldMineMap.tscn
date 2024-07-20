@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cnwfoxjyi5x7s"]
+[gd_scene load_steps=18 format=3 uid="uid://cnwfoxjyi5x7s"]
 
 [ext_resource type="Script" path="res://World/Maps/OldMineMap.gd" id="1_wvygi"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="2_l8qmm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="4_2vxa7"]
 [ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="5_fqubp"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="5_wuoq8"]
+[ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_4k0tf"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="6_obhn8"]
 [ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton.tres" id="7_o0ibs"]
 [ext_resource type="Script" path="res://World/Maps/NecromancerEncounter.gd" id="8_oxt0m"]
@@ -35,6 +36,9 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608,
 visible = false
 
 [node name="MessageScroll" parent="GUI" instance=ExtResource("5_fqubp")]
+
+[node name="InventoryScreen" parent="GUI" instance=ExtResource("6_4k0tf")]
+visible = false
 
 [node name="Location" parent="." instance=ExtResource("4_2vxa7")]
 position = Vector2(264, 504)

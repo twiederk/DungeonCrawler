@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2khxus2vpj17"]
+
+[ext_resource type="Script" path="res://World/InventoryScreen.gd" id="1_m5moc"]
+[ext_resource type="PackedScene" uid="uid://crw7ge4v3xihs" path="res://World/Slot.tscn" id="2_sjuuj"]
+[ext_resource type="PackedScene" uid="uid://duuwxsv1wnj3l" path="res://World/WeaponSlot.tscn" id="3_0e2wk"]
+
+[node name="InventoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5moc")
+
+[node name="CharacterNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 37.0
+offset_right = 27.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "CharacterName"
+
+[node name="Bag" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 72.0
+offset_right = 560.0
+offset_bottom = 244.0
+columns = 4
+
+[node name="Slot0" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot1" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot2" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot3" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot4" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot5" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot6" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot7" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot8" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot9" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot10" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot11" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot12" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot13" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot14" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot15" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Character" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WeaponSlot" parent="Character" instance=ExtResource("3_0e2wk")]
+layout_mode = 1
+offset_left = 145.0
+offset_top = 93.0
+offset_right = 145.0
+offset_bottom = 93.0
+
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 30.0
+offset_right = 185.0
+offset_bottom = 70.0
