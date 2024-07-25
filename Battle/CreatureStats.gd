@@ -30,3 +30,6 @@ enum State { ALIVE, UNCONSCIOUS }
 	set(value):
 		state = value
 		state_changed.emit(state)
+
+
+var inventory: Inventory = Inventory.new()

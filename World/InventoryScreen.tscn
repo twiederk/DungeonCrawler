@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2khxus2vpj17"]
+
+[ext_resource type="Script" path="res://World/InventoryScreen.gd" id="1_v276v"]
+[ext_resource type="PackedScene" uid="uid://crw7ge4v3xihs" path="res://World/Slot.tscn" id="2_sjuuj"]
+
+[node name="InventoryScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v276v")
+
+[node name="Bag" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 4
+
+[node name="Slot" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot2" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot3" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot4" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot5" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot6" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot7" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot8" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot9" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot10" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot11" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot12" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot13" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot14" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot15" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2
+
+[node name="Slot16" parent="Bag" instance=ExtResource("2_sjuuj")]
+layout_mode = 2

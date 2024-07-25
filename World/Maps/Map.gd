@@ -6,6 +6,7 @@ extends Node2D
 @onready var map_borders: MapBorders = $MapBorders
 @onready var items_node: Node2D = $Items
 @onready var message_scroll: MessageScroll = $GUI/MessageScroll
+@onready var inventory_screen = $GUI/InventoryScreen
 
 
 func _ready():
@@ -13,7 +14,10 @@ func _ready():
 	remove_visited_nodes()
 	set_camera_limits()
 	set_map_borders()
-	
+	var leon: CreatureStats = PlayerStats.character_stats[0]
+	inventory_screen.init(leon.name, leon.inventory)
+
+
 	for item in items_node.get_children():
 		item.item_picked_up.connect(_on_item_picked_up)
 

@@ -48,4 +48,7 @@ func get_leon() -> CreatureStats:
 	leon.max_movement = 3
 	leon.movement = 0
 	leon.sprite_frames = load("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
+	leon.inventory.bag.append(ItemData.get_weapon(5))
+	leon.inventory.bag.append(ItemData.get_weapon(9))
+	leon.inventory.bag.append(ItemData.get_weapon(12))
 	return leon
