@@ -29,7 +29,7 @@ func _can_drop_data(at_position, data):
 
 
 func _drop_data(at_position, data):
-	var temp = item_resource
+	var temp: ItemResource = item_resource
 	set_property(data.item_resource)
 	data.set_property(temp)
 

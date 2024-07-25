@@ -34,9 +34,9 @@ func get_leon() -> CreatureStats:
 	leon.max_movement = 3
 	leon.movement = 0
 	leon.sprite_frames = load("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
-	leon.inventory.bag.append(ItemData.get_weapon(2))
-	leon.inventory.bag.append(ItemData.get_weapon(8))
-	leon.inventory.bag.append(ItemData.get_weapon(11))
+	leon.inventory.bag[0] = ItemData.get_weapon(2)
+	leon.inventory.bag[1] = ItemData.get_weapon(8)
+	leon.inventory.bag[2] = ItemData.get_weapon(11)
 	return leon
 
 
@@ -51,7 +51,7 @@ func get_linda() -> CreatureStats:
 	linda.max_movement = 4
 	linda.movement = 0
 	linda.sprite_frames = load("res://Assets/graphics/sprites/MageSpriteFrames.tres")
-	linda.inventory.bag.append(ItemData.get_weapon(5))
-	linda.inventory.bag.append(ItemData.get_weapon(9))
-	linda.inventory.bag.append(ItemData.get_weapon(12))
+	linda.inventory.bag[0] = ItemData.get_weapon(5)
+	linda.inventory.bag[1] = ItemData.get_weapon(9)
+	linda.inventory.bag[2] = ItemData.get_weapon(12)
 	return linda
