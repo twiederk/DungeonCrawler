@@ -13,11 +13,11 @@ script = ExtResource("1_b2xso")
 [node name="ItemTexture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-expand_mode = 1
 
 [node name="ItemName" type="Label" parent="."]
 layout_mode = 2
 size_flags_vertical = 8
-text = "ItemName"
+text = "Item"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 3

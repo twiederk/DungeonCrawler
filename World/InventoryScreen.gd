@@ -5,7 +5,6 @@ extends Control
 
 
 func _input(event):
-	print("InventoryScreen._input()")
 	if Input.is_action_just_pressed("Inventory_1"):
 		var character_stats = PlayerStats.character_stats[0]
 		init(character_stats.name, character_stats.inventory)
@@ -15,7 +14,6 @@ func _input(event):
 
 
 func init(character_name: String, inventory: Inventory):
-	print("init: ", character_name)
 	for index in inventory.bag.size():
 		bag.get_child(index).set_property(inventory.bag[index])
 		
