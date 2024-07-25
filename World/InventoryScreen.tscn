@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2khxus2vpj17"]
+[gd_scene load_steps=2 format=3 uid="uid://d2khxus2vpj17"]
 
-[ext_resource type="Script" path="res://World/InventoryScreen.gd" id="1_v276v"]
 [ext_resource type="PackedScene" uid="uid://crw7ge4v3xihs" path="res://World/Slot.tscn" id="2_sjuuj"]
 
 [node name="InventoryScreen" type="Control"]
@@ -10,12 +9,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_v276v")
 
 [node name="Bag" type="GridContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 216.0
+offset_top = 72.0
+offset_right = 560.0
+offset_bottom = 244.0
 columns = 4
 
 [node name="Slot" parent="Bag" instance=ExtResource("2_sjuuj")]
@@ -65,3 +65,8 @@ layout_mode = 2
 
 [node name="Slot16" parent="Bag" instance=ExtResource("2_sjuuj")]
 layout_mode = 2
+
+[node name="Character" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
