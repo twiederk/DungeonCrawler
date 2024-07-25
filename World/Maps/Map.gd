@@ -14,8 +14,6 @@ func _ready():
 	remove_visited_nodes()
 	set_camera_limits()
 	set_map_borders()
-	var leon: CreatureStats = PlayerStats.character_stats[0]
-	inventory_screen.init(leon.name, leon.inventory)
 
 
 	for item in items_node.get_children():
