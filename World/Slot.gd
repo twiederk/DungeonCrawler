@@ -20,18 +20,15 @@ func set_property(item: ItemResource):
 
 
 func _get_drag_data(at_position):
-	print("_get_drag_data")
 	set_drag_preview(get_preview())
 	return self
 
 
 func _can_drop_data(at_position, data):
-	print("_can_drop_data")
 	return data.item_resource is ItemResource
 
 
 func _drop_data(at_position, data):
-	print("_drop_data")
 	var temp = item_resource
 	set_property(data.item_resource)
 	data.set_property(temp)
