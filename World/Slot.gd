@@ -5,28 +5,36 @@ extends PanelContainer
 
 var item_resource: ItemResource = null
 
-@onready var item_name = $ItemName
-@onready var item_texture = $ItemTexture
+@onready var item_name: Label = $ItemName
+@onready var item_texture: TextureRect = $ItemTexture
 
 
 func set_property(item: ItemResource):
-	item_name.text = item.name
-	item_texture.texture = item.texture
+	item_resource = item
+	if item != null:
+		item_name.text = item.name
+		item_texture.texture = item.texture
+	else:
+		item_name.text = ""
+		item_texture.texture = null
 
 
 func _get_drag_data(at_position):
+	print("_get_drag_data")
 	set_drag_preview(get_preview())
-	return item_resource
+	return self
 
 
 func _can_drop_data(at_position, data):
-	return data is ItemResource
+	print("_can_drop_data")
+	return data.item_resource is ItemResource
 
 
 func _drop_data(at_position, data):
+	print("_drop_data")
 	var temp = item_resource
-	item_resource = data
-	data = item_resource
+	set_property(data.item_resource)
+	data.set_property(temp)
 
 
 func get_preview():
