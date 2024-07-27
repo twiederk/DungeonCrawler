@@ -3,8 +3,6 @@ extends PanelContainer
 
 signal item_changed(index: int, item: ItemResource)
 
-@export_enum("BAG:0", "WEAPON:1") var slot_type: int
-
 var index: int
 var item_resource: ItemResource = null:
 	set(value):

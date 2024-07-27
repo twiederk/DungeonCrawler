@@ -21,7 +21,10 @@ func _ready():
 	init(PlayerStats.character_stats[0])
 
 
-func _input(_event):
+func _input(event):
+	if event.is_action_pressed("InventoryScreen"):
+		PlayerStats.show_inventory_screen = !PlayerStats.show_inventory_screen
+		visible = PlayerStats.show_inventory_screen
 	if Input.is_action_just_pressed("Inventory_1"):
 		var character_stats = PlayerStats.character_stats[0]
 		init(character_stats)
@@ -48,5 +51,5 @@ func _on_item_added(index: int):
 	slot.set_property(_character_stats.inventory.bag[index])
 
 
-func _on_weapon_changed(index: int, item: ItemResource):
+func _on_weapon_changed(_index: int, item: ItemResource):
 	_character_stats.weapon = item
