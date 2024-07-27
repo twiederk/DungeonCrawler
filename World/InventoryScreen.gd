@@ -26,12 +26,19 @@ func _input(event):
 	if event.is_action_pressed("InventoryScreen"):
 		PlayerStats.show_inventory_screen = !PlayerStats.show_inventory_screen
 		visible = PlayerStats.show_inventory_screen
-	if Input.is_action_just_pressed("Inventory_1"):
-		var character_stats = PlayerStats.character_stats[0]
+	if is_inventory_action_just_pressed():
+		var index = keycode_to_index(event)
+		var character_stats = PlayerStats.character_stats[index]
 		init(character_stats)
-	if Input.is_action_just_pressed("Inventory_2"):
-		var character_stats = PlayerStats.character_stats[1]
-		init(character_stats)
+
+
+func is_inventory_action_just_pressed() -> bool:
+	return Input.is_action_just_pressed("Inventory_1") or Input.is_action_just_pressed("Inventory_2")
+
+
+func keycode_to_index(event: InputEvent) -> int:
+	var key_event = event as InputEventKey
+	return key_event.keycode - KEY_1
 
 
 func init(character_stats: CreatureStats):
