@@ -2,7 +2,8 @@ class_name InventoryScreen
 extends Control
 
 @onready var bag: GridContainer = $Bag
-@onready var character_name_label = $CharacterNameLabel
+@onready var character_name_label: Label = $CharacterNameLabel
+@onready var weapon_slot: WeaponSlot = $Character/WeaponSlot
 
 var _inventory: Inventory
 
@@ -20,15 +21,16 @@ func _ready():
 func _input(_event):
 	if Input.is_action_just_pressed("Inventory_1"):
 		var character_stats = PlayerStats.character_stats[0]
-		init(character_stats.name, character_stats.inventory)
+		init(character_stats, character_stats.inventory)
 	if Input.is_action_just_pressed("Inventory_2"):
 		var character_stats = PlayerStats.character_stats[1]
-		init(character_stats.name, character_stats.inventory)
+		init(character_stats, character_stats.inventory)
 
 
-func init(character_name: String, inventory: Inventory):
+func init(character_stats: CreatureStats, inventory: Inventory):
 	_inventory = inventory
-	character_name_label.text = character_name
+	character_name_label.text = character_stats.name
+	weapon_slot.set_property(character_stats.weapon)
 	for index in _inventory.bag.size():
 		var slot: Slot = bag.get_child(index)
 		slot.set_property(_inventory.bag[index])
