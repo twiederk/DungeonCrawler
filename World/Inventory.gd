@@ -1,5 +1,7 @@
 class_name Inventory
 
+signal item_added(index: int)
+
 var bag: Array[ItemResource] = []
 var weapon: WeaponResource
 
@@ -14,8 +16,8 @@ func _initialize_bag():
 
 
 func add_item(item: ItemResource):
-	print("add_item(): ", item.name)
 	for index in bag.size():
 		if bag[index] == null:
 			bag[index] = item
+			item_added.emit(index)
 			break

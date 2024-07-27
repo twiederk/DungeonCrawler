@@ -7,6 +7,9 @@ extends Control
 var _inventory: Inventory
 
 func _ready():
+	for index in PlayerStats.character_stats.size():
+		PlayerStats.character_stats[index].inventory.item_added.connect(_on_item_added)
+
 	var slots = bag.get_children()
 	for index in slots.size():
 		var slot: Slot = bag.get_child(index)
@@ -26,10 +29,15 @@ func _input(_event):
 func init(character_name: String, inventory: Inventory):
 	_inventory = inventory
 	character_name_label.text = character_name
-	for index in inventory.bag.size():
+	for index in _inventory.bag.size():
 		var slot: Slot = bag.get_child(index)
-		slot.set_property(inventory.bag[index])
+		slot.set_property(_inventory.bag[index])
 
 
 func _on_item_changed(index: int, item: ItemResource):
 	_inventory.bag[index] = item
+
+
+func _on_item_added(index: int):
+	var slot: Slot = bag.get_child(index)
+	slot.set_property(_inventory.bag[index])
