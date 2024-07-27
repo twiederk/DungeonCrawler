@@ -18,11 +18,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -63.5
-offset_top = 22.0
-offset_right = 63.5
-offset_bottom = 45.0
+offset_left = -100.0
+offset_top = 37.0
+offset_right = 27.0
+offset_bottom = 60.0
 grow_horizontal = 2
+text = "CharacterName"
 
 [node name="Bag" type="GridContainer" parent="."]
 layout_mode = 0
@@ -91,3 +92,10 @@ offset_left = 145.0
 offset_top = 93.0
 offset_right = 145.0
 offset_bottom = 93.0
+
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 30.0
+offset_right = 185.0
+offset_bottom = 70.0

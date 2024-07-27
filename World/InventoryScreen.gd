@@ -4,6 +4,7 @@ extends Control
 @onready var bag: GridContainer = $Bag
 @onready var character_name_label: Label = $CharacterNameLabel
 @onready var weapon_slot: WeaponSlot = $Character/WeaponSlot
+@onready var character_image = $CharacterImage
 
 var _character_stats: CreatureStats
 
@@ -36,10 +37,19 @@ func _input(event):
 func init(character_stats: CreatureStats):
 	_character_stats = character_stats
 	character_name_label.text = character_stats.name
+	_set_character_texture()
 	weapon_slot.set_property(character_stats.weapon)
 	for index in _character_stats.inventory.bag.size():
 		var slot: Slot = bag.get_child(index)
 		slot.set_property(_character_stats.inventory.bag[index])
+
+
+func _set_character_texture():
+	var frame_texture = _character_stats.sprite_frames.get_frame_texture("idle", 0)
+	var atlas_texture: AtlasTexture = AtlasTexture.new()
+	atlas_texture.atlas = frame_texture
+	atlas_texture.region = Rect2(0, 0, 16, 16)
+	character_image.texture = atlas_texture
 
 
 func _on_item_changed(index: int, item: ItemResource):
