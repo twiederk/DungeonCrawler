@@ -173,6 +173,10 @@ func get_damage() -> int:
 	return _creature_stats.weapon.damage.roll()
 
 
+func get_weapon() -> WeaponResource:
+	return _creature_stats.weapon
+
+
 func set_weapon(weapon: WeaponResource):
 	_creature_stats.weapon = weapon
 
