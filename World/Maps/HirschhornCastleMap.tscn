@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cs6lhhw28fllk"]
+[gd_scene load_steps=14 format=3 uid="uid://cs6lhhw28fllk"]
 
 [ext_resource type="Script" path="res://World/Maps/HirschhornCastleMap.gd" id="1_f2q4n"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_gwge5"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="5_vx8c5"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_mvxmj"]
 [ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_nuwam"]
-[ext_resource type="PackedScene" uid="uid://cmfauepiwftft" path="res://World/Items/Goods/GoldLarge.tscn" id="7_3gqwx"]
 [ext_resource type="Resource" path="res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl" id="7_pjvui"]
 [ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://Assets/graphics/sprites/LordOfHirschhorn.tres" id="8_jhftv"]
 
@@ -42,9 +41,6 @@ visible = false
 position = Vector2(328, 440)
 
 [node name="Items" type="Node2D" parent="."]
-
-[node name="GoldLarge" parent="Items" instance=ExtResource("7_3gqwx")]
-position = Vector2(328, 412)
 
 [node name="Location" parent="." instance=ExtResource("5_bmkah")]
 position = Vector2(248, 504)
