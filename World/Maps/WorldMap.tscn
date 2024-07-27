@@ -51,6 +51,7 @@ visible = false
 [node name="MessageScroll" parent="GUI" instance=ExtResource("6_w7uvf")]
 
 [node name="InventoryScreen" parent="GUI" instance=ExtResource("7_gvudw")]
+visible = false
 
 [node name="Avatar" parent="." instance=ExtResource("5_63neo")]
 position = Vector2(584, 616)

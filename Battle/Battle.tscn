@@ -27,3 +27,4 @@ visible = false
 [node name="MessageScroll" parent="GUI" instance=ExtResource("3_p7kca")]
 
 [node name="InventoryScreen" parent="GUI" instance=ExtResource("6_ond31")]
+visible = false
