@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://Battle/HitEffect.gd" id="2_saabv"]
 
 [node name="HitEffect" type="Sprite2D"]
+z_index = 2
 texture = ExtResource("1_kbece")
 hframes = 32
 vframes = 16
