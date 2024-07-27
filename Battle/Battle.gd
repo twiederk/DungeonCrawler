@@ -119,7 +119,8 @@ func _on_item_dropped(item_resource: ItemResource, global_position: Vector2):
 	items_node.add_child(item)
 
 
-func _on_item_picked_up(item: Item, character_name: String):
+func _on_item_picked_up(item: Item, character_stats: CreatureStats):
+	character_stats.inventory.add_item(item.item_resource)
 	items.erase(item)
-	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
+	var message = character_stats.name + " hat " + item.get_item_name() + " aufgenommen."
 	MessageBus.message_send.emit(message)

@@ -47,6 +47,7 @@ func _on_dialogic_signal(argument: String):
 	pass
 
 
-func _on_item_picked_up(item: Item, character_name: String):
-	var message = character_name + " hat " + item.get_item_name() + " aufgenommen."
+func _on_item_picked_up(item: Item, character_stats: CreatureStats):
+	character_stats.inventory.add_item(item.item_resource)
+	var message = character_stats.name + " hat " + item.get_item_name() + " aufgenommen."
 	MessageBus.message_send.emit(message)
