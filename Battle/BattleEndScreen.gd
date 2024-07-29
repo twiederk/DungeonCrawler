@@ -1,8 +1,8 @@
 class_name BattleEndScreen
-extends Panel
+extends Control
 
-@onready var battle_end_label = $BattleEndLabel
-@onready var continue_button = $ContinueButton
+@onready var battle_end_label = $BattleEndPanel/BattleEndLabel
+@onready var continue_button = $BattleEndPanel/ContinueButton
 
 
 func show_message(message: String):
