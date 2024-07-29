@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv3geornviaud"]
+
+[ext_resource type="PackedScene" uid="uid://bd5l22wxjwg8n" path="res://Battle/Battler.tscn" id="1_gkdkp"]
+[ext_resource type="Script" path="res://Battle/MonsterBattler.gd" id="2_jk8ea"]
+[ext_resource type="PackedScene" uid="uid://dnxhrwwbb0j0w" path="res://Battle/Hurtbox.tscn" id="3_g8q4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djkhf"]
+size = Vector2(15, 15)
+
+[node name="MonsterBattler" instance=ExtResource("1_gkdkp")]
+script = ExtResource("2_jk8ea")
+
+[node name="Hurtbox" parent="." index="4" instance=ExtResource("3_g8q4p")]
+collision_layer = 8
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("RectangleShape2D_djkhf")
+
+[node name="MovementTimer" type="Timer" parent="." index="11"]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="move_animation"]
+
+[editable path="Hurtbox"]

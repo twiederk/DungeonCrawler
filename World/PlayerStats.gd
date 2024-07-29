@@ -2,7 +2,7 @@ class_name PlyStats
 extends Node
 
 var show_character_stats: bool = true
-var show_message_scroll: bool = true
+var show_message_screen: bool = true
 var show_inventory_screen: bool = false
 var display_item_pickup_screen: bool = false
 

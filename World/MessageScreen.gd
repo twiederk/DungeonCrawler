@@ -1,4 +1,4 @@
-class_name MessageScroll
+class_name MessageScreen
 extends Control
 
 var max_lines: int = 100 
@@ -11,9 +11,9 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("MessageScroll"):
-		PlayerStats.show_message_scroll = !PlayerStats.show_message_scroll
-		visible = PlayerStats.show_message_scroll
+	if event.is_action_pressed("MessageScreen"):
+		PlayerStats.show_message_screen = !PlayerStats.show_message_screen
+		visible = PlayerStats.show_message_screen
 
 
 func _on_message_send(message: String):

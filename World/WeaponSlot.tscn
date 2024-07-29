@@ -4,4 +4,16 @@
 [ext_resource type="Script" path="res://World/WeaponSlot.gd" id="2_hriau"]
 
 [node name="WeaponSlot" instance=ExtResource("1_3sb1e")]
+offset_bottom = -304.0
 script = ExtResource("2_hriau")
+
+[node name="ItemTexture" parent="." index="0"]
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="DamageLabel" type="Label" parent="." index="1"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Damage"
+horizontal_alignment = 1

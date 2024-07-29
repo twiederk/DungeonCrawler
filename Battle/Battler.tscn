@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd5l22wxjwg8n"]
+
+[ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="1_tiar5"]
+[ext_resource type="Script" path="res://Battle/Battler.gd" id="1_xx0i7"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="2_5prgk"]
+[ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="3_xorsa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n52dl"]
+size = Vector2(15, 15)
+
+[node name="Battler" type="Area2D"]
+script = ExtResource("1_xx0i7")
+
+[node name="TurnIndicator" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_tiar5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+autoplay = "default"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = 8.0
+offset_right = 7.0
+offset_bottom = 12.0
+theme = ExtResource("2_5prgk")
+value = 50.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n52dl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xorsa")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-16, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(16, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -16)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
+collision_mask = 3
+collide_with_areas = true

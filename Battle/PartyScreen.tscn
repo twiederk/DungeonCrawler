@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d05tm1mpmcktg"]
 
-[ext_resource type="Script" path="res://Battle/CharacterScreen.gd" id="1_bkb51"]
+[ext_resource type="Script" path="res://Battle/PartyScreen.gd" id="1_bkb51"]
 
 [node name="CharacterScreen" type="Control"]
 layout_mode = 3

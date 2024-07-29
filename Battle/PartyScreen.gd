@@ -1,4 +1,4 @@
-class_name CharacterScreen
+class_name PartyScreen
 extends Control
 
 const CharacterWidgetScene: PackedScene = preload("res://Battle/CharacterWidget.tscn")
@@ -14,7 +14,7 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("CharacterScreen"):
+	if event.is_action_pressed("PartyScreen"):
 		PlayerStats.show_character_stats = !PlayerStats.show_character_stats
 		visible = PlayerStats.show_character_stats
 

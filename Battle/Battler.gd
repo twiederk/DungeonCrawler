@@ -21,7 +21,7 @@ var _target: Battler
 @onready var turn_indicator = $TurnIndicator
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
-@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player = $AudioStreamPlayer
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_up: RayCast2D = $RayCastUp
@@ -85,7 +85,7 @@ func attack():
 
 func _on_animation_finished():
 	#print("Battler._on_animation_finished()")
-	animationPlayer.play("attack")
+	audio_stream_player.play()
 	battler_attacked.emit(self, _target)
 	animated_sprite_2d.play("idle")
 	turn_ended.emit()

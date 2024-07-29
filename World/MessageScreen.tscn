@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://be3dd4yfsb5gr"]
 
-[ext_resource type="Script" path="res://World/MessageScroll.gd" id="1_legpg"]
+[ext_resource type="Script" path="res://World/MessageScreen.gd" id="1_legpg"]
 
 [node name="MessageScroll" type="Control"]
 layout_mode = 3
@@ -30,3 +30,8 @@ offset_left = -200.0
 offset_right = 200.0
 offset_bottom = 100.0
 grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10

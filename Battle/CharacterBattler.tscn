@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://fhp53bdixlw0"]
+
+[ext_resource type="PackedScene" uid="uid://bd5l22wxjwg8n" path="res://Battle/Battler.tscn" id="1_itmfq"]
+[ext_resource type="Script" path="res://Battle/CharacterBattler.gd" id="2_38n1q"]
+[ext_resource type="FontFile" uid="uid://hwj2hou2sni5" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_d2l2r"]
+[ext_resource type="PackedScene" path="res://Battle/Hitbox.tscn" id="3_r7m7l"]
+[ext_resource type="Script" path="res://Battle/CharacterHitbox.gd" id="4_nuaew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yix8p"]
+size = Vector2(5, 5)
+
+[node name="CharacterBattler" instance=ExtResource("1_itmfq")]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("2_38n1q")
+
+[node name="HealthBar" parent="." index="2"]
+visible = false
+
+[node name="NameLabel" type="Label" parent="." index="3"]
+visible = false
+offset_left = -29.0
+offset_top = -19.0
+offset_right = 29.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("2_d2l2r")
+theme_override_font_sizes/font_size = 8
+text = "Name"
+horizontal_alignment = 1
+
+[node name="HitboxPivot" type="Marker2D" parent="." index="5"]
+
+[node name="Hitbox" parent="HitboxPivot" index="0" instance=ExtResource("3_r7m7l")]
+z_index = 2
+position = Vector2(12, 0)
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("4_nuaew")
+
+[node name="CollisionShape2D" parent="HitboxPivot/Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_yix8p")
+
+[editable path="HitboxPivot/Hitbox"]

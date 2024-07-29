@@ -1,8 +1,8 @@
 class_name Battle
 extends Node
 
-const CharacterScene: PackedScene = preload("res://Battle/Character.tscn")
-const MonsterScene: PackedScene = preload("res://Battle/Monster.tscn")
+const CharacterScene: PackedScene = preload("res://Battle/CharacterBattler.tscn")
+const MonsterScene: PackedScene = preload("res://Battle/MonsterBattler.tscn")
 const ItemScene: PackedScene = preload("res://World/Items/Item.tscn")
 
 var characters: Array[Battler] = []
@@ -17,11 +17,11 @@ var current_battler_index: int
 var game_system: GameSystem = GameSystem.new()
 
 @onready var battlefield: Battlefield = $Battlefield
-@onready var character_screen: CharacterScreen = $GUI/CharacterScreen
+@onready var party_screen: PartyScreen = $GUI/PartyScreen
 @onready var battle_end_screen: BattleEndScreen = $GUI/BattleEndScreen
 @onready var battlers_node: Node2D = $Battlers
 @onready var items_node: Node2D = $Items
-@onready var message_scroll: MessageScroll = $GUI/MessageScroll
+@onready var message_screen: MessageScreen = $GUI/MessageScreen
 
 
 func _ready():
@@ -29,7 +29,7 @@ func _ready():
 
 	var battle_init = BattleInit.new()
 
-	characters = battle_init.create_battlers(CharacterScene, self, character_screen, PlayerStats.character_stats)
+	characters = battle_init.create_battlers(CharacterScene, self, party_screen, PlayerStats.character_stats)
 	battlefield.place_characters(characters)
 	battlers.append_array(characters)
 	_remove_dead_characters()
@@ -87,7 +87,7 @@ func _on_battler_died(battler: Battler) -> void:
 	var index = battlers.find(battler)
 	if index < current_battler_index:
 		current_battler_index -= 1
-	if battler is Character:
+	if battler is CharacterBattler:
 		characters.erase(battler)
 	else:
 		monsters.erase(battler)

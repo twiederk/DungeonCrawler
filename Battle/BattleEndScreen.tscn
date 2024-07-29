@@ -2,15 +2,24 @@
 
 [ext_resource type="Script" path="res://Battle/BattleEndScreen.gd" id="1_k0tcx"]
 
-[node name="BattleEndPanel" type="Panel"]
+[node name="BattleEndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k0tcx")
+
+[node name="BattleEndPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 240.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_k0tcx")
 
-[node name="BattleEndLabel" type="Label" parent="."]
+[node name="BattleEndLabel" type="Label" parent="BattleEndPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,7 +35,7 @@ grow_vertical = 2
 text = "Battle end message"
 horizontal_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="."]
+[node name="ContinueButton" type="Button" parent="BattleEndPanel"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -40,4 +49,4 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Weiter"
 
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="BattleEndPanel/ContinueButton" to="." method="_on_continue_button_pressed"]

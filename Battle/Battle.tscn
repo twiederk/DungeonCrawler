@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Battle/Battle.gd" id="1_0o8cx"]
 [ext_resource type="PackedScene" uid="uid://c8v4t0lonsd2b" path="res://Battle/Battlefield.tscn" id="2_5cwe2"]
-[ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="3_8ck03"]
-[ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScroll.tscn" id="3_p7kca"]
+[ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/PartyScreen.tscn" id="3_8ck03"]
+[ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScreen.tscn" id="3_p7kca"]
 [ext_resource type="PackedScene" uid="uid://dwc0vtqp8qq3r" path="res://Battle/BattleEndScreen.tscn" id="3_pdmqs"]
 [ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_ond31"]
 
@@ -18,13 +18,26 @@ script = ExtResource("1_0o8cx")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="CharacterScreen" parent="GUI" instance=ExtResource("3_8ck03")]
+[node name="PartyScreen" parent="GUI" instance=ExtResource("3_8ck03")]
 visible = false
 
 [node name="BattleEndScreen" parent="GUI" instance=ExtResource("3_pdmqs")]
 visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -54.0
+offset_right = -95.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="MessageScroll" parent="GUI" instance=ExtResource("3_p7kca")]
+[node name="MessageScreen" parent="GUI" instance=ExtResource("3_p7kca")]
 
 [node name="InventoryScreen" parent="GUI" instance=ExtResource("6_ond31")]
 visible = false

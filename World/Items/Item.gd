@@ -14,12 +14,12 @@ func _ready():
 
 
 func _on_area_entered(area):
-	if area is Character or area is Avatar:
+	if area is CharacterBattler or area is Avatar:
 		if not get_tree().current_scene is Battle:
 			LevelStats.node_visited.emit(get_path())
 		var character_stats = PlayerStats.character_stats[0]
-		if area is Character:
-			var character = area as Character
+		if area is CharacterBattler:
+			var character = area as CharacterBattler
 			character_stats = character.get_creature()
 		item_picked_up.emit(self, character_stats)
 		queue_free()
