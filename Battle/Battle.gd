@@ -21,7 +21,7 @@ var game_system: GameSystem = GameSystem.new()
 @onready var battle_end_screen: BattleEndScreen = $GUI/BattleEndScreen
 @onready var battlers_node: Node2D = $Battlers
 @onready var items_node: Node2D = $Items
-@onready var message_scroll: MessageScroll = $GUI/MessageScroll
+@onready var message_screen: MessageScreen = $GUI/MessageScreen
 
 
 func _ready():
