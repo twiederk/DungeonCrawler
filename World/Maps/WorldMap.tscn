@@ -38,14 +38,14 @@ shape = SubResource("RectangleShape2D_wd2dp")
 
 [node name="Hirschhorn_Village" parent="Locations" index="2" instance=ExtResource("6_heinf")]
 position = Vector2(568, 616)
-scene_name = "HirschhornVillage"
+scene_name = "HirschhornVillageMap"
 
 [node name="CollisionShape2D" parent="Locations/Hirschhorn_Village" index="0"]
 shape = SubResource("RectangleShape2D_tdvvn")
 
 [node name="Goldhausen_Village" parent="Locations" index="3" instance=ExtResource("6_heinf")]
 position = Vector2(248, 152)
-scene_name = "GoldhausenVillage"
+scene_name = "GoldhausenVillageMap"
 
 [node name="CollisionShape2D" parent="Locations/Goldhausen_Village" index="0"]
 shape = SubResource("RectangleShape2D_26hn3")
