@@ -9,17 +9,14 @@ var item_resource: ItemResource = null:
 		item_resource = value
 		item_changed.emit(index, item_resource)
 
-@onready var item_name: Label = $ItemName
 @onready var item_texture: TextureRect = $ItemTexture
 
 
 func set_property(item: ItemResource):
 	item_resource = item
 	if item != null:
-		item_name.text = item.name
 		item_texture.texture = item.texture
 	else:
-		item_name.text = ""
 		item_texture.texture = null
 
 
