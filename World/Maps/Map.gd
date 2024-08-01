@@ -5,8 +5,6 @@ extends Node2D
 @onready var tile_map: TileMap = $TileMap
 @onready var map_borders: MapBorders = $MapBorders
 @onready var items_node: Node2D = $Items
-@onready var message_screen: MessageScreen = $GUI/MessageScreen
-@onready var inventory_screen = $GUI/InventoryScreen
 
 
 func _ready():
