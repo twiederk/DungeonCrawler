@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_3s4fw"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_fg5hs"]
 [ext_resource type="PackedScene" uid="uid://dse25h8h1bw3n" path="res://World/Maps/MapBorders.tscn" id="3_hvbip"]
-[ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/CharacterScreen.tscn" id="4_6uhpg"]
+[ext_resource type="PackedScene" uid="uid://d05tm1mpmcktg" path="res://Battle/PartyScreen.tscn" id="4_6uhpg"]
 [ext_resource type="PackedScene" uid="uid://be3dd4yfsb5gr" path="res://World/MessageScreen.tscn" id="5_gwwd3"]
 [ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_81bv8"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="7_48idp"]
@@ -20,7 +20,7 @@ layer_0/tile_data = PackedInt32Array(524297, 983040, 2, 589833, 983040, 2, 65536
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="CharacterScreen" parent="GUI" instance=ExtResource("4_6uhpg")]
+[node name="PartyScreen" parent="GUI" instance=ExtResource("4_6uhpg")]
 visible = false
 
 [node name="MessageScreen" parent="GUI" instance=ExtResource("5_gwwd3")]

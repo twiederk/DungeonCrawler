@@ -17,7 +17,7 @@ var current_battler_index: int
 var game_system: GameSystem = GameSystem.new()
 
 @onready var battlefield: Battlefield = $Battlefield
-@onready var character_screen: CharacterScreen = $GUI/CharacterScreen
+@onready var party_screen: PartyScreen = $GUI/PartyScreen
 @onready var battle_end_screen: BattleEndScreen = $GUI/BattleEndScreen
 @onready var battlers_node: Node2D = $Battlers
 @onready var items_node: Node2D = $Items
@@ -29,7 +29,7 @@ func _ready():
 
 	var battle_init = BattleInit.new()
 
-	characters = battle_init.create_battlers(CharacterScene, self, character_screen, PlayerStats.character_stats)
+	characters = battle_init.create_battlers(CharacterScene, self, party_screen, PlayerStats.character_stats)
 	battlefield.place_characters(characters)
 	battlers.append_array(characters)
 	_remove_dead_characters()
