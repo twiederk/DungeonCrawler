@@ -16,7 +16,7 @@ func _ready():
 
 	var slots = bag.get_children()
 	for index in slots.size():
-		var slot: Slot = bag.get_child(index)
+		var slot: BagSlot = bag.get_child(index)
 		slot.index = index
 		slot.item_changed.connect(_on_item_changed)
 	init(PlayerStats.character_stats[0])
@@ -47,7 +47,7 @@ func init(character_stats: CreatureStats):
 	_set_character_texture()
 	weapon_slot.set_property(character_stats.weapon)
 	for index in _character_stats.inventory.bag.size():
-		var slot: Slot = bag.get_child(index)
+		var slot: BagSlot = bag.get_child(index)
 		slot.set_property(_character_stats.inventory.bag[index])
 
 
@@ -64,7 +64,7 @@ func _on_item_changed(index: int, item: ItemResource):
 
 
 func _on_item_added(index: int):
-	var slot: Slot = bag.get_child(index)
+	var slot: BagSlot = bag.get_child(index)
 	slot.set_property(_character_stats.inventory.bag[index])
 
 
