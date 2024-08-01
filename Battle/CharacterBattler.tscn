@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://fhp53bdixlw0"]
 
 [ext_resource type="PackedScene" uid="uid://bd5l22wxjwg8n" path="res://Battle/Battler.tscn" id="1_itmfq"]
-[ext_resource type="Script" path="res://Battle/Character.gd" id="2_38n1q"]
+[ext_resource type="Script" path="res://Battle/CharacterBattler.gd" id="2_38n1q"]
 [ext_resource type="FontFile" uid="uid://hwj2hou2sni5" path="res://Assets/Fonts/PixelOperator8.ttf" id="2_d2l2r"]
 [ext_resource type="PackedScene" path="res://Battle/Hitbox.tscn" id="3_r7m7l"]
 [ext_resource type="Script" path="res://Battle/CharacterHitbox.gd" id="4_nuaew"]
