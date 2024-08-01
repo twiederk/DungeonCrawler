@@ -16,8 +16,8 @@ func after_each():
 
 func test_place_characters():
 	# arrange
-	var character1 = Character.new()
-	var character2 = Character.new()
+	var character1 = CharacterBattler.new()
+	var character2 = CharacterBattler.new()
 	var characters: Array[Battler] = [ character1, character2 ]
 	
 	# act

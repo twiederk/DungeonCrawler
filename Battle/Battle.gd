@@ -1,7 +1,7 @@
 class_name Battle
 extends Node
 
-const CharacterScene: PackedScene = preload("res://Battle/Character.tscn")
+const CharacterScene: PackedScene = preload("res://Battle/CharacterBattler.tscn")
 const MonsterScene: PackedScene = preload("res://Battle/MonsterBattler.tscn")
 const ItemScene: PackedScene = preload("res://World/Items/Item.tscn")
 
@@ -87,7 +87,7 @@ func _on_battler_died(battler: Battler) -> void:
 	var index = battlers.find(battler)
 	if index < current_battler_index:
 		current_battler_index -= 1
-	if battler is Character:
+	if battler is CharacterBattler:
 		characters.erase(battler)
 	else:
 		monsters.erase(battler)

@@ -15,7 +15,7 @@ func after_each():
 func test_is_battle_end_monsters_killed():
 
 	# arrange
-	var character = Character.new()
+	var character = CharacterBattler.new()
 	battle.characters = [character]
 	battle.monsters = []
 
@@ -49,7 +49,7 @@ func test_is_battle_end_characters_killed():
 func test_is_battle_end_monsters_alive():
 
 	# arrange
-	var character = Character.new()
+	var character = CharacterBattler.new()
 	battle.characters = [character]
 	var monster = MonsterBattler.new()
 	battle.monsters = [monster]

@@ -16,7 +16,7 @@ func before_each():
 func test_create_battler():
 
 	# arrange
-	var scene = load("res://Battle/Character.tscn")
+	var scene = load("res://Battle/CharacterBattler.tscn")
 	var linda = get_linda()
 
 	# act
@@ -38,7 +38,7 @@ func test_create_battler():
 func test_create_battlers():
 	# arrange
 	var character_stats = [ get_linda(), get_leon() ]
-	var character_scene = load("res://Battle/Character.tscn")
+	var character_scene = load("res://Battle/CharacterBattler.tscn")
 	var battle = BattleScene.instantiate()
 	add_child(battle)
 

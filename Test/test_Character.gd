@@ -1,10 +1,10 @@
 extends GutTest
 
-var character: Character = null
+var character: CharacterBattler = null
 
 
 func before_each():
-	character = Character.new()
+	character = CharacterBattler.new()
 
 
 func after_each():

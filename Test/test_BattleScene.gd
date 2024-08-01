@@ -16,7 +16,7 @@ func after_each():
 
 func test_get_battlefield():
 	# arrange
-	var character = Character.new()
+	var character = CharacterBattler.new()
 	character.position = Vector2(16, 16)
 	battle.characters = [character]
 	

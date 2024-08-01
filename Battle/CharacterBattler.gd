@@ -1,4 +1,4 @@
-class_name Character
+class_name CharacterBattler
 extends Battler
 
 
@@ -57,7 +57,7 @@ func move_step(direction: Vector2) -> void:
 func get_target():
 	var facing = degree_to_facing(hitboxPivot.rotation_degrees)
 	var ray_cast = _ray_casts[facing]
-	if ray_cast.is_colliding() and not ray_cast.get_collider() is Character:
+	if ray_cast.is_colliding() and not ray_cast.get_collider() is CharacterBattler:
 		return ray_cast.get_collider()
 	return null
 

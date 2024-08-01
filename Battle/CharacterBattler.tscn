@@ -10,6 +10,8 @@
 size = Vector2(5, 5)
 
 [node name="CharacterBattler" instance=ExtResource("1_itmfq")]
+collision_layer = 2
+collision_mask = 16
 script = ExtResource("2_38n1q")
 
 [node name="HealthBar" parent="." index="2"]

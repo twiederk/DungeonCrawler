@@ -35,7 +35,7 @@ func move_animation():
 func get_target():
 	for facing in Battler.Facing.values():
 		var collider = _ray_casts[facing].get_collider()
-		if collider != null and collider is Character:
+		if collider != null and collider is CharacterBattler:
 			return collider
 	return null
 
