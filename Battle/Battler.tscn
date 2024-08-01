@@ -1,15 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3iyvfjfa85ff"]
+[gd_scene load_steps=9 format=3 uid="uid://bd5l22wxjwg8n"]
 
-[ext_resource type="Script" path="res://Battle/MonsterBattler.gd" id="1_0u0ap"]
-[ext_resource type="PackedScene" uid="uid://dnxhrwwbb0j0w" path="res://Battle/Hurtbox.tscn" id="2"]
-[ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="2_2lr2s"]
-[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_o2xme"]
-[ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="4_6bh44"]
+[ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="1_tiar5"]
+[ext_resource type="Script" path="res://Battle/Battler.gd" id="1_xx0i7"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="2_5prgk"]
+[ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="3_xorsa"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(15, 15)
-
-[sub_resource type="RectangleShape2D" id="2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n52dl"]
 size = Vector2(15, 15)
 
 [sub_resource type="Animation" id="4"]
@@ -28,7 +24,7 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("4_6bh44")
+"stream": ExtResource("3_xorsa")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -40,16 +36,17 @@ _data = {
 "attack": SubResource("3")
 }
 
-[node name="Monster" type="Area2D"]
-script = ExtResource("1_0u0ap")
+[node name="Battler" type="Area2D"]
+script = ExtResource("1_xx0i7")
 
 [node name="TurnIndicator" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_2lr2s")
+texture = ExtResource("1_tiar5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
 autoplay = "default"
 
 [node name="HealthBar" type="ProgressBar" parent="."]
@@ -57,19 +54,12 @@ offset_left = -7.0
 offset_top = 8.0
 offset_right = 7.0
 offset_bottom = 12.0
-theme = ExtResource("3_o2xme")
+theme = ExtResource("2_5prgk")
 value = 50.0
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
-
-[node name="Hurtbox" parent="." instance=ExtResource("2")]
-collision_layer = 8
-collision_mask = 32
-
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource("2")
+shape = SubResource("RectangleShape2D_n52dl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -97,11 +87,3 @@ collide_with_areas = true
 target_position = Vector2(0, 16)
 collision_mask = 3
 collide_with_areas = true
-
-[node name="MovementTimer" type="Timer" parent="."]
-wait_time = 0.6
-one_shot = true
-
-[connection signal="timeout" from="MovementTimer" to="." method="move_animation"]
-
-[editable path="Hurtbox"]
