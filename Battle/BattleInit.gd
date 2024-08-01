@@ -1,7 +1,7 @@
 class_name BattleInit
 
 const CharacterScene = preload("res://Battle/Character.tscn")
-const MonsterScene = preload("res://Battle/Monster.tscn")
+const MonsterScene = preload("res://Battle/MonsterBattler.tscn")
 const ItemScene = preload("res://World/Items/Item.tscn")
 
 

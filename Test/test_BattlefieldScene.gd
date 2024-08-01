@@ -34,8 +34,8 @@ func test_place_characters():
 
 func test_place_monsters():
 	# arrange
-	var monster1 = Monster.new()
-	var monster2 = Monster.new()
+	var monster1 = MonsterBattler.new()
+	var monster2 = MonsterBattler.new()
 	var monsters: Array[Battler] = [ monster1, monster2 ]
 	
 	# act

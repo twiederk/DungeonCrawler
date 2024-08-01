@@ -33,7 +33,7 @@ func test_is_battle_end_characters_killed():
 
 	# arrange
 	battle.characters = []
-	var monster = Monster.new()
+	var monster = MonsterBattler.new()
 	battle.monsters = [monster]
 
 	# act
@@ -51,7 +51,7 @@ func test_is_battle_end_monsters_alive():
 	# arrange
 	var character = Character.new()
 	battle.characters = [character]
-	var monster = Monster.new()
+	var monster = MonsterBattler.new()
 	battle.monsters = [monster]
 	
 

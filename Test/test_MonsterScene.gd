@@ -1,9 +1,9 @@
 extends GutTest
 
-const MonsterScene = preload("res://Battle/Monster.tscn")
+const MonsterScene = preload("res://Battle/MonsterBattler.tscn")
 const SKELETON = preload("res://Battle/Monster/Skeleton.tres")
 
-var monster: Monster = null
+var monster: MonsterBattler = null
 
 
 func before_each():

@@ -1,4 +1,4 @@
-class_name Monster
+class_name MonsterBattler
 extends Battler
 
 signal item_dropped(item_resource: ItemResource, global_position: Vector2)

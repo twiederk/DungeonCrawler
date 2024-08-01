@@ -2,7 +2,7 @@ class_name Battle
 extends Node
 
 const CharacterScene: PackedScene = preload("res://Battle/Character.tscn")
-const MonsterScene: PackedScene = preload("res://Battle/Monster.tscn")
+const MonsterScene: PackedScene = preload("res://Battle/MonsterBattler.tscn")
 const ItemScene: PackedScene = preload("res://World/Items/Item.tscn")
 
 var characters: Array[Battler] = []
