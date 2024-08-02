@@ -1,13 +1,10 @@
 class_name Slot
 extends PanelContainer
 
-signal item_changed(index: int, item: ItemResource)
-
-var index: int
 var item_resource: ItemResource = null:
 	set(value):
 		item_resource = value
-		item_changed.emit(index, item_resource)
+		_emit_changed_signal()
 
 @onready var item_texture: TextureRect = $ItemTexture
 
@@ -46,3 +43,7 @@ func get_preview():
 	preview.add_child(preview_texture)
 
 	return preview
+
+
+func _emit_changed_signal():
+	pass
