@@ -47,7 +47,7 @@ text = "CharacterName"
 layout_mode = 0
 offset_left = 216.0
 offset_top = 72.0
-offset_right = 560.0
+offset_right = 408.0
 offset_bottom = 244.0
 columns = 4
 
@@ -109,7 +109,7 @@ layout_mode = 1
 offset_left = 145.0
 offset_top = 93.0
 offset_right = 145.0
-offset_bottom = 93.0
+offset_bottom = 106.0
 
 [node name="CharacterImage" type="TextureRect" parent="."]
 layout_mode = 0
