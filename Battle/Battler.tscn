@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bd5l22wxjwg8n"]
+[gd_scene load_steps=6 format=3 uid="uid://bd5l22wxjwg8n"]
 
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="1_tiar5"]
 [ext_resource type="Script" path="res://Battle/Battler.gd" id="1_xx0i7"]
@@ -7,34 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n52dl"]
 size = Vector2(15, 15)
-
-[sub_resource type="Animation" id="4"]
-length = 0.001
-
-[sub_resource type="Animation" id="3"]
-resource_name = "attack"
-length = 0.6
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_xorsa")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7rj2"]
-_data = {
-"RESET": SubResource("4"),
-"attack": SubResource("3")
-}
 
 [node name="Battler" type="Area2D"]
 script = ExtResource("1_xx0i7")
@@ -61,12 +33,8 @@ show_percentage = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n52dl")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_a7rj2")
-}
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xorsa")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-16, 0)

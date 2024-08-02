@@ -85,7 +85,7 @@ func attack():
 
 func _on_animation_finished():
 	#print("Battler._on_animation_finished()")
-	audio_stream_player.play("attack")
+	audio_stream_player.play()
 	battler_attacked.emit(self, _target)
 	animated_sprite_2d.play("idle")
 	turn_ended.emit()
