@@ -6,5 +6,5 @@ signal bag_changed(index: int, item: ItemResource)
 var index: int
 
 
-func _emit_changed_signal():
+func _item_changed():
 	bag_changed.emit(index, item_resource)

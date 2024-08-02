@@ -4,7 +4,7 @@ extends PanelContainer
 var item_resource: ItemResource = null:
 	set(value):
 		item_resource = value
-		_emit_changed_signal()
+		_item_changed()
 
 @onready var item_texture: TextureRect = $ItemTexture
 
@@ -45,5 +45,5 @@ func get_preview():
 	return preview
 
 
-func _emit_changed_signal():
+func _item_changed():
 	pass
