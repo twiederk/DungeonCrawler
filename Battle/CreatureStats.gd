@@ -21,6 +21,7 @@ enum State { ALIVE, UNCONSCIOUS }
 		max_hit_points_changed.emit(max_hit_points)
 
 
+@export var armor: ArmorResource
 @export var armor_class: int
 @export var damage: int
 @export var weapon: WeaponResource:

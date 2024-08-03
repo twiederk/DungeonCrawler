@@ -25,13 +25,16 @@ func get_monster_stats() -> Array[CreatureStats]:
 
 
 func get_leon() -> CreatureStats:
+	var chain_mail = ArmorResource.new()
+	chain_mail.armor_class = 16
+	
 	var leon = CreatureStats.new()
 	leon.name = "Leon"
 	leon.max_hit_points = 20
 	leon.hit_points = 20
 	leon.damage = 2
 	leon.weapon = ItemData.get_weapon(11)
-	leon.armor_class = 15
+	leon.armor = chain_mail
 	leon.max_movement = 3
 	leon.movement = 0
 	leon.sprite_frames = load("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
@@ -42,13 +45,16 @@ func get_leon() -> CreatureStats:
 
 
 func get_linda() -> CreatureStats:
+	var cloth = ArmorResource.new()
+	cloth.armor_class = 10
+	
 	var linda = CreatureStats.new()
 	linda.name = "Linda"
 	linda.hit_points = 4
 	linda.max_hit_points = 4
 	linda.damage = 1
 	linda.weapon = ItemData.get_weapon(5)
-	linda.armor_class = 10
+	linda.armor = cloth
 	linda.max_movement = 4
 	linda.movement = 0
 	linda.sprite_frames = load("res://Assets/graphics/sprites/MageSpriteFrames.tres")
