@@ -3,11 +3,15 @@ extends GutTest
 const MonsterScene = preload("res://Battle/MonsterBattler.tscn")
 const SKELETON = preload("res://Battle/Monster/Skeleton.tres")
 
-var game_system: GameSystem = null
+var game_system: GameSys = null
 
 
 func before_each():
-	game_system = GameSystem.new()
+	game_system = GameSys.new()
+
+
+func after_each():
+	game_system.free()
 
 
 func test_attack_missed():

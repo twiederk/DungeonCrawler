@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.31.0"
+config/description="1.32.0-snapshot"
 run/main_scene="res://World/Maps/HirschhornCastleMap.tscn"
 config/features=PackedStringArray("4.2")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
@@ -23,6 +23,7 @@ LevelStats="*res://World/LevelStats.gd"
 ItemData="*res://World/Items/ItemData.gd"
 MessageBus="*res://World/MessageBus.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+GameSystem="*res://Battle/GameSystem.gd"
 
 [dialogic]
 

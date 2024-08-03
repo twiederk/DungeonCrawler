@@ -1,10 +1,11 @@
 class_name InventoryScreen
 extends Control
 
+@onready var character_image: TextureRect = $CharacterImage
+@onready var character_name: Label = $CharacterName
 @onready var bag: GridContainer = $Bag
-@onready var character_name_label: Label = $CharacterNameLabel
 @onready var weapon_slot: WeaponSlot = $Character/WeaponSlot
-@onready var character_image = $CharacterImage
+@onready var armor_slot: ArmorSlot = $Character/ArmorSlot
 
 var _character_stats: CreatureStats
 
@@ -13,6 +14,7 @@ func _ready():
 		PlayerStats.character_stats[index].inventory.item_added.connect(_on_item_added)
 	
 	weapon_slot.weapon_changed.connect(_on_weapon_changed)
+	armor_slot.armor_changed.connect(_on_armor_changed)
 
 	var slots = bag.get_children()
 	for index in slots.size():
@@ -43,12 +45,14 @@ func keycode_to_index(event: InputEvent) -> int:
 
 func init(character_stats: CreatureStats):
 	_character_stats = character_stats
-	character_name_label.text = character_stats.name
+	character_name.text = character_stats.name
 	_set_character_texture()
-	weapon_slot.set_property(character_stats.weapon)
+	weapon_slot.set_item(character_stats.weapon)
+	armor_slot.set_item(character_stats.armor)
+	
 	for index in _character_stats.inventory.bag.size():
 		var slot: BagSlot = bag.get_child(index)
-		slot.set_property(_character_stats.inventory.bag[index])
+		slot.set_item(_character_stats.inventory.bag[index])
 
 
 func _set_character_texture():
@@ -61,7 +65,7 @@ func _set_character_texture():
 
 func _on_item_added(index: int):
 	var slot: BagSlot = bag.get_child(index)
-	slot.set_property(_character_stats.inventory.bag[index])
+	slot.set_item(_character_stats.inventory.bag[index])
 
 
 func _on_bag_changed(index: int, item: ItemResource):
@@ -70,3 +74,7 @@ func _on_bag_changed(index: int, item: ItemResource):
 
 func _on_weapon_changed(weapon: WeaponResource):
 	_character_stats.weapon = weapon
+
+
+func _on_armor_changed(armor: ArmorResource):
+	_character_stats.armor = armor

@@ -1,4 +1,5 @@
-class_name GameSystem
+class_name GameSys
+extends Node
 
 func attack(attacker: Battler, defender: Battler):
 	var attack_roll = attacker.roll_attack()

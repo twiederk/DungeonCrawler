@@ -69,3 +69,6 @@ func dead():
 	collision_shape_2d.disabled = true
 	super.dead()
 
+
+func get_armor_class() -> int:
+	return _creature_stats.armor.armor_class

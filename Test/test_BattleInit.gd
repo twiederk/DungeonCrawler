@@ -27,7 +27,7 @@ func test_create_battler():
 	assert_eq(creature.name, "Linda", "Should set correct name")
 	assert_eq(creature.hit_points, 1, "Should set hit points to one")
 	assert_eq(creature.damage, 2, "Should set damage to two")
-	assert_eq(creature.armor_class, 3, "Should set armor class to three")
+	assert_eq(creature.armor.armor_class, 10, "Should set armor class to ten")
 	assert_eq(creature.max_movement, 4, "Should set max movement to four")
 	assert_eq(creature.movement, 5, "Should set movement to five")
 
@@ -60,11 +60,14 @@ func test_create_battlers():
 
 
 func get_linda() -> CreatureStats:
+	var cloth = ArmorResource.new()
+	cloth.armor_class = 10
+	
 	var linda = CreatureStats.new()
 	linda.name = "Linda"
 	linda.hit_points = 1
 	linda.damage = 2
-	linda.armor_class = 3
+	linda.armor = cloth
 	linda.max_movement = 4
 	linda.movement = 5
 	linda.sprite_frames = sprite_frames_mage
@@ -72,11 +75,14 @@ func get_linda() -> CreatureStats:
 
 
 func get_leon() -> CreatureStats:
+	var chain_mail = ArmorResource.new()
+	chain_mail.armor_class = 16
+
 	var leon = CreatureStats.new()
 	leon.name = "Leon"
 	leon.hit_points = 16
 	leon.damage = 2
-	leon.armor_class = 15
+	leon.armor = chain_mail
 	leon.sprite_frames = sprite_frames_fighter
 	leon.max_movement = 3
 	leon.movement = 3

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2khxus2vpj17"]
+[gd_scene load_steps=6 format=3 uid="uid://d2khxus2vpj17"]
 
 [ext_resource type="Script" path="res://World/InventoryScreen.gd" id="1_m5moc"]
 [ext_resource type="PackedScene" uid="uid://cx16g1lloq72c" path="res://World/BagSlot.tscn" id="2_qtw3r"]
 [ext_resource type="PackedScene" uid="uid://duuwxsv1wnj3l" path="res://World/WeaponSlot.tscn" id="3_0e2wk"]
+[ext_resource type="PackedScene" uid="uid://dhm56xb8wsvd1" path="res://World/ArmorSlot.tscn" id="4_rot52"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_fmjql"]
 
@@ -31,7 +32,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_fmjql")
 
-[node name="CharacterNameLabel" type="Label" parent="."]
+[node name="CharacterImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 30.0
+offset_right = 185.0
+offset_bottom = 70.0
+
+[node name="CharacterName" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -111,9 +119,9 @@ offset_top = 93.0
 offset_right = 145.0
 offset_bottom = 106.0
 
-[node name="CharacterImage" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 145.0
-offset_top = 30.0
-offset_right = 185.0
-offset_bottom = 70.0
+[node name="ArmorSlot" parent="Character" instance=ExtResource("4_rot52")]
+layout_mode = 1
+offset_left = 144.0
+offset_top = 158.0
+offset_right = 144.0
+offset_bottom = 171.0
