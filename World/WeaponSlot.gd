@@ -3,7 +3,7 @@ extends Slot
 
 signal weapon_changed(weapon: WeaponResource)
 
-@onready var damage_label = $DamageLabel
+@onready var damage_label: Label = $DamageLabel
 
 
 func _can_drop_data(_at_position, data):
