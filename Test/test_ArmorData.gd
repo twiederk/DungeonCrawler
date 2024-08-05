@@ -20,3 +20,12 @@ func test_parse_line():
 	assert_eq(armor.name, "Kleidung")
 	assert_eq(armor.armor_class, 10)
 	assert_eq(armor.texture, texture)
+
+
+func test_load_armor():
+
+	# act
+	var armor = armor_data._load_armor("res://Test/Resources/test_ArmorData.txt")
+
+	# assert
+	assert_eq(armor.size(), 3)
