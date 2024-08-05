@@ -29,3 +29,39 @@ func test_load_armor():
 
 	# assert
 	assert_eq(armor.size(), 3)
+
+
+func test_create_armor_dictionary():
+
+	# arrange
+	var cloth = ArmorResource.new()
+	cloth.id = 1
+	cloth.name = "Cloth"
+	var leather = ArmorResource.new()
+	leather.id = 2
+	leather.name = "Leather"
+	var armor: Array[ArmorResource] = [ cloth, leather ]
+
+	# act
+	var armor_dictionary = armor_data._create_armor_dictionary(armor)
+
+	# assert
+	assert_eq(armor_dictionary[1].name, "Cloth")
+	assert_eq(armor_dictionary[2].name, "Leather")
+
+
+func test_get_weapon_by_id():
+	# arrange
+	var cloth = ArmorResource.new()
+	cloth.id = 1
+	cloth.name = "Cloth"
+	var leather = ArmorResource.new()
+	leather.id = 2
+	leather.name = "Leather"
+	armor_data._armor_dictionary = { cloth.id: cloth, leather.id: leather }
+
+	# act
+	var armor = armor_data.get_armor(cloth.id)
+
+	# assert
+	assert_same(armor, cloth)

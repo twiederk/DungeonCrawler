@@ -23,21 +23,17 @@ func _load_armor(file_name: String) -> Array[ArmorResource]:
 		line = file.get_csv_line(";")
 	return armor
 
+
+func _create_armor_dictionary(all_armor: Array[ArmorResource]) -> Dictionary:
+	var armor_dictionary = {}
+	for armor in all_armor:
+		armor_dictionary[armor.id] = armor
+	return armor_dictionary
+
+
 func init():
-	var cloth = ArmorResource.new()
-	cloth.id = 1
-	cloth.name = "Kleidung"
-	cloth.texture = load("res://Assets/graphics/sprites/items/armor/armor_001.png")
-	cloth.armor_class = 10
-	
-	var chain_mail = ArmorResource.new()
-	chain_mail.id = 2
-	chain_mail.name = "Kleidung"
-	chain_mail.texture = load("res://Assets/graphics/sprites/items/armor/armor_002.png")
-	chain_mail.armor_class = 16
-	
-	_armor_dictionary[cloth.id] = cloth
-	_armor_dictionary[chain_mail.id] = chain_mail
+	var all_armor = _load_armor("res://World/Items/Armor/ArmorData.txt")
+	_armor_dictionary = _create_armor_dictionary(all_armor)
 
 
 func get_armor(id: int) -> ArmorResource:
