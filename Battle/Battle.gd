@@ -14,7 +14,6 @@ var items: Array[Item] = []
 var current_battler: Node2D
 var current_battler_index: int
 
-var game_system: GameSystem = GameSystem.new()
 
 @onready var battlefield: Battlefield = $Battlefield
 @onready var party_screen: PartyScreen = $GUI/PartyScreen
@@ -78,7 +77,7 @@ func end_battle() -> void:
 
 
 func _on_battler_attacked(attacker, defender) -> void:
-	game_system.attack(attacker, defender)
+	GameSystem.attack(attacker, defender)
 
 
 func _on_battler_died(battler: Battler) -> void:
