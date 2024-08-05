@@ -4,6 +4,15 @@ extends RefCounted
 var _armor_dictionary = {}
 
 
+func _parse_armor(line: PackedStringArray) -> ArmorResource:
+	var armor = ArmorResource.new()
+	armor.id = line[0].to_int()
+	armor.name = line[1]
+	armor.armor_class = line[2].to_int()
+	armor.texture = load("res://Assets/graphics/sprites/items/armor/" + line[3])
+	return armor
+
+
 func init():
 	var cloth = ArmorResource.new()
 	cloth.id = 1
