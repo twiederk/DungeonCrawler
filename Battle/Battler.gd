@@ -1,7 +1,6 @@
 class_name Battler
 extends Area2D
 
-signal battler_attacked(attacker, defender)
 signal battler_hurt(hit_points)
 signal battler_died(battler)
 signal turn_started
@@ -77,7 +76,6 @@ func attack():
 	#print(get_creature_name(), ".attack()")
 	_target = get_target()
 	if _target != null:
-
 		animated_sprite_2d.play("attack")
 	else:
 		turn_ended.emit()
@@ -86,7 +84,7 @@ func attack():
 func _on_animation_finished():
 	#print("Battler._on_animation_finished()")
 	audio_stream_player.play()
-	battler_attacked.emit(self, _target)
+	GameSystem.attack(self, _target)
 	animated_sprite_2d.play("idle")
 	turn_ended.emit()
 

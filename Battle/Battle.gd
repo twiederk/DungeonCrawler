@@ -76,10 +76,6 @@ func end_battle() -> void:
 		battle_end_screen.show_message("VERLOREN")
 
 
-func _on_battler_attacked(attacker, defender) -> void:
-	GameSystem.attack(attacker, defender)
-
-
 func _on_battler_died(battler: Battler) -> void:
 	#print("Battle._on_battler_died()")
 	MessageBus.message_send.emit(str("...und tötet ", battler.get_creature_name()))
