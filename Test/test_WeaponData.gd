@@ -26,10 +26,10 @@ func test_parse_line():
 func test_load_weapons():
 
 	# act
-	var weapons = weapon_data._load_weapons("res://Test/Resources/test_WeaponData.txt")
+	var weapons = weapon_data._load_weapons("res://Test/Resources/test_WeaponData.csv")
 
 	# assert
-	assert_eq(weapons.size(), 2)
+	assert_eq(weapons.size(), 3)
 
 
 func test_create_weapon_dictionary():

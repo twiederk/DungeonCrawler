@@ -22,8 +22,8 @@ PlayerStats="*res://World/PlayerStats.gd"
 LevelStats="*res://World/LevelStats.gd"
 ItemData="*res://World/Items/ItemData.gd"
 MessageBus="*res://World/MessageBus.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GameSystem="*res://Battle/GameSystem.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 

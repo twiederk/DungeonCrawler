@@ -25,7 +25,7 @@ func test_parse_line():
 func test_load_armor():
 
 	# act
-	var armor = armor_data._load_armor("res://Test/Resources/test_ArmorData.txt")
+	var armor = armor_data._load_armor("res://Test/Resources/test_ArmorData.csv")
 
 	# assert
 	assert_eq(armor.size(), 3)

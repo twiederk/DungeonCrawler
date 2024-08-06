@@ -22,11 +22,11 @@ func _parse_weapon(line: PackedStringArray) -> WeaponResource:
 func _load_weapons(file_name: String) -> Array[WeaponResource]:
 	var weapons: Array[WeaponResource] = []
 	var file: FileAccess = FileAccess.open(file_name, FileAccess.READ)
-	file.get_csv_line(";")
-	var line: PackedStringArray = file.get_csv_line(";")
+	file.get_csv_line()
+	var line: PackedStringArray = file.get_csv_line()
 	while line.size() > 1:
 		weapons.append(_parse_weapon(line))
-		line = file.get_csv_line(";")
+		line = file.get_csv_line()
 	return weapons
 
 
@@ -38,7 +38,7 @@ func _create_weapon_dictionary(weapons: Array[WeaponResource]) -> Dictionary:
 
 
 func init():
-	var weapons = _load_weapons("res://World/Items/Weapons/WeaponData.txt")
+	var weapons = _load_weapons("res://World/Items/Weapons/WeaponData.csv")
 	_weapon_dictionary = _create_weapon_dictionary(weapons)
 
 

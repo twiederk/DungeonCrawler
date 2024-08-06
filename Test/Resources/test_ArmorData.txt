@@ -1,4 +1,0 @@
-"id";"name";"armor_class";"texture_file_name"
-1;"Kleidung";10;"armor_001.png"
-2;"Leder";11;"armor_002.png"
-3;"Hartleder";12;"armor_003.png"
