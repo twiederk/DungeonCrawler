@@ -5,6 +5,7 @@ const CharacterScene: PackedScene = preload("res://Battle/CharacterBattler.tscn"
 const MonsterScene: PackedScene = preload("res://Battle/MonsterBattler.tscn")
 const ItemScene: PackedScene = preload("res://World/Items/Item.tscn")
 
+var _logger = Logger.new()
 var characters: Array[Battler] = []
 var monsters: Array[Battler] = []
 var battlers: Array[Battler] = []
@@ -55,7 +56,7 @@ func _set_monsters_loot_table_name():
 
 
 func _on_next_battler() -> void:
-	#print("Battle._on_next_battler()")
+	_logger.debug(str("Battle._on_next_battler()"))
 	current_battler.stop_turn()
 	if is_battle_end():
 		end_battle()
@@ -77,7 +78,7 @@ func end_battle() -> void:
 
 
 func _on_battler_died(battler: Battler) -> void:
-	#print("Battle._on_battler_died()")
+	_logger.debug(str("Battle._on_battler_died()"))
 	MessageBus.message_send.emit(str("...und tötet ", battler.get_creature_name()))
 	var index = battlers.find(battler)
 	if index < current_battler_index:
