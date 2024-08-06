@@ -9,7 +9,7 @@ var item_resource: ItemResource = null:
 @onready var item_texture: TextureRect = $ItemTexture
 
 
-func set_property(item: ItemResource):
+func set_item(item: ItemResource):
 	item_resource = item
 	if item != null:
 		item_texture.texture = item.texture
@@ -28,8 +28,8 @@ func _can_drop_data(_at_position, data):
 
 func _drop_data(_at_position, data):
 	var temp: ItemResource = item_resource
-	set_property(data.item_resource)
-	data.set_property(temp)
+	set_item(data.item_resource)
+	data.set_item(temp)
 
 
 func get_preview():

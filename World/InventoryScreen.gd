@@ -47,12 +47,12 @@ func init(character_stats: CreatureStats):
 	_character_stats = character_stats
 	character_name.text = character_stats.name
 	_set_character_texture()
-	weapon_slot.set_property(character_stats.weapon)
-	armor_slot.set_property(character_stats.armor)
+	weapon_slot.set_item(character_stats.weapon)
+	armor_slot.set_item(character_stats.armor)
 	
 	for index in _character_stats.inventory.bag.size():
 		var slot: BagSlot = bag.get_child(index)
-		slot.set_property(_character_stats.inventory.bag[index])
+		slot.set_item(_character_stats.inventory.bag[index])
 
 
 func _set_character_texture():
@@ -65,7 +65,7 @@ func _set_character_texture():
 
 func _on_item_added(index: int):
 	var slot: BagSlot = bag.get_child(index)
-	slot.set_property(_character_stats.inventory.bag[index])
+	slot.set_item(_character_stats.inventory.bag[index])
 
 
 func _on_bag_changed(index: int, item: ItemResource):
