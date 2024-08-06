@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8rdudcwm5nlv"]
+
+[ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_7274k"]
+[ext_resource type="Texture2D" uid="uid://beo6rxbch8307" path="res://Assets/graphics/sprites/items/armor/armor_008.png" id="2_v07ow"]
+
+[node name="ChainMail" instance=ExtResource("1_7274k")]
+item_id = 8
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_v07ow")

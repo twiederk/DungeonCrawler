@@ -1,13 +1,19 @@
 class_name InventoryScreen
 extends Control
 
+const NO_CHARACTER: int = -1
+
+static var _show_inventory_screen: bool = false
+
+var _character_stats: CreatureStats
+var _displayed_character_index = NO_CHARACTER
+
 @onready var character_image: TextureRect = $CharacterImage
 @onready var character_name: Label = $CharacterName
 @onready var bag: GridContainer = $Bag
 @onready var weapon_slot: WeaponSlot = $Character/WeaponSlot
 @onready var armor_slot: ArmorSlot = $Character/ArmorSlot
 
-var _character_stats: CreatureStats
 
 func _ready():
 	for index in PlayerStats.character_stats.size():
@@ -25,13 +31,16 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("InventoryScreen"):
-		PlayerStats.show_inventory_screen = !PlayerStats.show_inventory_screen
-		visible = PlayerStats.show_inventory_screen
 	if is_inventory_action_just_pressed():
 		var index = keycode_to_index(event)
-		var character_stats = PlayerStats.character_stats[index]
-		init(character_stats)
+		if index != _displayed_character_index:
+			_displayed_character_index = index
+			var character_stats = PlayerStats.character_stats[index]
+			init(character_stats)
+			visible = true
+		else:
+			_displayed_character_index = NO_CHARACTER
+			visible = false
 
 
 func is_inventory_action_just_pressed() -> bool:

@@ -20,13 +20,18 @@ layer_0/tile_data = PackedInt32Array(524297, 983040, 2, 589833, 983040, 2, 65536
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="PartyScreen" parent="GUI" instance=ExtResource("4_6uhpg")]
-visible = false
-
 [node name="MessageScreen" parent="GUI" instance=ExtResource("5_gwwd3")]
+
+[node name="PartyScreen" parent="GUI" instance=ExtResource("4_6uhpg")]
+offset_right = 100.0
+offset_bottom = 400.0
 
 [node name="InventoryScreen" parent="GUI" instance=ExtResource("6_81bv8")]
 visible = false
+offset_left = 112.0
+offset_top = 48.0
+offset_right = -119.0
+offset_bottom = -24.0
 
 [node name="Avatar" parent="." instance=ExtResource("7_48idp")]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://vgfn2he4jk6s"]
+
+[ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_j257h"]
+[ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png" id="2_ros0g"]
+
+[node name="Sword" instance=ExtResource("1_j257h")]
+item_type = 1
+item_id = 11
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ros0g")

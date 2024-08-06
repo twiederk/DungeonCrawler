@@ -18,8 +18,17 @@ script = ExtResource("1_0o8cx")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
+[node name="MessageScreen" parent="GUI" instance=ExtResource("3_p7kca")]
+
 [node name="PartyScreen" parent="GUI" instance=ExtResource("3_8ck03")]
 visible = false
+
+[node name="InventoryScreen" parent="GUI" instance=ExtResource("6_ond31")]
+visible = false
+offset_left = 120.0
+offset_top = 40.0
+offset_right = -111.0
+offset_bottom = -32.0
 
 [node name="BattleEndScreen" parent="GUI" instance=ExtResource("3_pdmqs")]
 visible = false
@@ -36,8 +45,3 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="MessageScreen" parent="GUI" instance=ExtResource("3_p7kca")]
-
-[node name="InventoryScreen" parent="GUI" instance=ExtResource("6_ond31")]
-visible = false

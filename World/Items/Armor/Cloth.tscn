@@ -1,11 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://38fl6lhrqety"]
+[gd_scene load_steps=3 format=3 uid="uid://chny6yoll2cig"]
 
-[ext_resource type="PackedScene" uid="uid://dv2ldsqahy8pr" path="res://World/Items/Item.tscn" id="1_a60y2"]
-[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://Assets/graphics/sprites/items/armor/armor_001.png" id="2_hu6om"]
-[ext_resource type="Resource" uid="uid://baw7cgp3d52fl" path="res://World/Items/Armor/Cloth.tres" id="2_sjt7t"]
+[ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_holaq"]
+[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://Assets/graphics/sprites/items/armor/armor_001.png" id="2_sxr05"]
 
-[node name="Cloth" instance=ExtResource("1_a60y2")]
-item_resource = ExtResource("2_sjt7t")
+[node name="Cloth" instance=ExtResource("1_holaq")]
+item_id = 1
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_hu6om")
+texture = ExtResource("2_sxr05")

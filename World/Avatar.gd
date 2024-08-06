@@ -33,7 +33,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if not timeline_running and not PlayerStats.display_item_pickup_screen:
+	if not timeline_running:
 		key_movement()
 		lock_key_movement(delta)
 

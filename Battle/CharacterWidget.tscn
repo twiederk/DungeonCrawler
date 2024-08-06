@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dia5vfimh2stm"]
+[gd_scene load_steps=8 format=3 uid="uid://dia5vfimh2stm"]
 
 [ext_resource type="Script" path="res://Battle/CharacterWidget.gd" id="1_ttnet"]
 [ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_l8xw4"]
 [ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_a227w"]
+[ext_resource type="Script" path="res://Battle/CharacterTextureRect.gd" id="3_ulgle"]
 [ext_resource type="SpriteFrames" uid="uid://c70w6i2f7b3rd" path="res://Assets/graphics/sprites/SpellHeal.tres" id="4_cc1ps"]
 [ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png" id="4_nbh25"]
 
@@ -13,11 +14,9 @@ region = Rect2(0, 32, 16, 16)
 [node name="CharacterWidget" type="Control"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
 script = ExtResource("1_ttnet")
 
 [node name="Panel" type="Panel" parent="."]
@@ -40,6 +39,7 @@ offset_top = 24.0
 offset_right = 50.0
 offset_bottom = 72.0
 texture = SubResource("AtlasTexture_5q2er")
+script = ExtResource("3_ulgle")
 
 [node name="HealthBar" type="ProgressBar" parent="Panel"]
 layout_mode = 2
@@ -68,4 +68,5 @@ sprite_frames = ExtResource("4_cc1ps")
 animation = &"heal"
 centered = false
 
+[connection signal="item_dropped" from="Panel/TextureRect" to="." method="_on_texture_rect_item_dropped"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
