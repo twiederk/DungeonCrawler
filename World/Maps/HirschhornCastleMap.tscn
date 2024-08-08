@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cictbokrur51r"]
+[gd_scene load_steps=11 format=3 uid="uid://cictbokrur51r"]
 
 [ext_resource type="PackedScene" uid="uid://csya37mhb4umy" path="res://World/Maps/Map.tscn" id="1_dxur7"]
 [ext_resource type="Script" path="res://World/Maps/HirschhornCastleMap.gd" id="1_f2q4n"]
+[ext_resource type="PackedScene" uid="uid://b8rdudcwm5nlv" path="res://World/Items/Armor/ChainMail.tscn" id="4_yy3bv"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="5_bmkah"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_mvxmj"]
 [ext_resource type="Resource" path="res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl" id="7_pjvui"]
+[ext_resource type="PackedScene" uid="uid://chny6yoll2cig" path="res://World/Items/Armor/Cloth.tscn" id="7_rkg6b"]
 [ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://Assets/graphics/sprites/LordOfHirschhorn.tres" id="8_jhftv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqd2"]
@@ -20,6 +22,12 @@ layer_0/tile_data = PackedInt32Array(524297, 262144, 2, 589833, 262144, 2, 65536
 
 [node name="Avatar" parent="." index="3"]
 position = Vector2(328, 456)
+
+[node name="Cloth" parent="Items" index="0" instance=ExtResource("7_rkg6b")]
+position = Vector2(328, 424)
+
+[node name="ChainMail" parent="Items" index="1" instance=ExtResource("4_yy3bv")]
+position = Vector2(296, 424)
 
 [node name="ExitSouth" parent="Locations" index="0" instance=ExtResource("5_bmkah")]
 position = Vector2(248, 504)

@@ -1,18 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci3y4u7rlo6l"]
+[gd_scene load_steps=3 format=3 uid="uid://chny6yoll2cig"]
 
-[ext_resource type="PackedScene" uid="uid://dv2ldsqahy8pr" path="res://World/Items/Item.tscn" id="1_a60y2"]
-[ext_resource type="Script" path="res://World/Items/ArmorResource.gd" id="2_2gl6h"]
-[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://Assets/graphics/sprites/items/armor/armor_001.png" id="2_hu6om"]
+[ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_holaq"]
+[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://Assets/graphics/sprites/items/armor/armor_001.png" id="2_sxr05"]
 
-[sub_resource type="Resource" id="Resource_2sdph"]
-script = ExtResource("2_2gl6h")
-armor_class = 0
-id = 0
-name = "Kleidung"
-texture = ExtResource("2_hu6om")
-
-[node name="Cloth" instance=ExtResource("1_a60y2")]
-item_resource = SubResource("Resource_2sdph")
+[node name="Cloth" instance=ExtResource("1_holaq")]
+item_id = 1
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_hu6om")
+texture = ExtResource("2_sxr05")

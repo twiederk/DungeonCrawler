@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ssbxaddi5sn"]
+
+[ext_resource type="PackedScene" uid="uid://dv2ldsqahy8pr" path="res://World/Items/Item.tscn" id="1_b0akw"]
+[ext_resource type="Script" path="res://World/Items/StaticItem.gd" id="2_lhuqy"]
+
+[node name="StaticItem" instance=ExtResource("1_b0akw")]
+script = ExtResource("2_lhuqy")
+item_type = 0
+item_id = 0
