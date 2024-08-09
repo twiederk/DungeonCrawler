@@ -7,6 +7,7 @@ signal weapon_changed(weapon: WeaponResource)
 
 
 func _can_drop_data(_at_position, data):
+	print("WeaponSlot._can_drop_data: ", data.item_resource is WeaponResource)
 	return data.item_resource is WeaponResource
 
 

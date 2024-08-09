@@ -26,7 +26,10 @@ visible = false
 [node name="MessageScreen" parent="GUI" instance=ExtResource("5_gwwd3")]
 
 [node name="InventoryScreen" parent="GUI" instance=ExtResource("6_81bv8")]
-visible = false
+offset_left = 112.0
+offset_top = 48.0
+offset_right = -119.0
+offset_bottom = -24.0
 
 [node name="Avatar" parent="." instance=ExtResource("7_48idp")]
 
