@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Battle/PartyScreen.gd" id="1_bkb51"]
 
-[node name="CharacterScreen" type="Control"]
+[node name="PartyScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
