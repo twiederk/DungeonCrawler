@@ -66,3 +66,13 @@ func _on_unfocus():
 func play_animation(animation_name: String):
 	animated_sprite_2d.show()
 	animated_sprite_2d.play(animation_name)
+
+
+func _can_drop_data(_at_position, data) -> bool:
+	print("CharacterWidget._can_drop_data()")
+	return false
+
+
+func _drop_data(_at_position, data):
+	print("CharacterWidget._drop_data()")
+	pass
