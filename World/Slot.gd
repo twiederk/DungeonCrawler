@@ -23,7 +23,6 @@ func _get_drag_data(_at_position):
 
 
 func _can_drop_data(_at_position, data):
-	print("Slot._can_drop_data: ", data.item_resource is ItemResource)
 	return data.item_resource is ItemResource
 
 

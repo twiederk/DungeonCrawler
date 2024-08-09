@@ -69,10 +69,10 @@ func play_animation(animation_name: String):
 
 
 func _can_drop_data(_at_position, data) -> bool:
-	print("CharacterWidget._can_drop_data()")
-	return false
+	print("CharacterWidget._can_drop_data: ", data.item_resource is ItemResource)
+	return data.item_resource is ItemResource
 
 
 func _drop_data(_at_position, data):
-	print("CharacterWidget._drop_data()")
-	pass
+	print("CharacterWidget._drop_data: ", data.item_resource.name)
+	_creature_stats.inventory.add_item(data.item_resource)
