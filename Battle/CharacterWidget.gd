@@ -68,11 +68,6 @@ func play_animation(animation_name: String):
 	animated_sprite_2d.play(animation_name)
 
 
-func _can_drop_data(_at_position, data) -> bool:
-	print("CharacterWidget._can_drop_data: ", data.item_resource is ItemResource)
-	return data.item_resource is ItemResource
+func _on_texture_rect_item_dropped(item_resource: ItemResource):
+	_creature_stats.inventory.add_item(item_resource)
 
-
-func _drop_data(_at_position, data):
-	print("CharacterWidget._drop_data: ", data.item_resource.name)
-	_creature_stats.inventory.add_item(data.item_resource)
