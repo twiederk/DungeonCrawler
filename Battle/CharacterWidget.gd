@@ -4,10 +4,10 @@ extends Control
 var _creature_stats: CreatureStats
 
 @onready var name_label: Label = $Panel/NameLabel
+@onready var image_texture_rect: TextureRect = $Panel/ImageTextureRect
 @onready var health_bar: ProgressBar = $Panel/HealthBar
-@onready var texture_rect: TextureRect = $Panel/TextureRect
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var weapon: TextureRect = $Panel/Weapon
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func assign_creature_stats(creature_stats: CreatureStats):
@@ -28,7 +28,7 @@ func _set_texture(animation_name: String):
 	var atlas_texture: AtlasTexture = AtlasTexture.new()
 	atlas_texture.atlas = frame_texture
 	atlas_texture.region = Rect2(0, 0, 16, 16)
-	texture_rect.texture = atlas_texture
+	image_texture_rect.texture = atlas_texture
 
 
 func _on_hit_points_changed(hit_points: int):
@@ -68,7 +68,7 @@ func play_animation(animation_name: String):
 	animated_sprite_2d.play(animation_name)
 
 
-func _on_texture_rect_item_dropped(item_resource: ItemResource):
+func _on_image_texture_rect_item_dropped(item_resource: ItemResource):
 	MessageBus.message_send.emit(str(_creature_stats.name, " hat ", item_resource.name, " erhalten."))
 	_creature_stats.inventory.add_item(item_resource)
 

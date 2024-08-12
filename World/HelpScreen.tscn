@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq4plcg3exwyq"]
+
+[ext_resource type="Theme" uid="uid://y3fbeqsfcqxi" path="res://Assets/Themes/HelpScreenTheme.tres" id="1_qytex"]
+[ext_resource type="Script" path="res://World/HelpScreen.gd" id="1_rc1da"]
+
+[node name="HelpScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qytex")
+script = ExtResource("1_rc1da")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_qytex")
+theme_type_variation = &"TitleLabel"
+text = "Hilfe"
+horizontal_alignment = 1
+
+[node name="Movement" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pfeiltasten: Bewegen"
+
+[node name="Attack" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Leertaste: Angreifen"
+
+[node name="PartyScreen" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "G-Taste: Gruppenanzeige"
+
+[node name="HelpScreen" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "H-Taste: Hilfeanzeige"
+
+[node name="MessageScreen" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "N-Taste: Nachrichtenanzeige"
+
+[node name="Talk" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "R-Taste: Reden"
+
+[node name="InventoryScreen1" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "1-Taste: Inventaranzeige von ersten character"
+
+[node name="InventoryScreen2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "2-Taste: Inventaranzeige von zweiten character"

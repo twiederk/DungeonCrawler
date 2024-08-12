@@ -22,10 +22,6 @@ func _get_drag_data(_at_position):
 	return self
 
 
-func _can_drop_data(_at_position, data):
-	return data.item_resource is ItemResource
-
-
 func _drop_data(_at_position, data):
 	var temp: ItemResource = item_resource
 	set_item(data.item_resource)

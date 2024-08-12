@@ -3,20 +3,22 @@ extends Control
 
 const CharacterWidgetScene: PackedScene = preload("res://Battle/CharacterWidget.tscn")
 
+static var _show_party_screen: bool = true
+
 var _character_widgets: Array[Control] = []
 
 @onready var v_box_container = $VBoxContainer
 
 func _ready():
-	visible = PlayerStats.show_character_stats
+	visible = _show_party_screen
 	for character_stat in PlayerStats.character_stats:
 		_add_character_widget(character_stat)
 
 
 func _input(event):
 	if event.is_action_pressed("PartyScreen"):
-		PlayerStats.show_character_stats = !PlayerStats.show_character_stats
-		visible = PlayerStats.show_character_stats
+		_show_party_screen = !_show_party_screen
+		visible = _show_party_screen
 
 
 func _add_character_widget(creature_stats: CreatureStats):

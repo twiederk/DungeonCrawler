@@ -1,9 +1,6 @@
 class_name PlyStats
 extends Node
 
-var show_character_stats: bool = true
-var show_message_screen: bool = true
-
 var start_position: Vector2
 
 var monsters: Array[MonsterResource] = []

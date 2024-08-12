@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://y3fbeqsfcqxi"]
+
+[ext_resource type="StyleBox" uid="uid://cfrw27vldvvh1" path="res://Assets/Themes/HelpScreenThemePanelContainer.tres" id="1_xu3e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_niubp"]
+
+[resource]
+Label/font_sizes/font_size = 10
+PanelContainer/styles/panel = ExtResource("1_xu3e2")
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 24
+TitleLabel/styles/normal = SubResource("StyleBoxEmpty_niubp")
+VBoxContainer/constants/separation = 8

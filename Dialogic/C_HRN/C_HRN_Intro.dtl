@@ -1,3 +1,8 @@
 if {HIRSCHHORN_CASTLE.intro} == false:
-	Ihr seid Prinzessin Linda und Ritter Leon im Dienste des Grafen von Hirschhorn. Der Graf hat euch in seinen Thronsaal gerufen, um euch einen Auftrag zu erteilen.
+	Ihr seid Prinzessin Linda und Ritter Leon im Dienste des Grafen von Hirschhorn. Der Graf hat euch in seinen Thronsaal gerufen, um euch einen Auftrag zu erteilen.\
+\
+\
+\
+\
+(Drücke die H-Taste um die Hilfeanzeige einzublenden.)
 	set {HIRSCHHORN_CASTLE.intro} = true

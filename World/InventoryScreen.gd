@@ -3,10 +3,8 @@ extends Control
 
 const NO_CHARACTER: int = -1
 
-static var _show_inventory_screen: bool = false
-
-var _character_stats: CreatureStats
 var _displayed_character_index = NO_CHARACTER
+var _character_stats: CreatureStats
 
 @onready var character_image: TextureRect = $CharacterImage
 @onready var character_name: Label = $CharacterName
