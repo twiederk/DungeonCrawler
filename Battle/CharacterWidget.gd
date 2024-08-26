@@ -27,7 +27,7 @@ func _set_texture(animation_name: String):
 	var frame_texture = _creature_stats.sprite_frames.get_frame_texture(animation_name, 0)
 	var atlas_texture: AtlasTexture = AtlasTexture.new()
 	atlas_texture.atlas = frame_texture
-	atlas_texture.region = Rect2(0, 0, 16, 16)
+	atlas_texture.region = Rect2(0, 0, 32, 32)
 	image_texture_rect.texture = atlas_texture
 
 
@@ -71,4 +71,3 @@ func play_animation(animation_name: String):
 func _on_image_texture_rect_item_dropped(item_resource: ItemResource):
 	MessageBus.message_send.emit(str(_creature_stats.name, " hat ", item_resource.name, " erhalten."))
 	_creature_stats.inventory.add_item(item_resource)
-

@@ -64,5 +64,3 @@ func drop_loot():
 			var item_resource = ItemData.get_weapon(i[0])
 			item_dropped.emit(item_resource, global_position)
 			break
-
-

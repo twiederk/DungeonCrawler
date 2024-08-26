@@ -60,8 +60,8 @@ text = "R-Taste: Reden"
 
 [node name="InventoryScreen1" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "1-Taste: Inventaranzeige von ersten character"
+text = "1-Taste: Inventaranzeige von ersten Charakter"
 
 [node name="InventoryScreen2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "2-Taste: Inventaranzeige von zweiten character"
+text = "2-Taste: Inventaranzeige von zweiten Charakter"

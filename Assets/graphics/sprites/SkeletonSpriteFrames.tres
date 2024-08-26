@@ -2,38 +2,38 @@
 
 [ext_resource type="Texture2D" uid="uid://roboosmyccrj" path="res://Assets/graphics/sprites/SkeletonSpriteSheet.png" id="1_uengd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8helm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko635"]
 atlas = ExtResource("1_uengd")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_66i3i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnftw"]
 atlas = ExtResource("1_uengd")
-region = Rect2(80, 0, 16, 16)
+region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sffnu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8x0x"]
 atlas = ExtResource("1_uengd")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6dgd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucvqt"]
 atlas = ExtResource("1_uengd")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0y7fg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3gfv"]
 atlas = ExtResource("1_uengd")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bg1pu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_33kv8"]
 atlas = ExtResource("1_uengd")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(96, 0, 32, 32)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8helm")
+"texture": SubResource("AtlasTexture_ko635")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_66i3i")
+"texture": SubResource("AtlasTexture_vnftw")
 }],
 "loop": false,
 "name": &"attack",
@@ -41,16 +41,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sffnu")
+"texture": SubResource("AtlasTexture_n8x0x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l6dgd")
+"texture": SubResource("AtlasTexture_ucvqt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0y7fg")
+"texture": SubResource("AtlasTexture_f3gfv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bg1pu")
+"texture": SubResource("AtlasTexture_33kv8")
 }],
 "loop": true,
 "name": &"idle",

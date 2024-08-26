@@ -56,6 +56,7 @@ func init_ray_casts_dictionary():
 
 func start_turn(battlefield: Battlefield):
 	_logger.debug(str(get_creature_name(), ".start_turn()"))
+	MessageBus.message_send.emit(str(get_creature_name().to_upper(), "'s turn"))
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY

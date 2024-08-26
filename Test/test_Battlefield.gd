@@ -20,9 +20,9 @@ func test_as_string():
 	var output = battlefield.as_string()
 
 	# assert
-	assert_eq(output[0], "----------------------------------------")
-	assert_eq(output[1], "-cc-------------------------------------")
-	assert_eq(output[2], "---mm-----------------------------------")
+	assert_eq(output[0], "--------------------")
+	assert_eq(output[1], "-cc-----------------")
+	assert_eq(output[2], "---mm---------------")
 
 
 func test_find_attack_positions():

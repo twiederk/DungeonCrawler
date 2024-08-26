@@ -24,8 +24,8 @@ func test_place_characters():
 	battlefield.place_characters(characters)
 	
 	# assert
-	assert_eq(character1.position,  Vector2(240, 176))
-	assert_eq(character2.position,  Vector2(240, 208))
+	assert_eq(character1.position,  Vector2(208, 176))
+	assert_eq(character2.position,  Vector2(208, 240))
 	
 	# tear down
 	character1.free()
@@ -42,10 +42,9 @@ func test_place_monsters():
 	battlefield.place_monsters(monsters)
 	
 	# assert
-	assert_eq(monster1.position,  Vector2(336, 176))
-	assert_eq(monster2.position,  Vector2(336, 208))
+	assert_eq(monster1.position,  Vector2(400, 176))
+	assert_eq(monster2.position,  Vector2(400, 240))
 	
 	# tear down
 	monster1.free()
 	monster2.free()
-

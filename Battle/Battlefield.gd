@@ -1,9 +1,9 @@
 class_name Battlefield
 extends Node2D
 
-const TILE_SIZE = 16
-const width: int = 40
-const height: int = 24
+const TILE_SIZE = 32
+const width: int = 20
+const height: int = 12
 const directions: Array[Vector2] = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
 
 var character_positions = []

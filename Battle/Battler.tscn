@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="3_xorsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n52dl"]
-size = Vector2(15, 15)
+size = Vector2(32, 32)
 
 [node name="Battler" type="Area2D"]
 script = ExtResource("1_xx0i7")
@@ -18,14 +18,14 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_tiar5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.2, 1.2)
+z_index = 2
 autoplay = "default"
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -7.0
-offset_top = 8.0
-offset_right = 7.0
-offset_bottom = 12.0
+offset_left = -14.0
+offset_top = 16.0
+offset_right = 14.0
+offset_bottom = 24.0
 theme = ExtResource("2_5prgk")
 value = 50.0
 show_percentage = false
@@ -37,21 +37,21 @@ shape = SubResource("RectangleShape2D_n52dl")
 stream = ExtResource("3_xorsa")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-16, 0)
+target_position = Vector2(-32, 0)
 collision_mask = 3
 collide_with_areas = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(16, 0)
+target_position = Vector2(32, 0)
 collision_mask = 3
 collide_with_areas = true
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
-target_position = Vector2(0, -16)
+target_position = Vector2(0, -32)
 collision_mask = 3
 collide_with_areas = true
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 32)
 collision_mask = 3
 collide_with_areas = true

@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Battle/CharacterHitbox.gd" id="4_nuaew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yix8p"]
-size = Vector2(5, 5)
+size = Vector2(10, 10)
 
 [node name="CharacterBattler" instance=ExtResource("1_itmfq")]
 collision_layer = 2
@@ -32,7 +32,7 @@ horizontal_alignment = 1
 
 [node name="Hitbox" parent="HitboxPivot" index="0" instance=ExtResource("3_r7m7l")]
 z_index = 2
-position = Vector2(12, 0)
+position = Vector2(24, 0)
 collision_layer = 32
 collision_mask = 8
 script = ExtResource("4_nuaew")
