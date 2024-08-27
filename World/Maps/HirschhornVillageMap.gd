@@ -16,5 +16,3 @@ func _heal_party():
 			party_screen.play_animation(i, "heal")
 			character.hit_points = character.max_hit_points
 			character.state = CreatureStats.State.ALIVE
-
-

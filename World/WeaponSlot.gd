@@ -14,6 +14,3 @@ func _item_changed():
 	var weapon_resource = item_resource as WeaponResource
 	damage_label.text = weapon_resource.damage.to_string()
 	weapon_changed.emit(weapon_resource)
-
-
-

@@ -66,7 +66,7 @@ func _set_character_texture():
 	var frame_texture = _character_stats.sprite_frames.get_frame_texture("idle", 0)
 	var atlas_texture: AtlasTexture = AtlasTexture.new()
 	atlas_texture.atlas = frame_texture
-	atlas_texture.region = Rect2(0, 0, 16, 16)
+	atlas_texture.region = Rect2(0, 0, 32, 32)
 	character_image.texture = atlas_texture
 
 
