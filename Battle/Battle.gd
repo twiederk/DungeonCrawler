@@ -22,6 +22,7 @@ var current_battler_index: int
 @onready var battlers_node: Node2D = $Battlers
 @onready var items_node: Node2D = $Items
 @onready var message_screen: MessageScreen = $GUI/MessageScreen
+@onready var monster_screen: MonsterScreen = $GUI/MonsterScreen
 
 
 func _ready():
@@ -34,7 +35,7 @@ func _ready():
 	battlers.append_array(characters)
 	_remove_dead_characters()
 
-	monsters = battle_init.create_battlers(MonsterScene, self, null, PlayerStats.get_monster_stats())
+	monsters = battle_init.create_battlers(MonsterScene, self, monster_screen, PlayerStats.monster_stats)
 	_set_monsters_loot_table_name()
 	battlefield.place_monsters(monsters)
 	battlers.append_array(monsters)
@@ -50,8 +51,8 @@ func _remove_dead_characters():
 
 
 func _set_monsters_loot_table_name():
-	for i in PlayerStats.monsters.size():
-		monsters[i].loot_table_name = PlayerStats.monsters[i].loot_table_name
+	for i in PlayerStats.monster_resources.size():
+		monsters[i].loot_table_name = PlayerStats.monster_resources[i].loot_table_name
 		monsters[i].item_dropped.connect(_on_item_dropped)
 
 

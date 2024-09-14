@@ -23,7 +23,7 @@ func _on_message_send(message: String):
 
 
 func add_message(text: String):
-	rich_text_label.add_text(text + "\n")
+	rich_text_label.append_text(text + "\n")
 	if rich_text_label.get_line_count() > max_lines:
 		var lines_to_remove = rich_text_label.get_line_count() - max_lines
 		for i in range(lines_to_remove):

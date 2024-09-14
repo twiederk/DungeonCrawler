@@ -7,7 +7,7 @@ func attack(attacker: Battler, defender: Battler):
 
 	if attack_roll >= defender.get_armor_class():
 		var damage = attacker.get_damage()
-		MessageBus.message_send.emit(str("...und trifft mit ", damage, " Schadenspunkten."))
+		MessageBus.message_send.emit(str("...und trifft mit [color=red]", damage, "[/color] Schadenspunkten."))
 		defender.hurt(damage)
 	else:
 		MessageBus.message_send.emit("...und verfehlt.")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjvxduloig5k4"]
+
+[ext_resource type="Script" path="res://Battle/MonsterScreen.gd" id="1_clush"]
+[ext_resource type="PackedScene" uid="uid://c5rr4km4k7p0v" path="res://Battle/MonsterWidget.tscn" id="2_ppv5f"]
+
+[node name="MonsterScreen" type="Control"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_clush")
+CreatureScene = ExtResource("2_ppv5f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 88.0
+offset_bottom = 360.0

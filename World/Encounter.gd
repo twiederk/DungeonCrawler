@@ -6,7 +6,10 @@ extends Area2D
 
 func _on_area_entered(area):
 	PlayerStats.start_position = area.position
-	PlayerStats.monsters = monsters
+	PlayerStats.monster_resources = monsters
+	PlayerStats.monster_stats = []
+	for monster in monsters:
+		PlayerStats.monster_stats.append(monster.to_creature_stats())
 	LevelStats.node_visited.emit(get_path())
 	queue_free()
 	call_deferred("_change_scene")

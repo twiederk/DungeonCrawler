@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://d05tm1mpmcktg"]
+[gd_scene load_steps=3 format=3 uid="uid://d05tm1mpmcktg"]
 
 [ext_resource type="Script" path="res://Battle/PartyScreen.gd" id="1_bkb51"]
+[ext_resource type="PackedScene" uid="uid://dia5vfimh2stm" path="res://Battle/CharacterWidget.tscn" id="2_avhfe"]
 
 [node name="PartyScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_bkb51")
+CreatureScene = ExtResource("2_avhfe")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
