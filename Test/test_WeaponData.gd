@@ -9,7 +9,7 @@ func before_each():
 
 func test_parse_line():
 	# arrange
-	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "weapon_sword_01.png"])
+	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "MELEE_WEAPON", "weapon_sword_01.png"])
 	var texture = load("res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png")
 
 	# act
@@ -20,6 +20,7 @@ func test_parse_line():
 	assert_eq(weapon.name, "Schwert")
 	assert_eq(weapon.damage.number_of_dice, 1)
 	assert_eq(weapon.damage.die, DiceBox.Die.D8)
+	assert_eq(weapon.weapon_type, WeaponResource.WeaponType.MELEE_WEAPON)
 	assert_eq(weapon.texture, texture)
 
 
@@ -66,4 +67,3 @@ func test_get_weapon_by_id():
 
 	# assert
 	assert_same(weapon, sword)
-

@@ -31,5 +31,3 @@ func get_item_name() -> String:
 
 func get_texture() -> Texture2D:
 	return item_resource.texture
-
-

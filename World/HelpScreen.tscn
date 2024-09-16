@@ -52,7 +52,7 @@ text = "H-Taste: Hilfeanzeige"
 
 [node name="MessageScreen" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "N-Taste: Nachrichtenanzeige"
+text = "M-Taste: Nachrichtenanzeige"
 
 [node name="Talk" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2

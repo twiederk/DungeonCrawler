@@ -6,8 +6,7 @@ signal battler_died(battler)
 signal turn_started
 signal turn_ended
 
-enum BattleState { READY, DONE, DEAD }
-enum Facing { RIGHT = 0, DOWN = 90, LEFT = 180, UP = 270 }
+enum BattleState { READY, TARGETING, DONE, DEAD }
 
 const HitEffectScene: PackedScene = preload("res://Battle/HitEffect.tscn")
 const DamagePopupScene: PackedScene = preload("res://Battle/DamagePopup.tscn")
@@ -17,6 +16,7 @@ var _creature_stats = CreatureStats.new()
 var _battle_state: BattleState = BattleState.DONE
 var _ray_casts: Dictionary = {}
 var _target: Battler
+var _battlefield: Battlefield
 
 @onready var turn_indicator = $TurnIndicator
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -29,6 +29,7 @@ var _target: Battler
 
 
 func _ready():
+	_logger._level = Logger.Level.DEBUG
 	init_hit_points()
 	init_animated_sprite()
 	init_ray_casts_dictionary()
@@ -48,10 +49,10 @@ func init_animated_sprite():
 
 
 func init_ray_casts_dictionary():
-	_ray_casts[Facing.RIGHT] = ray_cast_right
-	_ray_casts[Facing.DOWN] = ray_cast_down
-	_ray_casts[Facing.LEFT] = ray_cast_left
-	_ray_casts[Facing.UP] = ray_cast_up
+	_ray_casts[Vector2.RIGHT] = ray_cast_right
+	_ray_casts[Vector2.DOWN] = ray_cast_down
+	_ray_casts[Vector2.LEFT] = ray_cast_left
+	_ray_casts[Vector2.UP] = ray_cast_up
 
 
 func start_turn(battlefield: Battlefield):
@@ -60,6 +61,7 @@ func start_turn(battlefield: Battlefield):
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY
+	_battlefield = battlefield
 	turn_started.emit()
 
 
@@ -207,20 +209,6 @@ func set_max_movement(max_movement: int):
 
 func set_state(state: CreatureStats.State):
 	_creature_stats.state = state
-
-
-func degree_to_facing(degree: int) -> Facing:
-	match degree:
-		0:
-			return Battler.Facing.RIGHT
-		90:
-			return Battler.Facing.DOWN
-		180:
-			return Battler.Facing.LEFT
-		270:
-			return Battler.Facing.UP
-		_:
-			return Battler.Facing.RIGHT
 
 
 func get_battlefield_position() -> Vector2:

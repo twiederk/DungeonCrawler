@@ -1,13 +1,19 @@
 class_name Battlefield
 extends Node2D
 
-const TILE_SIZE = 32
+const TILE_SIZE: int = 32
 const width: int = 20
 const height: int = 12
 const directions: Array[Vector2] = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
 
 var character_positions = []
 var monster_positions = []
+
+var characters: Array[Battler] = []
+var monsters: Array[Battler] = []
+var battlers: Array[Battler] = []
+
+var items: Array[Item] = []
 
 @onready var character_start_markers = $CharacterStartMarkers
 @onready var monster_start_markers = $MonsterStartMarkers
@@ -16,22 +22,27 @@ var monster_positions = []
 func as_string() -> Array[String]:
 	var output: Array[String] = []
 	for i in height:
-		var line = "".rpad(width, "-")
-		output.append(line)
-	for character_position in character_positions:
+		output.append("".rpad(width, "-"))
+	for character in characters:
+		var character_position: Vector2 = character.position / TILE_SIZE
 		output[character_position.y][character_position.x] = "c"
-	for monster_position in monster_positions:
+	for monster in monsters:
+		var monster_position: Vector2 = monster.position / TILE_SIZE
 		output[monster_position.y][monster_position.x] = "m"
 	return output
 
 
-func place_characters(characters: Array[Battler]) -> void:
+func place_characters(some_characters: Array[Battler]) -> void:
+	characters = some_characters
+	battlers.append_array(some_characters)
 	var character_start_positions = character_start_markers.get_children()
 	for index in characters.size():
 		characters[index].position = character_start_positions[index].position
 
 
-func place_monsters(monsters: Array[Battler]) -> void:
+func place_monsters(some_monsters: Array[Battler]) -> void:
+	monsters = some_monsters
+	battlers.append_array(some_monsters)
 	var monster_start_positions = monster_start_markers.get_children()
 	for index in monsters.size():
 		monsters[index].position = monster_start_positions[index].position
@@ -67,12 +78,21 @@ func find_attack_positions() -> Array[Vector2]:
 
 
 func find_nearest_attack_position(pos: Vector2) -> Vector2:
+	character_positions.clear()
+	for character in characters:
+		character_positions.append(character.get_battlefield_position())
+
+	monster_positions.clear()
+	for monster in monsters:
+		monster_positions.append(monster.get_battlefield_position())
+
 	var attack_positions = find_attack_positions()
 	attack_positions.sort_custom(func (pos1, pos2): return manhatten_distance(pos, pos1) < manhatten_distance(pos, pos2))
 	return attack_positions[0]
 
 
 func bfs(start: Vector2, target: Vector2):
+
 	var seen: Array[Vector2] = []
 	var queue: Array[Work] = [Work.new(null, start, 0)]
 

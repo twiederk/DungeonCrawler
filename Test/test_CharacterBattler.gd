@@ -15,8 +15,6 @@ func test_move_step():
 
 	# arrange
 	character.set_movement(0)
-	var hitbox_pivot = Marker2D.new()
-	character.hitboxPivot = hitbox_pivot
 
 	# act
 	character.move_step(Vector2.RIGHT)
@@ -24,9 +22,6 @@ func test_move_step():
 	# assert
 	var creature = character.get_creature()
 	assert_eq(creature.movement, 1, "Should make a step when character moves")
-
-	# tear down
-	hitbox_pivot.free()
 
 
 func test_can_move_movement_left():

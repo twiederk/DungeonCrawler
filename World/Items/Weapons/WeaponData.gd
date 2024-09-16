@@ -13,8 +13,9 @@ func _parse_weapon(line: PackedStringArray) -> WeaponResource:
 	damage.number_of_dice = line[2]
 	damage.die = line[3]
 	weapon.damage = damage
+	weapon.weapon_type = WeaponResource.WeaponType.get(line[4])
 	
-	weapon.texture = load("res://Assets/graphics/sprites/items/weapons/" + line[4])
+	weapon.texture = load("res://Assets/graphics/sprites/items/weapons/" + line[5])
 	
 	return weapon
 
@@ -44,4 +45,3 @@ func init():
 
 func get_weapon(id: int) -> WeaponResource:
 	return _weapon_dictionary[id]
-

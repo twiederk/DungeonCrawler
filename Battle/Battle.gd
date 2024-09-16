@@ -6,13 +6,8 @@ const MonsterScene: PackedScene = preload("res://Battle/MonsterBattler.tscn")
 const ItemScene: PackedScene = preload("res://World/Items/Item.tscn")
 
 var _logger = Logger.new()
-var characters: Array[Battler] = []
-var monsters: Array[Battler] = []
-var battlers: Array[Battler] = []
 
-var items: Array[Item] = []
-
-var current_battler: Node2D
+var current_battler: Battler
 var current_battler_index: int
 
 
@@ -30,30 +25,28 @@ func _ready():
 
 	var battle_init = BattleInit.new()
 
-	characters = battle_init.create_battlers(CharacterScene, self, party_screen, PlayerStats.character_stats)
+	var characters = battle_init.create_battlers(CharacterScene, self, party_screen, PlayerStats.character_stats)
 	battlefield.place_characters(characters)
-	battlers.append_array(characters)
 	_remove_dead_characters()
 
-	monsters = battle_init.create_battlers(MonsterScene, self, monster_screen, PlayerStats.monster_stats)
-	_set_monsters_loot_table_name()
+	var monsters = battle_init.create_battlers(MonsterScene, self, monster_screen, PlayerStats.monster_stats)
 	battlefield.place_monsters(monsters)
-	battlers.append_array(monsters)
+	_set_monsters_loot_table_name()
 
-	current_battler = battlers[current_battler_index]
-	current_battler.start_turn(get_battlefield())
+	current_battler = battlefield.battlers[current_battler_index]
+	current_battler.start_turn(battlefield)
 
 
 func _remove_dead_characters():
-	for character in characters:
+	for character in battlefield.characters:
 		if character.get_hit_points() == 0:
 			character.dead()
 
 
 func _set_monsters_loot_table_name():
 	for i in PlayerStats.monster_resources.size():
-		monsters[i].loot_table_name = PlayerStats.monster_resources[i].loot_table_name
-		monsters[i].item_dropped.connect(_on_item_dropped)
+		battlefield.monsters[i].loot_table_name = PlayerStats.monster_resources[i].loot_table_name
+		battlefield.monsters[i].item_dropped.connect(_on_item_dropped)
 
 
 func _on_next_battler() -> void:
@@ -62,17 +55,17 @@ func _on_next_battler() -> void:
 	if is_battle_end():
 		end_battle()
 	else:
-		current_battler_index = (current_battler_index + 1) % battlers.size()
-		current_battler = battlers[current_battler_index]
-		current_battler.start_turn(get_battlefield())
+		current_battler_index = (current_battler_index + 1) % battlefield.battlers.size()
+		current_battler = battlefield.battlers[current_battler_index]
+		current_battler.start_turn(battlefield)
 
 
 func is_battle_end() -> bool:
-	return characters.is_empty() or (monsters.is_empty() and items.is_empty())
+	return battlefield.characters.is_empty() or (battlefield.monsters.is_empty() and battlefield.items.is_empty())
 
 
 func end_battle() -> void:
-	if monsters.is_empty():
+	if battlefield.monsters.is_empty():
 		battle_end_screen.show_message("SIEG!")
 	else:
 		battle_end_screen.show_message("VERLOREN")
@@ -81,26 +74,15 @@ func end_battle() -> void:
 func _on_battler_died(battler: Battler) -> void:
 	_logger.debug(str("Battle._on_battler_died()"))
 	MessageBus.message_send.emit(str("...und tötet ", battler.get_creature_name()))
-	var index = battlers.find(battler)
+	var index = battlefield.battlers.find(battler)
 	if index < current_battler_index:
 		current_battler_index -= 1
 	if battler is CharacterBattler:
-		characters.erase(battler)
+		battlefield.characters.erase(battler)
 	else:
-		monsters.erase(battler)
+		battlefield.monsters.erase(battler)
 		battler.queue_free()
-	battlers.erase(battler)
-
-
-func get_battlefield() -> Battlefield:
-	battlefield.character_positions.clear()
-	for character in characters:
-		battlefield.character_positions.append(character.get_battlefield_position())
-
-	battlefield.monster_positions.clear()
-	for monster in monsters:
-		battlefield.monster_positions.append(monster.get_battlefield_position())
-	return battlefield
+	battlefield.battlers.erase(battler)
 
 
 func get_battlers_node():
@@ -112,12 +94,12 @@ func _on_item_dropped(item_resource: ItemResource, global_position: Vector2):
 	item.item_resource = item_resource
 	item.global_position = global_position
 	item.item_picked_up.connect(_on_item_picked_up)
-	items.append(item)
+	battlefield.items.append(item)
 	items_node.add_child(item)
 
 
 func _on_item_picked_up(item: Item, character_stats: CreatureStats):
 	character_stats.inventory.add_item(item.item_resource)
-	items.erase(item)
+	battlefield.items.erase(item)
 	var message = character_stats.name + " hat " + item.get_item_name() + " aufgenommen."
 	MessageBus.message_send.emit(message)

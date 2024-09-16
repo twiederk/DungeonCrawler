@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dur3ncfo2a00o"]
+
+[ext_resource type="Texture2D" uid="uid://blh20065fl2y5" path="res://Battle/crosshair.png" id="1_2l26y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5l77"]
+atlas = ExtResource("1_2l26y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aebwv"]
+atlas = ExtResource("1_2l26y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htuic"]
+atlas = ExtResource("1_2l26y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6wlc"]
+atlas = ExtResource("1_2l26y")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5l77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aebwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htuic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6wlc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]

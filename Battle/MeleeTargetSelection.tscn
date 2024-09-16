@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://du00x5m2vetpf"]
+
+[ext_resource type="Script" path="res://Battle/MeleeTargetSelection.gd" id="1_bpcwl"]
+[ext_resource type="PackedScene" uid="uid://bojbshpifi6sx" path="res://Battle/Crosshair.tscn" id="2_dnnad"]
+
+[node name="MeleeWeaponTargetSelectionStrategy" type="Node2D"]
+script = ExtResource("1_bpcwl")
+
+[node name="Crosshair" parent="." instance=ExtResource("2_dnnad")]

@@ -13,8 +13,17 @@ func after_each():
 
 func test_as_string():
 	# arrange
-	battlefield.character_positions = [Vector2(1, 1), Vector2(2, 1)]
-	battlefield.monster_positions = [Vector2(3, 2), Vector2(4, 2)]
+	var character1 = CharacterBattler.new()
+	character1.position = Vector2(32, 32)
+	var character2 = CharacterBattler.new()
+	character2.position = Vector2(64, 32)
+	battlefield.characters = [character1, character2] as Array[Battler]
+
+	var monster1 = MonsterBattler.new()
+	monster1.position = Vector2(96, 64)
+	var monster2 = MonsterBattler.new()
+	monster2.position = Vector2(128, 64)
+	battlefield.monsters = [monster1, monster2] as Array[Battler]
 
 	# act
 	var output = battlefield.as_string()
@@ -24,12 +33,19 @@ func test_as_string():
 	assert_eq(output[1], "-cc-----------------")
 	assert_eq(output[2], "---mm---------------")
 
+	# tear down
+	character1.free()
+	character2.free()
+	monster1.free()
+	monster2.free()
+
 
 func test_find_attack_positions():
 	# arrange
 	# c = character, m = monster
 	# -ccm
 	# ----
+
 	battlefield.character_positions = [Vector2(1, 0), Vector2(2, 0)]
 	battlefield.monster_positions = [Vector2(3, 0)]
 
@@ -46,14 +62,26 @@ func test_find_nearest_attack_position():
 	# -ccm
 	# ----
 	# --s-
-	battlefield.character_positions = [Vector2(1, 0), Vector2(2, 0)]
-	battlefield.monster_positions = [Vector2(3, 0)]
+	var character1 = CharacterBattler.new()
+	character1.position = Vector2(32, 0)
+	var character2 = CharacterBattler.new()
+	character2.position = Vector2(64, 0)
+	battlefield.characters = [character1, character2] as Array[Battler]
+
+	var monster = MonsterBattler.new()
+	monster.position = Vector2(96, 64)
+	battlefield.monsters = [monster] as Array[Battler]
 
 	# act
 	var attack_position = battlefield.find_nearest_attack_position(Vector2(2, 2))
 
 	# assert
 	assert_eq(attack_position, Vector2(2, 1))
+
+	# tear down
+	character1.free()
+	character2.free()
+	monster.free()
 
 
 func test_find_neighbors_top_left_corner():
