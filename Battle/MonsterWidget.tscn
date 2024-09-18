@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5rr4km4k7p0v"]
+[gd_scene load_steps=8 format=3 uid="uid://c5rr4km4k7p0v"]
 
 [ext_resource type="Script" path="res://Battle/MonsterWidget.gd" id="1_1ayu4"]
 [ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_1r7du"]
-[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="4_b0fe6"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Assets/Themes/HealthBarTheme.tres" id="4_b0fe6"]
+[ext_resource type="Theme" uid="uid://dn43473h5d1ag" path="res://Assets/Themes/MovementBarTheme.tres" id="4_r13kq"]
 [ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png" id="5_b23pi"]
 [ext_resource type="SpriteFrames" uid="uid://c70w6i2f7b3rd" path="res://Assets/graphics/sprites/SpellHeal.tres" id="6_5lro3"]
 
@@ -25,8 +26,8 @@ offset_bottom = 80.0
 
 [node name="NameLabel" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 2.0
-offset_right = 111.0
+offset_left = 6.0
+offset_right = 115.0
 offset_bottom = 23.0
 text = "Name
 "
@@ -34,29 +35,41 @@ horizontal_alignment = 2
 
 [node name="ImageTextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 2
-offset_left = 64.0
+offset_left = 68.0
 offset_top = 24.0
-offset_right = 112.0
+offset_right = 116.0
 offset_bottom = 72.0
 texture = SubResource("AtlasTexture_5q2er")
 
 [node name="HealthBar" type="ProgressBar" parent="Panel"]
 layout_mode = 2
-offset_left = 54.0
+offset_left = 57.0
+offset_top = 24.0
+offset_right = 65.0
+offset_bottom = 72.0
+theme = ExtResource("4_b0fe6")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MovementBar" type="ProgressBar" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 45.0
 offset_top = 72.0
-offset_right = 102.0
+offset_right = 93.0
 offset_bottom = 80.0
 rotation = -1.5708
-theme = ExtResource("4_b0fe6")
+theme = ExtResource("4_r13kq")
 value = 50.0
 show_percentage = false
 
 [node name="Weapon" type="TextureRect" parent="Panel"]
 visible = false
 layout_mode = 0
-offset_left = 11.0
+offset_left = 2.0
 offset_top = 29.0
-offset_right = 51.0
+offset_right = 42.0
 offset_bottom = 69.0
 texture = ExtResource("5_b23pi")
 

@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 		target_canceled.emit()
 		queue_free()
 
-		
+
 func start_selection(character_position: Vector2, battlefield: Battlefield) -> void:
 	selectable_targets = _get_selectable_targets(character_position, battlefield)
 	match (selectable_targets.size()):
@@ -40,5 +40,6 @@ func start_selection(character_position: Vector2, battlefield: Battlefield) -> v
 			position = selectable_targets[selectable_targets_index].position
 
 
+@warning_ignore("unused_parameter")
 func _get_selectable_targets(character_position: Vector2, battlefield: Battlefield) -> Array[Battler]:
 	return []

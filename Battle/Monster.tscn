@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Battle/MonsterBattler.gd" id="1_0u0ap"]
 [ext_resource type="PackedScene" uid="uid://dnxhrwwbb0j0w" path="res://Battle/Hurtbox.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="2_2lr2s"]
-[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_o2xme"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Assets/Themes/HealthBarTheme.tres" id="3_o2xme"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="4_6bh44"]
 
 [sub_resource type="RectangleShape2D" id="1"]

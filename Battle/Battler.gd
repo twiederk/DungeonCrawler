@@ -29,7 +29,6 @@ var _battlefield: Battlefield
 
 
 func _ready():
-	_logger._level = Logger.Level.DEBUG
 	init_hit_points()
 	init_animated_sprite()
 	init_ray_casts_dictionary()
@@ -55,13 +54,12 @@ func init_ray_casts_dictionary():
 	_ray_casts[Vector2.UP] = ray_cast_up
 
 
-func start_turn(battlefield: Battlefield):
+func start_turn():
 	_logger.debug(str(get_creature_name(), ".start_turn()"))
 	MessageBus.message_send.emit(str("[color=green]", get_creature_name().to_upper(), "[/color]", " ist am Zug."))
 	turn_indicator.show()
 	set_movement(0)
 	_battle_state = BattleState.READY
-	_battlefield = battlefield
 	turn_started.emit()
 
 
@@ -147,6 +145,10 @@ func update_health_bar():
 	health_bar.value = _creature_stats.hit_points
 
 
+func set_battlefield(battlefield: Battlefield):
+	_battlefield = battlefield
+
+
 func get_creature() -> CreatureStats:
 	return _creature_stats
 
@@ -209,7 +211,3 @@ func set_max_movement(max_movement: int):
 
 func set_state(state: CreatureStats.State):
 	_creature_stats.state = state
-
-
-func get_battlefield_position() -> Vector2:
-	return position / Battlefield.TILE_SIZE

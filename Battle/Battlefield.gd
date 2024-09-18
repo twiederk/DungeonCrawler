@@ -2,12 +2,14 @@ class_name Battlefield
 extends Node2D
 
 const TILE_SIZE: int = 32
-const width: int = 20
-const height: int = 12
-const directions: Array[Vector2] = [Vector2(1, 0), Vector2(0, 1), Vector2(-1, 0), Vector2(0, -1)]
-
-var character_positions = []
-var monster_positions = []
+const width: int = 20 * TILE_SIZE
+const height: int = 12 * TILE_SIZE
+const directions: Array[Vector2] = [
+	Vector2.RIGHT * TILE_SIZE,
+	Vector2.DOWN * TILE_SIZE,
+	Vector2.LEFT * TILE_SIZE,
+	Vector2.UP *TILE_SIZE
+]
 
 var characters: Array[Battler] = []
 var monsters: Array[Battler] = []
@@ -21,8 +23,10 @@ var items: Array[Item] = []
 
 func as_string() -> Array[String]:
 	var output: Array[String] = []
-	for i in height:
-		output.append("".rpad(width, "-"))
+	@warning_ignore("integer_division")
+	for i in height / TILE_SIZE:
+		@warning_ignore("integer_division")
+		output.append("".rpad(width / TILE_SIZE, "-"))
 	for character in characters:
 		var character_position: Vector2 = character.position / TILE_SIZE
 		output[character_position.y][character_position.x] = "c"
@@ -62,6 +66,9 @@ func is_on_battlefield(pos: Vector2) -> bool:
 
 
 func is_free(pos: Vector2) -> bool:
+	var map_position = func(battler: Battler): return battler.position
+	var character_positions = characters.map(map_position)
+	var monster_positions = monsters.map(map_position)
 	return not character_positions.has(pos) and not monster_positions.has(pos)
 
 
@@ -71,6 +78,7 @@ func manhatten_distance(vector1: Vector2, vector2: Vector2) -> int:
 
 func find_attack_positions() -> Array[Vector2]:
 	var attack_positions: Array[Vector2] = []
+	var character_positions = characters.map(func(battler: Battler): return battler.position)
 	for character_position in character_positions:
 		var free_neighbors = find_neighbors(character_position)
 		attack_positions += free_neighbors
@@ -78,14 +86,6 @@ func find_attack_positions() -> Array[Vector2]:
 
 
 func find_nearest_attack_position(pos: Vector2) -> Vector2:
-	character_positions.clear()
-	for character in characters:
-		character_positions.append(character.get_battlefield_position())
-
-	monster_positions.clear()
-	for monster in monsters:
-		monster_positions.append(monster.get_battlefield_position())
-
 	var attack_positions = find_attack_positions()
 	attack_positions.sort_custom(func (pos1, pos2): return manhatten_distance(pos, pos1) < manhatten_distance(pos, pos2))
 	return attack_positions[0]

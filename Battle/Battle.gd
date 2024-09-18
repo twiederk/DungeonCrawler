@@ -34,8 +34,15 @@ func _ready():
 	_set_monsters_loot_table_name()
 
 	current_battler = battlefield.battlers[current_battler_index]
-	current_battler.start_turn(battlefield)
+	current_battler.start_turn()
 
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("end_battle"):
+		if battlefield.monsters.is_empty():
+			battle_end_screen.show_message("SIEG!")
+		else:
+			MessageBus.message_send.emit("Zuerst alle Monster besiegen.")
 
 func _remove_dead_characters():
 	for character in battlefield.characters:
@@ -57,7 +64,7 @@ func _on_next_battler() -> void:
 	else:
 		current_battler_index = (current_battler_index + 1) % battlefield.battlers.size()
 		current_battler = battlefield.battlers[current_battler_index]
-		current_battler.start_turn(battlefield)
+		current_battler.start_turn()
 
 
 func is_battle_end() -> bool:

@@ -9,23 +9,23 @@ var path : Array[Vector2] = []
 @onready var movement_timer = $MovementTimer
 
 
-func start_turn(battlefield: Battlefield):
-	super.start_turn(battlefield)
+func start_turn():
+	super.start_turn()
 	if get_target() != null:
 		attack()
 	else:
-		move(battlefield)
+		move()
 
 
-func move(battlefield: Battlefield):
-	var attack_position = battlefield.find_nearest_attack_position(get_battlefield_position())
-	path = battlefield.bfs(get_battlefield_position(), attack_position)
+func move():
+	var attack_position = _battlefield.find_nearest_attack_position(position)
+	path = _battlefield.bfs(position, attack_position)
 	move_animation()
 
 
 func move_animation():
 	if get_movement() < get_max_movement() && get_movement() < path.size():
-		position = path[get_movement()] * Battlefield.TILE_SIZE
+		position = path[get_movement()]
 		step()
 		movement_timer.start()
 	else:

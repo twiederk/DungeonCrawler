@@ -85,7 +85,7 @@ func test_start_turn():
 	battler.turn_indicator = turn_indicator
 
 	# act
-	battler.start_turn(battlefield)
+	battler.start_turn()
 
 	# assert
 	assert_eq(battler.get_movement(), 0, "Should set movement to zero when battle round starts")

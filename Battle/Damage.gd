@@ -2,7 +2,7 @@ class_name Damage
 extends Resource
 
 @export var number_of_dice : int
-@export var die: DiceBox.Die
+@export var die: DiceBox.Die = DiceBox.Die.D1
 
 
 func roll():

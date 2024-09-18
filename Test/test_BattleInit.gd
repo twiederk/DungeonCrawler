@@ -18,9 +18,10 @@ func test_create_battler():
 	# arrange
 	var scene = load("res://Battle/CharacterBattler.tscn")
 	var linda = get_linda()
+	var battlefield = Battlefield.new()
 
 	# act
-	var battler = battle_init.create_battler(scene, linda)
+	var battler = battle_init.create_battler(scene, linda, battlefield)
 
 	# assert
 	var creature = battler.get_creature()
@@ -33,6 +34,7 @@ func test_create_battler():
 
 	# tear down
 	battler.free()
+	battlefield.free()
 
 
 func test_create_battlers():

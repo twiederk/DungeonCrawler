@@ -41,6 +41,7 @@ func unpause():
 	get_tree().paused = false
 
 
+@warning_ignore("unused_parameter")
 func _on_dialogic_signal(argument: String):
 	pass
 

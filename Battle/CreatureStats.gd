@@ -3,6 +3,8 @@ extends Resource
 
 signal hit_points_changed(hit_points: int)
 signal max_hit_points_changed(max_hit_points: int)
+signal movement_changed(movement: int)
+signal max_movement_changed(max_movement: int)
 signal weapon_changed(weapon: WeaponResource)
 signal armor_changed(armor: ArmorResource)
 signal state_changed(state_hit_points: State)
@@ -34,8 +36,16 @@ enum State { ALIVE, UNCONSCIOUS }
 		weapon = value
 		weapon_changed.emit(weapon)
 
-@export var max_movement: int
-@export var movement: int
+@export var max_movement: int:
+	set(value):
+		max_movement = value
+		max_movement_changed.emit(max_movement)
+
+@export var movement: int:
+	set(value):
+		movement = value
+		movement_changed.emit(movement)
+
 @export var sprite_frames: Resource
 @export var state: State = State.ALIVE:
 	set(value):

@@ -45,16 +45,26 @@ func test_find_attack_positions():
 	# c = character, m = monster
 	# -ccm
 	# ----
-
-	battlefield.character_positions = [Vector2(1, 0), Vector2(2, 0)]
-	battlefield.monster_positions = [Vector2(3, 0)]
+	var character1 = CharacterBattler.new()
+	character1.position = Vector2(32, 0)
+	var character2 = CharacterBattler.new()
+	character2.position = Vector2(64, 0)
+	battlefield.characters = [character1, character2] as Array[Battler]
+	
+	var monster = MonsterBattler.new()
+	monster.position = Vector2(96, 0)
+	battlefield.monsters = [monster] as Array[Battler]
 
 	# act
 	var attack_positions = battlefield.find_attack_positions()
 
 	# assert
-	assert_eq(attack_positions, [ Vector2(1, 1), Vector2(0, 0), Vector2(2, 1) ])
+	assert_eq(attack_positions, [ Vector2(32, 32), Vector2(0, 0), Vector2(64, 32) ])
 
+	# tear down
+	character1.free()
+	character2.free()
+	monster.free()
 
 func test_find_nearest_attack_position():
 	# arrange
@@ -73,10 +83,10 @@ func test_find_nearest_attack_position():
 	battlefield.monsters = [monster] as Array[Battler]
 
 	# act
-	var attack_position = battlefield.find_nearest_attack_position(Vector2(2, 2))
+	var attack_position = battlefield.find_nearest_attack_position(Vector2(64, 64))
 
 	# assert
-	assert_eq(attack_position, Vector2(2, 1))
+	assert_eq(attack_position, Vector2(64, 32))
 
 	# tear down
 	character1.free()
@@ -90,19 +100,28 @@ func test_find_neighbors_top_left_corner():
 	var neighbors = battlefield.find_neighbors(Vector2(0, 0))
 
 	# assert
-	assert_eq(neighbors, [Vector2(1, 0), Vector2(0, 1)])
+	assert_eq(neighbors, [Vector2(32, 0), Vector2(0, 32)])
 
 
 func test_find_neighbors_top_edge_with_blocked_by_monster_and_character():
 	# arrange
-	battlefield.character_positions = [Vector2(0, 0)]
-	battlefield.monster_positions = [Vector2(2, 0)]
+	var character = CharacterBattler.new()
+	character.position = Vector2(0, 0)
+	battlefield.characters = [character] as Array[Battler]
+
+	var monster = MonsterBattler.new()
+	monster.position = Vector2(64, 0)
+	battlefield.monsters = [monster] as Array[Battler]
 
 	# act
-	var neighbors = battlefield.find_neighbors(Vector2(1, 0))
+	var neighbors = battlefield.find_neighbors(Vector2(32, 0))
 
 	# assert
-	assert_eq(neighbors, [Vector2(1, 1)])
+	assert_eq(neighbors, [Vector2(32, 32)])
+
+	# tear down
+	character.free()
+	monster.free()
 
 
 func test_is_on_battlefield_true():
@@ -134,24 +153,34 @@ func test_is_free_true():
 
 func test_is_free_taken_by_character():
 	# arrange
-	battlefield.character_positions = [Vector2(1, 1)]
+	var character = CharacterBattler.new()
+	character.position = Vector2(32, 32)
+	battlefield.characters = [character] as Array[Battler]
 
 	# act
-	var result = battlefield.is_free(Vector2(1, 1))
+	var result = battlefield.is_free(Vector2(32, 32))
 
 	# assert
 	assert_false(result)
+	
+	# tear down
+	character.free()
 
 
 func test_is_free_taken_by_monster():
 	# arrange
-	battlefield.monster_positions = [Vector2(1, 1)]
+	var monster = MonsterBattler.new()
+	monster.position = Vector2(32, 32)
+	battlefield.monsters = [monster] as Array[Battler]
 
 	# act
-	var result = battlefield.is_free(Vector2(1, 1))
+	var result = battlefield.is_free(Vector2(32, 32))
 
 	# assert
 	assert_false(result)
+	
+	# tear down
+	monster.free()
 
 
 func test_bfs_simple():
@@ -161,10 +190,10 @@ func test_bfs_simple():
 	# -t
 
 	# act
-	var path = battlefield.bfs(Vector2(0, 0), Vector2(1, 1))
+	var path = battlefield.bfs(Vector2(0, 0), Vector2(32, 32))
 
 	# assert
-	assert_eq(path, [Vector2(1,0), Vector2(1,1)])
+	assert_eq(path, [Vector2(32, 0), Vector2(32, 32)])
 
 
 func test_bfs_obstacle():
@@ -172,14 +201,23 @@ func test_bfs_obstacle():
 	# s = start, t = target, c = character, m = monster
 	# scmt
 	# ----
-	battlefield.character_positions = [Vector2(1, 0)]
-	battlefield.monster_positions = [Vector2(2, 0)]
+	var character = CharacterBattler.new()
+	character.position = Vector2(32, 0)
+	battlefield.characters = [character] as Array[Battler]
+
+	var monster = MonsterBattler.new()
+	monster.position = Vector2(64, 0)
+	battlefield.monsters = [monster] as Array[Battler]
 
 	# act
-	var path = battlefield.bfs(Vector2(0, 0), Vector2(3, 0))
+	var path = battlefield.bfs(Vector2(0, 0), Vector2(96, 0))
 
 	# assert
-	assert_eq(path, [Vector2(0, 1), Vector2(1, 1), Vector2(2, 1), Vector2(3, 1), Vector2(3, 0)])
+	assert_eq(path, [Vector2(0, 32), Vector2(32, 32), Vector2(64, 32), Vector2(96, 32), Vector2(96, 0)])
+
+	# tear down
+	character.free()
+	monster.free()
 
 
 func test_bfs_from_left_to_right():
@@ -188,10 +226,10 @@ func test_bfs_from_left_to_right():
 	# s----t
 
 	# act
-	var path = battlefield.bfs(Vector2(0, 0), Vector2(5, 0))
+	var path = battlefield.bfs(Vector2(0, 0), Vector2(160, 0))
 
 	# assert
-	assert_eq(path, [Vector2(1,0), Vector2(2, 0), Vector2(3,0), Vector2(4, 0), Vector2(5, 0)] )
+	assert_eq(path, [Vector2(32, 0), Vector2(64, 0), Vector2(96, 0), Vector2(128, 0), Vector2(160, 0)] )
 
 
 func test_bfs_from_right_to_left():
@@ -200,10 +238,10 @@ func test_bfs_from_right_to_left():
 	# t----s
 
 	# act
-	var path = battlefield.bfs(Vector2(5, 0), Vector2(0, 0))
+	var path = battlefield.bfs(Vector2(160, 0), Vector2(0, 0))
 
 	# assert
-	assert_eq(path, [Vector2(4,0), Vector2(3, 0), Vector2(2, 0), Vector2(1, 0), Vector2(0, 0)])
+	assert_eq(path, [Vector2(128,0), Vector2(96, 0), Vector2(64, 0), Vector2(32, 0), Vector2(0, 0)])
 
 
 func test_bfs_from_bottom_right_to_top_left():
@@ -215,16 +253,16 @@ func test_bfs_from_bottom_right_to_top_left():
 	# ---s
 
 	# act
-	var path = battlefield.bfs(Vector2(3, 3), Vector2(0, 0))
+	var path = battlefield.bfs(Vector2(96, 96), Vector2(0, 0))
 
 	# assert
-	assert_eq(path, [ Vector2(2, 3), Vector2(1, 3), Vector2(0, 3), Vector2(0, 2), Vector2(0, 1), Vector2(0, 0)])
+	assert_eq(path, [ Vector2(64, 96), Vector2(32, 96), Vector2(0, 96), Vector2(0, 64), Vector2(0, 32), Vector2(0, 0)])
 
 
 func test_manhatten_distance():
 
 	# act
-	var distance = battlefield.manhatten_distance(Vector2(0, 0), Vector2(4, 3))
+	var distance = battlefield.manhatten_distance(Vector2(0, 0), Vector2(128, 96))
 
 	# assert
-	assert_eq(distance, 7)
+	assert_eq(distance, 224)

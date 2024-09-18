@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b41cdm24gnhko" path="res://Assets/graphics/sprites/HighlightShape.png" id="1_tiar5"]
 [ext_resource type="Script" path="res://Battle/Battler.gd" id="1_xx0i7"]
-[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="2_5prgk"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Assets/Themes/HealthBarTheme.tres" id="2_5prgk"]
 [ext_resource type="AudioStream" uid="uid://dn1rte23xjoux" path="res://Assets/Audio/Swipe.wav" id="3_xorsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n52dl"]
