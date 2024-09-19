@@ -17,6 +17,15 @@ func start_turn():
 		move()
 
 
+func attack():
+	_logger.debug(str(get_creature_name(), ".attack()"))
+	_target = get_target()
+	if _target != null:
+		attack_animation(_target)
+	else:
+		turn_ended.emit()
+
+
 func move():
 	var attack_position = _battlefield.find_nearest_attack_position(position)
 	path = _battlefield.bfs(position, attack_position)
@@ -30,15 +39,14 @@ func move_animation():
 		movement_timer.start()
 	else:
 		attack()
-	
+
 
 func get_target():
-	var directions: Array[Vector2] = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
-	for direction in directions:
-		var collider = _ray_casts[direction].get_collider()
-		if collider != null and collider is CharacterBattler:
-			return collider
-	return null
+	var target_selection = TargetSelectionFactory.create_target_selection(get_weapon().weapon_type)
+	var selectable_targets = target_selection.get_selectable_targets(position, _battlefield.characters)
+	if selectable_targets.is_empty():
+		return null
+	return selectable_targets[0]
 
 
 func dead():
@@ -50,16 +58,16 @@ func drop_loot():
 	var file: FileAccess = FileAccess.open("res://Data/" + loot_table_name + ".json",FileAccess.READ)
 	var loot_table = JSON.parse_string(file.get_as_text())
 	file.close()
-	
+
 	var total_weight: int  = 0
 	var cumulative_weight: Array = []
-	
+
 	for i in loot_table:
 		total_weight += int(loot_table[i]["weight"])
 		cumulative_weight.append([loot_table[i]["ItemId"], total_weight])
-		
+
 	var chance: float = randf_range(0, total_weight)
-	
+
 	for i in cumulative_weight:
 		if chance < i[1]:
 			var item_resource = ItemData.get_weapon(i[0])

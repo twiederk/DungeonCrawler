@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://i5mvhnpi6ye8"]
+
+[ext_resource type="Script" path="res://Battle/BaseCreatureWidget.gd" id="1_brjq0"]
+[ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_otgb2"]
+[ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Assets/Themes/HealthBarTheme.tres" id="3_tnybr"]
+[ext_resource type="Theme" uid="uid://dn43473h5d1ag" path="res://Assets/Themes/MovementBarTheme.tres" id="4_rh2y2"]
+[ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://Assets/graphics/sprites/items/weapons/weapon_sword_01.png" id="5_lomxx"]
+[ext_resource type="SpriteFrames" uid="uid://c70w6i2f7b3rd" path="res://Assets/graphics/sprites/SpellHeal.tres" id="6_rr0xm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4owh"]
+atlas = ExtResource("2_otgb2")
+region = Rect2(0, 32, 16, 16)
+
+[node name="BaseCreatureWidget" type="Control"]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -440.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_brjq0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 80.0
+
+[node name="NameLabel" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 6.0
+offset_right = 115.0
+offset_bottom = 23.0
+text = "Name
+"
+horizontal_alignment = 2
+
+[node name="ImageTextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 24.0
+offset_right = 116.0
+offset_bottom = 72.0
+texture = SubResource("AtlasTexture_q4owh")
+
+[node name="HealthBar" type="ProgressBar" parent="Panel"]
+layout_mode = 2
+offset_left = 57.0
+offset_top = 24.0
+offset_right = 65.0
+offset_bottom = 72.0
+theme = ExtResource("3_tnybr")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="MovementBar" type="ProgressBar" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_top = 24.0
+offset_right = 54.0
+offset_bottom = 72.0
+theme = ExtResource("4_rh2y2")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Weapon" type="TextureRect" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 29.0
+offset_right = 42.0
+offset_bottom = 69.0
+texture = ExtResource("5_lomxx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(11, 32)
+sprite_frames = ExtResource("6_rr0xm")
+animation = &"heal"
+centered = false

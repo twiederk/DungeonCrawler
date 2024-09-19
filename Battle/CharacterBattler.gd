@@ -1,8 +1,6 @@
 class_name CharacterBattler
 extends Battler
 
-const ProjectileScene = preload("res://Battle/Projectile.tscn")
-
 @onready var name_label: Label = $NameLabel
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
@@ -46,7 +44,8 @@ func can_move(ray_cast: RayCast2D) -> bool:
 
 
 func move_step(direction: Vector2) -> void:
-	step()
+	if not _battlefield.monsters.is_empty():
+		step()
 	position += direction * Battlefield.TILE_SIZE
 
 
@@ -66,26 +65,14 @@ func select_target():
 	var melee_target_selection = TargetSelectionFactory.create_target_selection(get_weapon().weapon_type)
 	melee_target_selection.target_selected.connect(_on_target_selected)
 	melee_target_selection.target_canceled.connect(_on_target_canceled)
-	melee_target_selection.start_selection(position, _battlefield)
+	melee_target_selection.start_selection(position, _battlefield, _battlefield.monsters)
 	
 
 func _on_target_selected(target: Battler):
 	_battle_state = BattleState.READY
 	_target = target
-	
-	if is_melee_weapon():
-		animated_sprite_2d.play("attack")
-	else:
-		var projectile = ProjectileScene.instantiate()
-		projectile.position = position
-		projectile.set_destination(target.position)
-		projectile.destination_reached.connect(_on_animation_finished)
-		_battlefield.add_child(projectile)
+	attack_animation(_target)
 
 
 func _on_target_canceled():
 	_battle_state = BattleState.READY
-
-
-func is_melee_weapon() -> bool:
-	return get_weapon().weapon_type == WeaponResource.WeaponType.MELEE_WEAPON

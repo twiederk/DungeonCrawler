@@ -2,8 +2,8 @@ class_name RangedTargetSelection
 extends TargetSelection
 
 
-func _get_selectable_targets(_character_position: Vector2, battlefield: Battlefield) -> Array[Battler]:
+func get_selectable_targets(_source_position: Vector2, possible_targets: Array[Battler]) -> Array[Battler]:
 	var targets: Array[Battler] = []
-	for monster in battlefield.monsters:
-		targets.append(monster)
+	for battler in possible_targets:
+		targets.append(battler)
 	return targets

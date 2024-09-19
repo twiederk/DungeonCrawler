@@ -11,9 +11,13 @@ func after_each():
 	character.free()
 
 
-func test_move_step():
+func test_move_step_during_battle():
 
 	# arrange
+	var monster = MonsterBattler.new()
+	var battlefield = Battlefield.new()
+	battlefield.monsters = [monster] as Array[Battler]
+	character.set_battlefield(battlefield)
 	character.set_movement(0)
 
 	# act
@@ -21,7 +25,29 @@ func test_move_step():
 
 	# assert
 	var creature = character.get_creature()
-	assert_eq(creature.movement, 1, "Should make a step when character moves")
+	assert_eq(creature.movement, 1, "Should increase movement when character moves during battle")
+	
+	# tear down
+	monster.free()
+	battlefield.free()
+
+
+func test_move_step_after_battle():
+
+	# arrange
+	var battlefield = Battlefield.new()
+	character.set_battlefield(battlefield)
+	character.set_movement(0)
+
+	# act
+	character.move_step(Vector2.RIGHT)
+
+	# assert
+	var creature = character.get_creature()
+	assert_eq(creature.movement, 0, "Should leave movement untouched when character moves after battle")
+	
+	# tear down
+	battlefield.free()
 
 
 func test_can_move_movement_left():

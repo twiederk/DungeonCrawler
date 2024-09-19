@@ -1,6 +1,8 @@
 class_name Battler
 extends Area2D
 
+const ProjectileScene = preload("res://Battle/Projectile.tscn")
+
 signal battler_hurt(hit_points)
 signal battler_died(battler)
 signal turn_started
@@ -74,25 +76,12 @@ func step():
 	set_movement(get_movement() + 1)
 
 
-func attack():
-	_logger.debug(str(get_creature_name(), ".attack()"))
-	_target = get_target()
-	if _target != null:
-		animated_sprite_2d.play("attack")
-	else:
-		turn_ended.emit()
-
-
 func _on_animation_finished():
 	_logger.debug(str("Battler._on_animation_finished()"))
 	audio_stream_player.play()
 	GameSystem.attack(self, _target)
 	animated_sprite_2d.play("idle")
 	turn_ended.emit()
-
-
-func get_target():
-	pass
 
 
 func roll_attack() -> int:
@@ -132,17 +121,32 @@ func display_damage_popup(damage: int):
 	get_tree().current_scene.add_child(damage_popup)
 
 
-func _get_random_direction() -> Vector2:
-	return Vector2(randf_range(-1, 1), -randf()) * 16
+func update_health_bar():
+	health_bar.value = _creature_stats.hit_points
+
+
+func is_melee_weapon() -> bool:
+	return get_weapon().weapon_type == WeaponResource.WeaponType.MELEE_WEAPON
+
+
+func attack_animation(target: Battler):
+	if is_melee_weapon():
+		animated_sprite_2d.play("attack")
+	else:
+		create_projectile(target.position)
+
+
+func create_projectile(target: Vector2):
+	var projectile = ProjectileScene.instantiate()
+	projectile.position = position
+	projectile.set_destination(target)
+	projectile.destination_reached.connect(_on_animation_finished)
+	_battlefield.add_child(projectile)
 
 
 func set_sprite_frames(sprite_frames: SpriteFrames):
 	animated_sprite_2d.sprite_frames = sprite_frames
 	animated_sprite_2d.play("idle")
-
-
-func update_health_bar():
-	health_bar.value = _creature_stats.hit_points
 
 
 func set_battlefield(battlefield: Battlefield):
