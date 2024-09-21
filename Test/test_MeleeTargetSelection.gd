@@ -19,10 +19,11 @@ func test_get_selectable_targets():
 	monster2.position = Vector2(160, 160)
 	var monsters = [monster1, monster2] as Array[Battler]
 
-	var character_position: Vector2 = Vector2(32, 32)
+	var character = CharacterBattler.new()
+	character.position = Vector2(32, 32)
 
 	# act
-	var selectable_targets = melee_target_selection.get_selectable_targets(character_position, monsters)
+	var selectable_targets = melee_target_selection.get_selectable_targets(character, monsters)
 	
 	# assert
 	assert_eq(selectable_targets.size(), 1, "Should return one selectable target")
@@ -30,3 +31,4 @@ func test_get_selectable_targets():
 	# tear down
 	monster1.free()
 	monster2.free()
+	character.free()

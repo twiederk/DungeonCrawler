@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler"
-config/description="1.40.0"
-run/main_scene="res://World/Maps/HirschhornCastleMap.tscn"
+config/description="1.41.0-snapshot"
+run/main_scene="res://GUI/StartGUI.tscn"
 config/features=PackedStringArray("4.3")
 config/windows_native_icon="res://Assets/graphics/icon.ico"
 

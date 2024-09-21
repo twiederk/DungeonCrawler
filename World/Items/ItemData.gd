@@ -10,7 +10,6 @@ var _armor_data: ArmorData = ArmorData.new()
 func _ready():
 	_weapon_data.init()
 	_armor_data.init()
-	PlayerStats.load_characters()
 
 
 func get_weapon(id: int) -> WeaponResource:

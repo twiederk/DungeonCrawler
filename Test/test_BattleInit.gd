@@ -39,6 +39,7 @@ func test_create_battler():
 
 func test_create_battlers():
 	# arrange
+	PlayerStats.load_characters()
 	var character_stats = [ get_linda(), get_leon() ]
 	var character_scene = load("res://Battle/CharacterBattler.tscn")
 	var battle = BattleScene.instantiate()

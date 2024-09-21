@@ -14,8 +14,8 @@ func _parse_weapon(line: PackedStringArray) -> WeaponResource:
 	damage.die = line[3]
 	weapon.damage = damage
 	weapon.weapon_type = WeaponResource.WeaponType.get(line[4])
-	
-	weapon.texture = load("res://Assets/graphics/sprites/items/weapons/" + line[5])
+	weapon.range = line[5].to_int()
+	weapon.texture = load("res://Assets/graphics/sprites/items/weapons/" + line[6])
 	
 	return weapon
 

@@ -3,7 +3,7 @@ extends Control
 
 static var _show_message_screen: bool = true
 
-var max_lines: int = 100 
+var max_lines: int = 100000
 
 @onready var rich_text_label : RichTextLabel = $RichTextLabel
 

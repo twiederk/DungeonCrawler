@@ -65,7 +65,7 @@ func select_target():
 	var melee_target_selection = TargetSelectionFactory.create_target_selection(get_weapon().weapon_type)
 	melee_target_selection.target_selected.connect(_on_target_selected)
 	melee_target_selection.target_canceled.connect(_on_target_canceled)
-	melee_target_selection.start_selection(position, _battlefield, _battlefield.monsters)
+	melee_target_selection.start_selection(self, _battlefield, _battlefield.monsters)
 	
 
 func _on_target_selected(target: Battler):

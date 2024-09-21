@@ -43,7 +43,7 @@ func move_animation():
 
 func get_target():
 	var target_selection = TargetSelectionFactory.create_target_selection(get_weapon().weapon_type)
-	var selectable_targets = target_selection.get_selectable_targets(position, _battlefield.characters)
+	var selectable_targets = target_selection.get_selectable_targets(self, _battlefield.characters)
 	if selectable_targets.is_empty():
 		return null
 	return selectable_targets[0]
