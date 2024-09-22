@@ -9,7 +9,7 @@ var _character_stats: CreatureStats
 @onready var character_image: TextureRect = $CharacterImage
 @onready var character_name: Label = $CharacterName
 @onready var bag: GridContainer = $Bag
-@onready var weapon_slot: WeaponSlot = $Character/WeaponSlot
+@onready var action_slot: ActionSlot = $Character/ActionSlot
 @onready var armor_slot: ArmorSlot = $Character/ArmorSlot
 
 
@@ -17,7 +17,7 @@ func _ready():
 	for index in PlayerStats.character_stats.size():
 		PlayerStats.character_stats[index].inventory.item_added.connect(_on_item_added)
 	
-	weapon_slot.weapon_changed.connect(_on_weapon_changed)
+	action_slot.action_changed.connect(_on_action_changed)
 	armor_slot.armor_changed.connect(_on_armor_changed)
 
 	var slots = bag.get_children()
@@ -54,7 +54,7 @@ func init(character_stats: CreatureStats):
 	_character_stats = character_stats
 	character_name.text = character_stats.name
 	_set_character_texture()
-	weapon_slot.set_item(character_stats.weapon)
+	action_slot.set_item(character_stats.action)
 	armor_slot.set_item(character_stats.armor)
 	
 	for index in _character_stats.inventory.bag.size():
@@ -79,8 +79,8 @@ func _on_bag_changed(index: int, item: ItemResource):
 	_character_stats.inventory.bag[index] = item
 
 
-func _on_weapon_changed(weapon: WeaponResource):
-	_character_stats.weapon = weapon
+func _on_action_changed(item_resource: ItemResource):
+	_character_stats.action = item_resource
 
 
 func _on_armor_changed(armor: ArmorResource):

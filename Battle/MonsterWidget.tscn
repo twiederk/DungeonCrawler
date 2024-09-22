@@ -5,6 +5,3 @@
 
 [node name="MonsterWidget" instance=ExtResource("1_5lfo0")]
 script = ExtResource("2_s1vcu")
-
-[node name="MovementBar" parent="Panel" index="3"]
-visible = false

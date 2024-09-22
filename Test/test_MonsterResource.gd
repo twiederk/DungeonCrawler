@@ -20,8 +20,6 @@ func test_to_creature_stats():
 	assert_eq(creature_stats.hit_points, 1)
 	assert_eq(creature_stats.max_hit_points, 1)
 	assert_eq(creature_stats.armor_class, 2)
-	assert_eq(creature_stats.weapon.id, 1)
+	assert_eq(creature_stats.action.id, 1)
 	assert_eq(creature_stats.damage, 3)
 	assert_eq(creature_stats.max_movement, 4)
-
-

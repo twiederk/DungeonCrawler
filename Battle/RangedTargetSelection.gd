@@ -11,7 +11,7 @@ func _draw() -> void:
 
 func get_selectable_targets(battler: Battler, possible_targets: Array[Battler]) -> Array[Battler]:
 	var targets: Array[Battler] = []
-	range = battler.get_weapon().range * Battlefield.TILE_SIZE
+	range = battler.get_action().range * Battlefield.TILE_SIZE
 	for target in possible_targets:
 		var distance = battler.position.distance_to(target.position)
 		@warning_ignore("shadowed_global_identifier")

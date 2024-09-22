@@ -25,7 +25,7 @@ func test_parse_line():
 func test_load_armor():
 
 	# act
-	var armor = armor_data._load_armor("res://Test/Resources/test_ArmorData.csv")
+	var armor = armor_data._load_armor("res://Test/Resources/test_ArmorData.txt")
 
 	# assert
 	assert_eq(armor.size(), 3)
@@ -50,7 +50,7 @@ func test_create_armor_dictionary():
 	assert_eq(armor_dictionary[2].name, "Leather")
 
 
-func test_get_weapon_by_id():
+func test_get_armor_by_id():
 	# arrange
 	var cloth = ArmorResource.new()
 	cloth.id = 1

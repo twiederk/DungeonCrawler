@@ -2,6 +2,7 @@ class_name Battler
 extends Area2D
 
 const ProjectileScene = preload("res://Battle/Projectile.tscn")
+const MagicBulletSpriteFrames = preload("res://Battle/MagicBullet.tres")
 
 signal battler_hurt(hit_points)
 signal battler_died(battler)
@@ -126,7 +127,7 @@ func update_health_bar():
 
 
 func is_melee_weapon() -> bool:
-	return get_weapon().weapon_type == WeaponResource.WeaponType.MELEE_WEAPON
+	return get_action() is WeaponResource and get_action().weapon_type == WeaponResource.WeaponType.MELEE_WEAPON
 
 
 func attack_animation(target: Battler):
@@ -137,11 +138,13 @@ func attack_animation(target: Battler):
 
 
 func create_projectile(target: Vector2):
-	var projectile = ProjectileScene.instantiate()
+	var projectile : Projectile = ProjectileScene.instantiate()
 	projectile.position = position
 	projectile.set_destination(target)
 	projectile.destination_reached.connect(_on_animation_finished)
 	_battlefield.add_child(projectile)
+	if get_action() is SpellResource:
+		projectile.set_sprite_frames(MagicBulletSpriteFrames)
 
 
 func set_sprite_frames(sprite_frames: SpriteFrames):
@@ -178,15 +181,15 @@ func set_armor_class(armor_class: int):
 
 
 func get_damage() -> int:
-	return _creature_stats.weapon.damage.roll()
+	return _creature_stats.action.damage.roll()
 
 
-func get_weapon() -> WeaponResource:
-	return _creature_stats.weapon
+func get_action() -> ItemResource:
+	return _creature_stats.action
 
 
-func set_weapon(weapon: WeaponResource):
-	_creature_stats.weapon = weapon
+func set_action(action: ItemResource):
+	_creature_stats.action = action
 
 
 func get_hit_points() -> int:

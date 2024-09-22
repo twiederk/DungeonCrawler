@@ -32,7 +32,7 @@ func _create_armor_dictionary(all_armor: Array[ArmorResource]) -> Dictionary:
 
 
 func init():
-	var all_armor = _load_armor("res://World/Items/Armor/ArmorData.csv")
+	var all_armor = _load_armor("res://World/Items/Armor/ArmorData.txt")
 	_armor_dictionary = _create_armor_dictionary(all_armor)
 
 

@@ -26,7 +26,7 @@ func test_get_selectable_targets():
 
 	var character = CharacterBattler.new()
 	character.position = Vector2(32, 32)
-	character.set_weapon(weapon)
+	character.set_action(weapon)
 
 	# act
 	var selectable_targets = ranged_target_selection.get_selectable_targets(character, monsters)
@@ -53,7 +53,7 @@ func test_get_selectable_targets_in_range():
 
 	var character = CharacterBattler.new()
 	character.position = Vector2(0, 0)
-	character.set_weapon(weapon)
+	character.set_action(weapon)
 
 	# act
 	var selectable_targets = ranged_target_selection.get_selectable_targets(character, monsters)
@@ -80,7 +80,7 @@ func test_get_selectable_targets_out_of_range():
 
 	var character = CharacterBattler.new()
 	character.position = Vector2(0, 0)
-	character.set_weapon(weapon)
+	character.set_action(weapon)
 	
 
 	# act

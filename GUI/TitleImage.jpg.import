@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw38ketqlswj6"
-path="res://.godot/imported/MeleeAreaOfEffect.png-8cd5471dae4f643aaab9b6694335b63c.ctex"
+uid="uid://bt70253ts7yh0"
+path="res://.godot/imported/TitleImage.jpg-04b1838a14728e86493b501771aac220.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Battle/MeleeAreaOfEffect.png"
-dest_files=["res://.godot/imported/MeleeAreaOfEffect.png-8cd5471dae4f643aaab9b6694335b63c.ctex"]
+source_file="res://GUI/TitleImage.jpg"
+dest_files=["res://.godot/imported/TitleImage.jpg-04b1838a14728e86493b501771aac220.ctex"]
 
 [params]
 

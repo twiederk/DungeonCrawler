@@ -105,7 +105,7 @@ func test_get_damage():
 	var weapon = WeaponResource.new()
 	weapon.damage = damage
 	var creature_stats = CreatureStats.new()
-	creature_stats.weapon = weapon
+	creature_stats.action = weapon
 	battler.set_creature(creature_stats)
 	
 	# act
@@ -113,3 +113,41 @@ func test_get_damage():
 	
 	# assert
 	assert_eq(result, 4)
+
+
+func test_is_melee_weapon_with_ranged_weapon():
+	# arrange
+	var weapon = WeaponResource.new()
+	weapon.weapon_type = WeaponResource.WeaponType.RANGED_WEAPON
+	battler.set_action(weapon)
+	
+	# act
+	var result = battler.is_melee_weapon()
+	
+	# assert
+	assert_false(result)
+
+
+func test_is_melee_weapon_with_melee_weapon():
+	# arrange
+	var weapon = WeaponResource.new()
+	weapon.weapon_type = WeaponResource.WeaponType.MELEE_WEAPON
+	battler.set_action(weapon)
+	
+	# act
+	var result = battler.is_melee_weapon()
+	
+	# assert
+	assert_true(result)
+
+
+func test_is_melee_weapon_with_spell():
+	# arrange
+	var spell = SpellResource.new()
+	battler.set_action(spell)
+	
+	# act
+	var result = battler.is_melee_weapon()
+	
+	# assert
+	assert_false(result)

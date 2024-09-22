@@ -1,12 +1,14 @@
 class_name LvlStats
 extends Node
 
+const START_LEVEL: String = "HirschhornCastleMap"
+
 signal node_visited(path)
 signal cell_cleared(vector)
 
 var _visited_nodes = {}
 var _cleared_cells = {}
-var _current_level = "HirschhornCastleMap"
+var _current_level = START_LEVEL
 
 
 func _ready():
@@ -34,6 +36,7 @@ func get_visited_nodes(level_name: String = _current_level) -> Array:
 
 
 func reset() -> void:
+	_current_level = START_LEVEL
 	_visited_nodes = {}
 	_cleared_cells = {}
 

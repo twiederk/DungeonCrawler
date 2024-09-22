@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://duuwxsv1wnj3l"]
 
-[ext_resource type="PackedScene" uid="uid://crw7ge4v3xihs" path="res://World/Slot.tscn" id="1_3sb1e"]
-[ext_resource type="Script" path="res://World/WeaponSlot.gd" id="2_hriau"]
+[ext_resource type="PackedScene" uid="uid://crw7ge4v3xihs" path="res://World/Slot.tscn" id="1_jb2ff"]
+[ext_resource type="Script" path="res://World/ActionSlot.gd" id="2_xwhxj"]
 
-[node name="WeaponSlot" instance=ExtResource("1_3sb1e")]
+[node name="WeaponSlot" instance=ExtResource("1_jb2ff")]
 offset_bottom = -304.0
-script = ExtResource("2_hriau")
+script = ExtResource("2_xwhxj")
 
 [node name="ItemTexture" parent="." index="0"]
 size_flags_horizontal = 4

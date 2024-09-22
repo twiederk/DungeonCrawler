@@ -11,7 +11,8 @@ func _ready() -> void:
 
 
 func _on_start_game_button_pressed() -> void:
-	PlayerStats.load_characters()
+	PlayerStats.start_game()
+	LevelStats.reset()
 	get_tree().change_scene_to_file("res://World/Maps/HirschhornCastleMap.tscn")
 
 

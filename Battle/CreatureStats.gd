@@ -5,7 +5,7 @@ signal hit_points_changed(hit_points: int)
 signal max_hit_points_changed(max_hit_points: int)
 signal movement_changed(movement: int)
 signal max_movement_changed(max_movement: int)
-signal weapon_changed(weapon: WeaponResource)
+signal action_changed(item_resource: ItemResource)
 signal armor_changed(armor: ArmorResource)
 signal state_changed(state_hit_points: State)
 
@@ -31,10 +31,10 @@ enum State { ALIVE, UNCONSCIOUS }
 		
 @export var armor_class: int
 @export var damage: int
-@export var weapon: WeaponResource:
+@export var action: ItemResource:
 	set(value):
-		weapon = value
-		weapon_changed.emit(weapon)
+		action = value
+		action_changed.emit(action)
 
 @export var max_movement: int:
 	set(value):

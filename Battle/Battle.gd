@@ -75,6 +75,7 @@ func end_battle() -> void:
 	if battlefield.monsters.is_empty():
 		battle_end_screen.show_message("SIEG!")
 	else:
+		battle_end_screen.set_battle_lost(true)
 		battle_end_screen.show_message("VERLOREN")
 
 

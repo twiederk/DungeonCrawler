@@ -5,7 +5,7 @@ signal item_dropped(item_resource: ItemResource)
 
 
 func _can_drop_data(_at_position, data) -> bool:
-	return data is BagSlot
+	return data.item_resource is ArmorResource or data.item_resource is WeaponResource
 
 
 func _drop_data(_at_position, data):

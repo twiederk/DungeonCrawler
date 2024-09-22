@@ -7,8 +7,8 @@ var index: int
 
 
 func _can_drop_data(_at_position, data):
-	if data is WeaponSlot:
-		return item_resource is WeaponResource
+	if data is ActionSlot:
+		return item_resource is WeaponResource or item_resource is SpellResource
 	if data is ArmorSlot:
 		return item_resource is ArmorResource
 	return data.item_resource is ItemResource

@@ -14,6 +14,3 @@ func _item_changed():
 	var armor_resource = item_resource as ArmorResource
 	armor_class_label.text = armor_resource.to_string()
 	armor_changed.emit(armor_resource)
-
-
-

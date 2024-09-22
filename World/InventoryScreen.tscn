@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://World/InventoryScreen.gd" id="1_m5moc"]
 [ext_resource type="PackedScene" uid="uid://cx16g1lloq72c" path="res://World/BagSlot.tscn" id="2_qtw3r"]
-[ext_resource type="PackedScene" uid="uid://duuwxsv1wnj3l" path="res://World/WeaponSlot.tscn" id="3_0e2wk"]
+[ext_resource type="PackedScene" uid="uid://duuwxsv1wnj3l" path="res://World/ActionSlot.tscn" id="3_0e2wk"]
 [ext_resource type="PackedScene" uid="uid://dhm56xb8wsvd1" path="res://World/ArmorSlot.tscn" id="4_rot52"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_fmjql"]
@@ -105,7 +105,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="WeaponSlot" parent="Character" instance=ExtResource("3_0e2wk")]
+[node name="ActionSlot" parent="Character" instance=ExtResource("3_0e2wk")]
 layout_mode = 1
 offset_left = 38.0
 offset_top = 88.0

@@ -39,7 +39,7 @@ func _create_weapon_dictionary(weapons: Array[WeaponResource]) -> Dictionary:
 
 
 func init():
-	var weapons = _load_weapons("res://World/Items/Weapons/WeaponData.csv")
+	var weapons = _load_weapons("res://World/Items/Weapons/WeaponData.txt")
 	_weapon_dictionary = _create_weapon_dictionary(weapons)
 
 

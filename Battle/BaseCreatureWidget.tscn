@@ -68,7 +68,7 @@ value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Weapon" type="TextureRect" parent="Panel"]
+[node name="Action" type="TextureRect" parent="Panel"]
 visible = false
 layout_mode = 0
 offset_left = 2.0

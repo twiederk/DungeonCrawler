@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://i5mvhnpi6ye8" path="res://Battle/BaseCreatureWidget.tscn" id="1_oysrp"]
 [ext_resource type="Script" path="res://Battle/CharacterWidget.gd" id="1_ttnet"]
-[ext_resource type="Script" path="res://Battle/CharacterWidgetImageTextureRect.gd" id="3_djage"]
+[ext_resource type="Script" path="res://Battle/CharacterWidgetTextureRect.gd" id="3_djage"]
 
 [node name="CharacterWidget" instance=ExtResource("1_oysrp")]
 script = ExtResource("1_ttnet")
@@ -22,13 +22,12 @@ offset_left = 55.0
 offset_right = 63.0
 
 [node name="MovementBar" parent="Panel" index="3"]
-visible = false
 offset_left = 66.0
 offset_right = 74.0
 
-[node name="Weapon" parent="Panel" index="4"]
-offset_left = 80.0
-offset_right = 120.0
+[node name="Action" parent="Panel" index="4"]
+offset_left = 77.0
+offset_right = 117.0
 
 [connection signal="item_dropped" from="Panel/ImageTextureRect" to="." method="_on_image_texture_rect_item_dropped"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

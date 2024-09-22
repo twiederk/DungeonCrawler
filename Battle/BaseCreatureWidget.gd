@@ -7,7 +7,7 @@ var _creature_stats: CreatureStats
 @onready var image_texture_rect: TextureRect = $Panel/ImageTextureRect
 @onready var health_bar: ProgressBar = $Panel/HealthBar
 @onready var movement_bar: ProgressBar = $Panel/MovementBar
-@onready var weapon: TextureRect = $Panel/Weapon
+@onready var action: TextureRect = $Panel/Action
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
@@ -18,13 +18,13 @@ func assign_creature_stats(creature_stats: CreatureStats):
 	health_bar.max_value = creature_stats.max_hit_points
 	movement_bar.value = creature_stats.movement
 	movement_bar.max_value = creature_stats.max_movement
-	weapon.texture = creature_stats.weapon.texture
+	action.texture = creature_stats.action.texture
 	_on_state_changed(creature_stats.state)
 	creature_stats.hit_points_changed.connect(_on_hit_points_changed)
 	creature_stats.max_hit_points_changed.connect(_on_max_hit_points_changed)
 	creature_stats.movement_changed.connect(_on_movement_changed)
 	creature_stats.max_movement_changed.connect(_on_max_movement_changed)
-	creature_stats.weapon_changed.connect(_on_weapon_changed)
+	creature_stats.action_changed.connect(_on_action_changed)
 	creature_stats.state_changed.connect(_on_state_changed)
 
 
@@ -52,8 +52,8 @@ func _on_max_movement_changed(max_movement: int):
 	movement_bar.max_value = max_movement
 
 
-func _on_weapon_changed(changed_weapon: WeaponResource):
-	weapon.texture = changed_weapon.texture
+func _on_action_changed(changed_action: ItemResource):
+	action.texture = changed_action.texture
 
 
 @warning_ignore("unused_parameter")
@@ -66,12 +66,12 @@ func _on_animated_sprite_2d_animation_finished():
 
 
 func _on_focus():
-	weapon.show()
+	action.show()
 	movement_bar.show()
 
 
 func _on_unfocus():
-	weapon.hide()
+	action.hide()
 	movement_bar.hide()
 
 

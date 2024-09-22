@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cil8ba4gno6p7"]
+
+[ext_resource type="Texture2D" uid="uid://bm7cey6vkcnc5" path="res://Battle/magic_bullet.png" id="1_gbh6e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tygub"]
+atlas = ExtResource("1_gbh6e")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kihf1"]
+atlas = ExtResource("1_gbh6e")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqmm2"]
+atlas = ExtResource("1_gbh6e")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hta0n"]
+atlas = ExtResource("1_gbh6e")
+region = Rect2(24, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tygub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kihf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqmm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hta0n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]

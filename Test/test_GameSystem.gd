@@ -51,7 +51,7 @@ func test_attack_hit():
 	var attacker: Battler = MonsterScene.instantiate()
 	attacker.set_creature(SKELETON.to_creature_stats())
 	attacker.set_creature_name("myName")
-	attacker.set_weapon(weapon)
+	attacker.set_action(weapon)
 	add_child(attacker)
 
 	var defender: Battler = MonsterScene.instantiate()
@@ -70,4 +70,3 @@ func test_attack_hit():
 	attacker.free()
 	defender.free()
 	get_node("HitEffect").free()
-
