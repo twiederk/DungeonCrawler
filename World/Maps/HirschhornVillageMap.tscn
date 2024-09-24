@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="8_da4vs"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="9_a12tg"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Healer.dtl" id="10_jqhf6"]
-[ext_resource type="SpriteFrames" uid="uid://nl7n3uwbxh8g" path="res://Assets/graphics/sprites/Wizard.tres" id="11_6c0pu"]
+[ext_resource type="SpriteFrames" uid="uid://nl7n3uwbxh8g" path="res://World/Maps/Wizard.tres" id="11_6c0pu"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Innkeeper.dtl" id="12_vacak"]
-[ext_resource type="SpriteFrames" uid="uid://nu2lq77x0cv4" path="res://Assets/graphics/sprites/Peasant.tres" id="13_s7ujt"]
+[ext_resource type="SpriteFrames" uid="uid://nu2lq77x0cv4" path="res://World/Maps/Peasant.tres" id="13_s7ujt"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Bartender.dtl" id="14_og0hw"]
 [ext_resource type="Resource" path="res://Dialogic/V_HRN/V_HRN_Farmer.dtl" id="15_pjj4h"]
 

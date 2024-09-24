@@ -30,7 +30,3 @@ func _on_talk_detection_zone_area_exited(area):
 
 func unpause(_timeline_name):
 	get_tree().paused = false
-
-
-
-

@@ -9,7 +9,7 @@ func _parse_armor(line: PackedStringArray) -> ArmorResource:
 	armor.id = line[0].to_int()
 	armor.name = line[1]
 	armor.armor_class = line[2].to_int()
-	armor.texture = load("res://Assets/graphics/sprites/items/armor/" + line[3])
+	armor.texture = load("res://World/Items/Armor/" + line[3])
 	return armor
 
 
@@ -32,7 +32,7 @@ func _create_armor_dictionary(all_armor: Array[ArmorResource]) -> Dictionary:
 
 
 func init():
-	var all_armor = _load_armor("res://World/Items/Armor/ArmorData.txt")
+	var all_armor = _load_armor("res://Data/ArmorData.txt")
 	_armor_dictionary = _create_armor_dictionary(all_armor)
 
 

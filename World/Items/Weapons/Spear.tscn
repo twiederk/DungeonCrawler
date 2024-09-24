@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh45tkppm57u1"]
 
 [ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_fnkvo"]
-[ext_resource type="Texture2D" uid="uid://c6pwi7r3k41t5" path="res://Assets/graphics/sprites/items/weapons/weapon_spear_01.png" id="2_fsa8n"]
+[ext_resource type="Texture2D" uid="uid://c6pwi7r3k41t5" path="res://World/Items/Weapons/weapon_spear_01.png" id="2_fsa8n"]
 
 [node name="Spear" instance=ExtResource("1_fnkvo")]
 item_type = 1

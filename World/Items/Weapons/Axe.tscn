@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cn8ebmgdei4qn"]
 
 [ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_nc5ac"]
-[ext_resource type="Texture2D" uid="uid://vl5ntpb7vrlo" path="res://Assets/graphics/sprites/items/weapons/weapon_axe_01.png" id="2_0aqee"]
+[ext_resource type="Texture2D" uid="uid://vl5ntpb7vrlo" path="res://World/Items/Weapons/weapon_axe_01.png" id="2_0aqee"]
 
 [node name="Axe" instance=ExtResource("1_nc5ac")]
 item_type = 1

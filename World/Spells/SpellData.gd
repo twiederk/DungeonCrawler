@@ -15,7 +15,7 @@ func _parse_spell(line: PackedStringArray) -> SpellResource:
 	damage.die = line[4]
 	spell.damage = damage
 	
-	spell.texture = load("res://Assets/graphics/sprites/spells/" + line[5])
+	spell.texture = load("res://World/Spells/" + line[5])
 
 	return spell
 
@@ -39,7 +39,7 @@ func _create_spell_dictionary(spells: Array[SpellResource]) -> Dictionary:
 
 
 func init():
-	var spells = _load_spells("res://World/Spells/SpellData.txt")
+	var spells = _load_spells("res://Data/SpellData.txt")
 	_spell_dictionary = _create_spell_dictionary(spells)
 
 

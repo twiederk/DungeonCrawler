@@ -1,7 +1,7 @@
 extends GutTest
 
 const MonsterScene = preload("res://Battle/MonsterBattler.tscn")
-const SKELETON = preload("res://Battle/Monster/Skeleton.tres")
+const SKELETON = preload("res://Battle/Monster/Skeleton_Sword.tres")
 
 var game_system: GameSys = null
 

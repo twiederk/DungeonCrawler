@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://c70w6i2f7b3rd"]
+
+[ext_resource type="Texture2D" uid="uid://bq3x1hempkmqu" path="res://World/Spells/heal_spell.png" id="1_ml8gs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8gb4"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28omh"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfxi3"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn4hb"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt8sq"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7ujx"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pmgh"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12uod"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arfbn"]
+atlas = ExtResource("1_ml8gs")
+region = Rect2(64, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8gb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28omh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfxi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn4hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt8sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7ujx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pmgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12uod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arfbn")
+}],
+"loop": false,
+"name": &"heal",
+"speed": 5.0
+}]

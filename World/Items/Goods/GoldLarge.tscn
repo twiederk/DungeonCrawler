@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmfauepiwftft"]
 
 [ext_resource type="PackedScene" uid="uid://dv2ldsqahy8pr" path="res://World/Items/Item.tscn" id="1_smiqu"]
-[ext_resource type="Texture2D" uid="uid://ywqmj60q3n3q" path="res://Assets/graphics/sprites/items/goods/material_72.png" id="2_4eil6"]
+[ext_resource type="Texture2D" uid="uid://ywqmj60q3n3q" path="res://World/Items/Goods/material_72.png" id="2_4eil6"]
 [ext_resource type="Resource" uid="uid://dlp1b0gk8lrsg" path="res://World/Items/Goods/GoldLarge.tres" id="2_acug3"]
 
 [node name="GoldLarge" instance=ExtResource("1_smiqu")]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://GUI/StartMenu.gd" id="1_85bxd"]
 [ext_resource type="Texture2D" uid="uid://bt70253ts7yh0" path="res://GUI/TitleImage.jpg" id="2_plloi"]
 
+
 [node name="StartMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15

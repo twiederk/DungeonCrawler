@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc4vy31woedim"]
 
 [ext_resource type="Script" path="res://World/Encounter.gd" id="1_d0r18"]
-[ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://Assets/graphics/sprites/Ultima4SpriteSheet.png" id="2_r7sf2"]
+[ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://World/Maps/Ultima4SpriteSheet.png" id="2_r7sf2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bufj2"]
 size = Vector2(15, 15)

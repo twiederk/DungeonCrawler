@@ -10,7 +10,7 @@ func before_each():
 func test_parse_line():
 	# arrange
 	var line:PackedStringArray = PackedStringArray(["1", "Kleidung", "10", "armor_001.png"])
-	var texture = load("res://Assets/graphics/sprites/items/armor/armor_001.png")
+	var texture = load("res://World/Items/Armor/armor_001.png")
 
 	# act
 	var armor = armor_data._parse_armor(line)

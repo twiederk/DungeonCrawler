@@ -1,13 +1,7 @@
 class_name CharacterBattler
 extends Battler
 
-@onready var name_label: Label = $NameLabel
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-
-
-func _ready():
-	super._ready()
-	name_label.text = _creature_stats.name
 
 
 func _input(_event):

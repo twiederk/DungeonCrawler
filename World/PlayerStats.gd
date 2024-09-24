@@ -29,7 +29,7 @@ func get_leon() -> CreatureStats:
 	leon.inventory.add_item(ItemData.get_weapon(3)) # bow
 	leon.max_movement = 3
 	leon.movement = 0
-	leon.sprite_frames = load("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
+	leon.sprite_frames = load("res://Battle/Character/FighterSpriteFrames.tres")
 	return leon
 
 
@@ -45,5 +45,5 @@ func get_linda() -> CreatureStats:
 	linda.inventory.add_item(ItemData.get_spell(2)) # acid splash
 	linda.max_movement = 4
 	linda.movement = 0
-	linda.sprite_frames = load("res://Assets/graphics/sprites/MageSpriteFrames.tres")
+	linda.sprite_frames = load("res://Battle/Character/MageSpriteFrames.tres")
 	return linda

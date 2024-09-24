@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://csya37mhb4umy"]
+[gd_scene load_steps=10 format=4 uid="uid://csya37mhb4umy"]
 
 [ext_resource type="Script" path="res://World/Maps/Map.gd" id="1_3s4fw"]
 [ext_resource type="TileSet" uid="uid://cylpf3rqg78q3" path="res://World/Ultima5Tileset.tres" id="2_fg5hs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2khxus2vpj17" path="res://World/InventoryScreen.tscn" id="6_81bv8"]
 [ext_resource type="PackedScene" uid="uid://bj8wqhknkemi2" path="res://World/Avatar.tscn" id="7_48idp"]
 [ext_resource type="PackedScene" uid="uid://cq4plcg3exwyq" path="res://World/HelpScreen.tscn" id="7_f72n8"]
+[ext_resource type="PackedScene" uid="uid://ceujry561263q" path="res://GUI/KeyControlScreen.tscn" id="8_a626b"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_3s4fw")
@@ -36,6 +37,8 @@ offset_bottom = -24.0
 
 [node name="HelpScreen" parent="GUI" instance=ExtResource("7_f72n8")]
 visible = false
+
+[node name="KeyControlScreen" parent="GUI" instance=ExtResource("8_a626b")]
 
 [node name="Avatar" parent="." instance=ExtResource("7_48idp")]
 

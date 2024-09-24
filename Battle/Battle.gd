@@ -22,6 +22,7 @@ var current_battler_index: int
 
 func _ready():
 	randomize()
+	_register_key_controls()
 
 	var battle_init = BattleInit.new()
 
@@ -43,6 +44,18 @@ func _input(_event: InputEvent) -> void:
 			battle_end_screen.show_message("SIEG!")
 		else:
 			MessageBus.message_send.emit("Zuerst alle Monster besiegen.")
+
+
+func _register_key_controls():
+	var key_controls: Array[KeyControl] = [
+		KeyControl.new("a", "Angriff"),
+		KeyControl.new("n", "Nächster"),
+		KeyControl.new("Ende", "Kampf beenden"),
+		KeyControl.new("h", "Hilfe")
+	]
+	MessageBus.key_control_registerd.emit(key_controls)
+
+
 
 func _remove_dead_characters():
 	for character in battlefield.characters:

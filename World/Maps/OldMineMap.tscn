@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=4 uid="uid://bnuah2qsb1wuv"]
+[gd_scene load_steps=15 format=4 uid="uid://bnuah2qsb1wuv"]
 
 [ext_resource type="PackedScene" uid="uid://csya37mhb4umy" path="res://World/Maps/Map.tscn" id="1_krw84"]
 [ext_resource type="Script" path="res://World/Maps/OldMineMap.gd" id="1_wvygi"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="4_2vxa7"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="6_obhn8"]
-[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton.tres" id="7_o0ibs"]
+[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton_Sword.tres" id="7_o0ibs"]
 [ext_resource type="Script" path="res://World/Maps/NecromancerEncounter.gd" id="8_oxt0m"]
 [ext_resource type="PackedScene" uid="uid://cl5l67ofwwqhl" path="res://World/FogOfWar.tscn" id="9_j1ym4"]
 [ext_resource type="Script" path="res://Battle/Monster/MonsterResource.gd" id="9_nm3x2"]
-[ext_resource type="Resource" uid="uid://dpvlpgt3nxih5" path="res://Battle/Monster/Skeleton_Chief.tres" id="10_06ptb"]
+[ext_resource type="Resource" uid="uid://dpvlpgt3nxih5" path="res://Battle/Monster/Skeleton_MagicRod.tres" id="10_06ptb"]
+[ext_resource type="Resource" uid="uid://1s54sw2vx0av" path="res://Battle/Monster/Skeleton_Bow.tres" id="10_nsfu1"]
 [ext_resource type="PackedScene" uid="uid://cmfauepiwftft" path="res://World/Items/Goods/GoldLarge.tscn" id="14_l7jps"]
 [ext_resource type="PackedScene" uid="uid://bx8rqvkw0il4" path="res://World/Items/Goods/GoldSmall.tscn" id="15_kh61f"]
 [ext_resource type="PackedScene" uid="uid://d0t4csarhwa6n" path="res://World/Items/Goods/Topas.tscn" id="16_1i1c4"]
@@ -48,12 +49,12 @@ shape = SubResource("RectangleShape2D_s8x5v")
 
 [node name="EntryEncounter" parent="Encounters" index="0" instance=ExtResource("6_obhn8")]
 position = Vector2(264, 328)
-monsters = Array[ExtResource("9_nm3x2")]([ExtResource("7_o0ibs")])
+monsters = Array[ExtResource("9_nm3x2")]([ExtResource("7_o0ibs"), ExtResource("10_nsfu1")])
 
 [node name="NecromancerEncounter" parent="Encounters" index="1" instance=ExtResource("6_obhn8")]
 position = Vector2(264, 233)
 script = ExtResource("8_oxt0m")
-monsters = Array[ExtResource("9_nm3x2")]([ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("10_06ptb")])
+monsters = Array[ExtResource("9_nm3x2")]([ExtResource("7_o0ibs"), ExtResource("7_o0ibs"), ExtResource("10_nsfu1"), ExtResource("10_06ptb")])
 
 [node name="TreasureEncounter" parent="Encounters" index="2" instance=ExtResource("6_obhn8")]
 position = Vector2(169, 328)

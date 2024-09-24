@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://bxlhrih2nm5te"]
+
+[ext_resource type="Texture2D" uid="uid://c7bwnjr1dnxew" path="res://Battle/Monster/Skeleton_MagicRod_SpriteSheet.png" id="1_2j47d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvden"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0kqw"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j386n"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1e2m"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bl3r"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8mqx"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl06l"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wlgg"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4xyd"]
+atlas = ExtResource("1_2j47d")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvden")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0kqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j386n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1e2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bl3r")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8mqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl06l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wlgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4xyd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

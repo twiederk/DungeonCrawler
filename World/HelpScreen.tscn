@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq4plcg3exwyq"]
 
-[ext_resource type="Theme" uid="uid://y3fbeqsfcqxi" path="res://Assets/Themes/HelpScreenTheme.tres" id="1_qytex"]
+[ext_resource type="Theme" uid="uid://y3fbeqsfcqxi" path="res://GUI/HelpScreenTheme.tres" id="1_qytex"]
 [ext_resource type="Script" path="res://World/HelpScreen.gd" id="1_rc1da"]
 
 [node name="HelpScreen" type="Control"]
@@ -38,10 +38,6 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Pfeiltasten: Bewegen"
 
-[node name="Attack" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Leertaste: Angreifen"
-
 [node name="PartyScreen" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "G-Taste: Gruppenanzeige"
@@ -54,10 +50,6 @@ text = "H-Taste: Hilfeanzeige"
 layout_mode = 2
 text = "M-Taste: Nachrichtenanzeige"
 
-[node name="Talk" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "R-Taste: Reden"
-
 [node name="InventoryScreen1" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "1-Taste: Inventaranzeige von ersten Charakter"
@@ -65,3 +57,7 @@ text = "1-Taste: Inventaranzeige von ersten Charakter"
 [node name="InventoryScreen2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "2-Taste: Inventaranzeige von zweiten Charakter"
+
+[node name="KeyControlScreen" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "F1-Taste: Tastarturbelegunganzeige"

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bh45tkppm57u1" path="res://World/Items/Weapons/Spear.tscn" id="5_iwpst"]
 [ext_resource type="PackedScene" uid="uid://bxpku836ynt50" path="res://World/Person.tscn" id="6_mvxmj"]
 [ext_resource type="Resource" path="res://Dialogic/C_HRN/C_HRN_LordOfHirschhorn.dtl" id="7_pjvui"]
-[ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://Assets/graphics/sprites/LordOfHirschhorn.tres" id="8_jhftv"]
+[ext_resource type="SpriteFrames" uid="uid://byha4rx4bwn6s" path="res://World/Maps/LordOfHirschhorn.tres" id="8_jhftv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riqd2"]
 size = Vector2(94.5, 28)

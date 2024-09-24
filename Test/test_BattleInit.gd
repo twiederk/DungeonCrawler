@@ -2,9 +2,9 @@ extends GutTest
 
 const BattleScene = preload("res://Battle/Battle.tscn")
 
-const sprite_frames_fighter = preload("res://Assets/graphics/sprites/FighterSpriteFrames.tres")
-const sprite_frames_mage = preload("res://Assets/graphics/sprites/MageSpriteFrames.tres")
-const sprite_frames_skeleton = preload("res://Assets/graphics/sprites/SkeletonSpriteFrames.tres")
+const sprite_frames_fighter = preload("res://Battle/Character/FighterSpriteFrames.tres")
+const sprite_frames_mage = preload("res://Battle/Character/MageSpriteFrames.tres")
+const sprite_frames_skeleton = preload("res://Battle/Monster/Skeleton_Sword_SpriteFrames.tres")
 
 var battle_init: BattleInit = null
 

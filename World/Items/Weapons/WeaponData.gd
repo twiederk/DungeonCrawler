@@ -15,7 +15,7 @@ func _parse_weapon(line: PackedStringArray) -> WeaponResource:
 	weapon.damage = damage
 	weapon.weapon_type = WeaponResource.WeaponType.get(line[4])
 	weapon.range = line[5].to_int()
-	weapon.texture = load("res://Assets/graphics/sprites/items/weapons/" + line[6])
+	weapon.texture = load("res://World/Items/Weapons/" + line[6])
 	
 	return weapon
 
@@ -39,7 +39,7 @@ func _create_weapon_dictionary(weapons: Array[WeaponResource]) -> Dictionary:
 
 
 func init():
-	var weapons = _load_weapons("res://World/Items/Weapons/WeaponData.txt")
+	var weapons = _load_weapons("res://Data/WeaponData.txt")
 	_weapon_dictionary = _create_weapon_dictionary(weapons)
 
 

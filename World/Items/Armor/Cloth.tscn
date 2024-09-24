@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chny6yoll2cig"]
 
 [ext_resource type="PackedScene" uid="uid://b7ssbxaddi5sn" path="res://World/Items/StaticItem.tscn" id="1_holaq"]
-[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://Assets/graphics/sprites/items/armor/armor_001.png" id="2_sxr05"]
+[ext_resource type="Texture2D" uid="uid://dqkdirrog88bq" path="res://World/Items/Armor/armor_001.png" id="2_sxr05"]
 
 [node name="Cloth" instance=ExtResource("1_holaq")]
 item_id = 1

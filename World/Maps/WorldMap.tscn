@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Battle/Monster/MonsterResource.gd" id="5_17816"]
 [ext_resource type="PackedScene" uid="uid://c7p3r3hgfvf7w" path="res://World/Location.tscn" id="6_heinf"]
 [ext_resource type="PackedScene" uid="uid://dc4vy31woedim" path="res://World/Encounter.tscn" id="7_cmv3r"]
-[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton.tres" id="8_bcgbm"]
+[ext_resource type="Resource" uid="uid://cs3261lcclqrl" path="res://Battle/Monster/Skeleton_Sword.tres" id="8_bcgbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erwkf"]
 size = Vector2(15, 15)

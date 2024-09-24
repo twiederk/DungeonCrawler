@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://bq6p4lq8w6jj4"]
+
+[ext_resource type="Texture2D" uid="uid://6x7omvo5u3na" path="res://Battle/Monster/Skeleton_Sword_SpriteSheet.png" id="1_4otyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0msyx"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tenrw"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7s4o"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8t8n"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4gsg"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gqfv"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ieoa"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxbvm"]
+atlas = ExtResource("1_4otyq")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0msyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tenrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7s4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8t8n")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4gsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gqfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ieoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxbvm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

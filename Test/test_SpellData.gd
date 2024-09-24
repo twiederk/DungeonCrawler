@@ -10,7 +10,7 @@ func before_each():
 func test_parse_line():
 	# arrange
 	var line:PackedStringArray = PackedStringArray(["1", "Magisches Geschoß", "12", "3", "4", "spell_magic_missile.png"])
-	var texture = load("res://Assets/graphics/sprites/spells/spell_magic_missile.png")
+	var texture = load("res://World/Spells/spell_magic_missile.png")
 
 	# act
 	var spell = spell_data._parse_spell(line)
