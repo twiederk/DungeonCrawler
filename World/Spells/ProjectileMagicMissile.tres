@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cil8ba4gno6p7"]
+
+[ext_resource type="Texture2D" uid="uid://qfvivnsohygt" path="res://World/Spells/projectile_magic_missile.png" id="1_m0qpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71t8u"]
+atlas = ExtResource("1_m0qpr")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsr76"]
+atlas = ExtResource("1_m0qpr")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8nb8"]
+atlas = ExtResource("1_m0qpr")
+region = Rect2(16, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71t8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsr76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8nb8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]

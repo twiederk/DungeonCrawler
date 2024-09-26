@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Battle/Projectile.gd" id="1_tqdgo"]
 [ext_resource type="SpriteFrames" uid="uid://txiy5frmfc3p" path="res://World/Items/Weapons/ProjectileStone.tres" id="2_1h1fq"]
 
-
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_tqdgo")
 

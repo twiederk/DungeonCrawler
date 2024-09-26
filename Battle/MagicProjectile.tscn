@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://serrqdi8p3ve"]
-
-[ext_resource type="PackedScene" uid="uid://cr4pq8t7kwlej" path="res://Battle/Projectile.tscn" id="1_btx0a"]
-[ext_resource type="SpriteFrames" uid="uid://cil8ba4gno6p7" path="res://Battle/MagicBullet.tres" id="2_t8u43"]
-
-[node name="MagicProjectile" instance=ExtResource("1_btx0a")]
-
-[node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("2_t8u43")
