@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6pwi7r3k41t5"
-path="res://.godot/imported/weapon_spear_01.png-6c5bf6c222c2ad0230f01821e7926479.ctex"
+uid="uid://drhoebdh1l8jt"
+path="res://.godot/imported/projectile_stone.png-9a01716a7e4f6946ea8abd59d29cca7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_spear_01.png"
-dest_files=["res://.godot/imported/weapon_spear_01.png-6c5bf6c222c2ad0230f01821e7926479.ctex"]
+source_file="res://World/Items/Weapons/projectile_stone.png"
+dest_files=["res://.godot/imported/projectile_stone.png-9a01716a7e4f6946ea8abd59d29cca7f.ctex"]
 
 [params]
 

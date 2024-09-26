@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drhoebdh1l8jt"
-path="res://.godot/imported/stone_bullet.png-916319e721884ed7b1b5a45ee44f2b95.ctex"
+uid="uid://7c26b4ggdu5o"
+path="res://.godot/imported/weapon_wand.png-d60a06b15b37014bbd0aa640430dab6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Battle/stone_bullet.png"
-dest_files=["res://.godot/imported/stone_bullet.png-916319e721884ed7b1b5a45ee44f2b95.ctex"]
+source_file="res://World/Items/Weapons/weapon_wand.png"
+dest_files=["res://.godot/imported/weapon_wand.png-d60a06b15b37014bbd0aa640430dab6a.ctex"]
 
 [params]
 

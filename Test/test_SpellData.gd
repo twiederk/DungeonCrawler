@@ -30,7 +30,7 @@ func test_load_spells():
 	var spells = spell_data._load_spells("res://Test/Resources/test_SpellData.txt")
 
 	# assert
-	assert_eq(spells.size(), 1)
+	assert_eq(spells.size(), 2)
 
 
 func test_create_spell_dictionary():

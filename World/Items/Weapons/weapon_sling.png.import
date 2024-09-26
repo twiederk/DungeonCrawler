@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bufnecy4omuow"
-path="res://.godot/imported/weapon_dagger_01.png-3969b8f9a30de8f3984b2a5fde5f2d9a.ctex"
+uid="uid://c8vm2846mkgox"
+path="res://.godot/imported/weapon_sling.png-16bf0f9963e8f6c27819fadb5f7df1a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_dagger_01.png"
-dest_files=["res://.godot/imported/weapon_dagger_01.png-3969b8f9a30de8f3984b2a5fde5f2d9a.ctex"]
+source_file="res://World/Items/Weapons/weapon_sling.png"
+dest_files=["res://.godot/imported/weapon_sling.png-16bf0f9963e8f6c27819fadb5f7df1a7.ctex"]
 
 [params]
 

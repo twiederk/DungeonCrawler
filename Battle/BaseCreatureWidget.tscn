@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsnggrtbq0udt" path="res://World/Maps/Ultima4SpriteSheet.png" id="2_otgb2"]
 [ext_resource type="Theme" uid="uid://bsa0bgcl4qi0v" path="res://Battle/HealthBarTheme.tres" id="3_tnybr"]
 [ext_resource type="Theme" uid="uid://dn43473h5d1ag" path="res://Battle/MovementBarTheme.tres" id="4_rh2y2"]
-[ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://World/Items/Weapons/weapon_sword_01.png" id="5_lomxx"]
+[ext_resource type="Texture2D" uid="uid://b4ej7pwbk4x4q" path="res://World/Items/Weapons/weapon_sword.png" id="5_lomxx"]
 [ext_resource type="SpriteFrames" uid="uid://c70w6i2f7b3rd" path="res://World/Spells/SpellHeal.tres" id="6_rr0xm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4owh"]

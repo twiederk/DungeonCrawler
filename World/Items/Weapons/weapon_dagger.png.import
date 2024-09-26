@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvj1qm74oo277"
-path="res://.godot/imported/weapon_katar_01.png-06f711db1f83d0a0adfaa791a04fd159.ctex"
+uid="uid://bufnecy4omuow"
+path="res://.godot/imported/weapon_dagger.png-38790eab8aded2c14f2b861f1c5c634c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_katar_01.png"
-dest_files=["res://.godot/imported/weapon_katar_01.png-06f711db1f83d0a0adfaa791a04fd159.ctex"]
+source_file="res://World/Items/Weapons/weapon_dagger.png"
+dest_files=["res://.godot/imported/weapon_dagger.png-38790eab8aded2c14f2b861f1c5c634c.ctex"]
 
 [params]
 
