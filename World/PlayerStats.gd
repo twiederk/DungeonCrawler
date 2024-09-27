@@ -4,8 +4,6 @@ extends Node
 var start_position: Vector2
 
 var monster_stats: Array[CreatureStats] = []
-var monster_resources: Array[MonsterResource] = []
-
 var character_stats: Array[CreatureStats] = []
 
 
