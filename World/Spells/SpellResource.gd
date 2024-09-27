@@ -5,3 +5,7 @@ extends ItemResource
 @export var range: int
 @export var damage: Damage
 @export var projectile: SpriteFrames
+
+
+func has_projectile() -> bool:
+	return projectile != null

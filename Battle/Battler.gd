@@ -143,8 +143,8 @@ func create_projectile(target: Vector2):
 	projectile.set_destination(target)
 	projectile.destination_reached.connect(_on_animation_finished)
 	_battlefield.add_child(projectile)
-	if get_action() is SpellResource:
-		projectile.set_sprite_frames(MagicBulletSpriteFrames)
+	if get_action().has_projectile():
+		projectile.set_sprite_frames(get_action().projectile)
 
 
 func set_sprite_frames(sprite_frames: SpriteFrames):
