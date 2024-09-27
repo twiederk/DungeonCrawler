@@ -1,5 +1,7 @@
 extends GutTest
 
+const magic_missile_sprite_frames = preload("res://World/Projectile/MagicMissile_SpriteFrames.tres")
+
 var spell_data = null
 
 
@@ -9,7 +11,7 @@ func before_each():
 
 func test_parse_line():
 	# arrange
-	var line:PackedStringArray = PackedStringArray(["1", "Magisches Geschoß", "12", "3", "4", "spell_magic_missile.png"])
+	var line:PackedStringArray = PackedStringArray(["1", "Magisches Geschoß", "12", "3", "4", "spell_magic_missile.png", "4"])
 	var texture = load("res://World/Spells/spell_magic_missile.png")
 
 	# act
@@ -22,6 +24,7 @@ func test_parse_line():
 	assert_eq(spell.damage.number_of_dice, 3)
 	assert_eq(spell.damage.die, DiceBox.Die.D4)
 	assert_eq(spell.texture, texture)
+	assert_eq(spell.projectile, magic_missile_sprite_frames)
 
 
 func test_load_spells():
