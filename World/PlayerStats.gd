@@ -26,7 +26,9 @@ func get_leon() -> CreatureStats:
 	leon.damage = 2
 	leon.action = ItemData.get_weapon(5) # dagger
 	leon.armor = ItemData.get_armor(1) # cloth
+	leon.inventory.add_item(ItemData.get_weapon(1)) # sling
 	leon.inventory.add_item(ItemData.get_weapon(3)) # bow
+	leon.inventory.add_item(ItemData.get_weapon(10)) # crossbow
 	leon.max_movement = 3
 	leon.movement = 0
 	leon.sprite_frames = load("res://Battle/Character/FighterSpriteFrames.tres")
