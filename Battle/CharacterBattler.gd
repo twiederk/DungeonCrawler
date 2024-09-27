@@ -5,7 +5,7 @@ extends Battler
 
 
 func _input(_event):
-	if _battle_state == BattleState.READY:
+	if _battle_state == BattleState.READY or _battle_state == BattleState.TARGETING:
 		if Input.is_action_just_pressed("next_battler"):
 			get_viewport().set_input_as_handled()
 			turn_ended.emit()
