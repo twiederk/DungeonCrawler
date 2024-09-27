@@ -9,8 +9,8 @@ func before_each():
 
 func test_parse_line():
 	# arrange
-	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "MELEE_WEAPON", "5", "weapon_sword_01.png"])
-	var texture = load("res://World/Items/Weapons/weapon_sword_01.png")
+	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "MELEE_WEAPON", "5", "weapon_sword.png"])
+	var texture = load("res://World/Items/Weapons/weapon_sword.png")
 
 	# act
 	var weapon = weapon_data._parse_weapon(line)
