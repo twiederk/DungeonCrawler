@@ -1,5 +1,7 @@
 extends GutTest
 
+const stone_sprite_frames = preload("res://World/Projectile/Stone_SpriteFrames.tres")
+
 var weapon_data = null
 
 
@@ -7,9 +9,9 @@ func before_each():
 	weapon_data = WeaponData.new()
 
 
-func test_parse_line():
+func test_parse_line_without_projectile_id():
 	# arrange
-	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "MELEE_WEAPON", "5", "weapon_sword.png"])
+	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "MELEE_WEAPON", "5", "weapon_sword.png", "0"])
 	var texture = load("res://World/Items/Weapons/weapon_sword.png")
 
 	# act
@@ -23,6 +25,26 @@ func test_parse_line():
 	assert_eq(weapon.weapon_type, WeaponResource.WeaponType.MELEE_WEAPON)
 	assert_eq(weapon.range, 5)
 	assert_eq(weapon.texture, texture)
+	assert_null(weapon.projectile)
+
+
+func test_parse_line_with_projectile_id():
+	# arrange
+	var line:PackedStringArray = PackedStringArray(["1", "Schwert", "1", "8", "MELEE_WEAPON", "5", "weapon_sword.png", "1"])
+	var texture = load("res://World/Items/Weapons/weapon_sword.png")
+
+	# act
+	var weapon = weapon_data._parse_weapon(line)
+
+	# assert
+	assert_eq(weapon.id, 1)
+	assert_eq(weapon.name, "Schwert")
+	assert_eq(weapon.damage.number_of_dice, 1)
+	assert_eq(weapon.damage.die, DiceBox.Die.D8)
+	assert_eq(weapon.weapon_type, WeaponResource.WeaponType.MELEE_WEAPON)
+	assert_eq(weapon.range, 5)
+	assert_eq(weapon.texture, texture)
+	assert_eq(weapon.projectile, stone_sprite_frames)
 
 
 func test_load_weapons():

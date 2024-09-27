@@ -7,3 +7,4 @@ enum WeaponType { MELEE_WEAPON, RANGED_WEAPON }
 @export var weapon_type: WeaponType
 @warning_ignore("shadowed_global_identifier")
 @export var range: int
+@export var projectile: SpriteFrames

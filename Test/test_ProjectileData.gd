@@ -9,10 +9,20 @@ func before_each():
 	projectile_data = ProjectileData.new()
 
 
-func test_get_sprite_frame():
-	
+func test_init():
 	# act
-	var sprite_frames = projectile_data.get_sprite_frames(1)
+	projectile_data.init()
 	
 	# assert
-	assert_eq(sprite_frames, stone_sprite_frames)
+	assert_not_null(projectile_data._projectile_dictionary)
+
+
+func test_get_projectile():
+	# arrange
+	projectile_data.init()
+	
+	# act
+	var projectile = projectile_data.get_projectile(1)
+	
+	# assert
+	assert_eq(projectile, stone_sprite_frames)

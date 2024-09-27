@@ -16,6 +16,7 @@ func _parse_weapon(line: PackedStringArray) -> WeaponResource:
 	weapon.weapon_type = WeaponResource.WeaponType.get(line[4])
 	weapon.range = line[5].to_int()
 	weapon.texture = load("res://World/Items/Weapons/" + line[6])
+	weapon.projectile = ItemData.get_projectile(line[7].to_int())
 	
 	return weapon
 
