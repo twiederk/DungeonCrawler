@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qfvivnsohygt"
-path="res://.godot/imported/projectile_magic_missile.png-fbe538ffab4775a1df3fb3e89dd25187.ctex"
+uid="uid://drhoebdh1l8jt"
+path="res://.godot/imported/Stone_SpriteSheet.png-b0d66164f7bae6438699980aff220c66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Spells/projectile_magic_missile.png"
-dest_files=["res://.godot/imported/projectile_magic_missile.png-fbe538ffab4775a1df3fb3e89dd25187.ctex"]
+source_file="res://World/Projectile/Stone_SpriteSheet.png"
+dest_files=["res://.godot/imported/Stone_SpriteSheet.png-b0d66164f7bae6438699980aff220c66.ctex"]
 
 [params]
 

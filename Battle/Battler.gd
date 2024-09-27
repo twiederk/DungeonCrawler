@@ -2,7 +2,7 @@ class_name Battler
 extends Area2D
 
 const ProjectileScene = preload("res://Battle/Projectile.tscn")
-const MagicBulletSpriteFrames = preload("res://World/Spells/ProjectileMagicMissile.tres")
+const MagicBulletSpriteFrames = preload("res://World/Projectile/MagicMissile_SpriteFrames.tres")
 
 signal battler_hurt(hit_points)
 signal battler_died(battler)

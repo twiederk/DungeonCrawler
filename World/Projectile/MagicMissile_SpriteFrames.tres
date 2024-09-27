@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cil8ba4gno6p7"]
 
-[ext_resource type="Texture2D" uid="uid://qfvivnsohygt" path="res://World/Spells/projectile_magic_missile.png" id="1_m0qpr"]
+[ext_resource type="Texture2D" uid="uid://qfvivnsohygt" path="res://World/Projectile/MagicMissile_SpriteSheet.png" id="1_m0qpr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71t8u"]
 atlas = ExtResource("1_m0qpr")
