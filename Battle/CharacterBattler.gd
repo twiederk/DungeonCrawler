@@ -13,7 +13,8 @@ func _input(_event):
 			turn_ended.emit()
 		elif Input.is_action_just_pressed("action"):
 			get_viewport().set_input_as_handled()
-			create_target_selection()
+			if target_selection == null:
+				create_target_selection()
 		else:
 			movement()
 
