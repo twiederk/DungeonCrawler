@@ -32,7 +32,6 @@ func _input(event: InputEvent) -> void:
 
 func start_selection(battler: Battler, battlefield: Battlefield, possible_targets: Array[Battler]) -> void:
 	selectable_targets = get_selectable_targets(battler, possible_targets)
-	battler.add_child(self)
 	if selectable_targets.is_empty():
 		MessageBus.message_send.emit("Keine Ziele in Reichweite")
 		crosshair.hide()

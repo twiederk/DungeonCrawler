@@ -3,6 +3,8 @@ extends Battler
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+var target_selection: TargetSelection = null
+
 
 func _input(_event):
 	if _battle_state == BattleState.READY or _battle_state == BattleState.TARGETING:
@@ -31,6 +33,8 @@ func move(direction: Vector2) -> void:
 	var ray_cast = _ray_casts[direction]
 	if can_move(ray_cast):
 		move_step(direction)
+		if target_selection != null:
+			target_selection.start_selection(self, _battlefield, _battlefield.monsters)
 
 
 func can_move(ray_cast: RayCast2D) -> bool:
@@ -56,10 +60,11 @@ func get_armor_class() -> int:
 
 func select_target():
 	_battle_state = BattleState.TARGETING
-	var melee_target_selection = TargetSelectionFactory.create_target_selection()
-	melee_target_selection.target_selected.connect(_on_target_selected)
-	melee_target_selection.target_canceled.connect(_on_target_canceled)
-	melee_target_selection.start_selection(self, _battlefield, _battlefield.monsters)
+	target_selection = TargetSelectionFactory.create_target_selection()
+	add_child(target_selection)
+	target_selection.target_selected.connect(_on_target_selected)
+	target_selection.target_canceled.connect(_on_target_canceled)
+	target_selection.start_selection(self, _battlefield, _battlefield.monsters)
 	
 
 func _on_target_selected(target: Battler):
