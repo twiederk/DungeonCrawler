@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6pwi7r3k41t5"
-path="res://.godot/imported/weapon_spear_01.png-6c5bf6c222c2ad0230f01821e7926479.ctex"
+uid="uid://c4y1ydfa5a8k2"
+path="res://.godot/imported/Arrow_SpriteSheet.png-434f74c4011b679757ce8ecd8ba6a165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_spear_01.png"
-dest_files=["res://.godot/imported/weapon_spear_01.png-6c5bf6c222c2ad0230f01821e7926479.ctex"]
+source_file="res://World/Projectile/Arrow_SpriteSheet.png"
+dest_files=["res://.godot/imported/Arrow_SpriteSheet.png-434f74c4011b679757ce8ecd8ba6a165.ctex"]
 
 [params]
 

@@ -16,6 +16,7 @@ func _parse_spell(line: PackedStringArray) -> SpellResource:
 	spell.damage = damage
 	
 	spell.texture = load("res://World/Spells/" + line[5])
+	spell.projectile = ItemData.get_projectile(line[6].to_int())
 
 	return spell
 

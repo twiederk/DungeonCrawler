@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dtmtbnpy60kcn"]
+
+[ext_resource type="Texture2D" uid="uid://bp3mem0i8tim2" path="res://World/Projectile/AcidSplash_SpriteSheet.png" id="1_22kod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tolik"]
+atlas = ExtResource("1_22kod")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hdgw"]
+atlas = ExtResource("1_22kod")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snmqo"]
+atlas = ExtResource("1_22kod")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyg78"]
+atlas = ExtResource("1_22kod")
+region = Rect2(24, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tolik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hdgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snmqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyg78")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

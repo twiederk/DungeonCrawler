@@ -1,4 +1,4 @@
-"id","name","number_of_dice","die","weapon_type","range","texture_file_name"
-1,"Wurfpfeil",1,4,"RANGED_WEAPON",3,"weapon_arrow_01.png"
-2,"Axt",1,6,"MELEE_WEAPON",0,"weapon_axe_01.png"
-3,"Bogen",1,6,"RANGED_WEAPON",7,"weapon_bow_01.png"
+"id","name","number_of_dice","die","weapon_type","range","texture_file_name","projectile_id"
+1,"Schleuder",1,4,"RANGED_WEAPON",4,"weapon_sling.png",1
+2,"Axt",1,6,"MELEE_WEAPON",1,"weapon_axe.png",0
+3,"Bogen",1,6,"RANGED_WEAPON",8,"weapon_bow.png",2

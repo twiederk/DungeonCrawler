@@ -2,14 +2,14 @@ class_name Battler
 extends Area2D
 
 const ProjectileScene = preload("res://Battle/Projectile.tscn")
-const MagicBulletSpriteFrames = preload("res://Battle/MagicBullet.tres")
+const MagicBulletSpriteFrames = preload("res://World/Projectile/MagicMissile_SpriteFrames.tres")
 
 signal battler_hurt(hit_points)
 signal battler_died(battler)
 signal turn_started
 signal turn_ended
 
-enum BattleState { READY, TARGETING, DONE, DEAD }
+enum BattleState { READY, DONE, DEAD }
 
 const HitEffectScene: PackedScene = preload("res://Battle/HitEffect.tscn")
 const DamagePopupScene: PackedScene = preload("res://Battle/DamagePopup.tscn")
@@ -143,8 +143,8 @@ func create_projectile(target: Vector2):
 	projectile.set_destination(target)
 	projectile.destination_reached.connect(_on_animation_finished)
 	_battlefield.add_child(projectile)
-	if get_action() is SpellResource:
-		projectile.set_sprite_frames(MagicBulletSpriteFrames)
+	if get_action().has_projectile():
+		projectile.set_sprite_frames(get_action().projectile)
 
 
 func set_sprite_frames(sprite_frames: SpriteFrames):

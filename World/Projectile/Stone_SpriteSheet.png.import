@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfo7wm31du5rq"
-path="res://.godot/imported/weapon_star_01.png-653c37ed37ee267738a43d5d5445f8e1.ctex"
+uid="uid://drhoebdh1l8jt"
+path="res://.godot/imported/Stone_SpriteSheet.png-b0d66164f7bae6438699980aff220c66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_star_01.png"
-dest_files=["res://.godot/imported/weapon_star_01.png-653c37ed37ee267738a43d5d5445f8e1.ctex"]
+source_file="res://World/Projectile/Stone_SpriteSheet.png"
+dest_files=["res://.godot/imported/Stone_SpriteSheet.png-b0d66164f7bae6438699980aff220c66.ctex"]
 
 [params]
 

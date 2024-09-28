@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bojbshpifi6sx"]
+[gd_scene load_steps=2 format=3 uid="uid://bojbshpifi6sx"]
 
 [ext_resource type="SpriteFrames" uid="uid://dur3ncfo2a00o" path="res://Battle/Crosshair.tres" id="2_vwlbu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_65jmh"]
-size = Vector2(30, 30)
 
 [node name="Crosshair" type="Node2D"]
 
@@ -11,8 +8,3 @@ size = Vector2(30, 30)
 z_index = 3
 sprite_frames = ExtResource("2_vwlbu")
 autoplay = "default"
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_65jmh")

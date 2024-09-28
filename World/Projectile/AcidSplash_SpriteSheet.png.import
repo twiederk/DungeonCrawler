@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cph70t2v7ul13"
-path="res://.godot/imported/weapon_staff_01.png-8466c973988fe91dfae0577c94e7e66a.ctex"
+uid="uid://bp3mem0i8tim2"
+path="res://.godot/imported/AcidSplash_SpriteSheet.png-d54614eb31c08d3a4f226159f69b4a81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_staff_01.png"
-dest_files=["res://.godot/imported/weapon_staff_01.png-8466c973988fe91dfae0577c94e7e66a.ctex"]
+source_file="res://World/Projectile/AcidSplash_SpriteSheet.png"
+dest_files=["res://.godot/imported/AcidSplash_SpriteSheet.png-d54614eb31c08d3a4f226159f69b4a81.ctex"]
 
 [params]
 

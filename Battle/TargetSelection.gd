@@ -6,8 +6,13 @@ signal target_canceled
 
 @onready var crosshair: Node2D = $Crosshair
 
+var _logger = Logger.new()
 var selectable_targets: Array[Battler] = []
 var selectable_targets_index: int = 0
+
+
+func _ready():
+	_logger.set_level(Logger.Level.DEBUG)
 
 
 func _input(event: InputEvent) -> void:
@@ -30,15 +35,15 @@ func _input(event: InputEvent) -> void:
 		queue_free()
 
 
-func start_selection(battler: Battler, battlefield: Battlefield, possible_targets: Array[Battler]) -> void:
+func select_target(battler: Battler, possible_targets: Array[Battler]) -> void:
+	_logger.debug(str(battler.get_creature_name(), ".select_target()"))
 	selectable_targets = get_selectable_targets(battler, possible_targets)
-	battlefield.add_child(self)
-	position = battler.position
 	if selectable_targets.is_empty():
 		MessageBus.message_send.emit("Keine Ziele in Reichweite")
 		crosshair.hide()
 	else:
 		crosshair.global_position = selectable_targets[selectable_targets_index].global_position
+		crosshair.show()
 
 
 @warning_ignore("unused_parameter")

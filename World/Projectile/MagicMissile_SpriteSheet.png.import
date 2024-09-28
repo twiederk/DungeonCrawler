@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0m16041wdu6d"
-path="res://.godot/imported/weapon_bow_01.png-e7943fbe232e2f8f9313068abac99a6d.ctex"
+uid="uid://qfvivnsohygt"
+path="res://.godot/imported/MagicMissile_SpriteSheet.png-456e668da9fd5dc2336a4c3c66d7221a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_bow_01.png"
-dest_files=["res://.godot/imported/weapon_bow_01.png-e7943fbe232e2f8f9313068abac99a6d.ctex"]
+source_file="res://World/Projectile/MagicMissile_SpriteSheet.png"
+dest_files=["res://.godot/imported/MagicMissile_SpriteSheet.png-456e668da9fd5dc2336a4c3c66d7221a.ctex"]
 
 [params]
 

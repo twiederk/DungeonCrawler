@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bufnecy4omuow"
-path="res://.godot/imported/weapon_dagger_01.png-3969b8f9a30de8f3984b2a5fde5f2d9a.ctex"
+uid="uid://7c26b4ggdu5o"
+path="res://.godot/imported/weapon_wand.png-d60a06b15b37014bbd0aa640430dab6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_dagger_01.png"
-dest_files=["res://.godot/imported/weapon_dagger_01.png-3969b8f9a30de8f3984b2a5fde5f2d9a.ctex"]
+source_file="res://World/Items/Weapons/weapon_wand.png"
+dest_files=["res://.godot/imported/weapon_wand.png-d60a06b15b37014bbd0aa640430dab6a.ctex"]
 
 [params]
 

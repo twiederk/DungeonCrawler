@@ -6,7 +6,6 @@ extends Area2D
 
 func _on_area_entered(area):
 	PlayerStats.start_position = area.position
-	PlayerStats.monster_resources = monsters
 	PlayerStats.monster_stats = []
 	for monster in monsters:
 		PlayerStats.monster_stats.append(monster.to_creature_stats())

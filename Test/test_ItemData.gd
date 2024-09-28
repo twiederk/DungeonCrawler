@@ -20,3 +20,4 @@ func test_ready():
 	assert_not_null(item_data._weapon_data)
 	assert_not_null(item_data._armor_data)
 	assert_not_null(item_data._spell_data)
+	assert_not_null(item_data._projectile_data)

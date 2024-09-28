@@ -32,7 +32,7 @@ func _ready():
 
 	var monsters = battle_init.create_battlers(MonsterScene, self, monster_screen, PlayerStats.monster_stats)
 	battlefield.place_monsters(monsters)
-	_set_monsters_loot_table_name()
+	_connect_item_dropped_for_loot(monsters)
 
 	current_battler = battlefield.battlers[current_battler_index]
 	current_battler.start_turn()
@@ -63,10 +63,9 @@ func _remove_dead_characters():
 			character.dead()
 
 
-func _set_monsters_loot_table_name():
-	for i in PlayerStats.monster_resources.size():
-		battlefield.monsters[i].loot_table_name = PlayerStats.monster_resources[i].loot_table_name
-		battlefield.monsters[i].item_dropped.connect(_on_item_dropped)
+func _connect_item_dropped_for_loot(monsters: Array[Battler]):
+	for monster: MonsterBattler in monsters:
+		monster.item_dropped.connect(_on_item_dropped)
 
 
 func _on_next_battler() -> void:

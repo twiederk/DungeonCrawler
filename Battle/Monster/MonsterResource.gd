@@ -8,7 +8,6 @@ extends Resource
 @export var weapon_id: int
 @export var sprite_frames: Resource
 @export var max_movement: int
-@export var loot_table_name: String
 
 
 func to_creature_stats() -> CreatureStats:

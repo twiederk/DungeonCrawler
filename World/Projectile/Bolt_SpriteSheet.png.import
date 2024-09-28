@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx7fwc1cixkpm"
-path="res://.godot/imported/weapon_claw_01.png-9ed6f016861ed789e800c59d9289534d.ctex"
+uid="uid://og2gi4rrflsh"
+path="res://.godot/imported/Bolt_SpriteSheet.png-1f1aeacc63eb356c7ad53d4ae5715375.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_claw_01.png"
-dest_files=["res://.godot/imported/weapon_claw_01.png-9ed6f016861ed789e800c59d9289534d.ctex"]
+source_file="res://World/Projectile/Bolt_SpriteSheet.png"
+dest_files=["res://.godot/imported/Bolt_SpriteSheet.png-1f1aeacc63eb356c7ad53d4ae5715375.ctex"]
 
 [params]
 

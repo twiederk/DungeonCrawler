@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvj1qm74oo277"
-path="res://.godot/imported/weapon_katar_01.png-06f711db1f83d0a0adfaa791a04fd159.ctex"
+uid="uid://cph70t2v7ul13"
+path="res://.godot/imported/weapon_staff.png-873c7d7b21c3ea11102ee6f5e68aea1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Items/Weapons/weapon_katar_01.png"
-dest_files=["res://.godot/imported/weapon_katar_01.png-06f711db1f83d0a0adfaa791a04fd159.ctex"]
+source_file="res://World/Items/Weapons/weapon_staff.png"
+dest_files=["res://.godot/imported/weapon_staff.png-873c7d7b21c3ea11102ee6f5e68aea1f.ctex"]
 
 [params]
 
