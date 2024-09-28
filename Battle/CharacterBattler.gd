@@ -34,7 +34,7 @@ func move(direction: Vector2) -> void:
 	if can_move(ray_cast):
 		move_step(direction)
 		if target_selection != null:
-			target_selection.start_selection(self, _battlefield, _battlefield.monsters)
+			target_selection.start_selection(self, _battlefield.monsters)
 
 
 func can_move(ray_cast: RayCast2D) -> bool:
@@ -64,7 +64,7 @@ func select_target():
 	add_child(target_selection)
 	target_selection.target_selected.connect(_on_target_selected)
 	target_selection.target_canceled.connect(_on_target_canceled)
-	target_selection.start_selection(self, _battlefield, _battlefield.monsters)
+	target_selection.start_selection(self, _battlefield.monsters)
 	
 
 func _on_target_selected(target: Battler):
