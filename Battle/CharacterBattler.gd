@@ -79,8 +79,9 @@ func _on_target_canceled():
 
 func _on_action_changed(_action: ItemResource):
 	_logger.debug(str(get_creature_name(), "._on_action_changed()"))
-	if target_selection != null:
-		target_selection.queue_free()
+	if target_selection == null:
+		return
+	target_selection.queue_free()
 	create_target_selection()
 
 
