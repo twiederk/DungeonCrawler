@@ -6,6 +6,11 @@ extends Battler
 var target_selection: TargetSelection = null
 
 
+func _ready():
+	super._ready()
+	_logger.set_level(Logger.Level.DEBUG)
+
+
 func _input(_event):
 	if _battle_state == BattleState.READY or _battle_state == BattleState.TARGETING:
 		if Input.is_action_just_pressed("next_battler"):
@@ -13,7 +18,7 @@ func _input(_event):
 			turn_ended.emit()
 		elif Input.is_action_just_pressed("action"):
 			get_viewport().set_input_as_handled()
-			select_target()
+			create_target_selection()
 		else:
 			movement()
 
@@ -34,7 +39,7 @@ func move(direction: Vector2) -> void:
 	if can_move(ray_cast):
 		move_step(direction)
 		if target_selection != null:
-			target_selection.start_selection(self, _battlefield.monsters)
+			target_selection.select_target(self, _battlefield.monsters)
 
 
 func can_move(ray_cast: RayCast2D) -> bool:
@@ -58,13 +63,14 @@ func get_armor_class() -> int:
 	return _creature_stats.armor.armor_class
 
 
-func select_target():
+func create_target_selection():
+	_logger.debug(str(get_creature_name(), ".create_target_selection()"))
 	_battle_state = BattleState.TARGETING
 	target_selection = TargetSelectionFactory.create_target_selection()
 	add_child(target_selection)
 	target_selection.target_selected.connect(_on_target_selected)
 	target_selection.target_canceled.connect(_on_target_canceled)
-	target_selection.start_selection(self, _battlefield.monsters)
+	target_selection.select_target(self, _battlefield.monsters)
 	
 
 func _on_target_selected(target: Battler):
@@ -75,3 +81,15 @@ func _on_target_selected(target: Battler):
 
 func _on_target_canceled():
 	_battle_state = BattleState.READY
+
+
+func _on_action_changed(action: ItemResource):
+	_logger.debug(str(get_creature_name(), "._on_action_changed()"))
+	if target_selection != null:
+		target_selection.queue_free()
+	create_target_selection()
+
+
+func set_creature(creature_stats: CreatureStats):
+	super.set_creature(creature_stats)
+	creature_stats.action_changed.connect(_on_action_changed)
