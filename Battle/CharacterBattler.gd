@@ -7,7 +7,7 @@ var target_selection: TargetSelection = null
 
 
 func _input(_event):
-	if _battle_state == BattleState.READY or _battle_state == BattleState.TARGETING:
+	if _battle_state == BattleState.READY:
 		if Input.is_action_just_pressed("next_battler"):
 			get_viewport().set_input_as_handled()
 			turn_ended.emit()
@@ -60,7 +60,6 @@ func get_armor_class() -> int:
 
 func create_target_selection():
 	_logger.debug(str(get_creature_name(), ".create_target_selection()"))
-	_battle_state = BattleState.TARGETING
 	target_selection = TargetSelectionFactory.create_target_selection()
 	add_child(target_selection)
 	target_selection.target_selected.connect(_on_target_selected)

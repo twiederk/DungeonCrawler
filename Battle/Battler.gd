@@ -9,7 +9,7 @@ signal battler_died(battler)
 signal turn_started
 signal turn_ended
 
-enum BattleState { READY, TARGETING, DONE, DEAD }
+enum BattleState { READY, DONE, DEAD }
 
 const HitEffectScene: PackedScene = preload("res://Battle/HitEffect.tscn")
 const DamagePopupScene: PackedScene = preload("res://Battle/DamagePopup.tscn")
