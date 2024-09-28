@@ -83,7 +83,7 @@ func _on_target_canceled():
 	_battle_state = BattleState.READY
 
 
-func _on_action_changed(action: ItemResource):
+func _on_action_changed(_action: ItemResource):
 	_logger.debug(str(get_creature_name(), "._on_action_changed()"))
 	if target_selection != null:
 		target_selection.queue_free()
