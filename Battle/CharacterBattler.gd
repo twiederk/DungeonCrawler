@@ -6,11 +6,6 @@ extends Battler
 var target_selection: TargetSelection = null
 
 
-func _ready():
-	super._ready()
-	_logger.set_level(Logger.Level.DEBUG)
-
-
 func _input(_event):
 	if _battle_state == BattleState.READY or _battle_state == BattleState.TARGETING:
 		if Input.is_action_just_pressed("next_battler"):
@@ -88,6 +83,12 @@ func _on_action_changed(_action: ItemResource):
 	if target_selection != null:
 		target_selection.queue_free()
 	create_target_selection()
+
+
+func stop_turn():
+	super.stop_turn()
+	if target_selection != null:
+		target_selection.queue_free()
 
 
 func set_creature(creature_stats: CreatureStats):
